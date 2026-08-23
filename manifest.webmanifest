@@ -1,0 +1,17 @@
+{
+  "name": "Eurotrip Serri y Cami",
+  "short_name": "Eurotrip",
+  "description": "Guia de Londres, Paris, Madrid, Roma y Milan para noviembre y diciembre de 2026.",
+  "lang": "es",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FDF5F8",
+  "theme_color": "#7D4B6B",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
