@@ -291,18 +291,40 @@ $('#clearq').addEventListener('click', () => {
 });
 
 /* ---------- compartir ---------- */
+/* El metodo viejo, para cuando el moderno no esta disponible: dentro de un
+   iframe el portapapeles necesita permiso explicito y suele estar bloqueado.
+   Lo del contentEditable y el rango es el rodeo que pide Safari en iOS. */
+function copiarALaVieja(texto) {
+  const ta = document.createElement('textarea');
+  ta.value = texto;
+  ta.contentEditable = 'true';
+  ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';
+  document.body.appendChild(ta);
+  const rango = document.createRange();
+  rango.selectNodeContents(ta);
+  const sel = getSelection();
+  sel.removeAllRanges();
+  sel.addRange(rango);
+  ta.setSelectionRange(0, texto.length);
+  let bien = false;
+  try { bien = document.execCommand('copy'); } catch (err) {}
+  sel.removeAllRanges();
+  ta.remove();
+  return bien;
+}
+
 $('#sharebtn').addEventListener('click', async e => {
   e.preventDefault();
-  const url = location.href, btn = e.currentTarget;
-  try {
-    if (navigator.share) { await navigator.share({ title: document.title, url }); return; }
-    await navigator.clipboard.writeText(url);
-    btn.textContent = 'Enlace copiado';
-    setTimeout(() => { btn.textContent = 'Copiar enlace'; }, 2200);
-  } catch (err) {
-    btn.textContent = 'Copien la URL de la barra';
-    setTimeout(() => { btn.textContent = 'Copiar enlace'; }, 2600);
+  const btn = e.currentTarget, url = btn.href;
+  const avisar = t => {
+    btn.textContent = t;
+    setTimeout(() => { btn.textContent = 'Copiar enlace'; }, 2400);
+  };
+  if (navigator.clipboard && isSecureContext) {
+    try { await navigator.clipboard.writeText(url); avisar('Enlace copiado'); return; } catch (err) {}
   }
+  /* si tampoco se puede, el QR esta justo al lado y ese siempre funciona */
+  avisar(copiarALaVieja(url) ? 'Enlace copiado' : 'Mejor usen el QR de al lado');
 });
 
 buildRail();

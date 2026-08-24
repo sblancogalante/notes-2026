@@ -52,8 +52,9 @@ for ruta in SITIO["guias"]:
     shell = (shell.replace("__TITULO__", cfg["titulo"])
                   .replace("__SUBTITULO__", cfg["subtitulo"])
                   .replace("__FUENTES__", (COMUN / "fuentes.css").read_text(encoding="utf-8"))
+                  .replace("__URL__", url)
                   .replace("__QR__", qr_svg(url)))
-    for marca in ("__TITULO__", "__SUBTITULO__", "__FUENTES__", "__QR__"):
+    for marca in ("__TITULO__", "__SUBTITULO__", "__FUENTES__", "__QR__", "__URL__"):
         assert marca not in shell, f"quedo sin reemplazar el marcador {marca}"
 
     ciudades = "".join((src / parte).read_text(encoding="utf-8") for parte in cfg["partes"])
