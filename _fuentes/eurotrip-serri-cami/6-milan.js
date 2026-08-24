@@ -1,5 +1,6 @@
 {
   id:'mil', nav:'Milán', name:'Milán', plate:'ATM', accent:'#3F7361', lt:'#8FCFB6', maps:'Milan',
+  opcional:1,
   lede:'Nadie le da bola a Milán y es un error. El centro es chico y peatonal, el aperitivo es casi una religión, y la primera semana de diciembre junta las dos cosas más milanesas del año: Sant’Ambrogio y la apertura de La Scala. Eso sí, abríguense en serio, que la humedad hace que 5 grados se sientan como 0.',
   quick:[
     ['Se cena','19:30 a 22:00, o aperitivo'],

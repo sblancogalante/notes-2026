@@ -24,6 +24,7 @@
           <tr><td>París</td><td>11° / 6°</td><td>8° / 3°</td><td>Gris y húmedo</td><td>~16:55</td></tr>
           <tr><td>Madrid</td><td>15° / 6°</td><td>11° / 3°</td><td>Seco y con sol</td><td>~17:50</td></tr>
           <tr><td>Roma</td><td>17° / 9°</td><td>13° / 6°</td><td>Templada, con chaparrones</td><td>~16:40</td></tr>
+          <tr><td>Toscana</td><td>13° / 5°</td><td>10° / 2°</td><td>Fría de mañana, sol al mediodía</td><td>~16:45</td></tr>
           <tr><td>Milán</td><td>11° / 4°</td><td>7° / 1°</td><td>Niebla y humedad</td><td>~16:40</td></tr>
         </tbody>
       </table></div>
@@ -132,7 +133,8 @@
       <p>Muchas tarjetas traen un límite de consumo en el exterior por día, del orden de los quinientos dólares, y cuando se pasa la compra simplemente rebota. No avisa nadie: el posnet dice que no y una queda pensando que le bloquearon la tarjeta. Si van a pagar algo caro, averigüen cuál es el tope y pidan que lo levanten ese día.</p>
       <h3>Dos jugadas para tener más margen</h3>
       <p>Una es pagar la tarjeta de más antes de salir. Ese saldo a favor se consume primero, así que el límite de crédito queda entero para lo que aparezca en el viaje.</p>
-      <p>La otra es pedir un aumento temporal del límite. Suelen dar hasta un cincuenta por ciento más por unos meses, que alcanza para el viaje y para el estado de cuenta que llega después. Se pide antes de salir, no cuando ya están con la compra adelante.</p>
+      <p>La otra es pedir un aumento temporal del límite. Suelen dar hasta un cincuenta por ciento más por unos meses, que alcanza para el viaje y para el estado de cuenta que llega después.</p>
+      <p>Las dos háganlas con tiempo, para llegar al viaje con todo resuelto. Las apps de los bancos andan mal desde afuera, entre el wifi de hotel, las claves que llegan por SMS a un número que no tienen prendido y las validaciones que no cargan. Cuanto menos las tengan que usar allá, mejor.</p>
       <p>Y lo de siempre: avisen las fechas del viaje, para que no les frenen los consumos por movimientos raros.</p>
     `},
     {s:'Pagar allá: efectivo y propinas', k:'compra', html:`
@@ -162,6 +164,8 @@
           <tr><td>Milán</td><td>Villaggio delle Meraviglie</td><td>mediados de nov</td></tr>
           <tr><td>Milán</td><td>Oh Bej! Oh Bej!</td><td>5 al 8 dic</td></tr>
           <tr><td>Roma</td><td>Piazza Navona</td><td>1 dic (previsto)</td></tr>
+          <tr><td>Toscana</td><td>Arezzo Città del Natale</td><td>mediados de nov</td></tr>
+          <tr><td>Toscana</td><td>Santa Croce, Florencia</td><td>por confirmar</td></tr>
         </tbody>
       </table></div>
     `},

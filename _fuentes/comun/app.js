@@ -90,8 +90,9 @@ const filtering = () => fPrice.size > 0 || fType.size > 0;
 
 /* ---------- raíl de ciudades ---------- */
 function buildRail() {
+  /* data-opt: destino todavia sin confirmar. Se marca en el rail y en la portada. */
   $('#rail').innerHTML = CITIES.map(c =>
-    `<button role="tab" data-city="${c.id}" aria-selected="${c.id === current}">${esc(c.nav)}</button>`
+    `<button role="tab" data-city="${c.id}"${c.opcional ? ' data-opt="1"' : ''} aria-selected="${c.id === current}">${esc(c.nav)}</button>`
   ).join('');
   $('#rail').addEventListener('click', e => {
     const b = e.target.closest('button[data-city]');
@@ -161,6 +162,7 @@ function cityHTML(c) {
     <span class="plate">${esc(c.plate)}</span>
     <h1 class="cityname">${esc(c.name)}</h1>
     <div class="cityrule"></div>
+    ${c.opcional ? '<p class="tentativa">Todavía sin confirmar</p>' : ''}
     <p class="citylede">${esc(c.lede)}</p>
     <dl class="quick">${c.quick.map(q => `<div><dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd></div>`).join('')}</dl>`;
   if (hitos.length) {

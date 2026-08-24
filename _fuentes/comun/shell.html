@@ -91,6 +91,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
   font-size:.75rem;letter-spacing:.07em;color:var(--muted);white-space:nowrap;
   text-transform:uppercase;border-radius:999px;transition:background .15s,color .15s}
 .rail button:hover{color:var(--ink)}
+/* destino sin confirmar: contorno punteado, sin mover el pastilla de sitio */
+.rail button[data-opt]{outline:1px dashed var(--line-2);outline-offset:-1px}
 .rail button[aria-selected="true"]{color:#fff;background:var(--city,var(--accent))}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) .rail button[aria-selected="true"]{
@@ -127,6 +129,10 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cityrule{width:4.5rem;height:0;margin:1rem auto 1.15rem;
   border-top:1px solid var(--city-on-bg,var(--accent));
   border-bottom:1px solid var(--city-on-bg,var(--accent));padding-top:3px;opacity:.55}
+.tentativa{display:inline-block;margin:0 0 1.15rem;padding:.24rem .75rem;border-radius:999px;
+  border:1px dashed var(--city-on-bg,var(--accent));font-family:var(--body);font-size:.63rem;
+  font-weight:700;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--city-on-bg,var(--accent))}
 .citylede{font-size:.95rem;color:var(--ink-2);margin:0 auto 1.5rem;max-width:31rem;
   text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 

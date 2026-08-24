@@ -159,6 +159,10 @@ los telefonos siguen sirviendo la version vieja.
 - `d` y `tip` admiten `<em>` y `<b>`; el resto del HTML se escapa.
 - La seccion de preparativos usa `html:` con un template literal en vez de
   `items:`, y no aparece en los filtros.
+- `opcional:1` en el objeto de ciudad marca un destino que todavia no esta
+  confirmado: sale con contorno punteado en el rail y con una etiqueta
+  "Todavia sin confirmar" arriba del lede. Preguntalo en el bloque B de la
+  entrevista, porque casi todo viaje largo tiene una parada dudosa.
 - Los nombres de ficha tienen que ser unicos dentro de la ciudad: el id sale de
   ahi y dos iguales hacen que marcar una marque las dos.
 
