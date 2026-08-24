@@ -6,7 +6,7 @@
   "nombre_corto": "Eurotrip",
   "color": "#7D4B6B",
   "clave": "eurotrip-serri-cami",
-  "cache": "eurotrip-2026-08-24a",
+  "cache": "eurotrip-2026-08-24b",
   "partes": [
     "0-antes.js",
     "1-londres.js",
