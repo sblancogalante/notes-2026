@@ -264,6 +264,17 @@ $('#view').addEventListener('click', e => {
   if (all) {
     const open = all.dataset.all === 'open';
     document.querySelectorAll('#view details.sec').forEach(d => { d.open = open; });
+    /* y volver al comienzo del listado. Al plegar, todo lo que estaba abierto
+       se encoge de golpe y uno queda parado en cualquier lado. */
+    const cabeza = $('#view .cityhead');
+    if (cabeza) {
+      const alto = parseFloat(
+        getComputedStyle(document.documentElement).getPropertyValue('--top-h')) || 0;
+      /* .cityhead no es sticky, asi que su posicion es la real */
+      const destino = Math.max(0, cabeza.getBoundingClientRect().bottom + window.scrollY - alto);
+      const modo = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+      window.scrollTo({ top: destino, behavior: modo });
+    }
   }
 });
 
