@@ -311,7 +311,7 @@ const CITIES = [
 {
   id:'prep', nav:'Antes de salir', name:'Antes de salir', plate:'Preparativos',
   accent:'#7D4B6B', lt:'#DBA6C4', maps:'',
-  lede:'Todo lo que da igual en qué ciudad estén: cómo abrigarse, qué eSIM comprar, qué bajarse antes de salir para no depender del wifi, cómo no regalarle plata a las aerolíneas con el equipaje, y cuándo hay descuentos.',
+  lede:'Nada de esto es obligatorio. Son las cosas que suelen hacer la diferencia entre un día lindo y un día incómodo, y da igual en qué ciudad estén. Tomen lo que les sirva y saltéense el resto.',
   quick:[
     ['Ventana del viaje','2ª quincena nov a 1ª de dic'],
     ['Black Friday','Vie 27 nov 2026'],
@@ -320,13 +320,13 @@ const CITIES = [
     ['Ojo con la eSIM','El Reino Unido va aparte']
   ],
   sections:[
-    {s:'Cómo abrigarse sin morir de calor adentro', k:'aire', html:`
-      <p>El problema de noviembre y diciembre en Europa no es el frío. Es que afuera hay 6 grados con viento húmedo y adentro de cualquier museo, tienda o metro hay 24 con la calefacción a full. Van a estar poniéndose y sacándose ropa todo el día, así que lo único que funciona son capas fáciles de quitar.</p>
-      <p>Tres, en este orden. Abajo una remera térmica fina, de lana merino o sintética, nunca de algodón: el algodón se moja de transpiración y después enfría. En el medio un polar finito o un sweater, que es la capa que van a estar sacándose cada vez que entren a algún lado. Y arriba un rompeviento impermeable con capucha. En Londres y en París la capucha le gana al paraguas, porque la lluvia va de costado.</p>
-      <h3>Lo que de verdad importa</h3>
-      <p>Zapatos impermeables con buena suela. Van a caminar entre 15 y 25 km por día, y los adoquines de Roma están pulidos por dos mil años de gente pisándolos: mojados resbalan bastante. Suela plana con dibujo, nada de suela lisa.</p>
-      <p>Si llueve, dos pares de medias gruesas por día. Un pie mojado a las once de la mañana les arruina el día entero y no exagero.</p>
-      <p>Guantes que sirvan con la pantalla del celular, gorro, y un cuello tipo braga, que abriga más que la bufanda y no se desarma. Y una mochila chica con cierre para meter la capa que se sacan, que en Roma y Madrid conviene llevar adelante donde hay mucha gente.</p>
+    {s:'Ropa y calzado', k:'aire', html:`
+      <p>El problema de esos meses no es tanto el frío como el contraste. Afuera hace frío húmedo y adentro de los museos, las tiendas y el metro la calefacción está alta. Van a estar sacándose y poniéndose ropa todo el día.</p>
+      <p>Por eso conviene ir en capas finas antes que con una sola prenda gruesa: se sacan y se guardan sin drama. Una térmica abajo, algo abrigado en el medio y un rompeviento impermeable arriba. La capucha ayuda más que el paraguas, porque en Londres y en París la lluvia suele venir de costado.</p>
+      <h3>El calzado</h3>
+      <p>Es lo único donde de verdad vale la pena pensarlo antes. Zapatos cómodos, ya usados y con suela que agarre. Los adoquines de Roma están gastados y resbalan cuando llueve, y en las cinco ciudades van a caminar bastante más de lo que caminan en un día normal.</p>
+      <p>Si igual terminan con el calzado equivocado, que pasa, hay salidas. Plantillas de gel en cualquier farmacia cambian el día entero. Apósitos para ampollas puestos <em>antes</em> de que salga la ampolla, apenas sienten el roce. Medias más gruesas para que el zapato no baile. Y si el problema es que se mojan, medias de repuesto en la mochila valen su peso en oro: hay pocas cosas que arruinen más una tarde que andar con los pies mojados.</p>
+      <p>En el peor caso, unas zapatillas baratas en cualquier cadena resuelven y salen menos que perder dos días del viaje.</p>
       <h3>Qué esperar en cada ciudad</h3>
       <div class="tablewrap"><table>
         <thead><tr><th>Ciudad</th><th>Nov (máx/mín)</th><th>Dic (máx/mín)</th><th>Cómo se siente</th><th>Anochece</th></tr></thead>
@@ -338,93 +338,112 @@ const CITIES = [
           <tr><td>Milán</td><td>11° / 4°</td><td>7° / 1°</td><td>Niebla y humedad</td><td>~16:40</td></tr>
         </tbody>
       </table></div>
-      <p>Dos avisos. Madrid es la de mayor amplitud térmica: a las dos de la tarde puede haber 15 grados al sol y a las ocho de la noche, 4. Es donde más se agradece poder sacarse cosas de encima.</p>
-      <p>Y en Milán el termómetro miente. Con niebla y 5 grados se siente peor que Londres con 5. Es la única de las cinco donde hace falta un abrigo de verdad.</p>
+      <p>Dos avisos sobre esa tabla. En Madrid la diferencia entre el sol del mediodía y la noche es grande, así que es donde más se agradece poder sacarse cosas. Y en Milán el número engaña: con niebla y humedad se siente bastante peor que en Londres a la misma temperatura.</p>
+    `},
+    {s:'La mochila del día: agua y algo para picar', k:'aire', html:`
+      <p>Una botella reutilizable encima cambia el día. Las cinco ciudades tienen agua potable en la calle y está buena: en Roma son los <em>nasoni</em>, esas fuentes de hierro que largan agua todo el tiempo y están por todos lados; en París, las fuentes Wallace, verdes y con figuras; en Londres y en Milán hay puntos de recarga señalizados. Llenarla es gratis y evita ir comprando botellas todo el día.</p>
+      <h3>Algo para picar, aunque no crean que lo van a necesitar</h3>
+      <p>Los horarios de comida allá no son los de acá, y en España y en Italia esa diferencia se siente. Muchas cocinas cierran entre el almuerzo y la cena, así que si les agarra hambre en el medio de la tarde pueden quedarse sin opciones buenas justo en la zona más turística, que es donde peor y más caro se come.</p>
+      <p>Con tener una barrita, fruta o un sándwich del supermercado en la mochila se resuelve. Y de paso les saca la presión de tener que decidir dónde comer con hambre, que es cuando uno elige peor.</p>
+      <p>Los supermercados son la mejor relación precio y calidad para eso. En el Reino Unido, los combos de almuerzo de Tesco o Sainsbury's. En Francia, Monoprix o Franprix. En España, Mercadona o cualquier Carrefour Express. En Italia, Conad o Carrefour. En todos hay panadería, fruta y algo caliente por mucho menos que en un bar de zona turística.</p>
+    `},
+    {s:'Botiquín y cuidado personal', k:'aire', html:`
+      <p>La idea es llevar poco y comprar allá lo que se pueda.</p>
+      <h3>Lo que sí conviene llevar de acá</h3>
+      <p>Los remedios con receta, en su envase original y con la receta o una nota del médico. Sirve por si en algún control los preguntan y sobre todo por si hay que reponerlos: con el nombre del principio activo a la vista, en cualquier farmacia los entienden.</p>
+      <p>Después, lo que ustedes ya saben que usan: el analgésico de siempre, algo para el estómago, el antihistamínico si alguno es alérgico. No porque allá no se consiga, sino porque a las tres de la mañana con dolor de cabeza no dan ganas de salir a buscar una farmacia de turno.</p>
+      <p>Y los apósitos para ampollas, que van con lo del calzado.</p>
+      <h3>Lo que es mejor comprar allá</h3>
+      <p>Todo lo de higiene. Shampoo, acondicionador, pasta de dientes, desodorante, crema. Pesan, ocupan y allá salen poco. No tiene sentido cargarlos desde acá.</p>
+      <p>Sobre el tamaño: si viajan solo con equipaje de mano entre ciudad y ciudad, los líquidos tienen que ir en envases chicos, del tamaño de viaje, y todos juntos en una bolsa transparente. Si despachan valija, esto no aplica y pueden comprar el tamaño que quieran.</p>
+      <p>Dos cosas que no suelen estar en la lista y que en invierno se agradecen mucho: protector labial y crema de manos. Entre el frío de la calle y la calefacción de adentro, la piel se reseca bastante más de lo normal.</p>
+      <h3>Las farmacias, allá</h3>
+      <p>En España y en Italia la farmacia es el primer lugar al que se va por algo menor, y el farmacéutico orienta de verdad: se puede entrar, explicar el síntoma y salir con algo. En Francia se reconocen por la cruz verde de neón. En el Reino Unido el equivalente más parecido es Boots, y también hay mostrador de farmacéutico.</p>
+      <p>Guarden el número del seguro de viaje en el celular y también en papel, por si el celular es justo lo que falla.</p>
+    `},
+    {s:'Electrónica', k:'mover', html:`
+      <p>Un cargador portátil es probablemente lo más útil que pueden meter en la mochila. El frío le baja la batería al celular bastante más rápido de lo normal, y encima van a tener la pantalla prendida casi todo el día entre fotos, videos y mapas. Quedarse sin batería a media tarde es justo el peor momento, porque es cuando lo necesitan para volver, para encontrarse o para mostrar una entrada.</p>
+      <p>Va en el bolso de mano, nunca en la valija despachada: las baterías de litio no se pueden despachar y en el mostrador se las hacen sacar.</p>
+      <h3>Lo demás</h3>
+      <p>El adaptador de enchufe. El Reino Unido usa el tipo G, de tres patas planas, y el resto usa el europeo de dos patas redondas. Si llevan uno solo, que sea universal.</p>
+      <p>Un cargador con más de una salida, o una zapatilla chica. Los alojamientos suelen tener menos enchufes accesibles de los que uno espera, y encima quedan detrás de un mueble.</p>
+      <p>Un cable de repuesto, que es lo que siempre se rompe.</p>
+      <p>Y antes de salir, miren cuánto espacio libre les queda en el celular. Si piensan grabar video, se llena antes de lo que parece, y no hay nada más molesto que descubrirlo justo frente a algo que querían filmar.</p>
+      <p>Un detalle chico: con mucho frío, el celular en el bolsillo interno del abrigo dura bastante más que en el de afuera. Si se apaga solo por el frío, no está roto; suele volver al calentarse.</p>
     `},
     {s:'eSIM, datos y wifi', k:'mover', html:`
       <p>Una eSIM es un chip virtual: lo compran por internet, lo instalan escaneando un código y convive con la línea de acá. El número de siempre les sigue entrando llamadas y mensajes, y la eSIM se encarga de los datos. No hay que abrir el celular ni buscar un local al aterrizar.</p>
-      <p>Cómprenla acá, antes de salir, con el wifi de casa. Se instala y se deja apagada; al aterrizar se prende en treinta segundos. Comprarla ya en el aeropuerto de destino, sin datos y muertos de sueño, es justo el momento en que sale mal. El celular tiene que estar liberado y aceptar eSIM, cosa que hacen los iPhone del XS en adelante y casi todos los Android de 2019 para acá.</p>
+      <p>Si van a hacerlo, cómprenla acá antes de salir, con el wifi de casa. Se instala y se deja apagada, y al aterrizar se prende en un momento. Comprarla ya en el aeropuerto de destino, sin datos y muertos de sueño, es justo el momento en que sale mal. El celular tiene que estar liberado y aceptar eSIM, cosa que hacen casi todos los de los últimos años.</p>
       <h3>Ojo con Londres, que esto no lo dice nadie</h3>
-      <p>Con el Brexit, el Reino Unido se salió del espacio de roaming europeo. Un montón de eSIM que se venden como <em>de Europa</em> lo siguen incluyendo por acuerdo comercial, pero ya no viene solo: depende del plan.</p>
-      <p>Antes de pagar, busquen literalmente <em>United Kingdom</em> en la lista de países. Si no está, la eSIM no anda en Londres y arrancan el viaje sin datos. Airalo, Holafly y Nomad lo incluyen.</p>
-      <h3>Más o menos cuánto sale</h3>
-      <div class="tablewrap"><table>
-        <thead><tr><th>Proveedor</th><th>Cobertura</th><th>Precio de referencia</th></tr></thead>
-        <tbody>
-          <tr><td>Airalo</td><td>42 de 44 países</td><td>1 GB / 7 días ~4,50 US$ · ilimitado 10 días ~31,50 US$</td></tr>
-          <tr><td>Holafly</td><td>33 países, sin bajarte la velocidad</td><td>Ilimitado desde ~3,90 US$ por día</td></tr>
-          <tr><td>Saily</td><td>Amplia</td><td>10 GB / 30 días ~36 US$</td></tr>
-        </tbody>
-      </table></div>
-      <p>Son precios de agosto de 2026, así que compárenlos de nuevo cerca de la fecha. Cambian seguido y siempre hay alguna promo dando vueltas.</p>
-      <h3>Que uno de los dos tenga datos de sobra</h3>
-      <p>Esto es lo más importante de toda la sección. Que uno lleve un plan generoso o ilimitado aunque salga un poco más caro. Es el seguro contra quedarse tirados: pedir un taxi a las dos de la mañana, encontrarse si se separan en un mercado lleno de gente, resolver un check-in que falló, llamar al banco.</p>
-      <p>El otro celular puede llevar un plan por gigas, que sale bastante menos, y engancharse al punto de acceso del primero cuando haga falta. Depender del wifi del hotel para todo es garantía de pasar un mal rato.</p>
+      <p>Con el Brexit, el Reino Unido se salió del espacio de roaming europeo. Muchas eSIM que se venden como <em>de Europa</em> lo siguen incluyendo por acuerdo comercial, pero ya no viene solo: depende del plan.</p>
+      <p>Antes de pagar, busquen literalmente <em>United Kingdom</em> en la lista de países. Si no está, la eSIM no anda en Londres y arrancan el viaje sin datos. Airalo, Holafly y Nomad son de las más usadas y lo incluyen, pero igual conviene mirar la lista.</p>
+      <p>Los planes con datos ilimitados salen bastante más que los que van por gigas. Comparen cerca de la fecha, que los precios cambian seguido y siempre hay alguna promoción.</p>
+      <h3>Una idea, por si les sirve</h3>
+      <p>Que uno de los dos lleve el plan más holgado y el otro uno más chico. Así siempre hay un celular con datos disponibles para lo importante (pedir un taxi de noche, encontrarse si se separan, resolver un check-in que falló) y el otro se engancha al punto de acceso cuando haga falta. Depender del wifi del alojamiento para todo suele terminar mal.</p>
       <h3>"Ilimitado" casi nunca es ilimitado</h3>
-      <p>Casi todos los planes tienen letra chica. Pasada cierta cuota, a veces total y a veces diaria, los datos no se cortan pero la velocidad se cae feo. Sigue alcanzando para mapas y para WhatsApp, y deja de alcanzar para subir video o hacer videollamadas.</p>
-      <p>Por eso importa lo de abajo: una tarde subiendo historias con datos puede dejarlos navegando lento el resto del viaje.</p>
+      <p>Casi todos los planes tienen letra chica. Pasada cierta cantidad de datos la velocidad se cae bastante, aunque el servicio no se corte. Sigue alcanzando para mapas y mensajes, y deja de alcanzar para subir video.</p>
+      <p>Por eso sirve lo de abajo: una tarde subiendo historias con datos puede dejarlos navegando lento el resto del viaje.</p>
       <h3>Wifi para lo pesado, datos para lo delicado</h3>
-      <p>Siempre que haya wifi, úsenlo para todo lo que pesa: subir fotos y videos, respaldar en la nube, actualizar aplicaciones, bajar capítulos. Eso es lo que se come la cuota que después les baja la velocidad.</p>
-      <p>Y al revés: nunca entren al banco desde el wifi del hotel, del aeropuerto o de un café. Ni transferencias, ni la app del banco, ni pagos. Esas redes están abiertas o tienen una contraseña que sabe todo el mundo, y muchas veces no cifran nada entre los aparatos conectados. Para eso corten el wifi y usen los datos, que van cifrados por la red del operador y nadie del bar de al lado está adentro. Son treinta segundos de fastidio que les evitan el peor quilombo posible en la mitad de un viaje.</p>
-      <p>Si por algo tienen que hacerlo sí o sí sobre wifi público, una VPN cifra el tráfico. Pero apagar el wifi es más simple.</p>
-      <p>Una cosa más sobre el wifi del alojamiento: en hoteles y departamentos de casco histórico, con paredes de medio metro, la señal a la habitación llega mal. Es normal que ande bien en la recepción y horrible donde duermen. No cuenten con él para nada que importe.</p>
+      <p>Cuando haya wifi, aprovéchenlo para todo lo que pesa: subir fotos y videos, respaldar en la nube, actualizar aplicaciones, bajar capítulos. Eso es lo que se come la cuota que después les baja la velocidad.</p>
+      <p>Y al revés, esto sí es una recomendación fuerte: eviten entrar al banco desde el wifi del hotel, del aeropuerto o de un café. Ni transferencias, ni la app del banco, ni pagos. Esas redes suelen estar abiertas o tener una contraseña que sabe cualquiera, y muchas veces no cifran nada entre los aparatos conectados. Para eso corten el wifi y usen los datos, que van cifrados por la red del operador. Son unos segundos de fastidio que evitan el peor problema posible en la mitad de un viaje.</p>
+      <p>Una cosa más sobre el wifi del alojamiento: en edificios viejos de casco histórico, con paredes gruesas, la señal a la habitación llega mal. Es normal que ande bien en la recepción y horrible donde duermen, así que mejor no contar con él para nada que importe.</p>
     `},
     {s:'Qué bajarse antes de salir', k:'mover', html:`
-      <p>Todo lo que dejen bajado en casa es una cosa menos que depende de tener señal, cuota o un wifi decente. Con media hora la semana antes de viajar lo resuelven.</p>
+      <p>Todo lo que dejen bajado en casa es una cosa menos que depende de tener señal o un wifi decente. Con un rato la semana antes de viajar alcanza.</p>
       <h3>Mapas</h3>
-      <p>Google Maps deja bajar zonas enteras. Buscan la ciudad, tocan el nombre abajo y eligen <em>Descargar mapa sin conexión</em>. Se puede agrandar el recuadro para que entre toda la zona turística. Después funciona la búsqueda de lugares y la navegación a pie; el transporte público en tiempo real, no.</p>
-      <p>Bajen las cinco ciudades de una sentada. Ocupan poco y se actualizan solas cuando haya wifi. Si quieren algo mejor todavía para caminar, Organic Maps anda cien por ciento sin conexión y muestra senderos y detalles que Google se saltea.</p>
+      <p>Google Maps deja bajar zonas enteras. Buscan la ciudad, tocan el nombre abajo y eligen <em>Descargar mapa sin conexión</em>. Se puede agrandar el recuadro para que entre toda la zona que les interesa. Después funciona la búsqueda de lugares y la navegación a pie; el transporte público en tiempo real, no.</p>
+      <p>Si quieren algo todavía mejor para caminar, Organic Maps anda sin conexión y muestra senderos y detalles que Google se saltea.</p>
       <h3>Series, películas y música</h3>
-      <p>Netflix, Disney+, Prime Video y Max bajan a la aplicación. Ojo con la fecha de vencimiento: lo bajado dura como 30 días guardado, y una vez que le dan play, 48 horas. Bájenlo la semana que salen, no un mes antes.</p>
-      <p>Spotify y YouTube Music bajan con la suscripción paga. Spotify necesita reconectarse una vez cada 30 días o borra lo guardado.</p>
-      <p>Vale la pena en serio. Un vuelo entre estas ciudades son dos horas y media, y los trenes otro tanto. Con tres películas y un par de listas, los traslados se hacen solos.</p>
+      <p>Netflix, Disney+, Prime Video y Max bajan a la aplicación. Ojo con la caducidad: lo bajado tiene fecha de vencimiento, y una vez que le dan play el plazo se acorta bastante. Conviene bajarlo cerca de la fecha de salida y no con mucha anticipación.</p>
+      <p>Spotify y YouTube Music también bajan con la suscripción paga, y necesitan reconectarse cada tanto para no borrar lo guardado.</p>
+      <p>Los vuelos y los trenes entre estas ciudades dan para un par de películas cómodas.</p>
       <h3>Lo que conviene tener aunque se caiga todo</h3>
       <p>Las tarjetas de embarque en la billetera del celular, no en un mail que hay que abrir con señal. Capturas de pantalla de las reservas del alojamiento, de las entradas con código QR (Coliseo, Museos Vaticanos, la Última Cena), del seguro y de la primera hoja del pasaporte. Y el paquete de italiano y francés bajado en Google Translate, que traduce cartas de restaurante y carteles con la cámara sin conexión.</p>
       <p>Sobre todo: que cada uno tenga copia de lo del otro. Si a uno se le muere el celular o se lo afanan, el viaje sigue igual.</p>
     `},
     {s:'Equipaje: dónde se ahorra plata', k:'compra', html:`
-      <p>En los vuelos entre estas ciudades el pasaje sale menos que la valija. Ahí es donde se gana o se pierde plata de verdad.</p>
+      <p>En los vuelos entre estas ciudades el pasaje puede salir menos que la valija. Ahí es donde se gana o se pierde plata de verdad.</p>
       <h3>El bolso de cabina es donde te cobran</h3>
+      <p>Estas son las medidas que cada aerolínea acepta gratis bajo el asiento. Todo lo que pase de ahí se paga.</p>
       <div class="tablewrap"><table>
         <thead><tr><th>Aerolínea</th><th>Gratis bajo el asiento</th><th>Lo demás</th></tr></thead>
         <tbody>
-          <tr><td>Ryanair</td><td>~40 × 30 × 20 cm</td><td>La valijita de cabina de 55 × 40 × 20 y 10 kg se paga</td></tr>
-          <tr><td>easyJet</td><td>~45 × 36 × 20 cm</td><td>El bulto grande, desde unos 8 €</td></tr>
-          <tr><td>Vueling</td><td>40 × 20 × 30 cm, 10 kg</td><td>El bulto grande se paga</td></tr>
+          <tr><td>Ryanair</td><td>~40 × 30 × 20 cm</td><td>La valijita de cabina se paga aparte</td></tr>
+          <tr><td>easyJet</td><td>~45 × 36 × 20 cm</td><td>El bulto grande se paga</td></tr>
+          <tr><td>Vueling</td><td>40 × 20 × 30 cm</td><td>El bulto grande se paga</td></tr>
         </tbody>
       </table></div>
-      <p>Entonces: consigan una mochila que entre exacto en el molde más chico, que es el de Ryanair, y no paguen bolso de cabina en ningún vuelo. Una de 40 × 20 × 25 entra en las tres.</p>
+      <p>La idea, si quieren evitarlo del todo: una mochila que entre en el molde más chico, que es el de Ryanair, sirve para las tres.</p>
       <h3>Nunca en el aeropuerto</h3>
-      <p>Agregar equipaje en el mostrador o en la puerta de embarque sale el doble o el triple que hacerlo por internet cuando compran el pasaje. En la puerta, con la valija que no entró en el molde, es donde más caro sale de todo.</p>
-      <p>Si tienen dudas de si va a entrar, páguenlo antes de salir de casa. Es la diferencia entre 20 y 60 euros. Y pesen la valija en casa con una balancita de mano, que sale menos de 10 euros: el sobrepeso se cobra por kilo y es carísimo.</p>
+      <p>Agregar equipaje en el mostrador o en la puerta de embarque sale bastante más caro que hacerlo por internet cuando compran el pasaje. En la puerta, con la valija que no entró en el molde, es donde peor sale.</p>
+      <p>Si tienen dudas de si va a entrar, conviene pagarlo antes de salir de casa. Y una balancita de mano para pesar la valija en casa cuesta poco y evita sorpresas, porque el sobrepeso se cobra por kilo y es de lo más caro que hay.</p>
       <h3>Donde haya tren, tomen el tren</h3>
-      <p>Los trenes europeos son muchísimo más generosos con el equipaje que cualquier low cost, y encima los dejan en el centro de la ciudad y no en un aeropuerto a cuarenta minutos.</p>
-      <p>Trenitalia directamente no limita nada: ni cantidad, ni peso, ni medidas. Suben con lo que puedan cargar, y Roma a Milán son tres horas en Frecciarossa. Renfe deja hasta 3 bultos por persona con un máximo de 25 kg entre todos. Eurostar sí pone un límite (dos valijas de hasta 85 cm cada uno), pero sigue siendo mejor que cualquier low cost, y París a Londres son 2 h 20 de centro a centro.</p>
+      <p>Los trenes europeos son mucho más generosos con el equipaje que cualquier low cost, y encima los dejan en el centro de la ciudad y no en un aeropuerto lejos.</p>
+      <p>Trenitalia directamente no limita cantidad ni peso: suben con lo que puedan cargar. Renfe permite varios bultos por persona. Eurostar sí pone un límite, pero sigue siendo mejor que cualquier low cost. Roma a Milán y París a Londres se hacen cómodos en tren, de centro a centro.</p>
       <h3>Cosas que suman</h3>
-      <p>Pónganse encima lo más pesado para volar. El abrigo, los borcegos y el sweater no pesan en la valija si van puestos, y un abrigo de invierno es kilo y medio fácil.</p>
+      <p>Ponerse encima lo más pesado para volar. El abrigo y los zapatos no pesan en la valija si van puestos.</p>
       <p>Los cubos de compresión no sacan peso, pero sí volumen, y el volumen es lo que decide si la mochila entra en el molde.</p>
-      <p>Laven durante el viaje. Casi todos los departamentos tienen lavarropas, y hay lavanderías automáticas en las cinco ciudades por 4 o 5 euros. Con ropa para cinco días se cubren tres semanas tranquilos.</p>
-      <p>Metan una bolsa plegable vacía adentro de la valija. A la vuelta, con lo del Black Friday y los outlets, la van a necesitar, y comprarla allá sale el triple.</p>
-      <p>Para el último día, guarderías de equipaje. Bounce y Radical Storage tienen puntos en las cinco ciudades por unos 5 euros el día, y les deja la tarde entera libre sin arrastrar valijas hasta el vuelo de la noche.</p>
-      <p>Y no lleven líquidos. Shampoo, pasta de dientes y crema los compran allá por dos euros y no les comen ni los 100 ml ni el lugar.</p>
+      <p>Lavar durante el viaje. Casi todos los departamentos tienen lavarropas y hay lavanderías automáticas en las cinco ciudades. Lavando una vez en el medio, se llevan bastante menos ropa.</p>
+      <p>Una bolsa plegable vacía adentro de la valija. A la vuelta, con lo del Black Friday y los outlets, es probable que la necesiten, y comprarla allá sale más caro.</p>
+      <p>Para el último día, las guarderías de equipaje. Bounce y Radical Storage tienen puntos en las cinco ciudades y les deja la tarde libre sin arrastrar valijas hasta el vuelo de la noche.</p>
     `},
     {s:'Black Friday y rebajas', k:'compra', html:`
-      <p>El Black Friday cae el viernes 27 de noviembre de 2026, justo en la mitad del viaje. En Europa ya no es un día: la mayoría de las cadenas arranca la semana anterior y estira hasta el Cyber Monday, que es el 30.</p>
+      <p>El Black Friday cae el viernes 27 de noviembre de 2026, justo en la mitad del viaje. En Europa ya no es un día: la mayoría de las cadenas arranca la semana anterior y estira hasta el Cyber Monday.</p>
       <h3>Cómo funciona en cada país</h3>
-      <p>Reino Unido es el más agresivo de los cinco, sobre todo en electrónica, deporte y tiendas grandes. El otro pico son las rebajas del Boxing Day, el 26 de diciembre, que les queda después del viaje.</p>
-      <p>En España el Black Friday está muy instalado, más que nada en ropa y electrónica. Las rebajas de invierno oficiales arrancan cerca del 7 de enero, o sea que también quedan afuera.</p>
+      <p>El Reino Unido es el más agresivo de los cinco, sobre todo en electrónica, deporte y tiendas grandes. El otro pico son las rebajas del Boxing Day, el 26 de diciembre, que les queda después del viaje.</p>
+      <p>En España el Black Friday está muy instalado, más que nada en ropa y electrónica. Las rebajas de invierno oficiales arrancan recién en enero, así que también quedan afuera.</p>
       <p>Francia e Italia son parecidas entre sí: hay Black Friday, pero los descuentos fuertes son los <em>soldes</em> y los <em>saldi</em> de enero. Los outlets son la excepción.</p>
       <h3>Los outlets, esa semana</h3>
-      <p>Los cinco outlets grandes (Bicester, La Vallée, Las Rozas, Castel Romano y Serravalle) aplican el descuento del Black Friday arriba del descuento que ya tienen. Es la única semana del año en que compensa el viaje de ida y vuelta. Si van a hacer un solo outlet, que sea ese fin de semana.</p>
-      <p>Y si no viven en la Unión Europea, pueden pedir la devolución del IVA en compras arriba de cierto monto. Guarden los tickets y pidan el formulario en la tienda. Se tramita en el último aeropuerto del que salen de la UE, así que lleguen con tiempo.</p>
+      <p>Los cinco outlets grandes (Bicester, La Vallée, Las Rozas, Castel Romano y Serravalle) aplican el descuento del Black Friday arriba del que ya tienen. Si van a hacer un solo outlet, esa semana es cuando más compensa el viaje de ida y vuelta.</p>
+      <p>Y si no viven en la Unión Europea, pueden pedir la devolución del IVA en compras a partir de cierto monto. Guarden los tickets y pidan el formulario en la tienda. Se tramita en el último aeropuerto del que salen de la UE, así que lleguen con tiempo.</p>
     `},
     {s:'Cómo funcionan los mercados navideños', k:'navidad', html:`
-      <p>Acá hay una buena noticia: las fechas del viaje pegan justo. Casi todos abren entre el 12 y el 27 de noviembre y siguen hasta principios de enero. Los de la primera quincena de diciembre están en su mejor momento, antes de que se llenen las últimas dos semanas.</p>
+      <p>Acá hay una buena noticia: las fechas del viaje pegan justo. Casi todos abren en la segunda mitad de noviembre y siguen hasta principios de enero, y los de la primera quincena de diciembre están en su mejor momento, antes de que se llenen las últimas semanas.</p>
       <h3>Cuatro cosas que sirven en los cinco países</h3>
-      <p>Lleven efectivo chico. Muchos puestos de comida no tienen posnet o lo tienen caído, sobre todo en Italia.</p>
-      <p>La taza tiene depósito. El vino caliente (<em>mulled wine</em> en Londres, <em>vin chaud</em> en París, <em>vin brulé</em> en Italia) viene en taza de cerámica con un depósito de 2 a 5 euros. Se devuelve al terminar, o se la quedan de recuerdo.</p>
-      <p>Vayan entre semana y temprano. Los fines de semana de diciembre no se puede caminar. Un martes o miércoles a las cinco de la tarde, con las luces recién prendidas y sin gente, es otra cosa.</p>
-      <p>Y decidan si comen antes o comen ahí, pero no las dos. La comida de mercado es cara para lo que es, aunque las salchichas y las castañas son parte del asunto.</p>
+      <p>Llevar algo de efectivo. Muchos puestos de comida no tienen posnet o lo tienen caído, sobre todo en Italia.</p>
+      <p>La taza tiene depósito. El vino caliente (<em>mulled wine</em> en Londres, <em>vin chaud</em> en París, <em>vin brulé</em> en Italia) viene en taza de cerámica y se paga un extra que les devuelven al entregarla. También se la pueden quedar de recuerdo.</p>
+      <p>Ir entre semana y temprano. Los fines de semana de diciembre no se puede caminar. Un martes o miércoles al caer la tarde, con las luces recién prendidas y sin gente, es otra cosa.</p>
+      <p>Y decidir si comen antes o comen ahí, pero no las dos. La comida de mercado es cara para lo que es, aunque las salchichas y las castañas son parte del asunto.</p>
       <h3>El calendario de un vistazo</h3>
       <div class="tablewrap"><table>
         <thead><tr><th>Ciudad</th><th>Lo principal</th><th>Desde</th></tr></thead>
@@ -440,16 +459,24 @@ const CITIES = [
         </tbody>
       </table></div>
     `},
-    {s:'Apps, plata y propinas', k:'mover', html:`
-      <h3>Qué instalar antes de salir</h3>
-      <p>Citymapper para las cinco ciudades. Es mejor que Google Maps para moverse en transporte urbano: les dice en qué vagón subirse y por qué salida salir.</p>
-      <p>Después, una por ciudad. En Londres, TfL Go, que muestra el estado de las líneas en vivo, y andan Uber y Bolt. En París, Bonjour RATP o Île-de-France Mobilités, que deja cargar el boleto en el celular, y para taxis G7, Uber o Bolt. En Madrid, la de Metro de Madrid, y Cabify, Uber y FreeNow, que salen baratísimos comparados con el resto. En Roma y Milán, Moovit o Citymapper, y para taxis FreeNow o itTaxi, porque Uber solo opera como Uber Black y sale bastante más.</p>
+    {s:'Aplicaciones, plata y propinas', k:'mover', html:`
+      <h3>Aplicaciones</h3>
+      <p>No hace falta instalar nada de esto para que el viaje funcione. Va la lista con para qué sirve cada una, y ustedes ven cuáles les cierran.</p>
+      <p><em>Citymapper</em> sirve en las cinco ciudades y es mejor que Google Maps para moverse en transporte urbano: dice en qué vagón subirse y por qué salida salir, que en estaciones grandes ahorra vueltas.</p>
+      <p><em>TfL Go</em>, en Londres, muestra el estado de las líneas en vivo, útil cuando hay obras o alguna línea cortada. Uber y Bolt funcionan bien ahí.</p>
+      <p><em>Bonjour RATP</em> o <em>Île-de-France Mobilités</em>, en París, dejan cargar el boleto en el celular y evitan la cola de la máquina. Para taxis están G7, Uber y Bolt.</p>
+      <p><em>Metro de Madrid</em> tiene la red y los horarios. Para taxis, Cabify, Uber y FreeNow, que en Madrid salen bastante menos que en las otras ciudades.</p>
+      <p><em>Moovit</em> o el mismo Citymapper para Roma y Milán. Para taxis, FreeNow o itTaxi, porque ahí Uber solo opera en su versión cara.</p>
+      <p>Y las de las aerolíneas que vayan a usar, que es donde aparecen los cambios de puerta y los retrasos antes que en las pantallas.</p>
       <h3>Cómo pagar</h3>
-      <p>Contactless en todos lados. En Londres literalmente no hace falta efectivo: hasta los puestos del mercado cobran con tarjeta. En Italia sí conviene andar con 40 o 50 euros encima, porque los bares de barrio, los mercados y algunas trattorias lo siguen prefiriendo. En España y Francia con tarjeta alcanza, salvo en los mercadillos.</p>
-      <p>Avisen al banco las fechas y lleven dos tarjetas de bancos distintos, en billeteras separadas.</p>
-      <h3>Propinas, sin drama</h3>
-      <p>En Reino Unido suele venir un <em>service charge</em> del 12,5 % ya sumado a la cuenta. Si está, no se agrega nada. En los pubs no se deja propina en la barra.</p>
-      <p>En Francia el servicio va incluido por ley: redondear o dejar uno o dos euros si estuvo bien. En España no es obligatoria ni la esperan, y un 5 % en una cena buena ya es generoso. En Italia hay <em>coperto</em>, que son uno a tres euros por persona y ya cubren el servicio, así que con redondear alcanza.</p>
+      <p>Contactless en todos lados. En Londres casi no hace falta efectivo: hasta los puestos del mercado cobran con tarjeta. En Italia sí conviene andar con algo encima, porque los bares de barrio, los mercados y algunas trattorias lo siguen prefiriendo. En España y Francia con tarjeta alcanza, salvo en los mercadillos.</p>
+      <p>Avisen al banco las fechas y lleven dos tarjetas de bancos distintos, en billeteras separadas. Si una falla o se pierde, no quedan a pie.</p>
+      <h3>Propinas</h3>
+      <p>Esto es para que sepan qué se estila y decidan ustedes, no para decirles cuánto dejar.</p>
+      <p>En el Reino Unido suele venir un cargo por servicio ya sumado a la cuenta. Si está, nadie espera nada más. En los pubs no se deja propina en la barra.</p>
+      <p>En Francia el servicio va incluido por ley, así que dejar algo es opcional y va solo si les pareció que lo valía.</p>
+      <p>En España no es obligatoria ni la esperan. Se deja si estuvieron muy cómodos, y nadie se ofende si no.</p>
+      <p>En Italia suele haber <em>coperto</em>, un cargo fijo por persona que ya aparece en la cuenta y cubre el servicio.</p>
     `}
   ]
 },
