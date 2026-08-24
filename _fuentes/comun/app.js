@@ -2,6 +2,8 @@
 /* ---------- utilidades ---------- */
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+/* el texto de las fichas se escapa entero, pero deja pasar enfasis simple */
+const rich = s => esc(s).replace(/&lt;(\/?)(em|b)&gt;/g, '<$1$2>');
 const norm = s => String(s).toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
 const slug = s => norm(s).replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,48);
 
@@ -103,8 +105,16 @@ function buildRail() {
 
 /* ---------- render de una ficha ---------- */
 function mapsUrl(it) {
-  return 'https://www.google.com/maps/search/?api=1&query=' +
-    encodeURIComponent((it.a ? it.n + ', ' + it.a : it.n) + (it._city.maps ? ', ' + it._city.maps : ''));
+  /* it.ruta: una caminata. Maps la dibuja de verdad en vez de buscar el titulo. */
+  if (it.ruta && it.ruta.length > 1) {
+    const p = it.ruta.map(encodeURIComponent);
+    return 'https://www.google.com/maps/dir/?api=1&travelmode=walking'
+      + '&origin=' + p[0] + '&destination=' + p[p.length - 1]
+      + (p.length > 2 ? '&waypoints=' + p.slice(1, -1).join('%7C') : '');
+  }
+  /* it.m: cuando el nombre de la ficha no sirve como busqueda */
+  const q = it.m || ((it.a ? it.n + ', ' + it.a : it.n) + (it._city.maps ? ', ' + it._city.maps : ''));
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
 }
 function revUrl(it) {
   return 'https://www.tripadvisor.com/Search?q=' + encodeURIComponent(it.n + ' ' + (it._city.maps || ''));
@@ -112,20 +122,28 @@ function revUrl(it) {
 const REVIEWABLE = { comer: 1, cafe: 1, coctel: 1 };
 
 function itemHTML(it) {
-  const done = visited.has(it._id);
   const tags = [];
   if (it.p) tags.push(`<span class="tag price">${it.p}</span>`);
   if (TIPOS[it.t]) tags.push(`<span class="tag">${esc(TIPOS[it.t])}</span>`);
-  const links = [`<a href="${esc(mapsUrl(it))}" target="_blank" rel="noopener">${ICON.pin}Mapa</a>`];
+  const cuerpo = `<h3 class="it-name">${esc(it.n)}</h3>
+      <p class="it-desc">${rich(it.d)}</p>
+      ${it.tip ? `<p class="it-note"><b>Truco</b>${rich(it.tip)}</p>` : ''}
+      ${tags.length ? `<div class="tags">${tags.join('')}</div>` : ''}`;
+
+  /* it.nota: es una recomendacion, no un sitio. Ni casilla ni mapa. */
+  if (it.nota) {
+    const web = it.w ? `<div class="links"><a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}Web</a></div>` : '';
+    return `<div class="item nota" data-id="${esc(it._id)}"><div class="it-main">${cuerpo}${web}</div></div>`;
+  }
+
+  const done = visited.has(it._id);
+  const links = [`<a href="${esc(mapsUrl(it))}" target="_blank" rel="noopener">${ICON.pin}${it.ruta ? 'Ruta a pie' : 'Mapa'}</a>`];
   if (it.w) links.push(`<a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}Web</a>`);
   if (REVIEWABLE[it.t]) links.push(`<a href="${esc(revUrl(it))}" target="_blank" rel="noopener">${ICON.star}Reseñas</a>`);
   return `<div class="item${done ? ' done' : ''}" data-id="${esc(it._id)}">
     <button class="tick" aria-pressed="${done}" aria-label="Marcar ${esc(it.n)} como visitado">${ICON.check}</button>
     <div class="it-main">
-      <h3 class="it-name">${esc(it.n)}</h3>
-      <p class="it-desc">${esc(it.d)}</p>
-      ${it.tip ? `<p class="it-note"><b>Truco</b>${esc(it.tip)}</p>` : ''}
-      ${tags.length ? `<div class="tags">${tags.join('')}</div>` : ''}
+      ${cuerpo}
       <div class="links">${links.join('')}</div>
     </div>
   </div>`;
@@ -135,8 +153,9 @@ function itemHTML(it) {
 function cityHTML(c) {
   const items = c.sections.flatMap(s => s.items || []);
   const shown = items.filter(passes);
-  const done = items.filter(i => visited.has(i._id)).length;
-  const pct = items.length ? Math.round(done / items.length * 100) : 0;
+  const hitos = items.filter(i => !i.nota);          /* las notas no se marcan */
+  const done = hitos.filter(i => visited.has(i._id)).length;
+  const pct = hitos.length ? Math.round(done / hitos.length * 100) : 0;
 
   let h = `<section class="cityhead">
     <span class="plate">${esc(c.plate)}</span>
@@ -144,8 +163,8 @@ function cityHTML(c) {
     <div class="cityrule"></div>
     <p class="citylede">${esc(c.lede)}</p>
     <dl class="quick">${c.quick.map(q => `<div><dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd></div>`).join('')}</dl>`;
-  if (items.length) {
-    h += `<div class="progress"><span>${done} de ${items.length}</span>
+  if (hitos.length) {
+    h += `<div class="progress"><span>${done} de ${hitos.length}</span>
       <span class="bar"><i style="width:${pct}%"></i></span>
       <button data-reset="${c.id}">Reiniciar</button></div>`;
   }
@@ -162,9 +181,10 @@ function cityHTML(c) {
     }
     const list = (sec.items || []).filter(passes);
     if (!list.length) return;
-    const sdone = list.filter(x => visited.has(x._id)).length;
+    const shitos = list.filter(x => !x.nota);
+    const sdone = shitos.filter(x => visited.has(x._id)).length;
     h += `<details class="sec"${filtering() || i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2>
-      <span class="count">${sdone}/${list.length}</span></summary>
+      ${shitos.length ? `<span class="count">${sdone}/${shitos.length}</span>` : ''}</summary>
       <div class="body">${list.map(itemHTML).join('')}</div></details>`;
   });
 
@@ -220,15 +240,15 @@ $('#view').addEventListener('click', e => {
     tick.setAttribute('aria-pressed', String(visited.has(id)));
     if (!query) {
       const c = CITIES.find(x => x.id === current);
-      const items = c.sections.flatMap(s => s.items || []);
-      const done = items.filter(i => visited.has(i._id)).length;
+      const hitos = c.sections.flatMap(s => s.items || []).filter(i => !i.nota);
+      const done = hitos.filter(i => visited.has(i._id)).length;
       const p = $('.progress');
-      if (p) { p.firstElementChild.textContent = `${done} de ${items.length}`;
-        p.querySelector('.bar i').style.width = (items.length ? done / items.length * 100 : 0) + '%'; }
+      if (p) { p.firstElementChild.textContent = `${done} de ${hitos.length}`;
+        p.querySelector('.bar i').style.width = (hitos.length ? done / hitos.length * 100 : 0) + '%'; }
       const sec = row.closest('details');
       const cnt = sec && sec.querySelector('.count');
       if (cnt) {
-        const rows = [...sec.querySelectorAll('.item')];
+        const rows = [...sec.querySelectorAll('.item:not(.nota)')];
         cnt.textContent = rows.filter(r => r.classList.contains('done')).length + '/' + rows.length;
       }
     }

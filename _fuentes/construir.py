@@ -4,10 +4,9 @@
 
 Cada guia de _fuentes/sitio.json se publica en su propia carpeta, con su
 manifiesto, su service worker, sus iconos y su QR. La raiz queda con la
-portada que lista las guias, el robots.txt y un service worker que da de
-baja al que vivia ahi antes.
+portada que lista las guias y el robots.txt.
 """
-import base64, json, pathlib, re, shutil, sys
+import base64, json, pathlib, re, sys
 
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 FUENTES = RAIZ / "_fuentes"
@@ -117,8 +116,6 @@ portada = (portada.replace("__TITULO__", SITIO["titulo"])
 (RAIZ / "index.html").write_text(
     f'<!doctype html>\n<html lang="es">\n<head>\n{CABEZA}'
     f'<meta name="theme-color" content="#7D4B6B">\n{portada}\n</html>\n', encoding="utf-8")
-
-shutil.copy(COMUN / "sw-raiz.js", RAIZ / "sw.js")
 
 # ---------------------------------------------------------------- comprobaciones
 for cfg, url in publicadas:

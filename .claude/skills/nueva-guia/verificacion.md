@@ -19,13 +19,30 @@ def slug(s):
     s = unicodedata.normalize("NFD", s).encode("ascii","ignore").decode().lower()
     return re.sub(r"-+$","",re.sub(r"[^a-z0-9]+","-",s))[:48]
 ciudad, vistos = None, {}
-for m in re.finditer(r"id:'(\w+)'|\{n:'((?:[^'\\]|\\.)*)'", js):
+# ojo: una ficha puede empezar con nota:, ruta: o m: antes de n:
+for m in re.finditer(r"id:'(\w+)'|\bn:'((?:[^'\\]|\\.)*)'", js):
     if m.group(1): ciudad = m.group(1); continue
     k = (ciudad, slug(m.group(2)))
     if k in vistos: print("DUPLICADO:", k, "|", m.group(2))
     vistos[k] = 1
 print("fichas:", len(vistos))
 PY
+```
+
+## 1b. Coherencia de hito, nota y ruta
+
+Una nota no puede tener mapa, y una ruta necesita al menos dos puntos. Y una
+ficha cuyo titulo no sea buscable en Maps tiene que traer `m:` o ser nota.
+
+```bash
+node -e "
+const fs=require('fs'); let js=fs.readFileSync('/tmp/_app.js','utf8');
+js=js.slice(0,js.indexOf('/* ---------- utilidades'));
+eval(js.replace('const CITIES','var CITIES').replace('const TIPOS','var TIPOS'));
+for(const c of CITIES) for(const s of (c.sections||[]).filter(s=>s.items)) for(const it of s.items){
+  if(it.nota&&(it.ruta||it.m)) console.log('nota con mapa:',it.n);
+  if(it.ruta&&it.ruta.length<2) console.log('ruta de un punto:',it.n);
+}"
 ```
 
 ## 2. Concordancia de genero

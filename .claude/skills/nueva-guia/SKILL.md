@@ -156,14 +156,45 @@ los telefonos siguen sirviendo la version vieja.
   tiene que contrastar 4.5 sobre `#FDF5F8` y el oscuro sobre `#221B22`.
 - `t` sale de `_fuentes/comun/tipos.js`. Si agregas uno nuevo, agregalo ahi.
 - `p` es `EUR`, `EUR EUR` o `EUR EUR EUR` con el simbolo real.
+- `d` y `tip` admiten `<em>` y `<b>`; el resto del HTML se escapa.
 - La seccion de preparativos usa `html:` con un template literal en vez de
   `items:`, y no aparece en los filtros.
 - Los nombres de ficha tienen que ser unicos dentro de la ciudad: el id sale de
   ahi y dos iguales hacen que marcar una marque las dos.
 
-Nueve secciones por ciudad funcionan bien: aire libre, imprescindibles y donde
-sacar la foto, comer, cafe, cocteles, como moverse, temporada, compras,
-espectaculos. Ajustalas a lo que dijeron en el bloque F: si no les interesan los
+### Hito, nota o ruta
+
+Esta es la decision que mas se nota al usar la guia. **Antes de escribir cada
+ficha, preguntate si es algo que se hace o algo que se lee.**
+
+**Hito**: un sitio concreto al que se va. Lleva casilla para marcar y enlace a
+Maps. Si el nombre de la ficha no sirve como busqueda ("Andén 9¾, King's
+Cross", "Museo Sorolla: la casa del pintor"), agrega `m:'Consulta exacta,
+Ciudad'` y el mapa usa eso en lugar del titulo.
+
+**Nota** (`nota:1`): es un consejo, una costumbre o una recomendacion que
+compara varias opciones. No lleva casilla ni mapa, y se ve con borde punteado.
+Van aca los horarios de comida, como funciona el metro, las huelgas, las
+propinas, "que museo vale la pena", las carteleras y las rebajas. Un mapa que
+busca "Huelgas: comprobar antes de salir" no le sirve a nadie.
+
+**Ruta** (`ruta:['Punto A, Ciudad','Punto B, Ciudad', ...]`): una caminata.
+Genera un enlace de indicaciones a pie que Maps dibuja de verdad, con los
+puntos intermedios. Sigue siendo un hito y se puede marcar. Usala siempre que
+la ficha describa un recorrido o junte dos lugares que se caminan entre si; si
+estan lejos y no tiene sentido caminarlos, es una nota, no una ruta.
+
+La regla corta: **una ficha lleva enlace a mapa solo si apunta a un lugar
+findable o a una caminata real. Si no, es nota.**
+
+### El orden de las secciones
+
+`mover`, `comer`, `cafe`, `coctel`, `aire`, `visita`, `navidad`, `compra`,
+`evento`. Primero lo que se necesita para funcionar en la ciudad (como moverse
+y donde comer) y despues lo que se elige hacer. La primera seccion aparece
+abierta, asi que conviene que sea la mas util al llegar.
+
+Ajusta el contenido a lo que dijeron en el bloque F: si no les interesan los
 museos, esa seccion se achica, no se llena por simetria.
 
 ## 4. Construir y verificar

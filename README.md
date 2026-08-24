@@ -22,7 +22,6 @@ _fuentes/
     tipos.js               las etiquetas de tipo de ficha
     fuentes.css            las tipografias en base64
     sw.js                  el service worker de cada guia
-    sw-raiz.js             el de la raiz, que da de baja al viejo
     iconos.py              genera los iconos con el color de cada guia
   <guia>/
     guia.json              titulo, color, clave de guardado, partes

@@ -5,8 +5,8 @@
   "descripcion": "Guia de viaje para noviembre y diciembre de 2026.",
   "nombre_corto": "Eurotrip",
   "color": "#7D4B6B",
-  "clave": "guia-invierno-2026",
-  "cache": "eurotrip-2026-08-23a",
+  "clave": "eurotrip-serri-cami",
+  "cache": "eurotrip-2026-08-23b",
   "partes": [
     "0-antes.js",
     "1-londres.js",
