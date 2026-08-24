@@ -127,7 +127,8 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .cityrule{width:4.5rem;height:0;margin:1rem auto 1.15rem;
   border-top:1px solid var(--city-on-bg,var(--accent));
   border-bottom:1px solid var(--city-on-bg,var(--accent));padding-top:3px;opacity:.55}
-.citylede{font-size:.95rem;color:var(--ink-2);margin:0 auto 1.5rem;max-width:31rem;text-align:left}
+.citylede{font-size:.95rem;color:var(--ink-2);margin:0 auto 1.5rem;max-width:31rem;
+  text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 
 .quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.5rem;
   margin:0;text-align:left}
@@ -169,10 +170,13 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .sec > summary:hover h2{color:var(--city-on-bg,var(--accent))}
 
 .body{padding:0 var(--pad) 1.3rem;display:flex;flex-direction:column;gap:.6rem}
-.prose{font-size:.94rem;color:var(--ink-2);max-width:33rem}
+/* los bloques de texto largo van justificados. la particion silabica evita los
+   huecos raros en pantalla angosta; el html declara lang="es" y de ahi sale. */
+.prose{font-size:.94rem;color:var(--ink-2);max-width:33rem;
+  text-align:justify;-webkit-hyphens:auto;hyphens:auto}
 .prose p{margin:0 0 .85rem}
 .prose h3{font-family:var(--display);font-size:1.15rem;font-weight:600;letter-spacing:.002em;
-  color:var(--ink);margin:1.5rem 0 .5rem}
+  color:var(--ink);margin:1.5rem 0 .5rem;text-align:left;hyphens:manual}
 .prose ul{margin:0 0 .95rem;padding-left:1.1rem}
 .prose li{margin-bottom:.42rem}
 .prose li::marker{color:var(--city-on-bg,var(--accent))}

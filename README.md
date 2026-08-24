@@ -35,10 +35,11 @@ queda fuera del sitio.
 ## Como se reconstruye
 
 ```
-python3 _fuentes/construir.py
+python3 -m venv .venv && .venv/bin/pip install segno pillow   # la primera vez
+.venv/bin/python3 _fuentes/construir.py
 ```
 
-Hace falta `segno` y `Pillow`. El script vuelve a generar cada guia, la portada,
+Hace falta `segno` y `Pillow`. El `.venv` esta ignorado por git. El script vuelve a generar cada guia, la portada,
 los iconos y los QR, y corta si algo no cierra: mojibake, tildes perdidas, rayas
 largas, recursos externos, el `noindex` ausente o el `robots.txt` mal.
 

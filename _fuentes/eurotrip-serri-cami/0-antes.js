@@ -1,7 +1,7 @@
 {
   id:'prep', nav:'Antes de salir', name:'Antes de salir', plate:'Preparativos',
   accent:'#7D4B6B', lt:'#DBA6C4', maps:'',
-  lede:'Una recopilación de cosas que suelen hacer más disfrutable un viaje largo, juntadas viajando y metiendo la pata unas cuantas veces. Ojalá algo les sirva en la aventura.',
+  lede:'Una recopilación de cosas que suelen hacer más disfrutable un viaje largo, juntadas viajando y metiendo la pata unas cuantas veces.',
   quick:[
     ['Ventana del viaje','2ª quincena nov a 1ª de dic'],
     ['Black Friday','Vie 27 nov 2026'],
@@ -111,16 +111,33 @@
       <p>Los horarios de comida allá no son los de acá, y en España y en Italia muchas cocinas cierran entre el almuerzo y la cena. Si les agarra hambre a media tarde pueden quedarse sin opciones justo en la zona turística, que es donde peor y más caro se come.</p>
       <p>Con tener una barrita, fruta o un sándwich del supermercado en la mochila alcanza. Los supermercados son lo más barato para eso: Tesco o Sainsbury's en el Reino Unido, Monoprix o Franprix en Francia, Mercadona o Carrefour Express en España, Conad o Carrefour en Italia.</p>
     `},
-    {s:'Aplicaciones, plata y propinas', k:'mover', html:`
-      <h3>Aplicaciones</h3>
+    {s:'Aplicaciones', k:'mover', html:`
       <p>No hace falta instalar nada de esto para que el viaje funcione. Va la lista con para qué sirve cada una, y ustedes ven cuáles les cierran.</p>
       <p><em>Citymapper</em> anda en todas estas ciudades y es mejor que Google Maps para moverse en transporte urbano: dice en qué vagón subirse y por qué salida salir, que en estaciones grandes ahorra vueltas.</p>
       <p><em>TfL Go</em> en Londres muestra el estado de las líneas en vivo. <em>Bonjour RATP</em> o <em>Île-de-France Mobilités</em> en París dejan cargar el boleto en el celular y evitan la cola de la máquina. <em>Metro de Madrid</em> tiene la red y los horarios. <em>Moovit</em> sirve para Roma y Milán.</p>
       <p>Para taxis: Uber y Bolt en Londres; G7, Uber y Bolt en París; Cabify, Uber y FreeNow en Madrid, que ahí salen bastante menos que en el resto; FreeNow o itTaxi en Roma y Milán, porque en Italia Uber solo opera en su versión cara.</p>
       <p>Y las de las aerolíneas que vayan a usar, que es donde aparecen los cambios de puerta y los retrasos antes que en las pantallas.</p>
-      <h3>Cómo pagar</h3>
+    `},
+    {s:'Las tarjetas, antes de salir', k:'compra', html:`
+      <p>Casi todo lo de esta parte se resuelve desde la app o con un llamado, y conviene dejarlo hecho acá. Desde allá, con diferencia horaria y sin línea uruguaya, es bastante más molesto.</p>
+      <h3>Pagar en cuotas lo de afuera</h3>
+      <p>OCA deja pagar en tres cuotas sin interés lo que se compra fuera del país, tanto en un local como por internet. No viene activado: hay que adherirse una vez, desde la app, en <em>Más</em> y después <em>3 cuotas en el exterior</em>. Una vez adherida la tarjeta, la compra se hace normal y las cuotas aparecen solas en el estado de cuenta.</p>
+      <p>Es útil para lo grande y previsible, tipo el alojamiento o los pasajes entre ciudades: permite reservar sin tener toda la plata junta el mismo mes. En algunas épocas del año lo suben a seis cuotas, así que vale mirar cómo está justo cuando lo vayan a usar. Hay un monto mínimo por compra, chico, y la comisión por comprar afuera se sigue cobrando igual.</p>
+      <h3>Con cuál conviene pagar</h3>
+      <p>No todas cobran lo mismo por comprar en el exterior. En un café la diferencia no se nota; en un mes de viaje, sí.</p>
+      <p>Las de débito son las que menos cobran, y algunas directamente no cobran nada: la de OCA Blue no tiene recargo por comprar afuera, y las Platinum de débito de los bancos suelen estar igual. Para el día a día, esa es la que conviene llevar arriba en la billetera del celular.</p>
+      <p>Las Platinum de crédito cobran menos recargo que una tarjeta común y traen dos cosas que en un viaje largo valen: acceso a salas VIP en aeropuertos y seguro de viaje si el pasaje se compró con ellas. La de Itaú se maneja con la app <em>Visa Airport Companion</em>, que da una cantidad de accesos al año a precio rebajado; la de Santander también da salas. Los porcentajes cambian seguido, así que la pregunta al banco es corta: cuánto me cobran por comprar afuera con cada una de mis tarjetas.</p>
+      <p>Y si tienen sala VIP, mírenla antes de viajar. Casi siempre hay que registrarse o bajar una app, y descubrirlo en el aeropuerto es tarde.</p>
+      <h3>El tope por día</h3>
+      <p>Muchas tarjetas traen un límite de consumo en el exterior por día, del orden de los quinientos dólares, y cuando se pasa la compra simplemente rebota. No avisa nadie: el posnet dice que no y una queda pensando que le bloquearon la tarjeta. Si van a pagar algo caro, averigüen cuál es el tope y pidan que lo levanten ese día.</p>
+      <h3>Dos jugadas para tener más margen</h3>
+      <p>Una es pagar la tarjeta de más antes de salir. Ese saldo a favor se consume primero, así que el límite de crédito queda entero para lo que aparezca en el viaje.</p>
+      <p>La otra es pedir un aumento temporal del límite. Suelen dar hasta un cincuenta por ciento más por unos meses, que alcanza para el viaje y para el estado de cuenta que llega después. Se pide antes de salir, no cuando ya están con la compra adelante.</p>
+      <p>Y lo de siempre: avisen las fechas del viaje, para que no les frenen los consumos por movimientos raros.</p>
+    `},
+    {s:'Pagar allá: efectivo y propinas', k:'compra', html:`
       <p>Contactless en todos lados. En Londres casi no hace falta efectivo: hasta los puestos del mercado cobran con tarjeta. En Italia sí conviene andar con algo encima, porque los bares de barrio, los mercados y algunas trattorias lo siguen prefiriendo. En España y Francia con tarjeta alcanza, salvo en los mercadillos.</p>
-      <p>Avisen al banco las fechas y lleven dos tarjetas de bancos distintos, en billeteras separadas. Si una falla o se pierde, no quedan a pie.</p>
+      <p>Lleven dos tarjetas de bancos distintos, en billeteras separadas. Si una falla o se pierde, no quedan a pie.</p>
       <h3>Propinas</h3>
       <p>Esto es para que sepan qué se estila y decidan ustedes, no para decirles cuánto dejar.</p>
       <p>En el Reino Unido suele venir un cargo por servicio ya sumado a la cuenta, y si está, nadie espera nada más. En los pubs no se deja propina en la barra.</p>
