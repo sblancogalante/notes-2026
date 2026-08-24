@@ -1,0 +1,279 @@
+<title>__TITULO__</title>
+<style>
+/* tipografias incrustadas: la pagina se ve igual sin conexion */
+__FUENTES__
+</style>
+
+<style>
+:root{
+  --bg:#EFE0E8; --surface:#FDF5F8; --surface-2:#F4E3EB; --surface-3:#FAECF2;
+  --ink:#2B2028; --ink-2:#574A53; --muted:#75636E;
+  --line:#E9D4DF; --line-2:#D8BDCC;
+  --accent:#7D4B6B; --accent-lt:#DBA6C4;
+  --shadow:0 1px 2px rgba(43,32,40,.05), 0 8px 24px -12px rgba(43,32,40,.13);
+  --display:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --body:'Karla','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --pad:1.2rem; --r:14px; --r-sm:10px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#191319; --surface:#221B22; --surface-2:#2C232C; --surface-3:#1F181F;
+    --ink:#F3EAEF; --ink-2:#D5C7CF; --muted:#A08F99;
+    --line:#372D37; --line-2:#4A3C47;
+    --accent:#DBA6C4; --accent-lt:#DBA6C4;
+    --shadow:0 1px 2px rgba(0,0,0,.28), 0 8px 24px -12px rgba(0,0,0,.5);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#191319; --surface:#221B22; --surface-2:#2C232C; --surface-3:#1F181F;
+  --ink:#F3EAEF; --ink-2:#D5C7CF; --muted:#A08F99;
+  --line:#372D37; --line-2:#4A3C47;
+  --accent:#DBA6C4; --accent-lt:#DBA6C4;
+  --shadow:0 1px 2px rgba(0,0,0,.28), 0 8px 24px -12px rgba(0,0,0,.5);
+}
+
+/* el acento de ciudad se usa como fondo (--city) o como texto (--city-on-bg).
+   en oscuro, el texto pasa a la variante pastel para que siga leyendose. */
+#view,.rgroup{--city-on-bg:var(--city)}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) #view,
+  :root:not([data-theme="light"]) .rgroup{--city-on-bg:var(--city-lt)}
+}
+:root[data-theme="dark"] #view,
+:root[data-theme="dark"] .rgroup{--city-on-bg:var(--city-lt)}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:var(--body); font-size:16px; line-height:1.62;
+  -webkit-text-size-adjust:100%; -webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+:focus-visible{outline:2px solid var(--city-on-bg,var(--accent));outline-offset:3px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.wrap{max-width:44rem;margin:0 auto;background:var(--surface);min-height:100vh}
+@media (min-width:47rem){
+  .wrap{box-shadow:0 0 0 1px var(--line), 0 24px 60px -30px rgba(43,32,40,.22)}
+}
+
+/* ---------- cabecera ---------- */
+.top{position:sticky;top:0;z-index:40;background:var(--surface);
+  border-bottom:1px solid var(--line)}
+.top-row{display:flex;align-items:center;gap:.6rem;padding:.85rem var(--pad) .5rem}
+.brand{flex:1;min-width:0;font-family:var(--display);font-weight:600;font-size:1.35rem;
+  line-height:1.05;letter-spacing:.005em}
+.brand small{display:block;font-family:var(--body);font-weight:500;font-size:.63rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:.3rem}
+.iconbtn{width:2.15rem;height:2.15rem;display:grid;place-items:center;border:1px solid var(--line);
+  border-radius:50%;color:var(--ink-2);flex:none;transition:background .15s,border-color .15s}
+.iconbtn:hover{border-color:var(--line-2);background:var(--surface-2)}
+.iconbtn[aria-pressed="true"]{background:var(--surface-2);border-color:var(--line-2);color:var(--ink)}
+.iconbtn svg{width:1.02rem;height:1.02rem;display:block}
+
+.searchbar{padding:.35rem var(--pad) .75rem}
+.searchbar .field{display:flex;align-items:center;gap:.5rem;background:var(--surface-2);
+  border:1px solid transparent;border-radius:999px;padding:.5rem .85rem;transition:border-color .15s}
+.searchbar .field:focus-within{border-color:var(--line-2)}
+.searchbar input{flex:1;min-width:0;border:none;background:none;font-family:var(--body);
+  font-size:.87rem;color:var(--ink);outline:none}
+.searchbar input::placeholder{color:var(--muted)}
+.searchbar svg{width:.95rem;height:.95rem;color:var(--muted);flex:none}
+.clearbtn{color:var(--muted);font-size:1.15rem;line-height:1;padding:0 .1rem;display:none}
+.clearbtn.on{display:block}
+
+/* raíl de ciudades */
+.rail{display:flex;gap:.15rem;overflow-x:auto;scrollbar-width:none;
+  padding:0 var(--pad) .55rem;border-top:1px solid var(--line);padding-top:.6rem}
+.rail::-webkit-scrollbar{display:none}
+.rail button{flex:none;padding:.34rem .8rem .38rem;font-family:var(--body);font-weight:600;
+  font-size:.75rem;letter-spacing:.07em;color:var(--muted);white-space:nowrap;
+  text-transform:uppercase;border-radius:999px;transition:background .15s,color .15s}
+.rail button:hover{color:var(--ink)}
+.rail button[aria-selected="true"]{color:#fff;background:var(--city,var(--accent))}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .rail button[aria-selected="true"]{
+    color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+}
+:root[data-theme="dark"] .rail button[aria-selected="true"]{
+  color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+
+/* filtros */
+.filters{padding:.2rem var(--pad) .8rem;display:none;flex-wrap:wrap;gap:.35rem;align-items:center}
+.filters.on{display:flex}
+.chip{font-family:var(--body);font-size:.7rem;font-weight:600;letter-spacing:.04em;
+  padding:.28rem .68rem;border:1px solid var(--line);border-radius:999px;color:var(--muted);
+  transition:background .15s,border-color .15s,color .15s}
+.chip:hover{border-color:var(--line-2);color:var(--ink)}
+.chip[aria-pressed="true"]{background:var(--city,var(--accent));border-color:var(--city,var(--accent));color:#fff}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .chip[aria-pressed="true"]{color:#1B141B;
+    background:var(--city-lt,var(--accent-lt));border-color:var(--city-lt,var(--accent-lt))}
+}
+:root[data-theme="dark"] .chip[aria-pressed="true"]{color:#1B141B;
+  background:var(--city-lt,var(--accent-lt));border-color:var(--city-lt,var(--accent-lt))}
+.chip.sep{border:none;background:none;color:var(--muted);font-family:var(--display);
+  font-style:italic;font-size:.92rem;font-weight:500;letter-spacing:0;
+  padding:0 .1rem 0 .3rem;pointer-events:none}
+.chip.sep:first-child{padding-left:0}
+
+/* ---------- cabecera de ciudad ---------- */
+.cityhead{padding:2.1rem var(--pad) 1.4rem;text-align:center}
+.plate{display:inline-block;font-family:var(--display);font-style:italic;font-weight:500;
+  font-size:1rem;letter-spacing:.13em;color:var(--city-on-bg,var(--accent))}
+.cityname{font-family:var(--display);font-weight:500;font-size:clamp(2.6rem,13vw,3.9rem);
+  line-height:1;letter-spacing:-.005em;margin:.35rem 0 0;text-wrap:balance}
+.cityrule{width:4.5rem;height:0;margin:1rem auto 1.15rem;
+  border-top:1px solid var(--city-on-bg,var(--accent));
+  border-bottom:1px solid var(--city-on-bg,var(--accent));padding-top:3px;opacity:.55}
+.citylede{font-size:.95rem;color:var(--ink-2);margin:0 auto 1.5rem;max-width:31rem;text-align:left}
+
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:.5rem;
+  margin:0;text-align:left}
+.quick div{background:var(--surface-2);border-radius:var(--r-sm);padding:.65rem .8rem}
+.quick dt{font-family:var(--body);font-size:.6rem;font-weight:700;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:.22rem}
+.quick dd{margin:0;font-size:.83rem;font-weight:500;line-height:1.35;
+  font-variant-numeric:tabular-nums}
+
+.progress{display:flex;align-items:center;gap:.7rem;margin-top:1.1rem;
+  font-size:.72rem;color:var(--muted);text-align:left}
+.bar{flex:1;height:4px;border-radius:999px;background:var(--surface-2);position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;border-radius:999px;
+  background:var(--city-on-bg,var(--accent));width:0;transition:width .35s ease}
+.progress button{font-size:.68rem;font-weight:600;letter-spacing:.04em;color:var(--muted);
+  text-decoration:underline;text-underline-offset:3px}
+.progress button:hover{color:var(--ink)}
+
+.toolrow{display:flex;gap:1.1rem;align-items:center;padding:.7rem var(--pad);
+  font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.toolrow button:hover{color:var(--ink)}
+
+/* ---------- secciones ---------- */
+.sec{border-top:1px solid var(--line)}
+.sec > summary{display:flex;align-items:center;gap:.7rem;padding:1.05rem var(--pad);
+  cursor:pointer;list-style:none}
+.sec > summary::-webkit-details-marker{display:none}
+.sec > summary h2{margin:0;flex:1;font-family:var(--display);font-weight:600;font-size:1.3rem;
+  line-height:1.15;letter-spacing:.002em}
+.sec .count{font-size:.68rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;
+  background:var(--surface-2);border-radius:999px;padding:.2rem .55rem}
+.sec .caret{width:.72rem;height:.72rem;flex:none;color:var(--city-on-bg,var(--accent));
+  transition:transform .2s ease;opacity:.8}
+.sec[open] .caret{transform:rotate(90deg)}
+.sec > summary:hover h2{color:var(--city-on-bg,var(--accent))}
+
+.body{padding:0 var(--pad) 1.3rem;display:flex;flex-direction:column;gap:.6rem}
+.prose{font-size:.94rem;color:var(--ink-2);max-width:33rem}
+.prose p{margin:0 0 .85rem}
+.prose h3{font-family:var(--display);font-size:1.15rem;font-weight:600;letter-spacing:.002em;
+  color:var(--ink);margin:1.5rem 0 .5rem}
+.prose ul{margin:0 0 .95rem;padding-left:1.1rem}
+.prose li{margin-bottom:.42rem}
+.prose li::marker{color:var(--city-on-bg,var(--accent))}
+.prose strong{color:var(--ink);font-weight:700}
+.prose em{font-family:var(--display);font-style:italic;font-size:1.06em}
+.prose a{color:var(--city-on-bg,var(--accent));text-decoration-thickness:1px;text-underline-offset:3px}
+
+.tablewrap{overflow-x:auto;margin:0 0 1rem;border-radius:var(--r-sm);background:var(--surface-2)}
+table{border-collapse:collapse;width:100%;min-width:29rem;font-family:var(--body);font-size:.78rem}
+th,td{text-align:left;padding:.55rem .75rem;white-space:nowrap}
+th{font-size:.6rem;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}
+td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
+
+/* ---------- fichas ---------- */
+.item{display:flex;gap:.8rem;padding:.95rem 1rem;background:var(--surface-3);
+  border:1px solid var(--line);border-radius:var(--r);transition:opacity .2s}
+.tick{width:1.3rem;height:1.3rem;flex:none;margin-top:.15rem;border:1.5px solid var(--line-2);
+  border-radius:50%;display:grid;place-items:center;color:transparent;transition:all .15s}
+.tick:hover{border-color:var(--city-on-bg,var(--accent))}
+.tick svg{width:.7rem;height:.7rem}
+.item.done{background:var(--surface)}
+.item.done .tick{background:var(--city-on-bg,var(--accent));border-color:var(--city-on-bg,var(--accent));color:var(--surface)}
+.item.done .it-main{opacity:.45}
+.it-main{flex:1;min-width:0}
+.it-name{font-family:var(--display);font-size:1.24rem;font-weight:600;letter-spacing:.003em;
+  line-height:1.2;margin:0 0 .3rem}
+.it-desc{font-size:.885rem;color:var(--ink-2);margin:0;line-height:1.58}
+.it-note{font-size:.845rem;color:var(--muted);margin:.5rem 0 0;line-height:1.55;
+  padding-left:.75rem;border-left:1.5px solid var(--line-2)}
+.it-note b{font-family:var(--display);font-style:italic;font-weight:600;font-size:1.02rem;
+  letter-spacing:.04em;color:var(--city-on-bg,var(--accent));margin-right:.4rem}
+.tags{display:flex;flex-wrap:wrap;gap:.32rem;margin:.6rem 0 0}
+.tag{font-size:.63rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  padding:.2rem .55rem;border-radius:999px;background:var(--surface-2);color:var(--muted)}
+.tag.price{background:transparent;border:1px solid var(--city-on-bg,var(--accent));
+  color:var(--city-on-bg,var(--accent));letter-spacing:.02em}
+.links{display:flex;flex-wrap:wrap;gap:.9rem;margin:.65rem 0 0}
+.links a{font-size:.73rem;font-weight:600;letter-spacing:.03em;color:var(--city-on-bg,var(--accent));
+  text-decoration:none;display:inline-flex;align-items:center;gap:.28rem}
+.links a:hover{text-decoration:underline;text-underline-offset:3px}
+.links svg{width:.75rem;height:.75rem}
+
+/* ---------- resultados de búsqueda ---------- */
+.rgroup{padding:0 var(--pad);display:flex;flex-direction:column;gap:.6rem}
+.rgroup > h2{font-family:var(--display);font-weight:600;font-size:1.5rem;
+  color:var(--city-on-bg,var(--accent));margin:1.6rem 0 .1rem;
+  display:flex;align-items:center;gap:.7rem}
+.rgroup > h2::after{content:"";flex:1;height:1px;background:var(--line)}
+.rpath{font-family:var(--display);font-style:italic;font-size:.95rem;color:var(--muted);
+  margin:.5rem 0 -.2rem}
+.empty{padding:3.5rem var(--pad);text-align:center;color:var(--muted);font-size:.92rem}
+.empty strong{display:block;font-family:var(--display);font-weight:600;font-size:1.5rem;
+  color:var(--ink);margin-bottom:.5rem}
+
+/* ---------- pie ---------- */
+.foot{padding:2.4rem var(--pad) 3.5rem;border-top:1px solid var(--line);
+  font-size:.85rem;color:var(--muted);line-height:1.6}
+.foot h2{font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--ink);
+  margin:0 0 .8rem}
+.foot h2:not(:first-child){margin-top:2rem}
+.foot em{font-family:var(--display);font-style:italic;font-size:1.06em}
+.qrbox{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.qrbox img{width:8.5rem;height:8.5rem;border-radius:var(--r-sm);background:#fff;padding:.55rem;
+  box-shadow:var(--shadow);flex:none}
+.qrbox p{margin:0;flex:1;min-width:11rem}
+.sharebtn{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;border:1px solid var(--line-2);border-radius:999px;
+  padding:.5rem .95rem;color:var(--ink);margin-top:.8rem;text-decoration:none;
+  transition:background .15s,border-color .15s}
+.sharebtn:hover{background:var(--surface-2);border-color:var(--muted)}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="top-row">
+      <div class="brand">__TITULO__<small>__SUBTITULO__</small></div>
+      <button class="iconbtn" id="filterbtn" aria-label="Filtros" aria-pressed="false" title="Filtros">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M7 12h10M11 18h2"/></svg>
+      </button>
+      <button class="iconbtn" id="themebtn" aria-label="Cambiar tema" title="Tema"></button>
+    </div>
+    <div class="searchbar">
+      <div class="field">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Buscar en toda la guía…" autocomplete="off" aria-label="Buscar">
+        <button class="clearbtn" id="clearq" aria-label="Borrar búsqueda">&times;</button>
+      </div>
+    </div>
+    <nav class="rail" id="rail" role="tablist"></nav>
+    <div class="filters" id="filters"></div>
+  </header>
+
+  <main id="view"></main>
+
+  <footer class="foot">
+    <h2>Tenerla en el celular</h2>
+    <div class="qrbox" id="qrbox">
+      <img src="__QR__" alt="Código QR que abre esta guía" width="160" height="160">
+      <p>Apunten la cámara al código y se abre la guía en el navegador. Es la forma rápida de pasarla de una pantalla a la otra.
+      <a class="sharebtn" id="sharebtn" href="#">Copiar enlace</a></p>
+    </div>
+    <p>Para que después funcione sin señal, instálenla. En iPhone: botón de compartir de Safari y <em>Agregar a inicio</em>. En Android: menú de los tres puntos e <em>Instalar aplicación</em>. Queda con ícono propio y a partir de ahí abre sin datos, que es lo que van a necesitar allá.</p>
+    <p>Háganlo desde casa con wifi, antes de viajar. La primera vez se baja entera y tarda unos segundos.</p>
+    <h2>Notas</h2>
+    <p>Los horarios, precios y fechas se verificaron en agosto de 2026 y son de la temporada 2026-2027. Las carteleras de conciertos de noviembre y diciembre todavía se están armando, así que en cada ciudad dejamos el link a la cartelera oficial para mirar cerca de la fecha. Lo que dice <em>previsto</em> es porque todavía no estaba confirmado.</p>
+    <p>Lo que marquen como visitado se guarda solo en ese teléfono. Si abren la guía en los dos teléfonos, cada una lleva su propia cuenta.</p>
+  </footer>
+</div>

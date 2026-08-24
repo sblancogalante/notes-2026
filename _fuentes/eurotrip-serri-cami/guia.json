@@ -1,0 +1,18 @@
+{
+  "ruta": "eurotrip-serri-cami",
+  "titulo": "Eurotrip Serri y Cami",
+  "subtitulo": "Noviembre y diciembre de 2026",
+  "descripcion": "Guia de viaje para noviembre y diciembre de 2026.",
+  "nombre_corto": "Eurotrip",
+  "color": "#7D4B6B",
+  "clave": "guia-invierno-2026",
+  "cache": "eurotrip-2026-08-23a",
+  "partes": [
+    "0-antes.js",
+    "1-londres.js",
+    "2-paris.js",
+    "3-madrid.js",
+    "4-roma.js",
+    "5-milan.js"
+  ]
+}
