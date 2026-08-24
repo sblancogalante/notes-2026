@@ -1,0 +1,6 @@
+# Guia de viaje privada. No queremos que aparezca en buscadores.
+# La capa que de verdad manda es la etiqueta <meta name="robots" content="noindex">
+# que lleva la pagina; esto de aca evita ademas que la rastreen.
+
+User-agent: *
+Disallow: /
