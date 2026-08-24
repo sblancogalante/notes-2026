@@ -149,6 +149,10 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .toolrow{display:flex;gap:1.1rem;align-items:center;padding:.7rem var(--pad);
   font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .toolrow button:hover{color:var(--ink)}
+/* solo esta barra se ancla bajo la cabecera, no la portada de la ciudad.
+   --top-h lo mide la app, porque la cabecera cambia de alto con los filtros. */
+.toolrow.pegada{position:sticky;top:var(--top-h,0px);z-index:30;
+  background:var(--surface);border-bottom:1px solid var(--line)}
 
 /* ---------- secciones ---------- */
 .sec{border-top:1px solid var(--line)}

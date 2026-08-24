@@ -170,7 +170,7 @@ function cityHTML(c) {
   }
   h += `</section>`;
 
-  if (items.length) h += `<div class="toolrow"><button data-all="open">Abrir todo</button><button data-all="close">Cerrar todo</button></div>`;
+  if (items.length) h += `<div class="toolrow pegada"><button data-all="open">Abrir todo</button><button data-all="close">Cerrar todo</button></div>`;
 
   c.sections.forEach((sec, i) => {
     if (sec.html) {
@@ -297,3 +297,12 @@ $('#sharebtn').addEventListener('click', async e => {
 buildRail();
 buildFilters();
 render();
+
+/* la barra de abrir y cerrar se ancla justo debajo de la cabecera, que no
+   siempre mide lo mismo: crece al desplegar los filtros y al girar el telefono */
+const cabecera = $('.top');
+const medirCabecera = () =>
+  document.documentElement.style.setProperty('--top-h', cabecera.offsetHeight + 'px');
+medirCabecera();
+if (window.ResizeObserver) new ResizeObserver(medirCabecera).observe(cabecera);
+else addEventListener('resize', medirCabecera);
