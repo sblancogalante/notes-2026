@@ -1,7 +1,7 @@
 {
   id:'prep', nav:'Antes de salir', name:'Antes de salir', plate:'Preparativos',
   accent:'#7D4B6B', lt:'#DBA6C4', maps:'',
-  lede:'Una recopilación de cosas que suelen hacer más disfrutable un viaje largo, juntadas viajando y metiendo la pata unas cuantas veces. Nada de esto es obligatorio y no siguiéndolo la van a pasar igual de bien. Ojalá algo les sirva en la aventura.',
+  lede:'Una recopilación de cosas que suelen hacer más disfrutable un viaje largo, juntadas viajando y metiendo la pata unas cuantas veces. Ojalá algo les sirva en la aventura.',
   quick:[
     ['Ventana del viaje','2ª quincena nov a 1ª de dic'],
     ['Black Friday','Vie 27 nov 2026'],
