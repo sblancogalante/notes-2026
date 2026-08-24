@@ -484,6 +484,7 @@ const CITIES = [
   id:'lon', nav:'Londres', name:'Londres', plate:'Underground', accent:'#A83A5B', lt:'#F2A3BA', maps:'London',
   lede:'Se camina mucho mejor de lo que uno se imagina. Covent Garden, Soho, Piccadilly, Trafalgar y Westminster están todos a menos de media hora a pie entre sí. Y los parques son gigantes: en noviembre quedan dorados y no hay nadie.',
   quick:[
+    ['Se cena','Temprano: 18:30 a 20:00'],
     ['Tope diario','£8,90 zonas 1-2'],
     ['Cómo se paga','Tarjeta o celular, sin Oyster'],
     ['Noviembre','11° / 6°, llovizna'],
@@ -498,7 +499,7 @@ const CITIES = [
     {n:'Hampstead Heath y Parliament Hill', d:'Bosque de verdad dentro de la ciudad, con la panorámica más amplia. Menos turística que Primrose Hill.', t:'aire', tip:'Terminar en el pueblo de Hampstead o en el Spaniards Inn, un pub de 1585.'},
     {n:'Paseo por el South Bank', d:'De Westminster a Borough Market por la orilla sur: London Eye, Southbank Centre, puestos de libros bajo Waterloo Bridge, Tate Modern y el Millennium Bridge. Una hora y media sin apurarse.', t:'aire', tip:'De noche es mejor: todo iluminado y con el mercado de invierno en el camino.'},
     {n:'Regent’s Canal: Little Venice a Camden', d:'45 minutos de camino de sirga entre casas flotantes, sauces y el zoo. Termina en Camden Market.', t:'aire'},
-    {n:'Columbia Road Flower Market', d:'Solo los domingos, de 8:00 a 15:00. Una calle victoriana entera de flores, con cafés y tiendas chicas alrededor.', t:'aire', tip:'Ir antes de las 10:00 o después de las 14:00, cuando rematan a precio de saldo.'},
+    {n:'Columbia Road Flower Market', d:'Solo los domingos, de 8:00 a 15:00. Una calle victoriana entera de flores, con cafés y tiendas chicas alrededor.', t:'aire', tip:'La mejor hora es antes de las 10:00, o después de las 14:00, que es cuando rematan a precio de saldo.'},
     {n:'Sky Garden', d:'Jardín tropical en el piso 35, con vista de 360°. Es gratis, pero hay que reservar franja horaria con semanas de antelación.', t:'aire', w:'https://skygarden.london/', tip:'Las franjas se liberan los lunes. Si no lo consiguen, prueben reservando en el bar en vez de la entrada general.'}
   ]},
   {s:'Imprescindibles y dónde sacar la foto', k:'visita', items:[
@@ -515,10 +516,11 @@ const CITIES = [
     {n:'Cambio de guardia, Buckingham Palace', d:'A las 11:00, en días alternos en invierno. Dura 45 minutos y se llena.', t:'visita', tip:'Mejor plan: pararse en el Victoria Memorial o sobre The Mall para ver pasar la tropa, en vez de pelear por la reja.'}
   ]},
   {s:'Comer', k:'comer', items:[
+    {n:'Los horarios de comida en Londres', d:'Se cena temprano, y esto descoloca a todo el mundo. Las cocinas suelen tomar el último pedido entre las 21:00 y las 22:00, y en los pubs bastante antes, cerca de las 20:30. Si salen a buscar mesa a las 22:00, como se hace acá, es muy probable que se queden sin cocina abierta y terminen en una cadena.', t:'comer', tip:'Lo que se estila es sentarse entre las 18:30 y las 20:00. El almuerzo va de 12:00 a 14:30. Los domingos muchos sitios cierran temprano, y el plato de ese día es el Sunday roast, que se come al mediodía y no de noche.'},
     {n:'Gordon Ramsay Street Burger', d:'Ramsay en versión accesible, sobre Maiden Lane, en pleno Covent Garden. Hamburguesa, papas y refresco con recarga por unas £15.', t:'comer', p:'€', a:'Maiden Lane, Covent Garden', w:'https://www.gordonramsayrestaurants.com/street-burger/', tip:'Está a tres minutos del mercado de Covent Garden. Se almuerza rápido y les queda la tarde entera.'},
     {n:'Five Guys Covent Garden', d:'En Long Acre. Papas ilimitadas en el vaso, toppings gratis y refrescos de máquina.', t:'comer', p:'€', a:'Long Acre', w:'https://www.fiveguys.co.uk/'},
     {n:'Borough Market', d:'Acá se come lo mejor de Londres. Bread Ahead (donuts rellenos), Kappacasein (el toastie de queso), Padella (pasta fresca), ostras, quesos, todo para picar de pie.', t:'comer', p:'€', tip:'Martes a jueves está lleno pero se puede. Sábado es imposible. Cierra temprano: ir antes de las 16:00.'},
-    {n:'Dishoom Covent Garden', d:'Café iraní de Bombay recreado con una obsesión por el detalle. El bacon naan roll del desayuno es de culto; el black daal se cocina 24 horas.', t:'comer', p:'€€', w:'https://www.dishoom.com/', tip:'No reservan mesa para dos en horario pico. Ir a las 17:30 o anotarse y esperar en el bar del sótano con un chai.'},
+    {n:'Dishoom Covent Garden', d:'Café iraní de Bombay recreado con una obsesión por el detalle. El bacon naan roll del desayuno es de culto; el black daal se cocina 24 horas.', t:'comer', p:'€€', w:'https://www.dishoom.com/', tip:'No reservan mesa para dos en horario pico. Sobre las 17:30 todavía se entra; más tarde conviene anotarse y esperar en el bar del sótano con un chai.'},
     {n:'Flat Iron', d:'Un solo corte de carne a precio fijo, con ensalada y papas aparte. Sale la mitad que cualquier steakhouse del centro.', t:'comer', p:'€€', w:'https://flatironsteak.co.uk/'},
     {n:'The Churchill Arms', d:'El pub más florido de Londres, en Kensington. Por fuera es una explosión de macetas; por dentro sirven comida tailandesa desde 1990.', t:'comer', p:'€€', tip:'En diciembre lo cubren de árboles de Navidad. Es una de las fachadas más fotografiadas de la ciudad.'},
     {n:'Tattu London', d:'Cocina china contemporánea en The Now Building, junto a Tottenham Court Road. El cerezo en flor que atraviesa el salón es el motivo por el que la gente reserva.', t:'comer', p:'€€€', a:'The Now Building, Denmark Street', w:'https://tattu.co.uk/locations/tattu-london/', tip:'Pidan mesa cerca del cerezo al reservar. Los postres están pensados para la foto tanto como para comerse.'},
@@ -568,7 +570,7 @@ const CITIES = [
   ]},
   {s:'Espectáculos de noviembre y diciembre', k:'evento', items:[
     {n:'West End: la temporada', d:'Avenue Q vuelve al Shaftesbury desde el 21 de noviembre, Jesus Christ Superstar sigue en el Theatre Royal Drury Lane, Paddington The Musical en el Savoy y Kinky Boots en el London Coliseum. Más los fijos: El Rey León, Hamilton, Los Miserables, Wicked.', t:'evento', p:'€€', w:'https://www.londontheatre.co.uk/', tip:'Consultar la cartelera cerca de la fecha: los elencos y los títulos rotan.'},
-    {n:'TKTS en Leicester Square', d:'La caseta oficial de entradas de último minuto. Descuentos reales para funciones del mismo día.', t:'evento', w:'https://officiallondontheatre.com/tkts/', tip:'Ir a las 10:00 cuando abre, para funciones de esa noche. La app TodayTix hace lo mismo desde el celular y sortea entradas baratas.'},
+    {n:'TKTS en Leicester Square', d:'La caseta oficial de entradas de último minuto. Descuentos reales para funciones del mismo día.', t:'evento', w:'https://officiallondontheatre.com/tkts/', tip:'Abre a las 10:00 y esa primera hora es la que tiene mejor oferta para las funciones de esa noche. La app TodayTix hace lo mismo desde el celular y sortea entradas baratas.'},
     {n:'Pantomime', d:'La tradición navideña británica: cuento infantil, humor de doble sentido para adultos, actores travestidos y el público gritando. Rarísimo y muy divertido.', t:'evento', p:'€€', tip:'El del Lyric Hammersmith y el del London Palladium son los que valen la pena.'},
     {n:'Conciertos de Navidad en el Royal Albert Hall', d:'Carols by Candlelight, el Mesías de Händel y la banda sonora de películas con orquesta en vivo, durante todo diciembre.', t:'evento', p:'€€', w:'https://www.royalalberthall.com/'},
     {n:'Cartelera de conciertos', d:'Para lo que se anuncie más cerca de la fecha: Songkick y See Tickets listan todo lo que pasa por O2, Roundhouse, Brixton Academy y las salas chicas.', t:'evento', w:'https://www.songkick.com/metro-areas/24426-uk-london'}
@@ -579,6 +581,7 @@ const CITIES = [
   id:'par', nav:'París', name:'París', plate:'Métropolitain', accent:'#6B5B95', lt:'#C0B2E2', maps:'Paris',
   lede:'Es la que mejor se camina de las cinco. En noviembre los jardines están amarillos, las terrazas tienen estufa y las colas de los museos se parten al medio. Y desde enero de 2026 se terminaron las zonas: un billete los lleva a cualquier lado.',
   quick:[
+    ['Se cena','19:30 a 22:00'],
     ['Billete sencillo','€2,55, todas las zonas'],
     ['Tarjeta','Navigo Easy €2, o el celular'],
     ['Noviembre','11° / 6°, gris'],
@@ -610,6 +613,7 @@ const CITIES = [
     {n:'Le Marais', d:'La Place des Vosges (la plaza más antigua de París, con arcadas), la Rue des Rosiers y sus falafels, tiendas independientes y galerías. Muchos comercios abren los domingos, cosa rara en París.', t:'visita', tip:'Es el mejor barrio para un domingo, justo cuando el resto de la ciudad baja la persiana.'}
   ]},
   {s:'Comer', k:'comer', items:[
+    {n:'Los horarios de comida en París', d:'El almuerzo va de 12:00 a 14:00 y la cena arranca sobre las 19:30 o 20:00, con el último pedido cerca de las 22:00. Entre las 14:30 y las 19:00 la mayoría de las cocinas cierran del todo.', t:'comer', tip:'Si les agarra hambre en ese hueco, las brasseries con <em>service continu</em> sirven a cualquier hora, y siempre quedan las panaderías y las creperías. Vale la pena reservar para la cena: los bistrós buenos son chicos y se llenan.'},
     {n:'Bouillon Chartier', d:'Comedor de 1896 con techos altos, camareros de chaleco que anotan en el mantel y platos franceses clásicos entre €10 y €14. Se comparte mesa con desconocidos.', t:'comer', p:'€', w:'https://www.bouillon-chartier.com/', tip:'No reservan: hay cola, pero avanza rápido porque la rotación es brutal. El de Pigalle suele tener menos espera que el de Montmartre.'},
     {n:'Crêperie de barrio', d:'La calle Montparnasse (entre Odessa y Vandamme) es el pequeño barrio bretón de París: una crepería detrás de otra. Galette salada de trigo sarraceno primero, crepe dulce después, y sidra en tazón.', t:'comer', p:'€', tip:'La regla bretona: la galette salada va con sidra, no con vino. En el Marais, Breizh Café es la versión más cuidada y también más cara.'},
     {n:'L’As du Fallafel', d:'Rue des Rosiers, en el Marais. El falafel más famoso de París, para llevar por la ventanilla y comer caminando.', t:'comer', p:'€', tip:'Cierra los sábados por el shabat. La cola de la ventanilla va mucho más rápido que la mesa.'},
@@ -702,6 +706,7 @@ const CITIES = [
     {n:'Estadio Santiago Bernabéu', d:'El tour del estadio recién reformado, con el techo retráctil y el museo de trofeos.', t:'visita', p:'€€', w:'https://www.realmadrid.com/', tip:'Si hay partido, la entrada más barata cuesta parecido al tour y la experiencia no tiene comparación.'}
   ]},
   {s:'Comer', k:'comer', items:[
+    {n:'Los horarios de comida en Madrid', d:'Es el más tarde de los cinco, con diferencia. Se almuerza de 14:00 a 16:00 y se cena de 21:00 a 23:00. Si van a cenar a las 20:00 se van a encontrar el restaurante vacío, y no porque sea malo.', t:'comer', tip:'Entre las 16:30 y las 20:30 casi ninguna cocina de restaurante trabaja, pero los bares de tapas sirven todo el tiempo y eso cubre el hueco perfectamente. Es, de hecho, la mejor manera de comer en Madrid.'},
     {n:'Chocolatería San Ginés', d:'Pasadizo de San Ginés 5, abierta desde 1894 y prácticamente 24 horas. Seis churros y una taza de chocolate espeso: el desayuno, la merienda o el cierre de la noche.', t:'comer', p:'€', a:'Pasadizo de San Ginés 5', w:'https://chocolateriasangines.com/', tip:'A las 6 de la mañana está llena de gente saliendo de fiesta. A las 9 de la mañana está vacía y es igual de buena.'},
     {n:'Mercado de San Ildefonso', d:'Fuencarral 57, en Malasaña. Tres plantas de puestos de comida callejera con terraza arriba. Se pica de todo sin comprometerse con un restaurante.', t:'comer', p:'€', a:'Calle Fuencarral 57', tip:'Mucho más barato y más local que San Miguel, y con mejor ambiente de noche.'},
     {n:'Bocadillo de calamares', d:'El plato más madrileño que existe: calamares rebozados en un bollo, sin nada más. En los bares de las calles que salen de la Plaza Mayor.', t:'comer', p:'€', tip:'La Campana y Bar Postas son los clásicos. Se come de pie, con una caña, y cuesta menos de €5.'},
@@ -766,6 +771,7 @@ const CITIES = [
   id:'rom', nav:'Roma', name:'Roma', plate:'ATAC', accent:'#8F6A28', lt:'#DFBE78', maps:'Rome',
   lede:'La más templada de las cinco, y la que más premia caminar: el metro ni siquiera pasa por el centro barroco, así que todo se hace a pie. En noviembre todavía se puede almorzar afuera al sol, y en diciembre la Piazza Navona se llena de puestos.',
   quick:[
+    ['Se cena','20:30 a 22:30'],
     ['Billete BIT','€1,50, 100 minutos'],
     ['Abonos','24 h €8,50 · 48 h €12,50 · 72 h €18'],
     ['Noviembre','17° / 9°, la más templada'],
@@ -785,7 +791,7 @@ const CITIES = [
     {n:'Coliseo, Foro Romano y Palatino', d:'Entrada conjunta a los tres. El Foro se recorre en dos horas y el Palatino tiene la mejor vista del Foro desde arriba.', t:'visita', p:'€€', w:'https://parcocolosseo.it/', tip:'Reservar franja horaria en coopculture.it con antelación: sin reserva la cola es de horas. Entrar por el Palatino (Via di San Gregorio) suele tener menos gente que por el Coliseo.'},
     {n:'Panteón', d:'El edificio antiguo mejor conservado del mundo, con el óculo abierto al cielo. Entrada de €5.', t:'visita', p:'€', tip:'Si llueve, entrar: se ve caer el agua por el óculo y drenar por el suelo original. Es una de las cosas más impresionantes de Roma y casi nadie la ve.'},
     {n:'Fontana di Trevi', d:'Enorme y siempre rodeada. Se tira una moneda con la mano derecha por encima del hombro izquierdo.', t:'visita', tip:'A las 7 de la mañana está prácticamente vacía y con luz dorada. A cualquier otra hora es una multitud.'},
-    {n:'Vaticano: Basílica de San Pedro', d:'Entrar es gratis. Subir a la cúpula cuesta €10 y son 551 escalones (o ascensor hasta la terraza y 320 a pie).', t:'visita', p:'€', tip:'Llegar a las 7:00, cuando abre. Hay control de seguridad y código de vestimenta: hombros y rodillas cubiertos, para los dos.'},
+    {n:'Vaticano: Basílica de San Pedro', d:'Entrar es gratis. Subir a la cúpula cuesta €10 y son 551 escalones (o ascensor hasta la terraza y 320 a pie).', t:'visita', p:'€', tip:'Abre a las 7:00 y esa primera hora es la más tranquila del día. Hay control de seguridad y código de vestimenta: hombros y rodillas cubiertos, para los dos.'},
     {n:'Museos Vaticanos y Capilla Sixtina', d:'Cuatro horas si se hace completo. La Capilla Sixtina está al final del recorrido y no se puede saltar la fila.', t:'visita', p:'€€', w:'https://www.museivaticani.va/', tip:'Reservar sí o sí, con semanas de antelación. Los miércoles por la mañana hay audiencia papal y la plaza está cortada.'},
     {n:'Castel Sant’Angelo', d:'Un mausoleo romano que los papas convirtieron en fortaleza. La terraza de arriba tiene una de las mejores vistas de Roma.', t:'visita', p:'€€'},
     {n:'Galleria Borghese', d:'Bernini y Caravaggio en un palacio del siglo XVII dentro de Villa Borghese. El Rapto de Proserpina y el Apolo y Dafne están ahí.', t:'visita', p:'€€', w:'https://galleriaborghese.beniculturali.it/', tip:'Reserva obligatoria con franja de dos horas y aforo limitado. Se agota con semanas. Es el museo más agradable de Roma justamente por eso.'},
@@ -793,10 +799,11 @@ const CITIES = [
     {n:'Piazza di Spagna y la escalinata', d:'Las 135 escaleras y la fuente de la Barcaccia abajo. No se puede sentar en los escalones: hay multa.', t:'visita', tip:'Desde arriba, junto a la iglesia de Trinità dei Monti, se ve toda la Via Condotti en línea recta. En diciembre está iluminada.'}
   ]},
   {s:'Comer', k:'comer', items:[
+    {n:'Los horarios de comida en Roma', d:'Almuerzo de 12:30 a 15:00 y cena desde las 19:30 o 20:00, con las cocinas trabajando hasta cerca de las 23:00. Muchas trattorias cierran entre una cosa y la otra, así que a las 17:00 cuesta encontrar algo más que un bar.', t:'comer', tip:'Los romanos cenan sobre las 20:30 o 21:00. Sentarse a las 19:30 suele significar conseguir mesa sin reserva en sitios que después se llenan.'},
     {n:'Pizzarium Bonci', d:'Junto a los Museos Vaticanos. Pizza al taglio de masa larga fermentación, cortada con tijera y pesada. Gabriele Bonci cambió la forma en que Roma come pizza.', t:'comer', p:'€', tip:'Se come de pie en la calle. Ideal antes o después del Vaticano, que está a diez minutos.'},
     {n:'Trapizzino', d:'Un triángulo de pizza bianca abierto y relleno con guisos romanos: pollo alla cacciatora, lengua en salsa verde, albóndigas. Inventado en el Testaccio.', t:'comer', p:'€', tip:'Dos por persona y una cerveza es una cena completa por menos de €12 cada uno.'},
     {n:'Forno Campo de’ Fiori', d:'En la plaza del mercado. La pizza bianca con aceite y sal es el snack romano por excelencia, y sale por poco más de un euro.', t:'comer', p:'€', tip:'Pedirla "con la mortazza" (con mortadela dentro) es como la comen los romanos.'},
-    {n:'Da Enzo al 29', d:'Trastevere. Trattoria diminuta con los cuatro clásicos romanos hechos como corresponde: cacio e pepe, carbonara, amatriciana y gricia.', t:'comer', p:'€€', tip:'No aceptan reservas para cenar y la cola empieza antes de que abran. Ir a las 19:00 en punto o pasar a almorzar.'},
+    {n:'Da Enzo al 29', d:'Trastevere. Trattoria diminuta con los cuatro clásicos romanos hechos como corresponde: cacio e pepe, carbonara, amatriciana y gricia.', t:'comer', p:'€€', tip:'No aceptan reservas para cenar y la cola empieza antes de que abran. Sentarse a las 19:00 en punto suele funcionar; si no, pasar a almorzar.'},
     {n:'Tonnarello', d:'También en Trastevere, más grande y con menos espera que Da Enzo. Buena relación calidad-precio y terraza con estufas.', t:'comer', p:'€€'},
     {n:'Armando al Pantheon', d:'A cincuenta metros del Panteón, en manos de la misma familia desde 1961. Cocina romana clásica, sin concesiones al turista pese a la ubicación.', t:'comer', p:'€€', w:'https://www.armandoalpantheon.it/', tip:'Reservar con semanas de antelación. Es de los pocos sitios buenos que quedan en pleno centro turístico.'},
     {n:'Roscioli Salumeria con Cucina', d:'Mitad charcutería, mitad restaurante. Una de las mejores carbonaras de Roma y una carta de vinos enorme.', t:'comer', p:'€€', tip:'Reservar. Sentarse en la barra, entre los jamones colgados, es mejor que en el salón.'},
@@ -811,7 +818,7 @@ const CITIES = [
     {n:'Roscioli Caffè', d:'El café de la familia Roscioli. Bollería excelente, café serio y sitio para sentarse sin agobio.', t:'cafe', p:'€'}
   ]},
   {s:'Cócteles', k:'coctel', items:[
-    {n:'Drink Kong', d:'En Monti. Estética Blade Runner con neones y luz baja, y coctelería de las mejores del mundo, de la mano de Patrick Pistolesi.', t:'coctel', p:'€€', w:'https://www.drinkkong.com/', tip:'Está entre los 50 mejores bares del mundo. Ir temprano, sobre las 19:00, para conseguir sitio y poder hablar.'},
+    {n:'Drink Kong', d:'En Monti. Estética Blade Runner con neones y luz baja, y coctelería de las mejores del mundo, de la mano de Patrick Pistolesi.', t:'coctel', p:'€€', w:'https://www.drinkkong.com/', tip:'Está entre los 50 mejores bares del mundo. Sobre las 19:00 todavía se consigue sitio y se puede hablar sin gritar.'},
     {n:'Freni e Frizioni', d:'Trastevere. Un antiguo taller mecánico ("frenos y embragues") convertido en bar. Aperitivo con buffet incluido y terraza sobre el Tíber.', t:'coctel', p:'€', tip:'El aperitivo de 19:00 a 22:00 incluye buffet libre con el precio de la bebida. Es la mejor relación precio-diversión de Roma.'},
     {n:'Jerry Thomas Speakeasy', d:'Bar clandestino de verdad: hay que buscar la contraseña en su web y llamar a una puerta sin cartel. Coctelería clásica de los años 20.', t:'coctel', p:'€€', tip:'Hay que hacerse socio online (cuesta poco) y reservar. Parte de la gracia es el trámite.'},
     {n:'Salotto42', d:'Piazza di Pietra, frente a las columnas del templo de Adriano. Un salón con libros de arte y sillones, con una de las vistas más bonitas para tomar algo.', t:'coctel', p:'€€'},
@@ -853,6 +860,7 @@ const CITIES = [
   id:'mil', nav:'Milán', name:'Milán', plate:'ATM', accent:'#3F7361', lt:'#8FCFB6', maps:'Milan',
   lede:'Nadie le da bola a Milán y es un error. El centro es chico y peatonal, el aperitivo es casi una religión, y la primera semana de diciembre junta las dos cosas más milanesas del año: Sant’Ambrogio y la apertura de La Scala. Eso sí, abríguense en serio, que la humedad hace que 5 grados se sientan como 0.',
   quick:[
+    ['Se cena','19:30 a 22:00, o aperitivo'],
     ['Urbano','€2,20, 90 minutos'],
     ['Diario','€7,60 · 3 días €15,50'],
     ['Sin papel','Desde 2026 solo contactless o app'],
@@ -862,7 +870,7 @@ const CITIES = [
   {s:'Al aire libre', k:'aire', items:[
     {n:'Terrazas del Duomo', d:'Se sube al tejado y se camina entre los pináculos de mármol y las gárgolas, con la ciudad abajo y los Alpes al fondo en días claros.', t:'aire', p:'€€', w:'https://www.duomomilano.it/', tip:'Subir por las escaleras en vez del ascensor: sale más barato y el recorrido es mejor. Reservar franja horaria online.'},
     {n:'Parco Sempione y Arco della Pace', d:'El parque detrás del Castello Sforzesco, con la Torre Branca (mirador) y el arco neoclásico al fondo. El paseo verde de Milán.', t:'aire'},
-    {n:'Navigli', d:'Los canales del sur, diseñados en parte por Leonardo. Naviglio Grande y Naviglio Pavese se llenan de bares al atardecer. Es la zona de aperitivo por excelencia.', t:'aire', tip:'Bajar a las 18:00, cuando encienden las luces sobre el agua y empieza el aperitivo. La Darsena, donde se juntan los dos canales, es el punto de encuentro.'},
+    {n:'Navigli', d:'Los canales del sur, diseñados en parte por Leonardo. Naviglio Grande y Naviglio Pavese se llenan de bares al atardecer. Es la zona de aperitivo por excelencia.', t:'aire', tip:'La mejor hora es sobre las 18:00, cuando encienden las luces sobre el agua y empieza el aperitivo. La Darsena, donde se juntan los dos canales, es el punto de encuentro.'},
     {n:'Brera', d:'Calles empedradas, galerías y patios internos. El más bonito para caminar sin destino, y a diez minutos del Duomo.', t:'aire', tip:'La Via Fiori Chiari y la Via Madonnina concentran los mejores rincones. En diciembre está iluminado entero.'},
     {n:'Cimitero Monumentale', d:'Un museo de escultura al aire libre. Mausoleos modernistas, art nouveau y contemporáneos de las grandes familias milanesas. Gratis.', t:'aire', tip:'Suena raro como plan de pareja, pero es una de las visitas más impresionantes de Milán y casi no hay nadie.'},
     {n:'Porta Nuova, Gae Aulenti y Bosco Verticale', d:'El Milán contemporáneo: la plaza circular elevada, los rascacielos y las dos torres cubiertas de árboles. La Biblioteca degli Alberi, al lado, es un parque nuevo y bien hecho.', t:'aire', tip:'De noche, con la fuente de Gae Aulenti iluminada y las torres encendidas, es el mejor contraste con el centro histórico.'},
@@ -880,6 +888,7 @@ const CITIES = [
     {n:'QC Terme Milano', d:'Spa urbano junto a las murallas españolas, con saunas, piscinas al aire libre calientes y un tranvía antiguo convertido en sala de vapor.', t:'visita', p:'€€€', w:'https://www.qcterme.com/', tip:'El mejor plan de pareja para un día de niebla y frío. Reservar con antelación e ir entre semana.'}
   ]},
   {s:'Comer', k:'comer', items:[
+    {n:'Los horarios de comida en Milán', d:'Parecido a Roma pero algo más temprano. Lo propio de Milán es el aperitivo: entre las 18:00 y las 21:00 se paga la bebida y el buffet viene incluido, y para mucha gente eso reemplaza la cena.', t:'comer', tip:'Si lo aprovechan, después no necesitan cenar. Y si igual quieren cenar, las cocinas trabajan hasta cerca de las 22:30.'},
     {n:'Luini', d:'A cincuenta metros del Duomo, desde 1949. El panzerotto (media luna frita rellena de tomate y mozzarella) que se come de pie en la calle. Cuesta unos €3.', t:'comer', p:'€', tip:'Siempre hay cola, pero avanza en cinco minutos. Cierra los domingos.'},
     {n:'Pizzeria Spontini', d:'Un solo producto desde 1953: el trancio, una porción gruesa de pizza margarita con mucho queso. Nada más.', t:'comer', p:'€'},
     {n:'Mercato Centrale Milano', d:'Dentro de la estación Centrale. Puestos de artesanos italianos: pasta fresca, pizza napolitana, carne, helado, vinos. Abierto hasta tarde.', t:'comer', p:'€'},
@@ -902,7 +911,7 @@ const CITIES = [
     {n:'Bar Basso', d:'Donde se inventó el Negroni Sbagliato, en 1972, al confundir la ginebra con el prosecco. Lo sirven en una copa enorme y desproporcionada, como corresponde.', t:'coctel', p:'€€', w:'https://www.barbasso.com/', tip:'Está lejos del centro (zona Lambrate), pero es peregrinación obligada. El vaso gigante es parte del chiste.'},
     {n:'Terrazza Aperol', d:'En la Piazza del Duomo, con la catedral enmarcada en el ventanal. Turístico, sí, pero la vista al atardecer es difícil de superar.', t:'coctel', p:'€€'},
     {n:'Dry Milano', d:'Cócteles serios y pizza napolitana en el mismo sitio, en Brera. La combinación funciona mucho mejor de lo que suena.', t:'coctel', p:'€€'},
-    {n:'Nottingham Forest', d:'Coctelería molecular y tiki en un local abarrotado de objetos. Está desde hace años entre los mejores bares del mundo.', t:'coctel', p:'€€', tip:'No reservan y es diminuto. Llegar a la apertura, sobre las 18:30.'},
+    {n:'Nottingham Forest', d:'Coctelería molecular y tiki en un local abarrotado de objetos. Está desde hace años entre los mejores bares del mundo.', t:'coctel', p:'€€', tip:'No reservan y es diminuto. Abre sobre las 18:30 y a esa hora todavía se entra sin esperar.'},
     {n:'Ceresio 7', d:'Azotea con dos piscinas sobre el antiguo edificio de Enel, con vista al Cimitero Monumentale y a los rascacielos. De los Dean & Dan de DSquared2.', t:'coctel', p:'€€€'}
   ]},
   {s:'Cómo moverse', k:'mover', items:[
