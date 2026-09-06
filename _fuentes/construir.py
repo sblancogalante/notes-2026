@@ -69,11 +69,19 @@ for ruta in SITIO["guias"]:
     shell = (COMUN / "shell.html").read_text(encoding="utf-8")
     shell = (shell.replace("__TITULO__", cfg["titulo"])
                   .replace("__SUBTITULO__", cfg["subtitulo"])
-                  .replace("__FUENTES__", (COMUN / "fuentes.css").read_text(encoding="utf-8"))
+                  # `fuentes` y `estilo` dejan que una guia tenga su propia
+                  # tipografia sin tocar a las demas: el primero cambia que
+                  # familias van incrustadas, el segundo agrega reglas al final
+                  # de la hoja, que es donde pueden pisar lo de arriba.
+                  .replace("__FUENTES__",
+                           (COMUN / cfg.get("fuentes", "fuentes.css")).read_text(encoding="utf-8"))
+                  .replace("__EXTRA__\n",
+                           (COMUN / cfg["estilo"]).read_text(encoding="utf-8") if cfg.get("estilo") else "")
                   .replace("__URL__", url)
                   .replace("__QR__", qr_svg(url))
                   .replace("__PALETA__\n", paleta_css(cfg)))
-    for marca in ("__TITULO__", "__SUBTITULO__", "__FUENTES__", "__QR__", "__URL__", "__PALETA__"):
+    for marca in ("__TITULO__", "__SUBTITULO__", "__FUENTES__", "__QR__", "__URL__",
+                  "__PALETA__", "__EXTRA__"):
         assert marca not in shell, f"quedo sin reemplazar el marcador {marca}"
 
     ciudades = "".join((src / parte).read_text(encoding="utf-8") for parte in cfg["partes"])
@@ -116,7 +124,8 @@ for ruta in SITIO["guias"]:
     (dst / "sw.js").write_text(sw, encoding="utf-8")
 
     import iconos
-    iconos.generar(dst, cfg["color"], cfg.get("letra", cfg["titulo"][0]))
+    iconos.generar(dst, cfg["color"], cfg.get("letra", cfg["titulo"][0]),
+                   cfg.get("icono_fuente"))
     qr_png(url, dst / "qr.png", "#2B2028")
 
     kb = (dst / "index.html").stat().st_size // 1024

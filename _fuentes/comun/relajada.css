@@ -1,0 +1,23 @@
+/* Ajustes de la guia de Italia y Espana. Van al final de la hoja, asi que
+   pisan lo de arriba sin tocar shell.html.
+
+   El cambio de fondo es la tipografia de titulos: Cormorant es una romana de
+   boda, elegante y formal, y Fraunces es blanda y un poco torcida. Como
+   Fraunces tiene la equis bastante mas alta, al mismo tamano en rem se ve como
+   un doce por ciento mas grande: por eso cada medida baja un escalon. Sin esto
+   los titulos quedan gordos y el ritmo de la pagina se rompe. */
+:root{--display:'Fraunces',Georgia,'Times New Roman',serif}
+
+.brand{font-size:1.18rem;letter-spacing:-.005em}
+.cityname{font-size:clamp(2.25rem,11.2vw,3.3rem);letter-spacing:-.018em}
+.plate{font-size:.9rem;letter-spacing:.1em}
+.sec > summary h2{font-size:1.15rem;letter-spacing:-.004em}
+.rgroup > h2{font-size:1.32rem}
+.it-name{font-size:1.1rem;letter-spacing:-.004em}
+.it-note b{font-size:.93rem;letter-spacing:.02em}
+.prose h3{font-size:1.04rem;letter-spacing:-.004em}
+.chip.sep{font-size:.84rem}
+
+/* Cormorant necesitaba el empujon porque es chica; Fraunces no, y con el
+   empujon las cursivas del medio de un parrafo saltaban de la linea. */
+.prose em,.it-desc em,.it-note em{font-size:1em}

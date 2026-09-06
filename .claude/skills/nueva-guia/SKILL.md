@@ -153,6 +153,30 @@ antes: es lo que permite agregar guias nuevas sin tocar una sola linea de las
 que ya estan publicadas. Hay que definir el juego completo de tokens, no unos
 sueltos, y comprobar el contraste de `--ink` sobre `--surface` en los dos temas.
 
+**La tipografia.** Otras tres claves opcionales, con la misma logica de no
+tocar lo que ya esta publicado:
+
+```json
+"fuentes": "fuentes-relajada.css",
+"estilo": "relajada.css",
+"icono_fuente": "fraunces.ttf"
+```
+
+- `fuentes` elige que archivo de `comun/` se incrusta en lugar de
+  `fuentes.css`. Cada guia lleva solo las familias que usa: incrustar una que
+  no se usa son cientos de kilobytes de mas en la primera carga.
+- `estilo` agrega un archivo de `comun/` **al final** de la hoja, que es donde
+  puede pisar las reglas de shell.html. Ahi van los ajustes de tamano: al
+  cambiar de familia cambia la altura de la equis y los titulos quedan gordos
+  o flacos si no se compensa.
+- `icono_fuente` es el ttf con el que se dibuja la inicial del icono, para que
+  sea la misma letra que la de los titulos.
+
+Para armar un `fuentes-*.css` nuevo: bajar el subconjunto `latin` de Google
+Fonts, instanciar la variable con `fontTools` fijando los ejes que no se usan
+(deja el archivo en un tercio), pasarlo a base64 y pegarlo junto a los
+`@font-face` de las familias que se conserven de `fuentes.css`.
+
 **Los archivos de contenido.** Cada uno es un objeto de ciudad que empieza con
 `{` y termina con `},`. El build los concatena dentro de `const CITIES = [...]`.
 

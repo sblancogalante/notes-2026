@@ -1,6 +1,8 @@
-"""Iconos de la app: cuadrado del color de la guia con una inicial en Cormorant.
+"""Iconos de la app: cuadrado del color de la guia con una inicial.
 
-La tipografia esta en el repo (cormorant.ttf) para no depender de la red.
+Las tipografias estan en el repo (cormorant.ttf, fraunces.ttf) para no depender
+de la red. Cada guia puede pedir la suya, para que la letra del icono sea la
+misma que la de los titulos de la pagina.
 """
 import pathlib
 from PIL import Image, ImageDraw, ImageFont
@@ -15,12 +17,12 @@ def _hex(c):
     return tuple(int(c[i:i + 2], 16) for i in (0, 2, 4))
 
 
-def _icono(px, fondo, letra, radio_rel=0.22, margen=False):
+def _icono(px, fondo, letra, radio_rel=0.22, margen=False, ttf=None):
     s = px * 4                   # se dibuja en grande y se reduce, para que quede suave
     img = Image.new("RGBA", (s, s), (0, 0, 0, 0))
     dr = ImageDraw.Draw(img)
     dr.rounded_rectangle([0, 0, s - 1, s - 1], radius=int(s * radio_rel), fill=fondo + (255,))
-    f = ImageFont.truetype(str(TTF), int(s * (0.52 if margen else 0.62)))
+    f = ImageFont.truetype(str(ttf or TTF), int(s * (0.52 if margen else 0.62)))
     try:
         f.set_variation_by_axes([600])          # semibold, como los titulos de la guia
     except Exception:
@@ -31,14 +33,15 @@ def _icono(px, fondo, letra, radio_rel=0.22, margen=False):
     return img.resize((px, px), Image.LANCZOS)
 
 
-def generar(destino, color, letra):
+def generar(destino, color, letra, fuente=None):
     """Escribe icon-192, icon-512 y apple-touch-icon en la carpeta destino."""
     destino = pathlib.Path(destino)
     fondo = _hex(color)
+    ttf = AQUI / fuente if fuente else None
     for px, nombre in ((192, "icon-192.png"), (512, "icon-512.png")):
-        _icono(px, fondo, letra).save(destino / nombre)
+        _icono(px, fondo, letra, ttf=ttf).save(destino / nombre)
     # iOS recorta las esquinas por su cuenta y no admite transparencia: cuadrado lleno
-    _icono(180, fondo, letra, radio_rel=0, margen=True).convert("RGB").save(
+    _icono(180, fondo, letra, radio_rel=0, margen=True, ttf=ttf).convert("RGB").save(
         destino / "apple-touch-icon.png")
 
 
