@@ -134,6 +134,25 @@ Copia la estructura de `_fuentes/eurotrip-serri-cami/` como referencia.
 visitados y el dominio es compartido. `cache` se cambia en cada publicacion o
 los telefonos siguen sirviendo la version vieja.
 
+**La paleta.** `shell.html` trae el tema pastel por defecto. Una guia puede
+tener el suyo agregando `paleta` a `guia.json`, con los mismos nombres de token
+en los dos estados, y `fondo` para el color de arranque del manifiesto:
+
+```json
+"fondo": "#FFFAF2",
+"paleta": {
+  "claro":  { "--bg": "#F7E9D7", "--surface": "#FFFAF2", "--ink": "#241A12", "--accent": "#C2410C" },
+  "oscuro": { "--bg": "#171210", "--surface": "#221A16", "--ink": "#F7EDE2", "--accent": "#FDBA74" }
+}
+```
+
+El build emite los tres estados (claro, oscuro del sistema y oscuro elegido a
+mano) a partir de esos dos bloques, asi que ningun color queda definido en un
+solo lado. Sin `paleta` no se emite nada y la guia sale identica a como salia
+antes: es lo que permite agregar guias nuevas sin tocar una sola linea de las
+que ya estan publicadas. Hay que definir el juego completo de tokens, no unos
+sueltos, y comprobar el contraste de `--ink` sobre `--surface` en los dos temas.
+
 **Los archivos de contenido.** Cada uno es un objeto de ciudad que empieza con
 `{` y termina con `},`. El build los concatena dentro de `const CITIES = [...]`.
 
@@ -163,11 +182,13 @@ los telefonos siguen sirviendo la version vieja.
   confirmado: sale con contorno punteado en el rail y con una etiqueta
   "Todavia sin confirmar" arriba del lede. Preguntalo en el bloque B de la
   entrevista, porque casi todo viaje largo tiene una parada dudosa.
-- `serv` y `res` son las etiquetas de servicio de una ficha de comer, cafe o
-  coctel. `serv` vale `mesa`, `barra`, `mostrador` o `puesto`; `res` vale `si`,
-  `conviene`, `no` o `cola`. Salen como pastillas debajo del precio y se leen
-  paradas en la puerta, asi que van solo cuando el dato es seguro: una etiqueta
-  inventada es peor que ninguna.
+- `serv` y `res` son las etiquetas de servicio. `serv` vale `mesa`, `barra`,
+  `mostrador` o `puesto`, y es para fichas de comer, cafe o coctel; `res` vale
+  `si`, `conviene`, `no` o `cola`, y sirve tambien fuera de la comida, en
+  cualquier ficha donde reservar cambie el plan: un tablao, unas termas, una
+  bodega. Salen como pastillas debajo del precio y se leen paradas en la
+  puerta, asi que van solo cuando el dato es seguro: una etiqueta inventada es
+  peor que ninguna.
 - Los nombres de ficha tienen que ser unicos dentro de la ciudad: el id sale de
   ahi y dos iguales hacen que marcar una marque las dos.
 
@@ -202,6 +223,14 @@ findable o a una caminata real. Si no, es nota.**
 `evento`. Primero lo que se necesita para funcionar en la ciudad (como moverse
 y donde comer) y despues lo que se elige hacer. La primera seccion aparece
 abierta, asi que conviene que sea la mas util al llegar.
+
+Si el viaje ya tiene fechas y reservas, la primera seccion de cada ciudad va
+en `html:` y es el plan dia por dia. Ahi se ordena la agenda que dio quien
+viaja: que se hace cada dia, en que orden conviene por como quedan los lugares
+en el mapa, y en que comida encaja cada restaurante de su lista. Es la seccion
+que mas se usa, porque contesta "y ahora que hacemos" sin buscar nada. Los
+lugares sueltos siguen viviendo como fichas en las secciones tematicas, con su
+mapa y su casilla; el plan solo los nombra.
 
 Cada ciudad lleva ademas una seccion "Sentarse a comer" antes de las de
 comida, con notas sobre que se espera al sentarse en un local: si esperan el

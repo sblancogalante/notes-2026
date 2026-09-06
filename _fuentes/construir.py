@@ -23,6 +23,24 @@ CABEZA = ('<meta charset="utf-8">\n'
           '<meta name="color-scheme" content="light dark">\n')
 
 
+def paleta_css(cfg):
+    """Los colores base de una guia. Sin `paleta` en guia.json no se emite nada
+    y la guia se queda con el tema de shell.html, byte por byte igual que antes.
+    Los tres estados van juntos: el claro pelado, el oscuro del sistema y el
+    oscuro elegido a mano, para que ningun color quede definido en un solo lado.
+    """
+    pal = cfg.get("paleta")
+    if not pal:
+        return ""
+    def bloque(d):
+        return "".join("  %s:%s;\n" % (k, v) for k, v in d.items())
+    claro, oscuro = bloque(pal["claro"]), bloque(pal["oscuro"])
+    return (":root{\n" + claro + "}\n"
+            "@media (prefers-color-scheme:dark){\n"
+            ':root:not([data-theme="light"]){\n' + oscuro + "}\n}\n"
+            ':root[data-theme="dark"]{\n' + oscuro + "}\n")
+
+
 def qr_svg(url):
     """QR como data URI. Va embebido para que se vea tambien sin conexion."""
     import segno
@@ -53,8 +71,9 @@ for ruta in SITIO["guias"]:
                   .replace("__SUBTITULO__", cfg["subtitulo"])
                   .replace("__FUENTES__", (COMUN / "fuentes.css").read_text(encoding="utf-8"))
                   .replace("__URL__", url)
-                  .replace("__QR__", qr_svg(url)))
-    for marca in ("__TITULO__", "__SUBTITULO__", "__FUENTES__", "__QR__", "__URL__"):
+                  .replace("__QR__", qr_svg(url))
+                  .replace("__PALETA__\n", paleta_css(cfg)))
+    for marca in ("__TITULO__", "__SUBTITULO__", "__FUENTES__", "__QR__", "__URL__", "__PALETA__"):
         assert marca not in shell, f"quedo sin reemplazar el marcador {marca}"
 
     ciudades = "".join((src / parte).read_text(encoding="utf-8") for parte in cfg["partes"])
@@ -87,7 +106,7 @@ for ruta in SITIO["guias"]:
         "name": cfg["titulo"], "short_name": cfg["nombre_corto"],
         "description": cfg["descripcion"], "lang": "es",
         "start_url": "./", "scope": "./", "display": "standalone", "orientation": "portrait",
-        "background_color": "#FDF5F8", "theme_color": cfg["color"],
+        "background_color": cfg.get("fondo", "#FDF5F8"), "theme_color": cfg["color"],
         "icons": [{"src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
                   {"src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
                   {"src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],

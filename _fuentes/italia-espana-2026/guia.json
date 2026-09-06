@@ -1,0 +1,53 @@
+{
+  "ruta": "italia-espana-2026",
+  "titulo": "Santi y Vale en Italia y España",
+  "subtitulo": "Del 3 al 25 de octubre de 2026",
+  "descripcion": "Guia de viaje para octubre de 2026.",
+  "nombre_corto": "Italia y España",
+  "color": "#C2410C",
+  "fondo": "#FFFAF2",
+  "letra": "S",
+  "clave": "italia-espana-2026",
+  "cache": "italia-espana-2026-09-06a",
+  "paleta": {
+    "claro": {
+      "--bg": "#F7E9D7",
+      "--surface": "#FFFAF2",
+      "--surface-2": "#F3E2CC",
+      "--surface-3": "#FCF3E7",
+      "--ink": "#241A12",
+      "--ink-2": "#4E3B2C",
+      "--muted": "#7A6350",
+      "--line": "#EBD8BF",
+      "--line-2": "#D9C0A0",
+      "--accent": "#C2410C",
+      "--accent-lt": "#FDBA74",
+      "--shadow": "0 1px 2px rgba(36,26,18,.06), 0 8px 24px -12px rgba(36,26,18,.18)"
+    },
+    "oscuro": {
+      "--bg": "#171210",
+      "--surface": "#221A16",
+      "--surface-2": "#2E241E",
+      "--surface-3": "#1D1714",
+      "--ink": "#F7EDE2",
+      "--ink-2": "#DCCBBA",
+      "--muted": "#A89282",
+      "--line": "#382C25",
+      "--line-2": "#4C3B31",
+      "--accent": "#FDBA74",
+      "--accent-lt": "#FDBA74",
+      "--shadow": "0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55)"
+    }
+  },
+  "partes": [
+    "0-antes.js",
+    "1-roma.js",
+    "2-florencia.js",
+    "3-toscana.js",
+    "4-cinque-terre.js",
+    "5-modena.js",
+    "6-milan.js",
+    "7-barcelona.js",
+    "8-sevilla.js"
+  ]
+}
