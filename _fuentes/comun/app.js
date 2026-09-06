@@ -23,7 +23,8 @@ const ALL = [];
 CITIES.forEach(c => c.sections.forEach(sec => (sec.items || []).forEach(it => {
   it._id = c.id + ':' + slug(it.n);
   it._city = c; it._sec = sec;
-  it._hay = norm([it.n, it.d, it.tip || '', it.a || '', sec.s, c.name].join(' '));
+  it._hay = norm([it.n, it.d, it.tip || '', it.a || '', SERVICIO[it.serv] || '',
+                 RESERVA[it.res] || '', sec.s, c.name].join(' '));
   ALL.push(it);
 })));
 
@@ -126,6 +127,9 @@ function itemHTML(it) {
   const tags = [];
   if (it.p) tags.push(`<span class="tag price">${it.p}</span>`);
   if (TIPOS[it.t]) tags.push(`<span class="tag">${esc(TIPOS[it.t])}</span>`);
+  /* it.serv y it.res: como funciona el servicio y si conviene reservar */
+  if (SERVICIO[it.serv]) tags.push(`<span class="tag serv">${esc(SERVICIO[it.serv])}</span>`);
+  if (RESERVA[it.res]) tags.push(`<span class="tag res">${esc(RESERVA[it.res])}</span>`);
   const cuerpo = `<h3 class="it-name">${esc(it.n)}</h3>
       <p class="it-desc">${rich(it.d)}</p>
       ${it.tip ? `<p class="it-note"><b>Truco</b>${rich(it.tip)}</p>` : ''}

@@ -163,6 +163,11 @@ los telefonos siguen sirviendo la version vieja.
   confirmado: sale con contorno punteado en el rail y con una etiqueta
   "Todavia sin confirmar" arriba del lede. Preguntalo en el bloque B de la
   entrevista, porque casi todo viaje largo tiene una parada dudosa.
+- `serv` y `res` son las etiquetas de servicio de una ficha de comer, cafe o
+  coctel. `serv` vale `mesa`, `barra`, `mostrador` o `puesto`; `res` vale `si`,
+  `conviene`, `no` o `cola`. Salen como pastillas debajo del precio y se leen
+  paradas en la puerta, asi que van solo cuando el dato es seguro: una etiqueta
+  inventada es peor que ninguna.
 - Los nombres de ficha tienen que ser unicos dentro de la ciudad: el id sale de
   ahi y dos iguales hacen que marcar una marque las dos.
 
@@ -197,6 +202,13 @@ findable o a una caminata real. Si no, es nota.**
 `evento`. Primero lo que se necesita para funcionar en la ciudad (como moverse
 y donde comer) y despues lo que se elige hacer. La primera seccion aparece
 abierta, asi que conviene que sea la mas util al llegar.
+
+Cada ciudad lleva ademas una seccion "Sentarse a comer" antes de las de
+comida, con notas sobre que se espera al sentarse en un local: si esperan el
+pedido de bebida al toque, cuanto tiempo dan para decidir, si la cuenta la
+traen a la mesa o hay que ir a pagarla, y donde hace falta reservar. Cambia
+mucho de un pais a otro y es de lo que mas se agradece haber leido antes de
+entrar.
 
 Ajusta el contenido a lo que dijeron en el bloque F: si no les interesan los
 museos, esa seccion se achica, no se llena por simetria.

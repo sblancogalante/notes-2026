@@ -219,6 +219,10 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
   padding:.2rem .55rem;border-radius:999px;background:var(--surface-2);color:var(--muted)}
 .tag.price{background:transparent;border:1px solid var(--city-on-bg,var(--accent));
   color:var(--city-on-bg,var(--accent));letter-spacing:.02em}
+/* servicio y reserva: son datos para leer antes de entrar, no categorias, asi
+   que van con contorno. El punteado es el mismo idioma que el de las notas. */
+.tag.serv,.tag.res{background:transparent;border:1px solid var(--line-2);letter-spacing:.05em}
+.tag.res{border-style:dashed}
 /* recomendaciones: se leen, no se hacen. Sin casilla y sin mapa. */
 .item.nota{background:transparent;border-style:dashed}
 .item.nota .it-name{font-size:1.06rem;color:var(--city-on-bg,var(--accent))}
