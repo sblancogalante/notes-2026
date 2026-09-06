@@ -8,7 +8,7 @@
   "fondo": "#FFFAF2",
   "letra": "S",
   "clave": "italia-espana-2026",
-  "cache": "italia-espana-2026-09-06b",
+  "cache": "italia-espana-2026-09-06c",
   "paleta": {
     "claro": {
       "--bg": "#F7E9D7",
@@ -25,15 +25,15 @@
       "--shadow": "0 1px 2px rgba(36,26,18,.06), 0 8px 24px -12px rgba(36,26,18,.18)"
     },
     "oscuro": {
-      "--bg": "#171210",
-      "--surface": "#221A16",
-      "--surface-2": "#2E241E",
-      "--surface-3": "#1D1714",
-      "--ink": "#F7EDE2",
-      "--ink-2": "#DCCBBA",
-      "--muted": "#A89282",
-      "--line": "#382C25",
-      "--line-2": "#4C3B31",
+      "--bg": "#0C1310",
+      "--surface": "#141E18",
+      "--surface-2": "#1E2C24",
+      "--surface-3": "#101913",
+      "--ink": "#E9F1EA",
+      "--ink-2": "#C6D5C9",
+      "--muted": "#8FA595",
+      "--line": "#243228",
+      "--line-2": "#36483B",
       "--accent": "#FDBA74",
       "--accent-lt": "#FDBA74",
       "--shadow": "0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55)"

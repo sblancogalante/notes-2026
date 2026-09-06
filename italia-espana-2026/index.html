@@ -70,30 +70,30 @@
 }
 @media (prefers-color-scheme:dark){
 :root:not([data-theme="light"]){
-  --bg:#171210;
-  --surface:#221A16;
-  --surface-2:#2E241E;
-  --surface-3:#1D1714;
-  --ink:#F7EDE2;
-  --ink-2:#DCCBBA;
-  --muted:#A89282;
-  --line:#382C25;
-  --line-2:#4C3B31;
+  --bg:#0C1310;
+  --surface:#141E18;
+  --surface-2:#1E2C24;
+  --surface-3:#101913;
+  --ink:#E9F1EA;
+  --ink-2:#C6D5C9;
+  --muted:#8FA595;
+  --line:#243228;
+  --line-2:#36483B;
   --accent:#FDBA74;
   --accent-lt:#FDBA74;
   --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
 }
 }
 :root[data-theme="dark"]{
-  --bg:#171210;
-  --surface:#221A16;
-  --surface-2:#2E241E;
-  --surface-3:#1D1714;
-  --ink:#F7EDE2;
-  --ink-2:#DCCBBA;
-  --muted:#A89282;
-  --line:#382C25;
-  --line-2:#4C3B31;
+  --bg:#0C1310;
+  --surface:#141E18;
+  --surface-2:#1E2C24;
+  --surface-3:#101913;
+  --ink:#E9F1EA;
+  --ink-2:#C6D5C9;
+  --muted:#8FA595;
+  --line:#243228;
+  --line-2:#36483B;
   --accent:#FDBA74;
   --accent-lt:#FDBA74;
   --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
@@ -524,10 +524,10 @@ const CITIES = [
   lede:'Catorce movimientos en veintitrés días: cinco vuelos, cinco tramos de tren, cuatro días de auto y los traslados de aeropuerto. Acá está cada uno, cuál ya está sacado, cuál falta y cuándo conviene sacarlo.',
   quick:[
     ['Vuelos','5, todos sacados'],
-    ['Trenes','5 tramos, ninguno sacado'],
+    ['Trenes','5 tramos, el de Florencia sacado'],
     ['Auto','Vie 9 a mar 13, sin reservar'],
     ['El día más frágil','Mié 14, La Spezia a Milán'],
-    ['Lo más urgente','El tren Roma a Florencia']
+    ['Lo más urgente','Reservar el auto']
   ],
   sections:[
   {s:'Todo de un vistazo', k:'plan', html:`
@@ -537,7 +537,7 @@ const CITIES = [
           <tr><td>Sáb 3</td><td>Montevideo a Madrid</td><td>Air Europa, nocturno</td><td>Sacado</td></tr>
           <tr><td>Dom 4</td><td>Madrid a Roma</td><td>Air Europa</td><td>Sacado</td></tr>
           <tr><td>Dom 4</td><td>Fiumicino a Navona</td><td>Taxi o Leonardo Express</td><td>Se resuelve ahí</td></tr>
-          <tr><td>Jue 8</td><td>Roma a Florencia</td><td>Tren, 9:20 de Termini</td><td><b>Falta</b></td></tr>
+          <tr><td>Jue 8</td><td>Roma a Florencia</td><td>Tren, 9:20 de Termini</td><td>Sacado</td></tr>
           <tr><td>Vie 9</td><td>Florencia a San Gimignano</td><td>Auto, retiro en Peretola</td><td><b>Falta</b></td></tr>
           <tr><td>Mar 13</td><td>San Gimignano a La Spezia</td><td>Auto, y se devuelve</td><td><b>Falta</b></td></tr>
           <tr><td>Mar 13</td><td>La Spezia y Cinque Terre</td><td>Tren regional</td><td>Se compra ahí</td></tr>
@@ -551,7 +551,7 @@ const CITIES = [
         </tbody>
       </table></div>
       <h3>Lo que falta, en una línea</h3>
-      <p>Los cinco vuelos están. Lo que no está es <b>todo lo terrestre de Italia</b>: el tren a Florencia, el auto de cuatro días, los dos tramos del miércoles 14 y, si vamos, el AVE a Córdoba. Nada de eso se agota como una entrada de museo, pero el precio sí sube, y en dos casos hay algo más que plata en juego.</p>
+      <p>Los cinco vuelos están y el tren a Florencia también. Lo único que queda pendiente de verdad es <b>el auto</b>, que es además lo que más sube de precio con el tiempo. Los dos tramos del miércoles 14 son trenes que se compran casi sobre la fecha, y el AVE a Córdoba depende de si vamos.</p>
       <h3>Los dos días que hay que mirar con lupa</h3>
       <p>El <b>miércoles 14</b> es el día más frágil del viaje: tres horas de tren con un cambio, un museo en el medio y dos horas más de tren, todo con las valijas encima. Si se cae el primer tramo, se cae el día entero. Ahí conviene margen de sobra entre combinaciones y no la conexión más ajustada que ofrezca la app.</p>
       <p>El <b>sábado 17</b> depende de un dato que todavía no tenemos: de cuál de los dos aeropuertos de Milán sale el IB 5543. Entre Linate y Malpensa hay más de una hora de diferencia en el traslado, así que hay que confirmarlo antes de decidir a qué hora salimos del hotel.</p>
@@ -562,7 +562,7 @@ const CITIES = [
       <p>No todo se compra al mismo tiempo, y comprar de más con demasiada anticipación también cuesta plata. El orden que conviene es este:</p>
       <p><b>Primero lo que se agota</b>, que no son traslados: las entradas del Coliseo, los Uffizi y la Última Cena de Milán. Eso está en el capítulo de preparativos y es lo único que de verdad tiene fecha límite.</p>
       <p><b>Segundo, el auto</b>, con tres o cuatro meses de anticipación y siempre con tarifa cancelable, porque el precio de los alquileres sube fuerte cuando se acerca la fecha y no baja.</p>
-      <p><b>Tercero, los trenes de larga distancia</b>: el de Roma a Florencia y, si aparece uno rápido, los del miércoles 14. Se compran cuando abre el calendario para esa fecha o dos o tres meses antes.</p>
+      <p><b>Tercero, los trenes de larga distancia.</b> El de Roma a Florencia ya está, así que acá solo queda mirar si en los tramos del miércoles 14 aparece algún tren rápido en vez de regional: si aparece, conviene sacarlo con anticipación porque es de tarifa dinámica.</p>
       <p><b>Y último, nada.</b> Los trenes regionales, el tranvía de Florencia, los trenes de Cinque Terre y los del lago de Como se compran el mismo día o la noche anterior, y no conviene comprarlos antes.</p>
       <h3>Por qué los regionales no se compran con anticipación</h3>
       <p>En Italia los trenes regionales tienen <b>precio fijo</b>: cuesta lo mismo comprarlo hoy que el día del viaje, no tienen asiento asignado y el boleto vale para cualquier tren de ese día en muchos casos. Comprarlo con meses de anticipación no ahorra un centavo y sí nos ata a un horario que después no vamos a querer.</p>
@@ -581,8 +581,8 @@ const CITIES = [
     {nota:1, n:'El check in y el equipaje', d:'Los cinco vuelos están sacados, así que lo único que queda es el check in online, que abre entre veinticuatro y cuarenta y ocho horas antes según la compañía.', t:'mover', tip:'Hacerlo apenas abre y bajar las tarjetas de embarque al teléfono, no dejarlas en el mail. Y si alguna valija de cabina está al límite, despacharla comprando el extra online sale bastante menos que en el mostrador del aeropuerto.'}
   ]},
 
-  {s:'Los trenes, que faltan todos', k:'mover', items:[
-    {m:'Roma Termini', n:'Jue 8: Roma a Florencia en tren', d:'Alta velocidad, una hora y media, con el 9:20 ya elegido. Lo hacen Trenitalia e Italo y salen los dos de Termini.', t:'mover', res:'si', tip:'Es el más urgente de los que faltan, porque es de tarifa dinámica: comprarlo con dos o tres meses de anticipación en la app o en la web de cualquiera de las dos. Del hotel a Termini son unos veinte minutos en taxi con valijas, así que salimos 8:15. La vía se anuncia en el cartel general y a veces con poca anticipación.'},
+  {s:'Los trenes', k:'mover', items:[
+    {m:'Roma Termini', n:'Jue 8: Roma a Florencia en tren', d:'Alta velocidad, una hora y media, saliendo 9:20 de Termini. Ya está sacado, así que lo único que queda es llegar a horario.', t:'mover', tip:'Del hotel a Termini son unos veinte minutos en taxi con valijas, así que salimos 8:15 y estamos cuarenta minutos antes. Termini es enorme y la vía se anuncia en el cartel general con poca anticipación, así que conviene esperar adentro con un café y no en la puerta. Llevar el QR bajado al teléfono: se valida solo, no hay que picar nada.'},
     {m:'La Spezia Centrale', n:'Mar 13: los trenes de Cinque Terre', d:'El Cinque Terre Express sale de La Spezia Centrale y para en los cinco pueblos. Pasa cada quince o treinta minutos.', t:'mover', res:'no', tip:'No se compra con anticipación: se saca en la máquina de la estación el mismo día, o directamente la tarjeta de un día si vamos a hacer tres o cuatro viajes. Si el boleto es de papel, hay que validarlo en la maquinita del andén antes de subir.'},
     {m:'La Spezia Centrale', n:'Mié 14: La Spezia a Módena', d:'Unas tres horas con un cambio, generalmente en Parma. No hay tren directo, así que es la combinación más delicada del viaje.', t:'mover', res:'conviene', tip:'Mirar la combinación en la app con anticipación y elegir una con margen entre tren y tren, no la conexión más ajustada. Si el segundo tramo lo hace un tren rápido, conviene comprarlo antes; si son los dos regionales, se compran ese mismo día. Salir temprano, sobre las 7:30 u 8:00.'},
     {m:'Stazione di Modena', n:'Mié 14: Módena a Milán', d:'Poco menos de dos horas, con servicios directos a Milano Centrale. Es el último tramo de un día largo.', t:'mover', res:'no', tip:'Si es regional, se compra en la estación de Módena el mismo día sin problema. Vale la pena mirar antes a qué hora es el último servicio cómodo, para saber hasta cuándo estirar el museo sin quedarnos sin tren.'},
@@ -597,6 +597,9 @@ const CITIES = [
     {m:'Aeroporto di Firenze Peretola', n:'Vie 9: retirar el auto en Peretola', d:'El aeropuerto de Florencia tiene todas las rentadoras juntas, está afuera de la ciudad y se sale directo a la autopista rumbo a Siena y San Gimignano, sin cruzar ninguna cámara de ZTL.', t:'mover', res:'si', tip:'Se llega en tranvía T2 desde Santa Maria Novella en veinte minutos con las valijas. Llevar los dos documentos: la licencia uruguaya y el permiso internacional del ACU, que no se reemplazan entre sí. Y la tarjeta de crédito del conductor, con límite disponible para el depósito en garantía.'},
     {nota:1, n:'Cuándo devolverlo: el martes 13, al llegar', d:'El auto se devuelve el <b>martes 13 apenas llegamos a La Spezia</b>, antes de hacer nada más. No el miércoles 14.', t:'mover', tip:'A Cinque Terre no se entra en auto y el miércoles nos vamos en tren, así que a partir del martes al mediodía el auto solo sirve para pagar estacionamiento en una ciudad donde estacionar es caro y difícil. Son cuatro días de alquiler, del viernes 9 al martes 13, y ni uno más.'},
     {nota:1, n:'La devolución, paso a paso', d:'Es un alquiler de una punta a la otra, así que tiene cargo por devolución en otra ciudad. Hay que tener la dirección exacta de la oficina de La Spezia y su horario, porque muchas cierran al mediodía.', t:'mover', tip:'Llegando cerca de las 11 estamos bien, pero conviene confirmarlo al reservar. Devolverlo con el tanque como lo entregaron, y antes de dar las llaves sacar fotos de los cuatro lados del auto y del tablero con el nivel de combustible. Es lo único que sirve si después aparece un cargo por un rayón que no hicimos.'},
+    {nota:1, n:'Por qué el miércoles 14 vamos en tren y no en auto', d:'La alternativa sería estirar el alquiler dos días más y hacer La Spezia, Módena y Milán manejando. Suena cómodo y no lo es, por cinco motivos que se suman.', t:'mover', tip:'<b>Uno:</b> desde el martes al mediodía el auto no se usa para nada, porque a Cinque Terre se va en tren y los pueblos son peatonales. Serían dos días de alquiler y dos noches de estacionamiento por un auto parado. <b>Dos:</b> Milán es el peor destino de Italia para llegar en auto, con el peaje del Área C para entrar al centro en días hábiles, el Área B de bajas emisiones cubriendo casi toda la ciudad y el hotel adentro de las dos, más el estacionamiento por noche. <b>Tres:</b> el cargo por devolver en otra ciudad crece con la distancia, y devolver en Milán o en un aeropuerto suele tener recargo aparte. <b>Cuatro:</b> son cerca de cuatrocientos kilómetros de autopista con peaje más la nafta, que entre dos personas cuesta parecido o más que los dos boletos de tren. <b>Y cinco:</b> el 14 es un día largo con valijas, y en el tren se descansa.'},
+    {nota:1, n:'Lo que el auto sí ganaría, y por qué igual no compensa', d:'Manejando, el tramo a Módena son unas dos horas y cuarto contra las tres del tren, así que el auto ahorra algo ahí. En el tramo a Milán prácticamente empatan.', t:'mover', tip:'Pero a esos cuarenta y cinco minutos hay que restarles estacionar en Módena, que también tiene ZTL en el centro, y entrar a Milán en hora pico. En tren, además, el Museo Enzo Ferrari queda a quince minutos a pie de la estación: se baja y se camina. La diferencia real termina siendo casi ninguna, y el tren no obliga a manejar cuatro horas después de cuatro días de rutas toscanas.'},
+    {nota:1, n:'El único caso donde el auto gana: Maranello', d:'Si queremos hacer los dos museos Ferrari, el de Módena y el de Maranello, ahí sí el auto cambia el día, porque la lanzadera entre los dos tiene pocos horarios y el bus de línea tarda bastante.', t:'mover', tip:'Pero la jugada no es estirar el alquiler desde La Spezia: es alquilar un auto chico <em>en la estación de Módena</em> por medio día y devolverlo ahí mismo antes de tomar el tren a Milán. Sale mucho menos que dos días extra, no tiene cargo por devolución en otra ciudad, no nos mete en Milán con auto y de paso resuelve dónde dejar las valijas, porque van en el baúl. Hay que reservarlo antes y confirmar el horario de la oficina, que suele cerrar temprano.'},
     {nota:1, n:'Qué reservar, y con cuánta anticipación', d:'Tres o cuatro meses antes, siempre con tarifa que permita cancelar gratis. El precio de los alquileres sube fuerte cuando se acerca la fecha y prácticamente no baja.', t:'mover', tip:'Como es cancelable, vale la pena volver a mirar precios un mes antes: si bajó, se reserva de nuevo y se cancela la anterior. Y comparar el cargo por devolver en otra ciudad entre empresas, que es donde más se diferencian.'},
     {nota:1, n:'Caja automática y conductor adicional', d:'En Italia lo estándar es la caja manual, y el automático se paga bastante más y hay que pedirlo específicamente al reservar, porque hay pocos. Si lo queremos, no se puede improvisar en el mostrador.', t:'mover', tip:'Y si vamos a manejar los dos, hay que declarar al segundo conductor y pagarlo. Suena a cargo evitable y no lo es: si maneja alguien no declarado y pasa cualquier cosa, el seguro no cubre nada. Con las carreteras de la Toscana y cuatro días de auto, poder alternar vale la plata.'},
     {nota:1, n:'El auto que conviene', d:'Chico. Las calles de los pueblos toscanos son angostas, los estacionamientos también, y un auto grande es un problema en cada maniobra.', t:'mover', tip:'Lo único a verificar es que entren las dos valijas en el baúl, porque en los modelos más chicos no entran. Si la categoría dice "dos valijas grandes", alcanza. Y confirmar al retirarlo si carga nafta o gasoil: equivocarse arruina el motor y no lo cubre ningún seguro.'},
@@ -990,7 +993,7 @@ const CITIES = [
     {nota:1, n:'La diferencia entre uno y otro', d:'El <b>Museo Enzo Ferrari</b>, en Módena, es sobre el hombre: está en la casa donde nació, con el taller de su padre restaurado, y al lado una galería moderna con techo amarillo en forma de capó donde exponen autos de calle y de diseño. El <b>Museo Ferrari de Maranello</b> es sobre la marca: la Fórmula 1, los trofeos, los motores y la historia de las carreras.', t:'visita', tip:'Dicho corto: si nos interesa la historia y el personaje, Módena. Si lo que queremos es ver monoplazas de Fórmula 1 y la sala de trofeos, Maranello. El de Módena está a quince minutos a pie de la estación; el de Maranello, a media hora de viaje.'},
     {n:'Museo Enzo Ferrari', d:'La casa natal de Enzo Ferrari con el taller mecánico de su padre, y pegada una nave con el techo amarillo curvo que imita un capó. Adentro, exposiciones que cambian, autos de calle y una proyección envolvente sobre las paredes.', t:'visita', p:'€€', w:'https://www.ferrari.com/museums', tip:'Es el que entra sin forzar el día. Se hace en una hora y media con nuestro ritmo. Comprar la entrada online ahorra la fila y a veces sale algo menos.'},
     {m:'Museo Ferrari Maranello', n:'Museo Ferrari de Maranello', d:'El museo de la escudería, en el pueblo donde está la fábrica. Monoplazas de Fórmula 1 de todas las épocas alineados, la sala de trofeos, motores abiertos y simuladores.', t:'visita', p:'€€', w:'https://www.ferrari.com/museums', tip:'Hay entrada combinada con el de Módena y una lanzadera entre los dos. La visita a la fábrica no se puede hacer: es solo para propietarios de un Ferrari. Alrededor del museo hay empresas que alquilan vueltas en Ferrari por la ruta, que se contratan aparte y con reserva.'},
-    {nota:1, n:'Si vamos a los dos', d:'La entrada combinada vale para los dos museos en días distintos también, pero nosotros los haríamos el mismo día. La lanzadera entre Módena y Maranello tiene pocos horarios, así que hay que mirarlos antes y armar el día alrededor de ellos.', t:'visita', tip:'También hay un bus público de línea que hace el trayecto y sale mucho menos, pero tarda más y para en todos lados. Con valijas, la lanzadera.'}
+    {nota:1, n:'Si vamos a los dos', d:'La entrada combinada vale para los dos museos en días distintos también, pero nosotros los haríamos el mismo día. La lanzadera entre Módena y Maranello tiene pocos horarios, así que hay que mirarlos antes y armar el día alrededor de ellos.', t:'visita', tip:'También hay un bus público de línea que hace el trayecto y sale mucho menos, pero tarda más y para en todos lados. Y la tercera opción, que es la mejor si de verdad queremos los dos: alquilar un auto chico en la estación de Módena por medio día y devolverlo ahí antes del tren a Milán. Resuelve los horarios de la lanzadera y de paso las valijas van en el baúl.'}
   ]},
 
   {s:'Módena, lo que se ve de paso', k:'visita', items:[
