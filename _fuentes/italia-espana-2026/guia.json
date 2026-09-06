@@ -8,7 +8,7 @@
   "fondo": "#FFFAF2",
   "letra": "S",
   "clave": "italia-espana-2026",
-  "cache": "italia-espana-2026-09-06a",
+  "cache": "italia-espana-2026-09-06b",
   "paleta": {
     "claro": {
       "--bg": "#F7E9D7",
@@ -41,6 +41,7 @@
   },
   "partes": [
     "0-antes.js",
+    "0b-traslados.js",
     "1-roma.js",
     "2-florencia.js",
     "3-toscana.js",
