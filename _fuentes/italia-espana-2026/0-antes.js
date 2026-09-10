@@ -7,7 +7,7 @@
     ['Volvemos','Dom 25 de octubre de 2026'],
     ['Somos','Santiago y Valentina'],
     ['Días','23, con 8 alojamientos'],
-    ['Falta','Uffizi y la Última Cena de Milán']
+    ['Falta','La Galería Uffizi de Florencia']
   ],
   sections:[
   {s:'Lo que hay que sacar ya', k:'prep', html:`
@@ -20,7 +20,6 @@
       <h3>Lo demás que tiene fecha</h3>
       <ul>
         <li><b>Galería Uffizi</b>, Florencia: se reserva con día y hora en la web oficial. Con un solo día no podemos jugarnos a la cola, así que va sí o sí apenas se abre el calendario.</li>
-        <li><b>Última Cena de Leonardo</b>, Milán: la más difícil. Grupos chicos cada quince minutos, entradas por tandas con meses de anticipación, se agotan el mismo día. Poner un recordatorio.</li>
         <li><b>Museo Ferrari</b> y <b>terrazas del Duomo</b> de Milán: no suelen agotarse, pero comprarlas online ahorra la fila.</li>
         <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
       </ul>

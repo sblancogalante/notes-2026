@@ -47,7 +47,7 @@
       <h3>El orden</h3>
       <p>Comprar de más con demasiada anticipación también cuesta plata. El orden que sirve:</p>
       <ul>
-        <li><b>Primero lo que se agota</b>, que no son traslados: los Uffizi y la Última Cena de Milán (el Coliseo ya está sacado). Está en el capítulo de preparativos y es lo único con fecha límite de verdad.</li>
+        <li><b>Primero lo que se agota</b>, que no son traslados: los Uffizi de Florencia (el Coliseo ya está sacado). Está en el capítulo de preparativos y es lo único con fecha límite de verdad.</li>
         <li><b>El auto</b>, tres o cuatro meses antes y con tarifa cancelable. El precio de los alquileres sube fuerte cerca de la fecha y después no baja.</li>
         <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está. Para los tramos del miércoles 14, mirar si aparece un tren rápido en vez de regional: si aparece, sacarlo con tiempo, porque es de tarifa dinámica.</li>
         <li><b>El resto, nada.</b> Regionales, tranvía de Florencia, trenes de Cinque Terre y del lago de Como se compran el mismo día o la noche anterior.</li>
