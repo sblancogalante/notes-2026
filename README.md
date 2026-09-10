@@ -32,6 +32,40 @@ _fuentes/
 Las carpetas que empiezan con guion bajo no se publican, asi que `_fuentes`
 queda fuera del sitio.
 
+## Como se abre una guia para verla
+
+Cada guia se publica en una carpeta con el nombre que figura en `ruta`, dentro
+de su `_fuentes/<guia>/guia.json`. Hoy son estas:
+
+```
+eurotrip-serri-cami/     Eurotrip Serri y Cami
+italia-espana-2026/      Santi y Vale en Italia y España
+```
+
+Para ver como quedo alcanza con abrir el `index.html` de la carpeta:
+
+```
+open italia-espana-2026/index.html
+```
+
+Todo va incrustado en ese archivo, asi que se ve igual desde `file://`. Lo
+unico que no funciona de esa forma es el service worker y el "agregar a
+inicio"; el contenido y los estilos son identicos.
+
+Para probarla como corre de verdad (instalacion, sin senal, manifiesto) hay
+que servir la carpeta desde la raiz del repo:
+
+```
+python3 -m http.server
+```
+
+y abrir `http://localhost:8000/italia-espana-2026/`. La portada con el listado
+de guias queda en `http://localhost:8000/`.
+
+La direccion publicada de cada guia es la `base` de `_fuentes/sitio.json`
+seguida del nombre de la carpeta y una barra. Es la misma que codifica el QR
+de adentro, asi que sirve para abrirla en el telefono sin escanear nada.
+
 ## Como se reconstruye
 
 ```
