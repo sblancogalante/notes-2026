@@ -32,7 +32,7 @@ _fuentes/
 Las carpetas que empiezan con guion bajo no se publican, asi que `_fuentes`
 queda fuera del sitio.
 
-## Como se abre una guia para verla
+## Como se abre una guia
 
 Cada guia se publica en una carpeta con el nombre que figura en `ruta`, dentro
 de su `_fuentes/<guia>/guia.json`. Hoy son estas:
@@ -42,29 +42,30 @@ eurotrip-serri-cami/     Eurotrip Serri y Cami
 italia-espana-2026/      Santi y Vale en Italia y España
 ```
 
-Para ver como quedo alcanza con abrir el `index.html` de la carpeta:
+**El enlace que se comparte** es la `base` de `_fuentes/sitio.json` seguida del
+nombre de la carpeta y una barra, o sea `<base>/italia-espana-2026/`. Esa es la
+direccion que abre en cualquier telefono y la que codifica el QR de adentro. El
+sitio se sirve como proyecto de GitHub Pages: el nombre del repo va siempre en
+el medio (`.../notes-2026/<carpeta>/`) y no hay dominio propio, asi que no
+existe una version corta.
+
+**Para ver un cambio antes de publicarlo** alcanza con abrir el archivo
+generado:
 
 ```
 open italia-espana-2026/index.html
 ```
 
-Todo va incrustado en ese archivo, asi que se ve igual desde `file://`. Lo
-unico que no funciona de esa forma es el service worker y el "agregar a
-inicio"; el contenido y los estilos son identicos.
-
-Para probarla como corre de verdad (instalacion, sin senal, manifiesto) hay
-que servir la carpeta desde la raiz del repo:
+Todo va incrustado, asi que se ve igual desde `file://`. Lo unico que no anda
+de esa forma es el service worker y el "agregar a inicio". Para probar tambien
+eso hay que servir la carpeta desde la raiz del repo:
 
 ```
 python3 -m http.server
 ```
 
-y abrir `http://localhost:8000/italia-espana-2026/`. La portada con el listado
-de guias queda en `http://localhost:8000/`.
-
-La direccion publicada de cada guia es la `base` de `_fuentes/sitio.json`
-seguida del nombre de la carpeta y una barra. Es la misma que codifica el QR
-de adentro, asi que sirve para abrirla en el telefono sin escanear nada.
+y abrir `http://localhost:8000/italia-espana-2026/` (la portada queda en
+`http://localhost:8000/`).
 
 ## Como se reconstruye
 
