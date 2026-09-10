@@ -11,14 +11,18 @@
   sections:[
   {s:'El plan de la media tarde', k:'plan', html:`
       <h3>Martes 13: llegar, soltar todo y salir</h3>
-      <p>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Lo primero es <b>devolver el auto</b>, después dejar las valijas en el alojamiento y salir con la mochila y nada más. A Cinque Terre no se va con valijas: los andenes son cortos, los trenes vienen llenos y los pueblos son todos escaleras.</p>
-      <p>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos está en cualquiera de los cinco pueblos. La idea es estar arriba del primer tren cerca del mediodía.</p>
-      <p><b>Primero Vernazza</b>, que es el más bonito de los cinco y el que tiene el puerto con forma de herradura. Se recorre en dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, que es de donde sale la foto clásica del pueblo desde arriba.</p>
-      <p><b>Después Manarola</b>, que es donde queremos estar al atardecer. Son diez minutos de tren. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, que es gratis y de donde sale la postal de las casas de colores apiladas sobre el acantilado.</p>
-      <p>El sol se pone 18:55, así que hay que estar en Manarola desde las 17 para tener tiempo de subir, tomar algo y esperar la luz. Después, tren de vuelta a La Spezia y cena ahí, que es más barata y más tranquila que en los pueblos.</p>
-      <h3>Miércoles 14: a Modena</h3>
-      <p>El tren a Modena lleva unas tres horas y en general se hace con un cambio en Parma. Conviene comprarlo con anticipación en la app de Trenitalia y salir temprano, para llegar a Modena con el día por delante.</p>
-      <p>Si nos levantamos con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Modena, así que mejor no forzar.</p>
+      <ul>
+        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Primero <b>devolver el auto</b>, después valijas en el alojamiento, y salir con la mochila y nada más. A Cinque Terre no se va con valijas: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
+        <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
+        <li><b>Primero Vernazza</b>, el más bonito y el del puerto con forma de herradura. Dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, de donde sale la foto clásica.</li>
+        <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
+        <li>El sol se pone 18:55: estar en Manarola desde las 17 para subir, tomar algo y esperar la luz. Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</li>
+      </ul>
+      <h3>Miércoles 14: a Módena</h3>
+      <ul>
+        <li>El tren a Módena lleva unas tres horas, casi siempre con un cambio en Parma. Comprarlo con anticipación en la app de Trenitalia y salir temprano.</li>
+        <li>Con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Módena, así que mejor no forzar.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[

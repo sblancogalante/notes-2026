@@ -11,21 +11,35 @@
   sections:[
   {s:'El plan de la semana', k:'plan', html:`
       <h3>Domingo 18: llegada y primera vuelta</h3>
-      <p>Llegamos de Barcelona, hacemos el check in en el apartamento y salimos a caminar sin plan. Lo primero es lo práctico: encontrar el supermercado más cercano, ver cómo funciona la casa con cinco personas adentro y comprar para el desayuno de la semana.</p>
-      <p>Después, la primera vuelta por el centro con la última luz, que es la mejor hora de Sevilla: la <b>Catedral</b> y la <b>Giralda</b> por fuera, el <b>Barrio de Santa Cruz</b> y una cena de tapas temprana, que el domingo muchas cocinas cierran a las once.</p>
-      <p>Y lo más importante del día: <b>medir el camino a Loyola</b>. Con la dirección exacta en la mano, ver en Google Maps cuánto lleva a la hora a la que Vale tiene que estar el lunes, y sumarle un margen. Si la sede está en el campus de Dos Hermanas, afuera de la ciudad, el viaje no es corto y conviene saberlo hoy y no mañana a las ocho.</p>
+      <ul>
+        <li>Check in en el apartamento y a caminar sin plan. Lo práctico primero: el supermercado más cercano, cómo funciona la casa con cinco personas adentro, y la compra del desayuno de la semana.</li>
+        <li>Primera vuelta por el centro con la última luz, la mejor hora de Sevilla: la <b>Catedral</b> y la <b>Giralda</b> por fuera, el <b>Barrio de Santa Cruz</b> y una cena de tapas temprana, que el domingo muchas cocinas cierran a las once.</li>
+        <li>Lo más importante del día: <b>medir el camino a Loyola</b>. Con la dirección exacta, ver en Google Maps cuánto lleva a la hora en que Vale tiene que estar el lunes, más un margen. Si la sede está en el campus de Dos Hermanas, el viaje no es corto y hay que saberlo hoy.</li>
+      </ul>
       <h3>Lunes a viernes: la semana partida</h3>
-      <p>Las mañanas cada uno con lo suyo: Vale en la universidad y yo trabajando. El horario juega a favor, porque Uruguay está cinco horas atrás y la mañana española es tiempo tranquilo antes de que arranque el día allá.</p>
-      <p>El plan de las tardes es simple: aprovechar que anochece a las 19:35 y que a las seis de la tarde Sevilla recién se despierta. Una cosa por tarde, sin apurar:</p>
-      <p><b>Lunes</b>, la <b>Plaza de España</b> al atardecer, que es la más impresionante de la ciudad y es gratis. <b>Martes</b>, <b>Triana</b> cruzando el puente, el mercado y la calle Betis con la vista de la ciudad del otro lado del río. <b>Miércoles</b>, las <b>Setas</b> al atardecer y tapas por la Alfalfa. <b>Jueves</b>, la <b>Catedral y la Giralda</b>, que ya están reservadas a las 17:20. <b>Viernes</b>, el <b>Real Alcázar</b> a las 16:30 y, saliendo, flamenco.</p>
-      <p>Las noches son de tapeo, que acá no es una comida sino un recorrido: se toma algo y una tapa en un bar, se paga, y se sigue al siguiente. Tres o cuatro bares es una cena.</p>
+      <ul>
+        <li>Las mañanas, cada uno con lo suyo: Vale en la universidad, yo trabajando. Uruguay está cinco horas atrás, así que la mañana española es tiempo tranquilo antes de que arranque el día allá.</li>
+        <li>Las tardes, una cosa por día sin apurar, aprovechando que a las seis Sevilla recién se despierta y anochece a las 19:35:</li>
+      </ul>
+      <ul>
+        <li><b>Lunes:</b> la <b>Plaza de España</b> al atardecer, la más impresionante de la ciudad y gratis.</li>
+        <li><b>Martes:</b> <b>Triana</b> cruzando el puente, el mercado y la calle Betis, con la vista de la ciudad del otro lado del río.</li>
+        <li><b>Miércoles:</b> las <b>Setas</b> al atardecer y tapas por la Alfalfa.</li>
+        <li><b>Jueves:</b> la <b>Catedral y la Giralda</b>, reservadas a las 17:20.</li>
+        <li><b>Viernes:</b> el <b>Real Alcázar</b> a las 16:30 y, saliendo, flamenco.</li>
+      </ul>
+      <p>Las noches son de tapeo, que acá no es una comida sino un recorrido: algo para tomar y una tapa en un bar, se paga, y al siguiente. Tres o cuatro bares es una cena.</p>
       <h3>Sábado 24: el día largo</h3>
-      <p>El único día completo de los dos juntos. Dos opciones y las dos buenas.</p>
-      <p>La ambiciosa: <b>Córdoba</b> en el AVE, que son cuarenta y cinco minutos, para ver la Mezquita, que es de las cosas más impresionantes de España. Se va temprano, se vuelve de noche y es un día redondo.</p>
-      <p>La otra, y la que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</p>
+      <ul>
+        <li>El único día completo de los dos juntos. Dos opciones, las dos buenas.</li>
+        <li>La ambiciosa: <b>Córdoba</b> en el AVE, cuarenta y cinco minutos, para ver la Mezquita, de las cosas más impresionantes de España. Temprano de ida, de noche de vuelta.</li>
+        <li>La que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</li>
+      </ul>
       <h3>Domingo 25: el último día</h3>
-      <p>Cambio de hora de madrugada, así que ganamos una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río y las valijas a media tarde.</p>
-      <p>Cuidado con dos cosas: el domingo muchos negocios y varios restaurantes cierran, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</p>
+      <ul>
+        <li>El cambio de hora de madrugada nos da una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río, valijas a media tarde.</li>
+        <li>Dos avisos: el domingo cierran muchos negocios y varios restaurantes, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse y vivir acá', k:'mover', items:[

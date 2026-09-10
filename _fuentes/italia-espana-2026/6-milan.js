@@ -11,18 +11,24 @@
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Miércoles 14: llegada y el Duomo de noche</h3>
-      <p>Llegamos de Módena a la tarde, hacemos el check in y salimos a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo, así que la primera imagen de la ciudad es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</p>
-      <p>Entramos a la <b>Galleria Vittorio Emanuele</b>, que está abierta las veinticuatro horas y de noche vacía es otra cosa, y cenamos cerca. Si llegamos con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche entera.</p>
+      <ul>
+        <li>Llegamos de Módena a la tarde, check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
+        <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
+      </ul>
       <h3>Jueves 15: el día de Milán</h3>
-      <p>Arrancamos con el <b>Duomo</b> temprano y, sobre todo, con las <b>terrazas</b>: se sube al techo y se camina entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor que tiene Milán y hay que sacar la entrada online.</p>
-      <p>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y de ahí caminando al <b>Castello Sforzesco</b>, que está a quince minutos y tiene la última Pietà de Miguel Ángel, la que dejó sin terminar.</p>
-      <p>Si conseguimos entrada para <b>La Última Cena</b>, va en este día: Santa Maria delle Grazie queda a diez minutos del castillo y el turno dura quince minutos exactos, así que se planifica alrededor de esa hora y no al revés.</p>
-      <p>A la tarde, <b>Brera</b> para caminar el barrio lindo, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena sin problema. Los <b>Navigli</b>, que son los canales, son el otro lugar donde hacerlo y de noche están muy bien.</p>
+      <ul>
+        <li>El <b>Duomo</b> temprano y, sobre todo, las <b>terrazas</b>: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán. Entrada online.</li>
+        <li>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y a quince minutos a pie el <b>Castello Sforzesco</b>, con la última Pietà de Miguel Ángel, la que dejó sin terminar.</li>
+        <li>Con entrada para <b>La Última Cena</b>, va este día: Santa Maria delle Grazie está a diez minutos del castillo y el turno dura quince minutos exactos, así que el día se arma alrededor de esa hora.</li>
+        <li>A la tarde, <b>Brera</b> para caminar el barrio, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena. Los <b>Navigli</b>, los canales, son el otro lugar donde hacerlo.</li>
+      </ul>
       <h3>Viernes 16: el lago de Como</h3>
-      <p>Día entero afuera. La versión que recomiendo es tren a <b>Varenna</b>, que es poco más de una hora desde Centrale, y de ahí el ferry a <b>Bellagio</b>, que son quince minutos cruzando el lago. Varenna es un pueblo de casas de colores sobre el agua y Bellagio es el de las escalinatas y las tiendas, en la punta donde el lago se abre en dos brazos.</p>
-      <p>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</p>
+      <ul>
+        <li>Día entero afuera. La versión que recomiendo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
+        <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
+      </ul>
       <h3>Sábado 17: a Barcelona</h3>
-      <p>Vuelo IB 5543. Según de qué aeropuerto salga, el traslado cambia bastante: de Linate son veinte minutos en metro y de Malpensa casi una hora en tren. Hay que mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
+      <p>Vuelo IB 5543. El traslado cambia bastante según el aeropuerto: de Linate son veinte minutos en metro, de Malpensa casi una hora en tren. Mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[

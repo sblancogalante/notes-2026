@@ -10,15 +10,22 @@
   ],
   sections:[
   {s:'Cómo armar el día', k:'plan', html:`
-      <h3>El problema del día es la logística, no el museo</h3>
-      <p>Llegamos de La Spezia con las valijas encima y a la noche tenemos que estar en Milán. O sea que el día se arma alrededor de dos preguntas: dónde dejamos el equipaje y cuánto tiempo real nos queda.</p>
-      <p>Lo primero es averiguar antes de viajar si la estación de Módena tiene consigna de equipaje y en qué horario, y si no, si el <b>Museo Enzo Ferrari</b> guarda valijas. Muchos museos aceptan mochilas pero no valijas grandes, así que conviene escribirles y no descubrirlo en la puerta.</p>
+      <h3>El problema es la logística, no el museo</h3>
+      <ul>
+        <li>Llegamos de La Spezia con las valijas encima y a la noche tenemos que estar en Milán. El día se arma alrededor de dos preguntas: dónde dejamos el equipaje y cuánto tiempo real queda.</li>
+        <li>Averiguar antes de viajar si la estación de Módena tiene consigna y en qué horario, y si no, si el <b>Museo Enzo Ferrari</b> guarda valijas. Muchos museos aceptan mochilas pero no valijas grandes: escribirles y no descubrirlo en la puerta.</li>
+      </ul>
       <h3>La versión corta, que es la que recomiendo</h3>
-      <p>Tren desde La Spezia llegando cerca del mediodía. Dejamos las valijas, caminamos quince minutos hasta el <b>Museo Enzo Ferrari</b>, que está al lado de la estación, y lo hacemos en una hora y media larga.</p>
-      <p>Después almuerzo en el centro, que está a diez minutos: la <b>Piazza Grande</b>, el Duomo y la torre Ghirlandina se ven de paso, y el <b>Mercato Albinelli</b> resuelve el almuerzo con lo mejor de Emilia. A media tarde, tren a Milán y a las siete estamos haciendo el check in.</p>
+      <ul>
+        <li>Tren desde La Spezia llegando cerca del mediodía. Valijas en consigna, quince minutos a pie hasta el <b>Museo Enzo Ferrari</b>, al lado de la estación, y una hora y media larga adentro.</li>
+        <li>Almuerzo en el centro, a diez minutos: la <b>Piazza Grande</b>, el Duomo y la torre Ghirlandina se ven de paso, y el <b>Mercato Albinelli</b> resuelve el almuerzo con lo mejor de Emilia.</li>
+        <li>A media tarde, tren a Milán, y a las siete el check in.</li>
+      </ul>
       <h3>La versión larga, si somos fanáticos</h3>
-      <p>Si lo que queremos son los autos de Fórmula 1 de verdad, hay que ir a <b>Maranello</b>, que está a unos veinte kilómetros. Hay entrada combinada para los dos museos y una lanzadera que los une, y el viaje son unos treinta minutos cada tramo.</p>
-      <p>Eso significa salir de La Spezia bien temprano y llegar a Milán de noche. Es hacible, pero el día se convierte en una carrera y con valijas se complica. Si Ferrari es <em>el</em> motivo del día, vale la pena; si es una parada más del viaje, con Módena alcanza.</p>
+      <ul>
+        <li>Para los autos de Fórmula 1 de verdad hay que ir a <b>Maranello</b>, a unos veinte kilómetros. Hay entrada combinada para los dos museos y una lanzadera que los une, unos treinta minutos cada tramo.</li>
+        <li>Eso es salir de La Spezia bien temprano y llegar a Milán de noche, con el día convertido en una carrera y valijas encima. Si Ferrari es <em>el</em> motivo del día, vale la pena; si es una parada más, con Módena alcanza.</li>
+      </ul>
     `},
 
   {s:'Los dos museos, y cuál conviene', k:'visita', items:[

@@ -11,28 +11,36 @@
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Domingo 4: llegada y el centro barroco</h3>
-      <p>Llegamos, dejamos las valijas en el Four Rivers y salimos a almorzar liviano y cerca. <b>Supplizio</b> queda a siete minutos y es perfecto para eso: unos supplì de pie y seguimos, sin comprometer la tarde con una sobremesa.</p>
-      <p>Después el circuito clásico, que además es el que tenemos en la puerta: <b>Piazza Navona</b> con la fuente de los Cuatro Ríos, que es justo la que le da nombre al hotel, el <b>Panteón</b>, la <b>Piazza della Minerva</b> con el elefantito de Bernini, y de ahí al río para el <b>Ponte Sant’Angelo</b> y la zona del castillo. Son quince minutos de punta a punta y hay algo para mirar en cada cuadra.</p>
-      <p>Al caer la tarde, <b>Fontana di Trevi</b> y de ahí subimos a la <b>Fontana delle Naiadi</b> en Piazza della Repubblica. Ahí mismo está Santa Maria degli Angeli, que es gratis y vale los diez minutos.</p>
-      <p>Y la cena cae sola: <b>La Matriciana dal 1870</b> está a pocos minutos de la Repubblica, así que cerramos el día donde lo terminamos en vez de cruzar el centro de nuevo. Hay que reservarla sí o sí, y siendo el día del vuelo conviene una hora temprana, tipo 19:30 o 20:00.</p>
-      <p><b>Ojo con el Ghetto este día.</b> El domingo 4 cae en la fiesta judía de Simjá Torá, así que las panaderías y los restaurantes kosher del Portico d’Ottavia, Boccione incluido, lo más probable es que estén cerrados. Por eso el Ghetto queda para el miércoles. Conviene confirmarlo igual antes de caminar hasta allá.</p>
+      <ul>
+        <li>Valijas en el Four Rivers y almuerzo liviano y cerca: <b>Supplizio</b>, a siete minutos, unos supplì de pie y seguimos.</li>
+        <li>El circuito clásico, todo en la puerta: <b>Piazza Navona</b> y la fuente de los Cuatro Ríos, que le da nombre al hotel; el <b>Panteón</b>; la <b>Piazza della Minerva</b> con el elefantito de Bernini; y de ahí al río, al <b>Ponte Sant’Angelo</b> y el castillo. Quince minutos de punta a punta.</li>
+        <li>Al caer la tarde, <b>Fontana di Trevi</b> y subida a la <b>Fontana delle Naiadi</b> en Piazza della Repubblica. Ahí mismo, Santa Maria degli Angeli, gratis y diez minutos.</li>
+        <li>Cena en <b>La Matriciana dal 1870</b>, a pocos minutos de la Repubblica. Reservar sí o sí, y siendo el día del vuelo, hora temprana: 19:30 o 20:00.</li>
+      </ul>
+      <p><b>Ojo con el Ghetto este día.</b> El domingo 4 cae en Simjá Torá, así que las panaderías y los restaurantes kosher del Portico d’Ottavia, Boccione incluido, lo más probable es que estén cerrados. Por eso el Ghetto queda para el miércoles.</p>
       <h3>Lunes 5: Trevi al amanecer, Trastevere y el Aventino</h3>
-      <p>Arrancamos con la <b>Fontana di Trevi</b> a las 7, con el sol saliendo a las 7:15. Es literalmente otra fuente sin gente delante, y es la única forma de tener la foto.</p>
-      <p>Después bajamos al <b>Coliseo</b>. Si no conseguimos entradas, la vuelta por fuera y la vista desde la <b>Via dei Fori Imperiali</b> y desde la terraza del Campidoglio son gratis y están muy bien. La entrada al Foro se compra aparte de la del Coliseo, así que ahí sí hay chance.</p>
-      <p>Al mediodía cruzamos a <b>Trastevere</b> y ahí está todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre, los tres a pocas cuadras entre sí.</p>
-      <p>De Trastevere cruzamos el río al <b>Aventino</b>, que es el orden que conviene. Primero el <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, después el <b>Giardino degli Aranci</b> a dos minutos, que es donde hay que estar al atardecer, y recién ahí bajamos al <b>Roseto Comunale</b> y al <b>Circo Massimo</b>, que están al pie de la colina. Es la misma lista que teníamos, ordenada para no subir y bajar la colina dos veces.</p>
-      <p>Cena de vuelta en el centro, en <b>Renato e Luisa</b>, que es chico y hay que reservar con días.</p>
+      <ul>
+        <li><b>Fontana di Trevi</b> a las 7, con el sol saliendo 7:15. Es la única forma de tener la foto sin gente.</li>
+        <li><b>Coliseo</b>. Sin entradas, la vuelta por fuera y la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio son gratis. La entrada al Foro se compra aparte, ahí hay chance.</li>
+        <li>Mediodía en <b>Trastevere</b>, todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre.</li>
+        <li>De Trastevere al <b>Aventino</b>, en este orden para no subir y bajar la colina dos veces: <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> a dos minutos para el atardecer, y recién ahí el <b>Roseto Comunale</b> y el <b>Circo Massimo</b>, al pie.</li>
+        <li>Cena en el centro, en <b>Renato e Luisa</b>, chico y de reservar con días.</li>
+      </ul>
       <h3>Martes 6: el Vaticano y la tarde libre</h3>
-      <p>Entrada a las 8:00, que es el mejor turno que hay. Con nuestro ritmo, museos y basílica se hacen en unas cuatro horas y salimos a almorzar por Prati. Toda la logística fina está en la sección del Vaticano, más abajo.</p>
-      <p>La tarde queda liviana a propósito, porque el día arranca temprano. Castel Sant’Angelo por dentro está a diez minutos de la basílica y cierra bien el barrio, o si preferimos parar, una siesta corta y salir de nuevo a las cinco.</p>
-      <p>La cena de este día es la de <b>Al 384</b>, la pizzería que queda lejos: como la tarde es tranquila, es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</p>
+      <ul>
+        <li>Entrada a las 8:00, el mejor turno. Museos y basílica en unas cuatro horas; a las 12:30 salimos a almorzar por Prati. La logística fina está en la sección del Vaticano.</li>
+        <li>Tarde liviana a propósito: Castel Sant’Angelo por dentro está a diez minutos de la basílica, o una siesta corta y salir de nuevo a las cinco.</li>
+        <li>Cena en <b>Al 384</b>, la pizzería lejana. La tarde tranquila es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</li>
+      </ul>
       <h3>Miércoles 7: Coliseo, Foro y el Ghetto</h3>
-      <p>El día libre, y el que más depende de las entradas. Si conseguimos Coliseo y Foro, van acá de mañana temprano: se entra por el Coliseo, se sigue por el Palatino y se sale por el Foro hacia los Fori Imperiali, que es el recorrido natural y cuesta abajo.</p>
-      <p>Al salir caminamos hasta el <b>Ghetto</b>, que queda a quince minutos, y ahí almorzamos: el sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y de postre la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, que están a tres cuadras una de la otra. Este es el día para hacerlo, con el Ghetto funcionando normal.</p>
-      <p>La tarde tiene opciones según cómo venga el cuerpo: la <b>Galleria Borghese</b> si conseguimos turno, la <b>Basílica de San Clemente</b> con sus tres niveles enterrados uno debajo del otro, o simplemente el <b>Ghetto y la Isola Tiberina</b> con calma.</p>
-      <p>Última cena en <b>Roscioli</b>, que está a ocho minutos del hotel, con una parada previa en <b>Dar Filettaro</b> por un filete de bacalao, que abre solo de noche y está a la vuelta. Cena cerca y sin trasnochar, que al otro día hay tren.</p>
+      <ul>
+        <li>El día que más depende de las entradas. Con Coliseo y Foro, van de mañana temprano: se entra por el Coliseo, se sigue por el Palatino y se sale por el Foro hacia los Fori Imperiali, cuesta abajo.</li>
+        <li>Almuerzo en el <b>Ghetto</b>, a quince minutos: sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, a tres cuadras. Hoy funciona normal.</li>
+        <li>Tarde según el cuerpo: <b>Galleria Borghese</b> si hay turno, <b>Basílica de San Clemente</b> con sus tres niveles enterrados, o el <b>Ghetto y la Isola Tiberina</b> con calma.</li>
+        <li>Última cena en <b>Roscioli</b>, a ocho minutos del hotel, con parada previa en <b>Dar Filettaro</b> por un filete de bacalao. Cerca y sin trasnochar, que al otro día hay tren.</li>
+      </ul>
       <h3>Jueves 8: a Florencia</h3>
-      <p>Tren 9:20 desde Termini. Del hotel a Termini son unos veinte minutos en taxi con valijas, así que salimos 8:15 y llegamos con margen. Los andenes de Termini se anuncian en el cartel general y a veces con poca anticipación, así que conviene estar en la estación y no en la puerta.</p>
+      <p>Tren 9:20 desde Termini. Del hotel a Termini, veinte minutos en taxi con valijas: salimos 8:15 y llegamos con margen. La vía se anuncia con poca anticipación, así que mejor esperar dentro de la estación.</p>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[

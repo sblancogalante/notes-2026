@@ -11,15 +11,19 @@
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Jueves 8: llegada, Uffizi y el atardecer</h3>
-      <p>El tren de Roma nos deja en Santa Maria Novella cerca de las 11. Del andén al hotel son diez minutos caminando, así que dejamos las valijas y salimos, sin esperar a que sea la hora del check in.</p>
-      <p>Almuerzo rápido y sin sobremesa, porque la tarde está comprometida: <b>All’Antico Vinaio</b> para una schiacciata comida parados en la calle, o el <b>Mercato Centrale</b>, que además tiene abajo el puesto de lampredotto.</p>
-      <p>A la tarde, la <b>Galería Uffizi</b> con entrada reservada. Con nuestro ritmo se hace en dos horas y media eligiendo bien: no hay que verla entera.</p>
-      <p>Al salir caminamos al <b>Ponte Vecchio</b>, cruzamos al Oltrarno y subimos al <b>Piazzale Michelangelo</b> para el atardecer. El sol se pone 18:55, así que hay que estar arriba 18:20. Son unos veinticinco minutos de subida a pie desde el puente, o el bus 12 si las piernas ya dijeron basta.</p>
-      <p>Cena en el Oltrarno bajando del Piazzale, que es el lado bueno del río y el que menos turistas tiene de noche.</p>
+      <ul>
+        <li>El tren de Roma llega a Santa Maria Novella cerca de las 11. Diez minutos a pie hasta el hotel: dejamos las valijas y salimos, sin esperar el check in.</li>
+        <li>Almuerzo rápido: <b>All’Antico Vinaio</b> para una schiacciata en la calle, o el <b>Mercato Centrale</b>, que abajo tiene el puesto de lampredotto.</li>
+        <li>A la tarde, la <b>Galería Uffizi</b> con entrada reservada. Dos horas y media eligiendo bien, no hay que verla entera.</li>
+        <li>Al salir, <b>Ponte Vecchio</b>, cruce al Oltrarno y subida al <b>Piazzale Michelangelo</b> para el atardecer. El sol se pone 18:55: hay que estar arriba 18:20. Veinticinco minutos a pie desde el puente, o el bus 12.</li>
+        <li>Cena en el Oltrarno bajando del Piazzale, el lado del río con menos turistas de noche.</li>
+      </ul>
       <h3>Viernes 9: el Duomo y el auto</h3>
-      <p>Temprano, el <b>Duomo</b>: la plaza, el baptisterio y, si sacamos turno, la subida a la cúpula de Brunelleschi. La cúpula se reserva con día y hora aparte y a las 8:30 es el mejor momento, con la ciudad recién despierta y sin calor adentro de la escalera.</p>
-      <p>Después el desayuno toscano de barra, un paseo corto por la <b>Piazza della Signoria</b> y la <b>Piazza della Repubblica</b>, y volvemos al hotel a buscar las valijas.</p>
-      <p>Y acá viene lo importante del día: <b>el auto no se retira en el centro</b>. Caminamos o tomamos un taxi hasta Santa Maria Novella, tomamos el tranvía T2 hasta el aeropuerto de Peretola con las valijas, retiramos el auto ahí y salimos directo a San Gimignano por afuera de la ciudad. Son unos veinte minutos de tranvía y una hora larga de manejo, y nos ahorra el peor problema que tiene Florencia, que está en la sección de abajo.</p>
+      <ul>
+        <li>Temprano, el <b>Duomo</b>: la plaza, el baptisterio y, con turno, la subida a la cúpula de Brunelleschi. La cúpula se reserva con día y hora aparte; a las 8:30 es el mejor momento, sin calor adentro de la escalera.</li>
+        <li>Desayuno toscano de barra, un paseo corto por la <b>Piazza della Signoria</b> y la <b>Piazza della Repubblica</b>, y al hotel a buscar las valijas.</li>
+        <li><b>El auto no se retira en el centro.</b> Caminando o en taxi hasta Santa Maria Novella, tranvía T2 al aeropuerto de Peretola con las valijas, retiro ahí y salida directa a San Gimignano por afuera de la ciudad. Veinte minutos de tranvía y una hora larga de manejo. Por qué, en la sección de abajo.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse y el asunto de la ZTL', k:'mover', items:[

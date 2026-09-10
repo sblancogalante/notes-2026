@@ -11,15 +11,19 @@
   sections:[
   {s:'El plan de la tarde y la mañana', k:'plan', html:`
       <h3>Sábado 17: el centro y la fuente</h3>
-      <p>Llegamos de Milán, dejamos las valijas en el <b>Continental Palacete</b> y salimos caminando. El hotel está sobre la Rambla de Catalunya, así que bajamos por ahí, que es la versión tranquila y arbolada de la Rambla famosa, con la gente de Barcelona en vez de turistas.</p>
-      <p>Un desvío de dos cuadras para ver por fuera la <b>Casa Batlló</b> y <b>La Pedrera</b>, en el Passeig de Gràcia, y seguimos hasta la <b>Plaça Catalunya</b>, que es donde empieza todo.</p>
-      <p>De ahí bajamos por <b>Las Ramblas</b> hasta el <b>Mercat de la Boqueria</b>, y en cualquier punto nos metemos a la izquierda al <b>Barrio Gótico</b>, que es lo que de verdad vale: la Catedral, la Plaça del Rei, el Pont del Bisbe y las calles angostas donde uno se pierde a propósito.</p>
-      <p>A las 19:30 tomamos el metro a <b>Plaça d’Espanya</b> y subimos caminando hacia el Museo Nacional. La <b>Fuente Mágica</b> arranca cuando ya oscureció, así que hay tiempo de sobra para acomodarse en la escalinata. Es gratis.</p>
-      <p>Y la cena cae perfecta: bajando de Montjuïc, a diez minutos, está <b>Poble Sec</b> y su calle de pinchos. No hay que cruzar la ciudad de vuelta ni reservar nada.</p>
+      <ul>
+        <li>Valijas en el <b>Continental Palacete</b> y a caminar. El hotel está sobre la Rambla de Catalunya, la versión tranquila y arbolada de la Rambla famosa, con gente de Barcelona en vez de turistas.</li>
+        <li>Un desvío de dos cuadras para ver por fuera la <b>Casa Batlló</b> y <b>La Pedrera</b> en el Passeig de Gràcia, y seguir hasta la <b>Plaça Catalunya</b>.</li>
+        <li>Bajar por <b>Las Ramblas</b> hasta el <b>Mercat de la Boqueria</b>, y en cualquier punto meterse a la izquierda al <b>Barrio Gótico</b>, que es lo que de verdad vale: la Catedral, la Plaça del Rei, el Pont del Bisbe y las calles angostas donde uno se pierde a propósito.</li>
+        <li>A las 19:30, metro a <b>Plaça d’Espanya</b> y subida a pie hacia el Museo Nacional. La <b>Fuente Mágica</b> arranca cuando ya oscureció, hay tiempo de sobra para acomodarse en la escalinata. Es gratis.</li>
+        <li>La cena cae perfecta: bajando de Montjuïc, a diez minutos, <b>Poble Sec</b> y su calle de pinchos. Sin cruzar la ciudad de vuelta y sin reservar.</li>
+      </ul>
       <h3>Domingo 18: la Sagrada Familia y el mar</h3>
-      <p>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, que es la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora correcta para verla y para la foto. Se da la vuelta completa al templo en media hora y se ven las dos fachadas.</p>
-      <p>Después metro a la <b>Barceloneta</b>: el barrio de pescadores con las calles angostas, el paseo marítimo y la playa. Un vermut a media mañana en una terraza mirando el mar es exactamente el plan de un domingo de octubre.</p>
-      <p>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</p>
+      <ul>
+        <li>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora para verla y para la foto. La vuelta completa al templo son media hora.</li>
+        <li>Metro a la <b>Barceloneta</b>: calles angostas, paseo marítimo y playa. Un vermut a media mañana en una terraza mirando el mar es el plan de un domingo de octubre.</li>
+        <li>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[

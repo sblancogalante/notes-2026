@@ -11,13 +11,14 @@
   "estilo": "relajada.css",
   "icono_fuente": "fraunces.ttf",
   "clave": "italia-espana-2026",
-  "cache": "italia-espana-2026-09-06d",
+  "cache": "italia-espana-2026-09-10a",
   "paleta": {
     "claro": {
       "--bg": "#F7E9D7",
       "--surface": "#FFFAF2",
       "--surface-2": "#F3E2CC",
       "--surface-3": "#FCF3E7",
+      "--note-bg": "#FBEEDC",
       "--ink": "#241A12",
       "--ink-2": "#4E3B2C",
       "--muted": "#7A6350",
@@ -28,18 +29,19 @@
       "--shadow": "0 1px 2px rgba(36,26,18,.06), 0 8px 24px -12px rgba(36,26,18,.18)"
     },
     "oscuro": {
-      "--bg": "#0C1310",
-      "--surface": "#141E18",
-      "--surface-2": "#1E2C24",
-      "--surface-3": "#101913",
-      "--ink": "#E9F1EA",
-      "--ink-2": "#C6D5C9",
-      "--muted": "#8FA595",
-      "--line": "#243228",
-      "--line-2": "#36483B",
+      "--bg": "#0A0F0C",
+      "--surface": "#111A15",
+      "--surface-2": "#1F2E26",
+      "--surface-3": "#18241E",
+      "--note-bg": "#1D2B23",
+      "--ink": "#EAF2EC",
+      "--ink-2": "#C8D6CC",
+      "--muted": "#90A798",
+      "--line": "#28382F",
+      "--line-2": "#3C5046",
       "--accent": "#FDBA74",
       "--accent-lt": "#FDBA74",
-      "--shadow": "0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55)"
+      "--shadow": "0 1px 2px rgba(0,0,0,.34), 0 10px 28px -14px rgba(0,0,0,.62)"
     }
   },
   "partes": [

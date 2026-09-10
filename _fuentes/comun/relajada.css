@@ -21,3 +21,54 @@
 /* Cormorant necesitaba el empujon porque es chica; Fraunces no, y con el
    empujon las cursivas del medio de un parrafo saltaban de la linea. */
 .prose em,.it-desc em,.it-note em{font-size:1em}
+
+/* Los recuadros de truco pasaban desapercibidos en oscuro: gris sobre gris.
+   Ahora van sobre un panel propio (--note-bg), con el texto mas claro y una
+   barra de acento a la izquierda. */
+.it-note{
+  color:var(--ink-2);
+  background:var(--note-bg);
+  border-left:2px solid var(--city-on-bg,var(--accent));
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  padding:.5rem .75rem .55rem;
+  margin-top:.65rem;
+}
+.quick div{border:1px solid var(--line)}
+
+/* El itinerario con estado: una fila por tramo, con la fecha, el trayecto, lo
+   que dura y como esta la reserva. El estado por defecto lo pone la fecha del
+   telefono; cada fila se puede tocar. */
+.legs{margin:.1rem 0 .3rem}
+.legs-head{font-size:.82rem;font-weight:700;color:var(--ink);margin:0 0 .85rem;line-height:1.4}
+.legs-head span{display:block;margin-top:.15rem;font-family:var(--display);font-style:italic;
+  font-weight:500;font-size:.98rem;color:var(--muted)}
+.leg{display:flex;gap:.7rem;padding:.62rem .1rem;border-top:1px solid var(--line);align-items:flex-start}
+.leg:last-of-type{border-bottom:1px solid var(--line)}
+.legtick{width:1.15rem;height:1.15rem;flex:none;margin-top:.12rem;border:1.5px solid var(--line-2);
+  border-radius:50%;display:grid;place-items:center;color:transparent;
+  transition:background .15s,border-color .15s}
+.legtick:hover{border-color:var(--city-on-bg,var(--accent))}
+.legtick svg{width:.62rem;height:.62rem}
+.leg.done .legtick{background:var(--city-on-bg,var(--accent));
+  border-color:var(--city-on-bg,var(--accent));color:var(--surface)}
+.leg.done .leg-main{opacity:.42}
+.leg-main{flex:1;min-width:0}
+.leg-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .5rem}
+.leg-w{flex:none;min-width:3.1rem;font-size:.67rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.leg-t{font-size:.9rem;font-weight:600;color:var(--ink)}
+.leg-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .55rem;
+  margin-top:.15rem;font-size:.78rem;color:var(--muted)}
+.leg-dur{font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.leg-e{font-family:var(--display);font-style:italic;font-size:.94rem}
+.leg-e.falta{font-style:normal;font-family:var(--body);font-size:.78rem;font-weight:700;
+  letter-spacing:.03em;color:var(--city-on-bg,var(--accent))}
+.legbadge{align-self:center;flex:none;font-size:.57rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;padding:.14rem .45rem;border-radius:999px}
+.legbadge.hoy{background:var(--city-on-bg,var(--accent));color:var(--surface)}
+.legbadge.sigue{border:1px solid var(--city-on-bg,var(--accent));color:var(--city-on-bg,var(--accent))}
+.leg.eshoy{background:var(--note-bg);border-radius:var(--r-sm);padding-left:.7rem;
+  box-shadow:inset 3px 0 0 var(--city-on-bg,var(--accent))}
+.legs-reset{margin-top:.9rem;font-size:.68rem;font-weight:600;letter-spacing:.03em;
+  color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.legs-reset:hover{color:var(--ink)}

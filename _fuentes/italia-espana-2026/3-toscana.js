@@ -11,21 +11,31 @@
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Viernes 9: llegada y San Gimignano de noche</h3>
-      <p>Salimos de Florencia con el auto retirado en el aeropuerto y llegamos al <b>Hotel Sovestro</b> a la tarde. Está afuera de las murallas, sobre la carretera, así que tiene estacionamiento y no hay que pelearse con la ZTL.</p>
-      <p>Esa primera tarde es para <b>San Gimignano mismo</b>, que es la mejor hora para verlo: los excursionistas de un día se van a las cinco y el pueblo queda casi vacío. Piazza della Cisterna, Piazza del Duomo, la subida a la Rocca para ver las torres contra el atardecer, y un <b>Dondoli</b>, que es el heladero campeón del mundo y está en la plaza.</p>
+      <ul>
+        <li>De Florencia con el auto retirado en Peretola, llegada al <b>Hotel Sovestro</b> a la tarde. Está afuera de las murallas, sobre la carretera: tiene estacionamiento y no hay ZTL.</li>
+        <li>La primera tarde es para <b>San Gimignano</b>, que es la mejor hora: los excursionistas de un día se van a las cinco y el pueblo queda casi vacío. Piazza della Cisterna, Piazza del Duomo, la subida a la Rocca para ver las torres contra el atardecer, y un <b>Dondoli</b>, el heladero campeón del mundo, en la plaza.</li>
+      </ul>
       <h3>Sábado 10: Siena y Monteriggioni</h3>
-      <p>Siena está a cuarenta y cinco minutos y es la excursión más grande que tenemos cerca. La Piazza del Campo con forma de concha, el Duomo con la fachada rayada y, si tenemos suerte con las fechas, el piso de mármol descubierto, que solo se destapa unas semanas por año y suele ser justo hasta mediados de octubre.</p>
-      <p>Volviendo, parada en <b>Monteriggioni</b>, que está en el camino: un pueblo amurallado circular y minúsculo, entero adentro de sus murallas, que se recorre en cuarenta minutos y se puede caminar por arriba de la muralla.</p>
+      <ul>
+        <li><b>Siena</b>, a cuarenta y cinco minutos, la excursión más grande que tenemos cerca. La Piazza del Campo con forma de concha, el Duomo con la fachada rayada y, con suerte, el piso de mármol descubierto, que solo se destapa unas semanas por año, casi siempre hasta mediados de octubre.</li>
+        <li>Volviendo, <b>Monteriggioni</b>, en el camino: un pueblo amurallado circular y minúsculo, entero dentro de sus murallas, que se recorre en cuarenta minutos por arriba de la muralla incluida.</li>
+      </ul>
       <h3>Domingo 11: la Val d’Orcia y las termas</h3>
-      <p>El día largo y el más lindo del tramo. Salimos temprano hacia el sur por las carreteras de cipreses: <b>Pienza</b> para el queso pecorino y la vista del valle, <b>Bagno Vignoni</b> con su plaza que en vez de plaza es una pileta termal humeante del siglo XV, y <b>Bagni San Filippo</b> para meterse de verdad en el agua caliente, gratis, entre formaciones blancas de cal.</p>
-      <p>Si queda cuerpo, <b>Montalcino</b> a la vuelta para un Brunello en la enoteca de la fortaleza. Es un día de unas seis horas de paseo y dos y media de auto en total.</p>
-      <h3>Lunes 12: Volterra y el Chianti, o el día de descanso</h3>
-      <p>Dos opciones según cómo venga el cuerpo, y las dos están bien. <b>Volterra</b> está a cuarenta y cinco minutos y es lo opuesto a San Gimignano: etrusca, oscura, de piedra gris, con un teatro romano y talleres de alabastro donde se ve trabajar.</p>
-      <p>La otra es la <b>ruta del Chianti</b> hacia el norte, parando en Castellina y Panzano, con una bodega reservada de antemano. Si elegimos esta, hay que decidir antes quién maneja y quién prueba.</p>
-      <p>Y la tercera opción, que no hay que descartar: quedarse en San Gimignano, dormir la siesta y caminar el pueblo con calma. Son cuatro días de mucho auto y uno de descanso a la mitad no es tiempo perdido.</p>
+      <ul>
+        <li>El día largo y el más lindo. Temprano hacia el sur por las carreteras de cipreses: <b>Pienza</b> para el pecorino y la vista del valle, <b>Bagno Vignoni</b> con su plaza que es una pileta termal humeante del siglo XV, y <b>Bagni San Filippo</b> para meterse de verdad en el agua caliente, gratis, entre formaciones blancas de cal.</li>
+        <li>Si queda cuerpo, <b>Montalcino</b> a la vuelta para un Brunello en la enoteca de la fortaleza. Son unas seis horas de paseo y dos y media de auto en total.</li>
+      </ul>
+      <h3>Lunes 12: Volterra y el Chianti, o descanso</h3>
+      <ul>
+        <li><b>Volterra</b>, a cuarenta y cinco minutos, lo opuesto a San Gimignano: etrusca, oscura, de piedra gris, con un teatro romano y talleres de alabastro donde se ve trabajar.</li>
+        <li>La <b>ruta del Chianti</b> hacia el norte, parando en Castellina y Panzano, con una bodega reservada de antemano. Si elegimos esta, decidir antes quién maneja y quién prueba.</li>
+        <li>O quedarse en San Gimignano, siesta y caminar el pueblo con calma. Son cuatro días de mucho auto y uno de descanso a la mitad no es tiempo perdido.</li>
+      </ul>
       <h3>Martes 13: a La Spezia</h3>
-      <p>Salimos temprano, sobre las 8:30. Son unas dos horas y cuarto hasta La Spezia. Dejamos el auto en la oficina de la rentadora, las valijas en el alojamiento y salimos a Cinque Terre con la tarde entera por delante.</p>
-      <p>Pisa queda de paso y tienta, pero desviarse cuesta una hora larga entre ida, vuelta y estacionamiento, y esa hora sale de Cinque Terre. Si igual queremos la foto de la torre, hay que salir 7:30 y no estirar la parada más de cuarenta minutos.</p>
+      <ul>
+        <li>Salida sobre las 8:30, unas dos horas y cuarto hasta La Spezia. Auto en la oficina de la rentadora, valijas en el alojamiento, y a Cinque Terre con la tarde entera por delante.</li>
+        <li>Pisa queda de paso y tienta, pero el desvío cuesta una hora larga entre ida, vuelta y estacionamiento, y esa hora sale de Cinque Terre. Si igual queremos la foto de la torre, salir 7:30 y no estirar la parada más de cuarenta minutos.</li>
+      </ul>
     `},
 
   {s:'El auto: todo lo que hay que saber', k:'mover', items:[

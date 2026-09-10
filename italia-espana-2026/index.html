@@ -60,6 +60,7 @@
   --surface:#FFFAF2;
   --surface-2:#F3E2CC;
   --surface-3:#FCF3E7;
+  --note-bg:#FBEEDC;
   --ink:#241A12;
   --ink-2:#4E3B2C;
   --muted:#7A6350;
@@ -71,33 +72,35 @@
 }
 @media (prefers-color-scheme:dark){
 :root:not([data-theme="light"]){
-  --bg:#0C1310;
-  --surface:#141E18;
-  --surface-2:#1E2C24;
-  --surface-3:#101913;
-  --ink:#E9F1EA;
-  --ink-2:#C6D5C9;
-  --muted:#8FA595;
-  --line:#243228;
-  --line-2:#36483B;
+  --bg:#0A0F0C;
+  --surface:#111A15;
+  --surface-2:#1F2E26;
+  --surface-3:#18241E;
+  --note-bg:#1D2B23;
+  --ink:#EAF2EC;
+  --ink-2:#C8D6CC;
+  --muted:#90A798;
+  --line:#28382F;
+  --line-2:#3C5046;
   --accent:#FDBA74;
   --accent-lt:#FDBA74;
-  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
+  --shadow:0 1px 2px rgba(0,0,0,.34), 0 10px 28px -14px rgba(0,0,0,.62);
 }
 }
 :root[data-theme="dark"]{
-  --bg:#0C1310;
-  --surface:#141E18;
-  --surface-2:#1E2C24;
-  --surface-3:#101913;
-  --ink:#E9F1EA;
-  --ink-2:#C6D5C9;
-  --muted:#8FA595;
-  --line:#243228;
-  --line-2:#36483B;
+  --bg:#0A0F0C;
+  --surface:#111A15;
+  --surface-2:#1F2E26;
+  --surface-3:#18241E;
+  --note-bg:#1D2B23;
+  --ink:#EAF2EC;
+  --ink-2:#C8D6CC;
+  --muted:#90A798;
+  --line:#28382F;
+  --line-2:#3C5046;
   --accent:#FDBA74;
   --accent-lt:#FDBA74;
-  --shadow:0 1px 2px rgba(0,0,0,.3), 0 8px 24px -12px rgba(0,0,0,.55);
+  --shadow:0 1px 2px rgba(0,0,0,.34), 0 10px 28px -14px rgba(0,0,0,.62);
 }
 
 /* el acento de ciudad se usa como fondo (--city) o como texto (--city-on-bg).
@@ -353,6 +356,57 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
 /* Cormorant necesitaba el empujon porque es chica; Fraunces no, y con el
    empujon las cursivas del medio de un parrafo saltaban de la linea. */
 .prose em,.it-desc em,.it-note em{font-size:1em}
+
+/* Los recuadros de truco pasaban desapercibidos en oscuro: gris sobre gris.
+   Ahora van sobre un panel propio (--note-bg), con el texto mas claro y una
+   barra de acento a la izquierda. */
+.it-note{
+  color:var(--ink-2);
+  background:var(--note-bg);
+  border-left:2px solid var(--city-on-bg,var(--accent));
+  border-radius:0 var(--r-sm) var(--r-sm) 0;
+  padding:.5rem .75rem .55rem;
+  margin-top:.65rem;
+}
+.quick div{border:1px solid var(--line)}
+
+/* El itinerario con estado: una fila por tramo, con la fecha, el trayecto, lo
+   que dura y como esta la reserva. El estado por defecto lo pone la fecha del
+   telefono; cada fila se puede tocar. */
+.legs{margin:.1rem 0 .3rem}
+.legs-head{font-size:.82rem;font-weight:700;color:var(--ink);margin:0 0 .85rem;line-height:1.4}
+.legs-head span{display:block;margin-top:.15rem;font-family:var(--display);font-style:italic;
+  font-weight:500;font-size:.98rem;color:var(--muted)}
+.leg{display:flex;gap:.7rem;padding:.62rem .1rem;border-top:1px solid var(--line);align-items:flex-start}
+.leg:last-of-type{border-bottom:1px solid var(--line)}
+.legtick{width:1.15rem;height:1.15rem;flex:none;margin-top:.12rem;border:1.5px solid var(--line-2);
+  border-radius:50%;display:grid;place-items:center;color:transparent;
+  transition:background .15s,border-color .15s}
+.legtick:hover{border-color:var(--city-on-bg,var(--accent))}
+.legtick svg{width:.62rem;height:.62rem}
+.leg.done .legtick{background:var(--city-on-bg,var(--accent));
+  border-color:var(--city-on-bg,var(--accent));color:var(--surface)}
+.leg.done .leg-main{opacity:.42}
+.leg-main{flex:1;min-width:0}
+.leg-top{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .5rem}
+.leg-w{flex:none;min-width:3.1rem;font-size:.67rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;color:var(--muted);font-variant-numeric:tabular-nums}
+.leg-t{font-size:.9rem;font-weight:600;color:var(--ink)}
+.leg-meta{display:flex;flex-wrap:wrap;align-items:baseline;gap:.1rem .55rem;
+  margin-top:.15rem;font-size:.78rem;color:var(--muted)}
+.leg-dur{font-weight:600;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.leg-e{font-family:var(--display);font-style:italic;font-size:.94rem}
+.leg-e.falta{font-style:normal;font-family:var(--body);font-size:.78rem;font-weight:700;
+  letter-spacing:.03em;color:var(--city-on-bg,var(--accent))}
+.legbadge{align-self:center;flex:none;font-size:.57rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;padding:.14rem .45rem;border-radius:999px}
+.legbadge.hoy{background:var(--city-on-bg,var(--accent));color:var(--surface)}
+.legbadge.sigue{border:1px solid var(--city-on-bg,var(--accent));color:var(--city-on-bg,var(--accent))}
+.leg.eshoy{background:var(--note-bg);border-radius:var(--r-sm);padding-left:.7rem;
+  box-shadow:inset 3px 0 0 var(--city-on-bg,var(--accent))}
+.legs-reset{margin-top:.9rem;font-size:.68rem;font-weight:600;letter-spacing:.03em;
+  color:var(--muted);text-decoration:underline;text-underline-offset:3px}
+.legs-reset:hover{color:var(--ink)}
 </style>
 
 <div class="wrap">
@@ -367,7 +421,7 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
     <div class="searchbar">
       <div class="field">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input id="q" type="search" placeholder="Buscar en toda la guía…" autocomplete="off" aria-label="Buscar">
+        <input id="q" type="search" placeholder="Buscar en toda la guía" autocomplete="off" aria-label="Buscar">
         <button class="clearbtn" id="clearq" aria-label="Borrar búsqueda">&times;</button>
       </div>
     </div>
@@ -422,93 +476,149 @@ const CITIES = [
   ],
   sections:[
   {s:'Lo que hay que sacar ya', k:'prep', html:`
-      <h3>El Coliseo, que es lo único realmente urgente</h3>
-      <p>Las entradas oficiales del Coliseo se venden en <b>coopculture.it</b> con unos treinta días de anticipación, salen a las 9:00 de Italia (las 4:00 de Montevideo) y se agotan en minutos. No es una exageración de blog: es literalmente así. La ventana exacta la cambiaron más de una vez, así que lo primero es entrar a la web oficial y confirmar cuántos días antes se abre la venta para nuestra fecha.</p>
-      <p>Si el día que queremos ya voló, quedan tres caminos oficiales y ninguno es reventa. El primero es la <em>visita guiada</em> o el <em>Colosseo Full Experience</em>, que tienen cupo aparte del de la entrada simple y muchas veces siguen disponibles cuando la común se agotó. El segundo es el ticket de <b>Foro Romano y Palatino</b>, que se vende por separado: alcanza para entrar al Foro sin tener entrada del Coliseo, que era la duda. Y el tercero es mirar la web dos o tres días antes, porque se liberan devoluciones.</p>
-      <p>Lo que no vale la pena es comprarle a un revendedor por tres veces el precio, ni pagarle a alguien en la puerta. Si nada sale, el Coliseo por fuera de noche iluminado y el Foro desde la vereda del Campidoglio son gratis y están muy bien.</p>
+      <h3>El Coliseo, lo único de verdad urgente</h3>
+      <ul>
+        <li>Las entradas oficiales salen en <b>coopculture.it</b> unos treinta días antes, a las 9:00 de Italia (las 4:00 de Montevideo), y se agotan en minutos. La ventana exacta la cambiaron más de una vez, así que lo primero es entrar a la web oficial y confirmar cuántos días antes se abre la venta para nuestra fecha.</li>
+        <li>Si el día que queremos ya voló, hay tres caminos oficiales: la <em>visita guiada</em> o el <em>Full Experience</em>, que tienen cupo aparte; el ticket de <b>Foro Romano y Palatino</b>, que se vende por separado y alcanza para entrar al Foro sin entrada del Coliseo; y mirar la web dos o tres días antes por devoluciones.</li>
+        <li>Lo que no sirve: la reventa a tres veces el precio. Si nada sale, el Coliseo por fuera de noche y el Foro desde la vereda del Campidoglio son gratis y están muy bien.</li>
+      </ul>
       <h3>Lo demás que tiene fecha</h3>
-      <p>La <b>Galería Uffizi</b> de Florencia se reserva con día y hora en la web oficial. Con un solo día en Florencia no podemos jugarnos a la cola, así que esta va sí o sí y conviene sacarla apenas se abra el calendario.</p>
-      <p>La <b>Última Cena de Leonardo</b> en Milán es la más difícil de todas: entran grupos de pocas personas cada quince minutos, las entradas se liberan por tandas con meses de anticipación y se agotan el mismo día. Vale la pena poner un recordatorio y estar atentos, porque es de esas cosas que si no se sacan con tiempo directamente no se ven.</p>
-      <p>El <b>Museo Ferrari</b> y las <b>terrazas del Duomo</b> de Milán no suelen agotarse, pero comprarlas online igual ahorra la fila. Y en Sevilla ya tenemos la <b>Catedral y la Giralda</b> para el jueves 22 a las 17:20 y el <b>Real Alcázar</b> para el viernes 23 a las 16:30, que son las dos que había que reservar.</p>
+      <ul>
+        <li><b>Galería Uffizi</b>, Florencia: se reserva con día y hora en la web oficial. Con un solo día no podemos jugarnos a la cola, así que va sí o sí apenas se abre el calendario.</li>
+        <li><b>Última Cena de Leonardo</b>, Milán: la más difícil. Grupos chicos cada quince minutos, entradas por tandas con meses de anticipación, se agotan el mismo día. Poner un recordatorio.</li>
+        <li><b>Museo Ferrari</b> y <b>terrazas del Duomo</b> de Milán: no suelen agotarse, pero comprarlas online ahorra la fila.</li>
+        <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
+      </ul>
       <h3>Un lugar donde tener todo junto</h3>
-      <p>Una carpeta en el teléfono con los PDF de las entradas, los vouchers de los ocho alojamientos, los pasajes y el seguro, más una copia en papel de lo importante. Las entradas con QR conviene bajarlas, no dejarlas en un mail: en la puerta del Vaticano a las 8 de la mañana no siempre hay señal.</p>
+      <p>Una carpeta en el teléfono con los PDF de las entradas, los vouchers de los ocho alojamientos, los pasajes y el seguro, más una copia en papel de lo importante. Las entradas con QR van bajadas, no en un mail: en la puerta del Vaticano a las 8 de la mañana no siempre hay señal.</p>
     `},
 
   {s:'Documentos y la libreta internacional', k:'prep', html:`
       <h3>El permiso internacional del ACU</h3>
-      <p>En Italia alquilar y manejar con licencia uruguaya requiere el <b>permiso internacional de conducir</b>. Lo emite el ACU, sale en el día y vale un año. Importante: no reemplaza a la licencia uruguaya, la acompaña. Hay que llevar las dos y mostrar las dos, tanto en el mostrador de la rentadora como si nos para un carabinero.</p>
-      <p>Conviene sacarlo con margen y no la semana anterior, y revisar que el nombre coincida exactamente con el del pasaporte y con el de la tarjeta con la que vamos a pagar el alquiler. Una letra distinta es motivo suficiente para que en el mostrador se pongan difíciles.</p>
+      <ul>
+        <li>Para alquilar y manejar en Italia con licencia uruguaya hace falta el <b>permiso internacional de conducir</b>. Lo emite el ACU, sale en el día y vale un año.</li>
+        <li>No reemplaza a la licencia uruguaya, la acompaña. Hay que llevar las dos y mostrar las dos, en el mostrador de la rentadora y si nos para un carabinero.</li>
+        <li>Sacarlo con margen, y revisar que el nombre coincida exacto con el del pasaporte y con el de la tarjeta que va a pagar el alquiler. Una letra distinta alcanza para que en el mostrador se pongan difíciles.</li>
+      </ul>
       <h3>La tarjeta para el alquiler del auto</h3>
-      <p>Esta es la que más problemas da y casi nadie la piensa. Para retirar un auto piden una <b>tarjeta de crédito a nombre del conductor</b>, con relieve o sin él pero de crédito, no de débito, y bloquean un depósito en garantía que puede ser bastante alto. Ese bloqueo consume límite aunque no sea un gasto real, y se libera recién varios días después de devolver el auto.</p>
-      <p>O sea que si el mismo día del retiro tenemos el límite comprometido, el mostrador nos deja a pie. Las dos jugadas que sirven están más abajo, en la parte de tarjetas: sobregirar la tarjeta antes de salir y pedir el aumento temporal de límite.</p>
+      <ul>
+        <li>Para retirar un auto piden una <b>tarjeta de crédito a nombre del conductor</b>, no de débito, y bloquean un depósito en garantía que puede ser alto.</li>
+        <li>Ese bloqueo consume límite aunque no sea un gasto real, y se libera varios días después de devolver el auto.</li>
+        <li>Si el día del retiro tenemos el límite comprometido, el mostrador nos deja a pie. Las dos jugadas que dan aire están abajo, en la parte de tarjetas.</li>
+      </ul>
       <h3>Pasaportes y el resto</h3>
-      <p>Pasaporte con más de seis meses de validez desde la fecha de vuelta. Uruguay no necesita visa para el espacio Schengen por estadías cortas, pero en algún momento entra en vigencia el registro previo <b>ETIAS</b>, que es un trámite online barato y rápido. Conviene mirar si ya está pidiéndose para octubre de 2026.</p>
-      <p>Seguro de viaje con cobertura médica, que además es requisito formal para entrar a Schengen. Muchas tarjetas de crédito lo incluyen si el pasaje se pagó con ellas, pero hay que pedir el certificado al banco: la cobertura sin el papel no sirve para nada en un mostrador.</p>
-      <p>Y una foto de todo en el teléfono y en el mail: pasaportes, licencias, seguro, tarjetas por los dos lados. Si se pierde la billetera, esa carpeta es la diferencia entre un mal rato y un problema serio.</p>
+      <ul>
+        <li>Pasaporte con más de seis meses de validez desde la fecha de vuelta.</li>
+        <li>Uruguay no necesita visa Schengen por estadías cortas, pero en algún momento entra en vigencia el registro previo <b>ETIAS</b>, un trámite online barato y rápido. Mirar si ya se pide para octubre de 2026.</li>
+        <li>Seguro de viaje con cobertura médica, que además es requisito para entrar a Schengen. Muchas tarjetas lo incluyen si el pasaje se pagó con ellas, pero hay que pedir el certificado al banco: la cobertura sin el papel no sirve en un mostrador.</li>
+        <li>Foto de todo en el teléfono y en el mail: pasaportes, licencias, seguro, tarjetas por los dos lados.</li>
+      </ul>
     `},
 
   {s:'El vuelo largo y las escalas', k:'prep', html:`
       <h3>Montevideo, Madrid, Roma</h3>
-      <p>Salimos el sábado 3 y llegamos a Roma el domingo 4, con escala en Madrid. El cruce del Atlántico es de noche, así que la única meta del vuelo es dormir lo máximo posible: llegamos a Roma un domingo de mañana y ese día se camina.</p>
-      <p>Lo que funciona: cenar liviano antes de subir en vez de esperar la bandeja, tapones y antifaz, y tomar agua seguido. Lo que no funciona: el vino gratis. Ayuda muchísimo poner el reloj en hora de Italia apenas se despega, son cinco horas adelante, y comportarse como si ya fuera esa hora.</p>
+      <p>Salimos el sábado 3 y llegamos a Roma el domingo 4, con escala en Madrid. El cruce del Atlántico es de noche, así que la única meta del vuelo es dormir: llegamos a Roma un domingo de mañana y ese día se camina.</p>
+      <ul>
+        <li>Ayuda: cenar liviano antes de subir en vez de esperar la bandeja, tapones y antifaz, tomar agua seguido, y poner el reloj en hora de Italia apenas se despega, que son cinco horas adelante.</li>
+        <li>No ayuda: el vino gratis.</li>
+      </ul>
       <h3>La escala en Madrid</h3>
-      <p>Barajas es grande y el cambio de terminal puede comer bastante tiempo. Al ser vuelos de la misma compañía las valijas suelen ir facturadas hasta Roma, pero conviene confirmarlo en el check-in de Montevideo y no darlo por hecho. También ahí se pregunta si el control de pasaportes lo hacemos en Madrid, que es lo habitual porque es la primera entrada a Schengen.</p>
+      <ul>
+        <li>Barajas es grande y el cambio de terminal come tiempo.</li>
+        <li>Al ser vuelos de la misma compañía, las valijas suelen ir facturadas hasta Roma, pero confirmarlo en el check in de Montevideo.</li>
+        <li>El control de pasaportes se hace en Madrid, que es la primera entrada a Schengen. Preguntarlo ahí también.</li>
+      </ul>
       <h3>Los tres vuelos de adentro</h3>
-      <p>El 17 de octubre volamos <b>IB 5543</b> de Milán a Barcelona, el 18 <b>IB 5064</b> de Barcelona a Sevilla, y el 25 volvemos de Sevilla vía Madrid a Montevideo, de noche. Los dos tramos de Iberia son europeos y con equipaje de mano estricto: si la valija de cabina está al límite, mejor despacharla al comprar y no en el mostrador, que ahí sale bastante más.</p>
-      <p>El vuelo de vuelta es nocturno y sale de Sevilla, así que el domingo 25 tenemos el día libre en la ciudad. Ese día, además, cambia la hora en Europa: a las 3 de la madrugada los relojes se atrasan una hora. El teléfono lo hace solo, pero vale saberlo porque los horarios impresos y los de la terminal ya están en la hora nueva.</p>
+      <ul>
+        <li>El 17 volamos <b>IB 5543</b> de Milán a Barcelona, el 18 <b>IB 5064</b> de Barcelona a Sevilla, y el 25 de Sevilla vía Madrid a Montevideo, de noche.</li>
+        <li>Los dos tramos de Iberia son europeos y con equipaje de mano estricto: si la valija de cabina está al límite, despacharla al comprar y no en el mostrador.</li>
+        <li>El domingo 25, además, cambia la hora en Europa: a las 3 de la madrugada los relojes se atrasan una hora. El teléfono lo hace solo, pero los horarios impresos y los de la terminal ya están en la hora nueva.</li>
+      </ul>
     `},
 
   {s:'La valija para tres semanas', k:'prep', html:`
-      <h3>El problema real no es el frío, es la mudanza</h3>
-      <p>Son ocho alojamientos en veintitrés días, con tramos en tren, un auto y tres vuelos. Cada valija de más se paga ocho veces: subiendo a un tren en Termini, metiéndola en el baúl de un auto chico en Florencia, y bajando escaleras en La Spezia. La regla es una valija mediana cada uno más una mochila, y nada más.</p>
-      <p>Las escaleras merecen un párrafo aparte. Muchas estaciones italianas tienen andenes a los que se llega bajando y subiendo escalones, y no siempre hay ascensor. Cuatro ruedas duras y un asa que no se trabe valen más que cualquier marca.</p>
+      <h3>El problema no es el frío, es la mudanza</h3>
+      <ul>
+        <li>Ocho alojamientos en veintitrés días, con tren, auto y tres vuelos. Cada valija de más se paga ocho veces: subiendo a un tren en Termini, metiéndola en el baúl de un auto chico en Florencia, bajando escaleras en La Spezia.</li>
+        <li>La regla: una valija mediana cada uno más una mochila, y nada más.</li>
+        <li>Muchas estaciones italianas tienen andenes con escaleras y sin ascensor. Cuatro ruedas duras y un asa que no se trabe valen más que cualquier marca.</li>
+      </ul>
       <h3>Ropa</h3>
-      <p>Octubre en Italia es de días lindos y mañanas frescas, y Sevilla en la tercera semana todavía está de verano corto. Eso significa capas: remeras, una camisa o buzo liviano, una campera fina que corte el viento y aguante una llovizna. Un abrigo grande sobra y ocupa media valija.</p>
-      <p>Para el Vaticano hace falta hombros y rodillas cubiertos, para los dos. Es requisito de entrada y lo controlan en la puerta. Un pañuelo grande en la mochila resuelve el caso de que ese día haga calor.</p>
+      <ul>
+        <li>Octubre en Italia es de días lindos y mañanas frescas; Sevilla en la tercera semana todavía es verano corto. Eso es capas: remeras, una camisa o buzo liviano, una campera fina que corte el viento y aguante una llovizna.</li>
+        <li>Un abrigo grande sobra y ocupa media valija.</li>
+        <li>Para el Vaticano hace falta hombros y rodillas cubiertos, para los dos. Un pañuelo grande en la mochila resuelve si ese día hace calor.</li>
+      </ul>
       <h3>El calzado</h3>
-      <p>Zapatos cómodos y ya usados, con suela que agarre. Los adoquines romanos están gastados y resbalan, y en Cinque Terre y San Gimignano se sube y se baja todo el tiempo. Dos pares para poder alternar, porque el pie descansa distinto en cada uno, y medias de repuesto en la mochila.</p>
+      <ul>
+        <li>Zapatos cómodos y ya usados, con suela que agarre. Los adoquines romanos están gastados y resbalan, y en Cinque Terre y San Gimignano se sube y se baja todo el tiempo.</li>
+        <li>Dos pares para alternar, y medias de repuesto en la mochila.</li>
+      </ul>
       <h3>La mochila del día</h3>
-      <p>Botella recargable, que en Roma hay canillas de agua potable por todos lados y son gratis. Batería portátil. Un pañuelo o bufanda fina. Y adentro, una bolsa de tela plegada: sirve para la compra, para el mercado y para el día que volvemos con más cosas de las que salimos.</p>
+      <p>Botella recargable, batería portátil, un pañuelo fino, y una bolsa de tela plegada para la compra, el mercado y el día que volvemos con más cosas de las que salimos.</p>
     `},
 
   {s:'Trabajar remoto desde Sevilla', k:'prep', html:`
       <h3>La semana de Vale</h3>
-      <p>Del lunes 19 al viernes 23 Vale está en la semana internacional del MBA en la Universidad Loyola, y yo trabajo desde el apartamento. Compartimos ese apartamento con tres compañeras de ella, así que el día tiene dos ritmos distintos y conviene tenerlo pensado de antemano.</p>
-      <p>Lo primero a confirmar es <b>dónde queda exactamente la sede</b>. Loyola tiene su campus de Sevilla fuera del centro, hacia el sur, y también actividades en edificios del centro. No es lo mismo caminar diez minutos que tomarse un cercanías más un bus todos los días. Conviene preguntarlo en la organización del programa antes de viajar y, con la dirección concreta, medir el trayecto real desde el apartamento en Google Maps a la hora exacta en la que hay que estar.</p>
+      <ul>
+        <li>Del lunes 19 al viernes 23, Vale está en la semana internacional del MBA en la Universidad Loyola y yo trabajo desde el apartamento, que compartimos con tres compañeras de ella. El día tiene dos ritmos.</li>
+        <li>Lo primero a confirmar es <b>dónde queda la sede</b>. Loyola tiene el campus de Sevilla fuera del centro, hacia el sur, y también actividades en edificios del centro. Preguntarlo en la organización del programa antes de viajar y, con la dirección concreta, medir el trayecto real desde el apartamento en Google Maps a la hora exacta en la que hay que estar.</li>
+      </ul>
       <h3>La conexión</h3>
-      <p>Confirmar con el anfitrión del Airbnb la velocidad de la wifi antes de viajar, y preguntar si hay una mesa de verdad y no solo la barra de la cocina. Cinco días de llamadas en una silla de comedor se sienten. Si la conexión falla, la eSIM con datos generosos y el celular como punto de acceso es el plan B, y funciona bien en España.</p>
-      <p>El horario juega a favor: Sevilla está cinco horas adelante de Montevideo, así que la mañana española es tiempo tranquilo para trabajar sin que nadie escriba, y las reuniones caen recién de tarde. Eso deja las mañanas libres para adelantar y, si se puede, salir a caminar antes de que arranque el día uruguayo.</p>
+      <ul>
+        <li>Confirmar con el anfitrión del Airbnb la velocidad de la wifi, y si hay una mesa de verdad y no solo la barra de la cocina. Cinco días de llamadas en una silla de comedor se sienten.</li>
+        <li>Plan B: la eSIM con datos generosos y el celular como punto de acceso. En España funciona bien.</li>
+        <li>El horario juega a favor: Sevilla está cinco horas adelante de Montevideo, así que la mañana española es tiempo tranquilo y las reuniones caen de tarde. Las mañanas quedan para adelantar y salir a caminar antes de que arranque el día uruguayo.</li>
+      </ul>
       <h3>Cafés para cortar</h3>
-      <p>Cuando el apartamento se haga chico, Sevilla tiene cafés de especialidad con enchufes y wifi, y varios coworkings que venden pases por día sin contrato. En el capítulo de Sevilla están los concretos. La regla local: en un bar de barrio ocupar la mesa cuatro horas con un café queda mal, en un café de especialidad es exactamente para lo que están.</p>
+      <p>Cuando el apartamento se haga chico, Sevilla tiene cafés de especialidad con enchufes y wifi, y coworkings que venden pases por día. Los concretos están en el capítulo de Sevilla. La regla local: ocupar una mesa cuatro horas con un café queda mal en un bar de barrio y bien en un café de especialidad, que es para lo que están.</p>
     `},
 
   {s:'Las tarjetas y la plata', k:'prep', html:`
       <h3>Cuál conviene usar</h3>
-      <p>No todas las tarjetas uruguayas cobran lo mismo afuera. Algunas tienen comisión cero o reducida en compras en el exterior y otras te clavan un porcentaje en cada consumo, que en tres semanas es mucha plata. Antes de salir conviene llamar al banco y preguntar derecho dos cosas: qué comisión tiene cada tarjeta por compra en el exterior y cuál es el límite diario de consumo.</p>
-      <p>Para débito, la <b>OCA Blue</b> es la que conviene tener porque no tiene recargo por compra en el exterior. Y en crédito, las Platinum de Itaú y de Santander suman beneficios que en un viaje largo se usan: acceso a salas VIP en aeropuertos, seguros de viaje y asistencia. Las salas se gestionan con una app propia y hay que tenerla instalada y la tarjeta registrada antes de viajar, no en el aeropuerto.</p>
+      <ul>
+        <li>No todas las tarjetas uruguayas cobran lo mismo afuera. Antes de salir, llamar al banco y preguntar dos cosas de cada tarjeta: qué comisión tiene por compra en el exterior y cuál es el límite diario de consumo.</li>
+        <li>En débito, la <b>OCA Blue</b> no tiene recargo por compra en el exterior.</li>
+        <li>En crédito, las Platinum de Itaú y de Santander suman acceso a salas VIP, seguro de viaje y asistencia. Las salas se gestionan con una app propia: instalarla y registrar la tarjeta antes de viajar, no en el aeropuerto.</li>
+      </ul>
       <h3>Las tres cuotas de OCA</h3>
-      <p>OCA permite pagar compras en el exterior en tres cuotas sin interés, y en épocas especiales llega a seis. Sirve muchísimo para lo caro y planificado, como un alojamiento o el alquiler del auto: en vez de que caiga entero en un estado de cuenta, se reparte. Se activa desde la app, hay que suscribirse al servicio, y eso se hace antes de salir.</p>
+      <p>OCA permite pagar compras en el exterior en tres cuotas sin interés, y en épocas especiales seis. Sirve para lo caro y planificado, como un alojamiento o el alquiler del auto. Se activa desde la app, hay que suscribirse al servicio, y eso se hace antes de salir.</p>
       <h3>El límite diario, que es el que arruina compras</h3>
-      <p>Casi todas las tarjetas tienen un tope de consumo por día, muchas veces cerca de los quinientos dólares, y cuando se pasa la tarjeta simplemente deja de funcionar sin avisar por qué. Con un alquiler de auto, una cena y una entrada en el mismo día se llega sin darse cuenta. Vale la pena saber cuál es el número, y repartir los gastos grandes en días distintos.</p>
+      <p>Casi todas las tarjetas tienen un tope por día, muchas veces cerca de los quinientos dólares, y al pasarlo la tarjeta deja de funcionar sin avisar por qué. Un alquiler de auto, una cena y una entrada el mismo día llegan sin darse cuenta. Saber cuál es el número y repartir los gastos grandes en días distintos.</p>
       <h3>Las dos jugadas que dan aire</h3>
-      <p>La primera es <b>sobregirar la tarjeta de crédito</b>: pagar de más antes de viajar para que el saldo a favor se consuma primero y quede el límite entero disponible para lo que venga.</p>
-      <p>La segunda es pedir un <b>aumento temporal del límite</b>. Suelen dar hasta un cincuenta por ciento más por unos meses, que alcanza para el viaje y para el estado de cuenta que llega después. Es la que más sirve para el depósito del auto.</p>
-      <p>Las dos hay que hacerlas con tiempo, para llegar con todo resuelto. Las apps de los bancos andan mal desde afuera, entre la wifi del hotel, las claves que llegan por SMS a un número que no tenemos prendido y las validaciones que no cargan. Cuanto menos las tengamos que usar allá, mejor.</p>
+      <ul>
+        <li><b>Sobregirar la tarjeta de crédito</b>: pagar de más antes de viajar para que el saldo a favor se consuma primero y quede el límite entero disponible.</li>
+        <li><b>Pedir un aumento temporal del límite</b>. Suelen dar hasta un cincuenta por ciento más por unos meses. Es la que más sirve para el depósito del auto.</li>
+        <li>Las dos con tiempo. Las apps de los bancos andan mal desde afuera, entre la wifi del hotel, las claves por SMS a un número apagado y las validaciones que no cargan.</li>
+      </ul>
       <h3>Efectivo</h3>
-      <p>Menos del que uno cree, pero no cero. En Italia hay lugares chicos de mostrador donde el posnet "no anda", los baños públicos de las estaciones se pagan en monedas y los mercados de barrio son de efectivo. Con unos pocos cientos de euros para las tres semanas alcanza, y se reponen en cajeros bancarios. Nunca en los cajeros amarillos de las esquinas turísticas, que cobran comisiones absurdas y ofrecen un cambio pésimo.</p>
-      <p>Y cuando el posnet pregunte si queremos pagar en euros o en pesos uruguayos, siempre <b>en euros</b>. Elegir la moneda de casa deja que el comercio fije el tipo de cambio, y siempre es peor que el del banco.</p>
+      <ul>
+        <li>Menos del que uno cree, pero no cero. En Italia hay lugares chicos de mostrador donde el posnet "no anda", los baños de las estaciones se pagan en monedas y los mercados de barrio son de efectivo.</li>
+        <li>Con unos pocos cientos de euros para las tres semanas alcanza, y se reponen en cajeros bancarios. Nunca en los cajeros amarillos de las esquinas turísticas, que cobran comisiones absurdas y dan un cambio pésimo.</li>
+        <li>Cuando el posnet pregunte euros o pesos uruguayos, siempre <b>en euros</b>. Elegir la moneda de casa deja que el comercio fije el cambio, y siempre es peor.</li>
+      </ul>
     `},
 
   {s:'eSIM, apps y qué bajarse', k:'prep', html:`
       <h3>La eSIM</h3>
-      <p>Una eSIM con datos para toda Europa, comprada antes de salir y activada al aterrizar, es de lo mejor que se puede hacer por el viaje. Sale una fracción del roaming y no hay que buscar nada en el aeropuerto. Se compra online, llega un QR, se instala con wifi antes de viajar y se activa recién al llegar.</p>
-      <p>Importante: la eSIM da datos, no el número uruguayo. Conviene dejar el chip físico puesto pero con los datos apagados, para seguir recibiendo los SMS del banco, que son los que después hacen falta para autorizar una compra.</p>
+      <ul>
+        <li>Una eSIM con datos para toda Europa, comprada antes de salir y activada al aterrizar, sale una fracción del roaming y no hay que buscar nada en el aeropuerto. Se compra online, llega un QR, se instala con wifi y se activa al llegar.</li>
+        <li>Da datos, no el número uruguayo. Dejar el chip físico puesto con los datos apagados, para seguir recibiendo los SMS del banco, que son los que después autorizan una compra.</li>
+      </ul>
       <h3>Lo que hay que bajar antes</h3>
-      <p>Los mapas de Roma, Florencia, Siena, La Spezia, Milán, Barcelona y Sevilla en Google Maps para uso sin conexión. La zona de la Toscana entera, que es donde vamos a manejar y donde la señal se corta entre colinas. Las entradas y los vouchers. Y el traductor con italiano y con inglés descargados.</p>
-      <h3>Las apps que sirven de verdad</h3>
-      <p>Para trenes en Italia, <b>Trenitalia</b> y <b>Italo</b>. Para trenes en España, <b>Renfe</b>. Para buses y todo lo demás, Google Maps anda bien en las dos.</p>
-      <p>Para reservar mesa, <b>TheFork</b> funciona en Italia y en España y muchas veces tiene descuento. Para taxis en Italia, <b>FreeNow</b> o <b>itTaxi</b>; en Barcelona y Sevilla, <b>Cabify</b> y <b>Bolt</b> andan bien y son más baratas que el taxi.</p>
-      <p>Para los museos del Vaticano y para el Coliseo, la web oficial y nada más. Y una app de notas compartida entre los dos, que en un viaje de veintitrés días es donde terminan los horarios, los códigos de las puertas y los nombres de los lugares que alguien nos recomendó.</p>
+      <ul>
+        <li>Mapas sin conexión de Roma, Florencia, Siena, La Spezia, Milán, Barcelona y Sevilla, más la Toscana entera, que es donde vamos a manejar y la señal se corta entre colinas.</li>
+        <li>Las entradas y los vouchers.</li>
+        <li>El traductor con italiano e inglés descargados.</li>
+      </ul>
+      <h3>Las apps que sirven</h3>
+      <ul>
+        <li>Trenes: <b>Trenitalia</b> e <b>Italo</b> en Italia, <b>Renfe</b> en España.</li>
+        <li>Mesa: <b>TheFork</b>, que anda en los dos países y muchas veces tiene descuento.</li>
+        <li>Taxis: <b>FreeNow</b> o <b>itTaxi</b> en Italia; <b>Cabify</b> y <b>Bolt</b> en Barcelona y Sevilla, más baratas que el taxi.</li>
+        <li>Vaticano y Coliseo: la web oficial y nada más.</li>
+        <li>Una app de notas compartida entre los dos, que en veintitrés días es donde terminan los horarios, los códigos de las puertas y los nombres que alguien nos recomendó.</li>
+      </ul>
     `},
 
   {s:'Octubre, cómo viene el clima', k:'prep', html:`
@@ -525,27 +635,32 @@ const CITIES = [
           <tr><td>Sevilla</td><td>27° / 14°</td><td>Calurosa al mediodía, fresca de noche</td><td>~8:20</td><td>~19:35</td></tr>
         </tbody>
       </table></div>
-      <p>La diferencia entre la máxima y la mínima es grande en todos lados, sobre todo en Sevilla, donde se pasa de veintisiete al mediodía a catorce de madrugada. Salir a las ocho de la mañana con lo puesto para el mediodía es el error clásico.</p>
-      <p>La otra cosa que cambia todo es que oscurece temprano y cada vez más rápido. En Roma, a principios de mes, a las siete ya es de noche. Las fotos con luz linda hay que hacerlas antes de las seis y media, y el atardecer del Giardino degli Aranci o de Piazzale Michelangelo hay que agendarlo, no dejarlo para ver si sale.</p>
+      <ul>
+        <li>La diferencia entre máxima y mínima es grande en todos lados, sobre todo en Sevilla, que pasa de veintisiete al mediodía a catorce de madrugada. Salir a las ocho con lo puesto para el mediodía es el error clásico.</li>
+        <li>Oscurece temprano y cada vez más rápido. En Roma, a principios de mes, a las siete ya es de noche. Las fotos con luz linda son antes de las seis y media, y el atardecer del Giardino degli Aranci o de Piazzale Michelangelo hay que agendarlo.</li>
+      </ul>
       <h3>El cambio de hora</h3>
-      <p>El domingo 25 de octubre, a las 3 de la madrugada, en toda Europa los relojes se atrasan una hora. Es justo el día que volvemos. El teléfono se ajusta solo, pero conviene mirarlo dos veces con el horario del vuelo.</p>
+      <p>El domingo 25 de octubre, a las 3 de la madrugada, en toda Europa los relojes se atrasan una hora. Es el día que volvemos. El teléfono se ajusta solo, pero conviene mirarlo dos veces con el horario del vuelo.</p>
     `},
 
   {s:'Cómo se paga y las propinas', k:'prep', html:`
       <h3>Italia</h3>
-      <p>En la cuenta aparece el <b>coperto</b>, un cargo por persona que cubre el pan y el mantel y suele ser de un par de euros. Tiene que estar avisado en la carta y no es una estafa ni es la propina. Si además aparece <em>servizio</em>, esa sí es la propina y ya está cobrada.</p>
-      <p>Si no aparece ninguna de las dos, dejar unas monedas o redondear para arriba es lo que se estila, y nadie espera un porcentaje. Por ley están obligados a aceptar tarjeta y a darnos el ticket fiscal.</p>
+      <ul>
+        <li>En la cuenta aparece el <b>coperto</b>, un cargo por persona que cubre el pan y el mantel, de un par de euros. Tiene que estar avisado en la carta y no es la propina.</li>
+        <li>Si además aparece <em>servizio</em>, esa sí es la propina y ya está cobrada.</li>
+        <li>Si no aparece ninguna, dejar unas monedas o redondear para arriba alcanza. Nadie espera un porcentaje. Por ley aceptan tarjeta y dan el ticket fiscal.</li>
+      </ul>
       <h3>España</h3>
-      <p>La propina no es obligatoria ni la esperan. Redondear la cuenta o dejar algo suelto en un sitio donde se comió bien alcanza y sobra. En Andalucía todavía menos que en el resto: el precio de la carta es el precio.</p>
+      <p>La propina no es obligatoria ni la esperan. Redondear la cuenta o dejar algo suelto donde se comió bien alcanza y sobra. En Andalucía todavía menos: el precio de la carta es el precio.</p>
       <h3>El detalle que cambia el precio</h3>
-      <p>En los dos países, el mismo café o la misma cerveza cuestan distinto en la barra, en el salón y en la terraza, y es legal siempre que esté publicado. En Italia la diferencia entre tomar un espresso parado en la barra y sentarse en una mesa de una plaza turística puede ser de varias veces. La lista con los dos precios está siempre a la vista.</p>
+      <p>En los dos países, el mismo café o la misma cerveza cuestan distinto en la barra, en el salón y en la terraza, y es legal siempre que esté publicado. En Italia, un espresso parado en la barra contra sentarse en una plaza turística puede ser varias veces más caro. La lista con los dos precios está siempre a la vista.</p>
     `}
   ]
 },
 {
   id:'via', nav:'Traslados', name:'Los traslados', plate:'Itinerario',
-  accent:'#475569', lt:'#CBD5E1', maps:'',
-  lede:'Catorce movimientos en veintitrés días: cinco vuelos, cinco tramos de tren, cuatro días de auto y los traslados de aeropuerto. Acá está cada uno, cuál ya está sacado, cuál falta y cuándo conviene sacarlo.',
+  accent:'#C2410C', lt:'#FDBA74', maps:'',
+  lede:'Catorce movimientos en veintitrés días: cinco vuelos, cinco tramos de tren, cuatro días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura, cuál ya está sacado y cuándo conviene sacar el resto.',
   quick:[
     ['Vuelos','5, todos sacados'],
     ['Trenes','5 tramos, el de Florencia sacado'],
@@ -554,95 +669,133 @@ const CITIES = [
     ['Lo más urgente','Reservar el auto']
   ],
   sections:[
-  {s:'Todo de un vistazo', k:'plan', html:`
-      <div class="tablewrap"><table>
-        <thead><tr><th>Cuándo</th><th>Tramo</th><th>Cómo</th><th>Estado</th></tr></thead>
-        <tbody>
-          <tr><td>Sáb 3</td><td>Montevideo a Madrid</td><td>Air Europa, nocturno</td><td>Sacado</td></tr>
-          <tr><td>Dom 4</td><td>Madrid a Roma</td><td>Air Europa</td><td>Sacado</td></tr>
-          <tr><td>Dom 4</td><td>Fiumicino a Navona</td><td>Taxi o Leonardo Express</td><td>Se resuelve ahí</td></tr>
-          <tr><td>Jue 8</td><td>Roma a Florencia</td><td>Tren, 9:20 de Termini</td><td>Sacado</td></tr>
-          <tr><td>Vie 9</td><td>Florencia a San Gimignano</td><td>Auto, retiro en Peretola</td><td><b>Falta</b></td></tr>
-          <tr><td>Mar 13</td><td>San Gimignano a La Spezia</td><td>Auto, y se devuelve</td><td><b>Falta</b></td></tr>
-          <tr><td>Mar 13</td><td>La Spezia y Cinque Terre</td><td>Tren regional</td><td>Se compra ahí</td></tr>
-          <tr><td>Mié 14</td><td>La Spezia a Módena</td><td>Tren, cambio en Parma</td><td><b>Falta</b></td></tr>
-          <tr><td>Mié 14</td><td>Módena a Milán</td><td>Tren</td><td><b>Falta</b></td></tr>
-          <tr><td>Vie 16</td><td>Milán a Varenna, ida y vuelta</td><td>Tren regional</td><td>Se compra ahí</td></tr>
-          <tr><td>Sáb 17</td><td>Milán a Barcelona</td><td>IB 5543</td><td>Sacado</td></tr>
-          <tr><td>Dom 18</td><td>Barcelona a Sevilla</td><td>IB 5064</td><td>Sacado</td></tr>
-          <tr><td>Sáb 24</td><td>Sevilla a Córdoba, si vamos</td><td>AVE, ida y vuelta</td><td><b>Falta, opcional</b></td></tr>
-          <tr><td>Dom 25</td><td>Sevilla a Madrid y a Montevideo</td><td>Air Europa, nocturno</td><td>Sacado</td></tr>
-        </tbody>
-      </table></div>
-      <h3>Lo que falta, en una línea</h3>
-      <p>Los cinco vuelos están y el tren a Florencia también. Lo único que queda pendiente de verdad es <b>el auto</b>, que es además lo que más sube de precio con el tiempo. Los dos tramos del miércoles 14 son trenes que se compran casi sobre la fecha, y el AVE a Córdoba depende de si vamos.</p>
-      <h3>Los dos días que hay que mirar con lupa</h3>
-      <p>El <b>miércoles 14</b> es el día más frágil del viaje: tres horas de tren con un cambio, un museo en el medio y dos horas más de tren, todo con las valijas encima. Si se cae el primer tramo, se cae el día entero. Ahí conviene margen de sobra entre combinaciones y no la conexión más ajustada que ofrezca la app.</p>
-      <p>El <b>sábado 17</b> depende de un dato que todavía no tenemos: de cuál de los dos aeropuertos de Milán sale el IB 5543. Entre Linate y Malpensa hay más de una hora de diferencia en el traslado, así que hay que confirmarlo antes de decidir a qué hora salimos del hotel.</p>
+  {s:'Todo de un vistazo', k:'plan',
+   legs:[
+     {d:'2026-10-03', w:'Sáb 3',  t:'Montevideo a Madrid',            c:'Air Europa, nocturno',      dur:'~12 h',      e:'Sacado'},
+     {d:'2026-10-04', w:'Dom 4',  t:'Madrid a Roma',                  c:'Air Europa',                dur:'~2h30',      e:'Sacado'},
+     {d:'2026-10-04', w:'Dom 4',  t:'Fiumicino a Navona',             c:'Taxi o Leonardo Express',   dur:'~40 min',    e:'Se resuelve ahí'},
+     {d:'2026-10-08', w:'Jue 8',  t:'Roma a Florencia',               c:'Tren, 9:20 de Termini',     dur:'1h30',       e:'Sacado'},
+     {d:'2026-10-09', w:'Vie 9',  t:'Florencia a San Gimignano',      c:'Auto, retiro en Peretola',  dur:'~1h15',      e:'Falta'},
+     {d:'2026-10-13', w:'Mar 13', t:'San Gimignano a La Spezia',      c:'Auto, y se devuelve',       dur:'~2h15',      e:'Falta'},
+     {d:'2026-10-13', w:'Mar 13', t:'La Spezia y Cinque Terre',       c:'Tren regional',             dur:'5 a 20 min', e:'Se compra ahí'},
+     {d:'2026-10-14', w:'Mié 14', t:'La Spezia a Módena',             c:'Tren, cambio en Parma',     dur:'~3 h',       e:'Falta'},
+     {d:'2026-10-14', w:'Mié 14', t:'Módena a Milán',                 c:'Tren directo',              dur:'~1h45',      e:'Falta'},
+     {d:'2026-10-16', w:'Vie 16', t:'Milán a Varenna, ida y vuelta',  c:'Tren regional',             dur:'~1h05 ida',  e:'Se compra ahí'},
+     {d:'2026-10-17', w:'Sáb 17', t:'Milán a Barcelona',              c:'IB 5543',                   dur:'~1h45',      e:'Sacado'},
+     {d:'2026-10-18', w:'Dom 18', t:'Barcelona a Sevilla',            c:'IB 5064',                   dur:'~1h45',      e:'Sacado'},
+     {d:'2026-10-24', w:'Sáb 24', t:'Sevilla a Córdoba, si vamos',    c:'AVE, ida y vuelta',         dur:'0h45',       e:'Falta, opcional'},
+     {d:'2026-10-25', w:'Dom 25', t:'Sevilla a Madrid y a Montevideo',c:'Air Europa, nocturno',      dur:'~13 h',      e:'Sacado'}
+   ],
+   html:`
+      <p>Antes del viaje está todo pendiente y la lista arranca limpia. Durante el viaje, cada tramo se marca solo cuando pasa la fecha, y el de arriba muestra por cuál vamos. Cualquier fila se puede tocar para corregirla.</p>
+      <h3>Lo que falta</h3>
+      <ul>
+        <li>Los cinco vuelos y el tren a Florencia ya están.</li>
+        <li>El <b>auto</b> es lo único pendiente de verdad, y lo que más sube de precio con el tiempo.</li>
+        <li>Los dos trenes del miércoles 14 se compran casi sobre la fecha.</li>
+        <li>El AVE a Córdoba, solo si hacemos la excursión.</li>
+      </ul>
+      <h3>Los dos días para mirar con lupa</h3>
+      <ul>
+        <li>El <b>miércoles 14</b> es el frágil: tres horas de tren con un cambio, un museo en el medio y dos horas más de tren, con las valijas encima. Si se cae el primer tramo, se cae el día. Hay que dejar margen entre combinaciones y no tomar la conexión más ajustada de la app.</li>
+        <li>El <b>sábado 17</b> depende de un dato que falta: si el IB 5543 sale de Linate o de Malpensa. Son más de una hora de diferencia en el traslado, así que hay que confirmarlo antes de fijar a qué hora salimos del hotel.</li>
+      </ul>
     `},
 
   {s:'Cuándo sacar cada cosa', k:'plan', html:`
-      <h3>El orden de urgencia</h3>
-      <p>No todo se compra al mismo tiempo, y comprar de más con demasiada anticipación también cuesta plata. El orden que conviene es este:</p>
-      <p><b>Primero lo que se agota</b>, que no son traslados: las entradas del Coliseo, los Uffizi y la Última Cena de Milán. Eso está en el capítulo de preparativos y es lo único que de verdad tiene fecha límite.</p>
-      <p><b>Segundo, el auto</b>, con tres o cuatro meses de anticipación y siempre con tarifa cancelable, porque el precio de los alquileres sube fuerte cuando se acerca la fecha y no baja.</p>
-      <p><b>Tercero, los trenes de larga distancia.</b> El de Roma a Florencia ya está, así que acá solo queda mirar si en los tramos del miércoles 14 aparece algún tren rápido en vez de regional: si aparece, conviene sacarlo con anticipación porque es de tarifa dinámica.</p>
-      <p><b>Y último, nada.</b> Los trenes regionales, el tranvía de Florencia, los trenes de Cinque Terre y los del lago de Como se compran el mismo día o la noche anterior, y no conviene comprarlos antes.</p>
-      <h3>Por qué los regionales no se compran con anticipación</h3>
-      <p>En Italia los trenes regionales tienen <b>precio fijo</b>: cuesta lo mismo comprarlo hoy que el día del viaje, no tienen asiento asignado y el boleto vale para cualquier tren de ese día en muchos casos. Comprarlo con meses de anticipación no ahorra un centavo y sí nos ata a un horario que después no vamos a querer.</p>
-      <p>Los de <b>alta velocidad</b> funcionan al revés, como un avión: hay tarifas baratas limitadas que se agotan y el precio sube a medida que se llena el tren. Ahí sí, cuanto antes mejor.</p>
+      <h3>El orden</h3>
+      <p>Comprar de más con demasiada anticipación también cuesta plata. El orden que sirve:</p>
+      <ul>
+        <li><b>Primero lo que se agota</b>, que no son traslados: Coliseo, Uffizi y la Última Cena de Milán. Está en el capítulo de preparativos y es lo único con fecha límite de verdad.</li>
+        <li><b>El auto</b>, tres o cuatro meses antes y con tarifa cancelable. El precio de los alquileres sube fuerte cerca de la fecha y después no baja.</li>
+        <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está. Para los tramos del miércoles 14, mirar si aparece un tren rápido en vez de regional: si aparece, sacarlo con tiempo, porque es de tarifa dinámica.</li>
+        <li><b>El resto, nada.</b> Regionales, tranvía de Florencia, trenes de Cinque Terre y del lago de Como se compran el mismo día o la noche anterior.</li>
+      </ul>
+      <h3>Por qué los regionales no se compran antes</h3>
+      <ul>
+        <li>Tienen <b>precio fijo</b>: cuesta lo mismo hoy que el día del viaje, no hay asiento asignado y muchas veces el boleto vale para cualquier tren de esa jornada. Sacarlo con meses de anticipación no ahorra un centavo y nos ata a un horario.</li>
+        <li>Los de <b>alta velocidad</b> funcionan como un avión: las tarifas baratas se agotan y el precio sube a medida que se llena el tren. Ahí, cuanto antes mejor.</li>
+      </ul>
       <h3>Trenitalia o Italo</h3>
-      <p>Son dos empresas distintas que compiten en las mismas rutas rápidas, entre ellas Roma a Florencia. Italo suele salir algo más barato y sale de las mismas estaciones. Conviene mirar las dos apps antes de comprar, porque para el mismo horario la diferencia puede ser importante.</p>
-      <p>Ojo con un detalle: las tarifas más baratas de las dos empresas <b>no se cambian ni se devuelven</b>, y el boleto es nominativo. Si hay alguna chance de mover el horario, la tarifa del medio permite cambio pagando poco y muchas veces vale la diferencia.</p>
+      <ul>
+        <li>Compiten en las mismas rutas rápidas, Roma a Florencia entre ellas. Italo suele salir algo más barato y usa las mismas estaciones. Vale mirar las dos apps antes de comprar.</li>
+        <li>Las tarifas más baratas de las dos <b>no se cambian ni se devuelven</b> y el boleto es nominativo. Si hay chance de mover el horario, la tarifa del medio permite cambio pagando poco y suele compensar.</li>
+      </ul>
     `},
 
   {s:'Los vuelos, que ya están', k:'mover', items:[
-    {m:'Aeropuerto Internacional de Carrasco, Montevideo', n:'Sáb 3: Montevideo a Madrid', d:'Air Europa, vuelo nocturno. Es el tramo largo del viaje y el que define cómo llegamos el domingo a Roma.', t:'mover', tip:'Confirmar en el check in de Montevideo si las valijas van facturadas hasta Roma o hay que retirarlas en Madrid, y en qué terminal es la conexión. No darlo por hecho porque son dos vuelos de la misma compañía: preguntarlo igual.'},
-    {m:'Aeropuerto Adolfo Suarez Madrid Barajas', n:'Dom 4: Madrid a Roma', d:'Air Europa. Es la conexión, y Barajas es grande: entre terminales puede haber un tren interno y bastante caminata.', t:'mover', tip:'Acá es donde entramos a Schengen, así que el control de pasaportes se hace en Madrid y no en Roma. Si la escala es corta, ir directo al control apenas se baja y dejar el café para después.'},
-    {nota:1, n:'Sáb 17: Milán a Barcelona, IB 5543', d:'El vuelo está sacado, pero falta el dato clave: si sale de Linate o de Malpensa. Linate está pegado a la ciudad y lo conecta la línea M4 del metro en unos veinte minutos. Malpensa está a cuarenta y cinco kilómetros y son unos cincuenta minutos en el Malpensa Express.', t:'mover', tip:'Mirarlo en la reserva y anotarlo acá. Si es Malpensa, hay que salir del hotel más de una hora antes de lo que uno calcularía, y conviene sacar el boleto del tren la noche anterior.'},
-    {m:'Aeropuerto Josep Tarradellas Barcelona El Prat', n:'Dom 18: Barcelona a Sevilla, IB 5064', d:'Un vuelo corto de mediodía que nos deja la mañana libre en Barcelona.', t:'mover', tip:'Los vuelos de Iberia dentro de España muchas veces los opera otra compañía del grupo, con reglas de equipaje de mano distintas y más estrictas. Vale la pena mirar la franquicia real en la reserva antes de armar la valija en Milán.'},
-    {m:'Aeropuerto de Sevilla', n:'Dom 25: Sevilla a Madrid y a Montevideo', d:'Vuelo nocturno con conexión en Madrid. El día queda entero en Sevilla, que es una ventaja.', t:'mover', tip:'Esa madrugada cambia la hora en Europa y los relojes se atrasan. El teléfono se ajusta solo, pero conviene mirarlo dos veces contra el horario del pasaje. Y el aeropuerto de Sevilla es chico: con dos horas antes alcanza, pero por ser conexión internacional yo no bajaría de eso.'},
-    {nota:1, n:'El check in y el equipaje', d:'Los cinco vuelos están sacados, así que lo único que queda es el check in online, que abre entre veinticuatro y cuarenta y ocho horas antes según la compañía.', t:'mover', tip:'Hacerlo apenas abre y bajar las tarjetas de embarque al teléfono, no dejarlas en el mail. Y si alguna valija de cabina está al límite, despacharla comprando el extra online sale bastante menos que en el mostrador del aeropuerto.'}
+    {nota:1, m:'Aeropuerto Internacional de Carrasco, Montevideo', n:'Sáb 3: Montevideo a Madrid', d:'Air Europa, nocturno. Es el tramo largo y el que define cómo llegamos el domingo a Roma.', t:'mover', tip:'En el check in de Montevideo, confirmar si las valijas van facturadas hasta Roma o hay que retirarlas en Madrid, y en qué terminal es la conexión. Son dos vuelos de la misma compañía, pero preguntarlo igual.'},
+    {nota:1, m:'Aeropuerto Adolfo Suarez Madrid Barajas', n:'Dom 4: Madrid a Roma', d:'Air Europa. Es la conexión, y Barajas es grande: entre terminales puede haber un tren interno y bastante caminata.', t:'mover', tip:'Acá entramos a Schengen, así que el control de pasaportes se hace en Madrid, no en Roma. Si la escala es corta, ir directo al control apenas bajamos y dejar el café para después.'},
+    {nota:1, n:'Sáb 17: Milán a Barcelona, IB 5543', d:'El vuelo está sacado, pero falta el dato clave: Linate o Malpensa. Linate está pegado a la ciudad y lo conecta la línea M4 del metro en unos veinte minutos. Malpensa está a cuarenta y cinco kilómetros, unos cincuenta minutos en el Malpensa Express.', t:'mover', tip:'Mirarlo en la reserva y anotarlo acá. Si es Malpensa, hay que salir del hotel más de una hora antes de lo que uno calcularía, y sacar el boleto del tren la noche anterior.'},
+    {nota:1, m:'Aeropuerto Josep Tarradellas Barcelona El Prat', n:'Dom 18: Barcelona a Sevilla, IB 5064', d:'Un vuelo corto de mediodía que deja la mañana libre en Barcelona.', t:'mover', tip:'Los vuelos de Iberia dentro de España muchas veces los opera otra compañía del grupo, con reglas de equipaje de mano más estrictas. Mirar la franquicia real en la reserva antes de armar la valija en Milán.'},
+    {nota:1, m:'Aeropuerto de Sevilla', n:'Dom 25: Sevilla a Madrid y a Montevideo', d:'Vuelo nocturno con conexión en Madrid. El día queda entero en Sevilla.', t:'mover', tip:'Esa madrugada cambia la hora en Europa y los relojes se atrasan. El teléfono se ajusta solo, pero mirarlo dos veces contra el horario del pasaje. El aeropuerto de Sevilla es chico: con dos horas antes alcanza, y por ser conexión internacional yo no bajaría de eso.'},
+    {nota:1, n:'El check in y el equipaje', d:'Los cinco vuelos están sacados, así que queda el check in online, que abre entre veinticuatro y cuarenta y ocho horas antes según la compañía.', t:'mover', tip:'Hacerlo apenas abre y bajar las tarjetas de embarque al teléfono, no dejarlas en el mail. Si alguna valija de cabina está al límite, despacharla comprando el extra online sale bastante menos que en el mostrador.'}
   ]},
 
   {s:'Los trenes', k:'mover', items:[
-    {m:'Roma Termini', n:'Jue 8: Roma a Florencia en tren', d:'Alta velocidad, una hora y media, saliendo 9:20 de Termini. Ya está sacado, así que lo único que queda es llegar a horario.', t:'mover', tip:'Del hotel a Termini son unos veinte minutos en taxi con valijas, así que salimos 8:15 y estamos cuarenta minutos antes. Termini es enorme y la vía se anuncia en el cartel general con poca anticipación, así que conviene esperar adentro con un café y no en la puerta. Llevar el QR bajado al teléfono: se valida solo, no hay que picar nada.'},
-    {m:'La Spezia Centrale', n:'Mar 13: los trenes de Cinque Terre', d:'El Cinque Terre Express sale de La Spezia Centrale y para en los cinco pueblos. Pasa cada quince o treinta minutos.', t:'mover', res:'no', tip:'No se compra con anticipación: se saca en la máquina de la estación el mismo día, o directamente la tarjeta de un día si vamos a hacer tres o cuatro viajes. Si el boleto es de papel, hay que validarlo en la maquinita del andén antes de subir.'},
-    {m:'La Spezia Centrale', n:'Mié 14: La Spezia a Módena', d:'Unas tres horas con un cambio, generalmente en Parma. No hay tren directo, así que es la combinación más delicada del viaje.', t:'mover', res:'conviene', tip:'Mirar la combinación en la app con anticipación y elegir una con margen entre tren y tren, no la conexión más ajustada. Si el segundo tramo lo hace un tren rápido, conviene comprarlo antes; si son los dos regionales, se compran ese mismo día. Salir temprano, sobre las 7:30 u 8:00.'},
-    {m:'Stazione di Modena', n:'Mié 14: Módena a Milán', d:'Poco menos de dos horas, con servicios directos a Milano Centrale. Es el último tramo de un día largo.', t:'mover', res:'no', tip:'Si es regional, se compra en la estación de Módena el mismo día sin problema. Vale la pena mirar antes a qué hora es el último servicio cómodo, para saber hasta cuándo estirar el museo sin quedarnos sin tren.'},
-    {m:'Milano Centrale', n:'Vie 16: Milán a Varenna, ida y vuelta', d:'Poco más de una hora en tren regional hasta Varenna-Esino, por la orilla del lago. La estación queda a diez minutos a pie del puerto.', t:'mover', res:'no', tip:'Se compra el mismo día en la máquina o en la app. Lo que sí hay que mirar antes de salir es el horario del último ferry de vuelta a Varenna y el del último tren cómodo a Milán: quedarse del otro lado del lago sin barco es caro de resolver.'},
-    {m:'Estacion de Sevilla Santa Justa', n:'Sáb 24: Sevilla a Córdoba, si vamos', d:'Cuarenta y cinco minutos en AVE, ida y vuelta en el día. Solo si elegimos la excursión del sábado.', t:'mover', res:'conviene', tip:'Renfe funciona como los aviones: comprándolo con semanas de anticipación sale bastante menos que en la ventanilla. La decisión de ir o no conviene tomarla unas semanas antes, no el día anterior, justamente por el precio.'},
-    {nota:1, n:'Cómo se viaja en tren en Italia', d:'Los de alta velocidad tienen asiento asignado y se validan solos con el QR del teléfono. Los regionales no tienen asiento y, si el boleto es de papel, hay que validarlo en la maquinita del andén antes de subir.', t:'mover', tip:'Subir a un regional con boleto sin validar es multa y los inspectores existen. Si se compra por la app con fecha y hora, ya va validado y no hay que hacer nada. Y las valijas van en los estantes de las puntas del vagón: conviene subir por la puerta que queda cerca del asiento.'},
-    {nota:1, n:'El tranvía de Florencia', d:'El T2 une la estación de Santa Maria Novella con el aeropuerto de Peretola en unos veinte minutos, y es cómo llegamos a buscar el auto el viernes 9.', t:'mover', tip:'Boleto en la máquina del andén o por app, y validarlo al subir. Pasa seguido y tiene lugar para valijas, así que no hace falta planificarlo: se va y se toma el que venga.'}
+    {nota:1, m:'Roma Termini', n:'Jue 8: Roma a Florencia', d:'Alta velocidad, una hora y media, 9:20 de Termini. Ya está sacado, así que solo queda llegar a horario.', t:'mover', tip:'Del hotel a Termini son unos veinte minutos en taxi con valijas: salimos 8:15 y estamos cuarenta minutos antes. Termini es enorme y la vía se anuncia con poca anticipación en el cartel general, así que mejor esperar adentro con un café. Llevar el QR bajado al teléfono: se valida solo.'},
+    {nota:1, m:'La Spezia Centrale', n:'Mar 13: los trenes de Cinque Terre', d:'El Cinque Terre Express sale de La Spezia Centrale y para en los cinco pueblos, cada quince o treinta minutos.', t:'mover', res:'no', tip:'Se saca en la máquina de la estación el mismo día, o la tarjeta de un día si vamos a hacer tres o cuatro viajes. Si el boleto es de papel, validarlo en la maquinita del andén antes de subir.'},
+    {nota:1, m:'La Spezia Centrale', n:'Mié 14: La Spezia a Módena', d:'Unas tres horas con un cambio, casi siempre en Parma. No hay tren directo, así que es la combinación más delicada del viaje.', t:'mover', res:'conviene', tip:'Elegir en la app una combinación con margen entre tren y tren, no la más ajustada. Si el segundo tramo lo hace un tren rápido, comprarlo antes; si son los dos regionales, se compran ese mismo día. Salir temprano, 7:30 u 8:00.'},
+    {nota:1, m:'Stazione di Modena', n:'Mié 14: Módena a Milán', d:'Poco menos de dos horas, con servicios directos a Milano Centrale. Último tramo de un día largo.', t:'mover', res:'no', tip:'Si es regional, se compra en Módena el mismo día. Mirar antes a qué hora es el último servicio cómodo, para saber hasta cuándo estirar el museo.'},
+    {nota:1, m:'Milano Centrale', n:'Vie 16: Milán a Varenna, ida y vuelta', d:'Poco más de una hora en tren regional hasta Varenna-Esino, por la orilla del lago. La estación queda a diez minutos a pie del puerto.', t:'mover', res:'no', tip:'Se compra el mismo día en la máquina o en la app. Antes de salir hay que mirar el horario del último ferry de vuelta a Varenna y el del último tren cómodo a Milán: quedarse del otro lado del lago sin barco es caro de resolver.'},
+    {nota:1, m:'Estacion de Sevilla Santa Justa', n:'Sáb 24: Sevilla a Córdoba, si vamos', d:'Cuarenta y cinco minutos en AVE, ida y vuelta en el día. Solo si elegimos la excursión del sábado.', t:'mover', res:'conviene', tip:'Renfe funciona como los aviones: comprando con semanas de anticipación sale bastante menos que en la ventanilla. La decisión de ir o no conviene tomarla unas semanas antes, justo por el precio.'},
+    {nota:1, n:'Cómo se viaja en tren en Italia', d:'Los de alta velocidad tienen asiento asignado y se validan solos con el QR del teléfono. Los regionales no tienen asiento y, si el boleto es de papel, hay que validarlo en la maquinita del andén antes de subir.', t:'mover', tip:'Subir a un regional con boleto sin validar es multa, y los inspectores existen. Comprado por la app con fecha y hora ya va validado. Las valijas van en los estantes de las puntas del vagón: subir por la puerta cercana al asiento.'},
+    {nota:1, n:'El tranvía de Florencia', d:'El T2 une Santa Maria Novella con el aeropuerto de Peretola en unos veinte minutos. Es cómo llegamos a buscar el auto el viernes 9.', t:'mover', tip:'Boleto en la máquina del andén o por app, y validarlo al subir. Pasa seguido y tiene lugar para valijas: se toma el que venga.'}
   ]},
 
   {s:'El auto: cuándo sacarlo y cuándo devolverlo', k:'mover', items:[
-    {nota:1, n:'Cuándo retirarlo, y por qué no antes', d:'El auto se retira el <b>viernes 9 a media mañana</b>, después de ver el Duomo y de buscar las valijas en el hotel. No el jueves 8 al llegar a Florencia.', t:'mover', tip:'Retirarlo el jueves significa pagar un día más por un auto que va a dormir en un estacionamiento caro, y encima adentro de la ZTL de Florencia, que es la peor zona de Italia para tener un auto parado. Un día menos de alquiler y cero riesgo de multa.'},
-    {m:'Aeroporto di Firenze Peretola', n:'Vie 9: retirar el auto en Peretola', d:'El aeropuerto de Florencia tiene todas las rentadoras juntas, está afuera de la ciudad y se sale directo a la autopista rumbo a Siena y San Gimignano, sin cruzar ninguna cámara de ZTL.', t:'mover', res:'si', tip:'Se llega en tranvía T2 desde Santa Maria Novella en veinte minutos con las valijas. Llevar los dos documentos: la licencia uruguaya y el permiso internacional del ACU, que no se reemplazan entre sí. Y la tarjeta de crédito del conductor, con límite disponible para el depósito en garantía.'},
-    {nota:1, n:'Cuándo devolverlo: el martes 13, al llegar', d:'El auto se devuelve el <b>martes 13 apenas llegamos a La Spezia</b>, antes de hacer nada más. No el miércoles 14.', t:'mover', tip:'A Cinque Terre no se entra en auto y el miércoles nos vamos en tren, así que a partir del martes al mediodía el auto solo sirve para pagar estacionamiento en una ciudad donde estacionar es caro y difícil. Son cuatro días de alquiler, del viernes 9 al martes 13, y ni uno más.'},
-    {nota:1, n:'La devolución, paso a paso', d:'Es un alquiler de una punta a la otra, así que tiene cargo por devolución en otra ciudad. Hay que tener la dirección exacta de la oficina de La Spezia y su horario, porque muchas cierran al mediodía.', t:'mover', tip:'Llegando cerca de las 11 estamos bien, pero conviene confirmarlo al reservar. Devolverlo con el tanque como lo entregaron, y antes de dar las llaves sacar fotos de los cuatro lados del auto y del tablero con el nivel de combustible. Es lo único que sirve si después aparece un cargo por un rayón que no hicimos.'},
-    {nota:1, n:'Por qué el miércoles 14 vamos en tren y no en auto', d:'La alternativa sería estirar el alquiler dos días más y hacer La Spezia, Módena y Milán manejando. Suena cómodo y no lo es, por cinco motivos que se suman.', t:'mover', tip:'<b>Uno:</b> desde el martes al mediodía el auto no se usa para nada, porque a Cinque Terre se va en tren y los pueblos son peatonales. Serían dos días de alquiler y dos noches de estacionamiento por un auto parado. <b>Dos:</b> Milán es el peor destino de Italia para llegar en auto, con el peaje del Área C para entrar al centro en días hábiles, el Área B de bajas emisiones cubriendo casi toda la ciudad y el hotel adentro de las dos, más el estacionamiento por noche. <b>Tres:</b> el cargo por devolver en otra ciudad crece con la distancia, y devolver en Milán o en un aeropuerto suele tener recargo aparte. <b>Cuatro:</b> son cerca de cuatrocientos kilómetros de autopista con peaje más la nafta, que entre dos personas cuesta parecido o más que los dos boletos de tren. <b>Y cinco:</b> el 14 es un día largo con valijas, y en el tren se descansa.'},
-    {nota:1, n:'Lo que el auto sí ganaría, y por qué igual no compensa', d:'Manejando, el tramo a Módena son unas dos horas y cuarto contra las tres del tren, así que el auto ahorra algo ahí. En el tramo a Milán prácticamente empatan.', t:'mover', tip:'Pero a esos cuarenta y cinco minutos hay que restarles estacionar en Módena, que también tiene ZTL en el centro, y entrar a Milán en hora pico. En tren, además, el Museo Enzo Ferrari queda a quince minutos a pie de la estación: se baja y se camina. La diferencia real termina siendo casi ninguna, y el tren no obliga a manejar cuatro horas después de cuatro días de rutas toscanas.'},
-    {nota:1, n:'El único caso donde el auto gana: Maranello', d:'Si queremos hacer los dos museos Ferrari, el de Módena y el de Maranello, ahí sí el auto cambia el día, porque la lanzadera entre los dos tiene pocos horarios y el bus de línea tarda bastante.', t:'mover', tip:'Pero la jugada no es estirar el alquiler desde La Spezia: es alquilar un auto chico <em>en la estación de Módena</em> por medio día y devolverlo ahí mismo antes de tomar el tren a Milán. Sale mucho menos que dos días extra, no tiene cargo por devolución en otra ciudad, no nos mete en Milán con auto y de paso resuelve dónde dejar las valijas, porque van en el baúl. Hay que reservarlo antes y confirmar el horario de la oficina, que suele cerrar temprano.'},
-    {nota:1, n:'Qué reservar, y con cuánta anticipación', d:'Tres o cuatro meses antes, siempre con tarifa que permita cancelar gratis. El precio de los alquileres sube fuerte cuando se acerca la fecha y prácticamente no baja.', t:'mover', tip:'Como es cancelable, vale la pena volver a mirar precios un mes antes: si bajó, se reserva de nuevo y se cancela la anterior. Y comparar el cargo por devolver en otra ciudad entre empresas, que es donde más se diferencian.'},
-    {nota:1, n:'Caja automática y conductor adicional', d:'En Italia lo estándar es la caja manual, y el automático se paga bastante más y hay que pedirlo específicamente al reservar, porque hay pocos. Si lo queremos, no se puede improvisar en el mostrador.', t:'mover', tip:'Y si vamos a manejar los dos, hay que declarar al segundo conductor y pagarlo. Suena a cargo evitable y no lo es: si maneja alguien no declarado y pasa cualquier cosa, el seguro no cubre nada. Con las carreteras de la Toscana y cuatro días de auto, poder alternar vale la plata.'},
-    {nota:1, n:'El auto que conviene', d:'Chico. Las calles de los pueblos toscanos son angostas, los estacionamientos también, y un auto grande es un problema en cada maniobra.', t:'mover', tip:'Lo único a verificar es que entren las dos valijas en el baúl, porque en los modelos más chicos no entran. Si la categoría dice "dos valijas grandes", alcanza. Y confirmar al retirarlo si carga nafta o gasoil: equivocarse arruina el motor y no lo cubre ningún seguro.'},
-    {nota:1, n:'Los tramos que manejamos', d:'Son tres: Florencia a San Gimignano el viernes 9, que es poco más de una hora; los paseos de la Toscana del sábado al lunes, que son de media hora a hora y media cada uno; y San Gimignano a La Spezia el martes 13, que son unas dos horas y cuarto.', t:'mover', tip:'En total no son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, pero casi siempre viene incluido. Lo que sí importa es salir temprano el martes, sobre las 8:30, para llegar a La Spezia con la tarde entera.'}
+    {nota:1, n:'Cuándo retirarlo, y por qué no antes', d:'El auto se retira el <b>viernes 9 a media mañana</b>, después de ver el Duomo y de buscar las valijas en el hotel. No el jueves 8 al llegar a Florencia.', t:'mover', tip:'Retirarlo el jueves es pagar un día más por un auto que va a dormir en un estacionamiento caro, adentro de la ZTL de Florencia, que es la peor zona de Italia para tener un auto parado. Un día menos de alquiler y cero riesgo de multa.'},
+    {nota:1, m:'Aeroporto di Firenze Peretola', n:'Vie 9: retirar el auto en Peretola', d:'El aeropuerto de Florencia tiene todas las rentadoras juntas, está afuera de la ciudad y sale directo a la autopista rumbo a Siena y San Gimignano, sin cruzar ninguna cámara de ZTL.', t:'mover', res:'si', tip:'Se llega en tranvía T2 desde Santa Maria Novella en veinte minutos con las valijas. Llevar los dos documentos, la licencia uruguaya y el permiso internacional del ACU, que no se reemplazan entre sí. Y la tarjeta de crédito del conductor, con límite disponible para el depósito en garantía.'},
+    {nota:1, n:'Cuándo devolverlo: el martes 13, al llegar a La Spezia', d:'El plan por defecto es devolverlo el <b>martes 13 apenas llegamos a La Spezia</b>, antes de hacer nada más. A Cinque Terre no se entra en auto, y el miércoles nos vamos en tren.', t:'mover', tip:'A partir del martes al mediodía el auto solo sirve para pagar estacionamiento en una ciudad donde estacionar es caro y difícil. Son cuatro días de alquiler, del viernes 9 al martes 13. La otra opción, quedárselo hasta Milán, está en la sección de abajo.'},
+    {nota:1, n:'La devolución, paso a paso', d:'Es un alquiler de una punta a la otra, con cargo por devolver en otra ciudad. Hay que tener la dirección exacta de la oficina de La Spezia y su horario, porque muchas cierran al mediodía.', t:'mover', tip:'Llegando cerca de las 11 estamos bien, pero confirmarlo al reservar. Devolver con el tanque como lo entregaron, y antes de dar las llaves sacar fotos de los cuatro lados del auto y del tablero con el nivel de combustible. Es lo único que sirve si después aparece un cargo por un rayón que no hicimos.'},
+    {nota:1, n:'Qué reservar, y con cuánta anticipación', d:'Tres o cuatro meses antes, siempre con tarifa que permita cancelar gratis. El precio sube fuerte cerca de la fecha y prácticamente no baja.', t:'mover', tip:'Como es cancelable, volver a mirar precios un mes antes: si bajó, se reserva de nuevo y se cancela la anterior. Y comparar el cargo por devolver en otra ciudad entre empresas, que es donde más se diferencian.'},
+    {nota:1, n:'Caja automática y conductor adicional', d:'En Italia lo estándar es la manual. El automático se paga bastante más y hay que pedirlo al reservar, porque hay pocos.', t:'mover', tip:'Si vamos a manejar los dos, hay que declarar al segundo conductor y pagarlo. Si maneja alguien no declarado y pasa cualquier cosa, el seguro no cubre nada. Con las carreteras de la Toscana y cuatro días de auto, poder alternar vale la plata.'},
+    {nota:1, n:'El auto que conviene', d:'Chico. Las calles de los pueblos toscanos son angostas, los estacionamientos también, y un auto grande es un problema en cada maniobra.', t:'mover', tip:'Verificar que entren las dos valijas en el baúl, porque en los modelos más chicos no entran; si la categoría dice "dos valijas grandes", alcanza. Y al retirarlo, confirmar si carga nafta o gasoil: equivocarse arruina el motor y no lo cubre ningún seguro.'},
+    {nota:1, n:'Los tramos que manejamos', d:'Tres: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a hora y media cada uno; y San Gimignano a La Spezia el martes 13, unas dos horas y cuarto.', t:'mover', tip:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, sobre las 8:30, para llegar a La Spezia con la tarde entera.'}
   ]},
 
+  {s:'Quedarse el auto hasta Milán y Como', k:'mover', html:`
+      <p>El plan por defecto devuelve el auto en La Spezia el martes 13. La alternativa es quedárselo hasta el sábado 17: dejarlo parado en La Spezia los dos días de Cinque Terre, usarlo el miércoles 14 para ir a Módena y llegar a Milán, y el viernes 16 para el día del lago. No para moverse dentro de las ciudades, solo para los traslados entre una y otra.</p>
+      <p>Funciona, y para el día de Módena y el del lago es cómodo tener el auto. Pero suma costo y fricción, y por eso no es lo que recomendaría. Esto es lo que cambia, por rubro.</p>
+      <h3>Plata</h3>
+      <ul>
+        <li>Cuatro días más de alquiler, del 13 al 17.</li>
+        <li>El cargo por devolver en otra ciudad crece con la distancia, y devolver en Milán o en un aeropuerto suele tener un recargo aparte.</li>
+        <li>Dos noches de estacionamiento en el hotel de Milán, entre veinticinco y cuarenta euros cada una.</li>
+        <li>El estacionamiento en La Spezia mientras estamos en Cinque Terre, un día entero de garage.</li>
+        <li>El <b>Área C</b> de Milán: 7,50 euros por entrar al centro un día hábil, y el miércoles 14 lo es. El hotel está en el borde de esa zona.</li>
+        <li>Peajes y nafta de los cuatro tramos, que entre dos personas cuesta parecido a los boletos de tren.</li>
+      </ul>
+      <h3>Vueltas</h3>
+      <ul>
+        <li>El <b>Área B</b> de Milán cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero hay que confirmarlo al retirarlo y, si la patente es extranjera y la cámara no la reconoce, registrarla antes en el sitio oficial. La multa arranca en ochenta euros.</li>
+        <li>En <b>Varenna</b> el estacionamiento es escaso y caro: el playón de la estación tiene unas ochenta plazas, cuesta veinte euros el día y se llena; el garage del pueblo tiene rampas angostas que rayan autos. Varenna está sobre la línea de tren de Milán, y por eso todo el mundo recomienda el tren.</li>
+        <li>El auto queda sin usar el martes y el miércoles en Cinque Terre, y de nuevo el viernes de noche y el sábado hasta que lo devolvemos.</li>
+        <li>El estacionamiento del hotel de Milán hay que resolverlo antes de llegar, no improvisarlo.</li>
+      </ul>
+      <h3>Tiempo</h3>
+      <ul>
+        <li>La Spezia a Módena y de ahí a Milán en auto empata con el tren una vez que se suma estacionar en Módena y entrar a Milán en hora pico.</li>
+        <li>En tren, el Museo Enzo Ferrari queda a quince minutos a pie de la estación de Módena: se baja y se camina.</li>
+        <li>El día del lago es más rápido en auto solo si el estacionamiento sale bien, y en Varenna muchas veces no sale.</li>
+      </ul>
+      <h3>Si igual se hace</h3>
+      <p>La jugada menos mala no es quedarse este auto toda la semana, sino alquilar uno aparte y chico donde de verdad sirve: medio día desde la estación de Módena para los dos museos Ferrari, o un día desde Milán para el lago. Sale menos, no tiene cargo por devolución en otra ciudad y no nos mete en Milán con el auto grande de la Toscana. El detalle de Módena está en el capítulo de esa ciudad.</p>
+    `},
+
   {s:'Del aeropuerto al centro y al revés', k:'mover', items:[
-    {nota:1, n:'Roma, domingo 4', d:'Desde Fiumicino hay dos opciones sensatas: el Leonardo Express, que va directo a Termini en poco más de media hora, o el taxi, que tiene tarifa fija hasta el centro histórico.', t:'mover', tip:'Llegando de un vuelo largo y con el hotel en Navona, el taxi vale la pena, porque el tren nos deja en Termini y de ahí igual hay que llegar. La tarifa fija es por viaje y no por persona: confirmar el número antes de subir y tomar solo los taxis blancos de la fila oficial, nunca a alguien que se acerque adentro de la terminal.'},
+    {nota:1, n:'Roma, domingo 4', d:'Desde Fiumicino hay dos opciones sensatas: el Leonardo Express, directo a Termini en poco más de media hora, o el taxi, con tarifa fija hasta el centro histórico.', t:'mover', tip:'Llegando de un vuelo largo y con el hotel en Navona, el taxi vale la pena: el tren nos deja en Termini y de ahí igual hay que llegar. La tarifa fija es por viaje, no por persona: confirmar el número antes de subir y tomar solo los taxis blancos de la fila oficial, nunca a alguien que se acerque dentro de la terminal.'},
     {nota:1, n:'Milán, sábado 17', d:'Depende del aeropuerto. De Linate, la línea M4 del metro llega al centro en unos veinte minutos. De Malpensa, el Malpensa Express sale de Cadorna y de Centrale y tarda unos cincuenta.', t:'mover', tip:'El hotel está a diez minutos a pie de Cadorna, así que si es Malpensa, el tren desde ahí es lo más simple. Sacar el boleto la noche anterior y salir con margen: es el traslado más largo de los cinco.'},
     {nota:1, n:'Barcelona, sábado 17 y domingo 18', d:'El Aerobús une el aeropuerto con Plaça Catalunya en unos treinta y cinco minutos, sale cada pocos minutos y tiene bodega para valijas. La línea L9 Sud del metro también llega, más barata y más lenta.', t:'mover', tip:'Con el hotel a diez minutos de Plaça Catalunya, el Aerobús es lo más directo en los dos sentidos. Si el vuelo sale de la T1, ojo que el bus para primero en la T2.'},
-    {nota:1, n:'Sevilla, domingo 18 y domingo 25', d:'El aeropuerto está a unos diez kilómetros del centro. Hay un bus especial que llega a Plaza de Armas y taxi con tarifa fija.', t:'mover', tip:'Llegando con las valijas de tres semanas y yendo a un apartamento, el taxi es lo razonable. Confirmar la tarifa fija al subir, que cambia según el día y el horario. Para la vuelta del domingo 25 de noche, pedirlo con anticipación o usar Cabify.'},
-    {nota:1, n:'Florencia y La Spezia', d:'A Florencia llegamos en tren y salimos en auto, y a La Spezia llegamos en auto y salimos en tren. En ninguna de las dos hace falta un traslado de aeropuerto.', t:'mover', tip:'En las dos, del alojamiento a la estación se va caminando o con un taxi corto. En Florencia son diez minutos a pie hasta Santa Maria Novella.'}
+    {nota:1, n:'Sevilla, domingo 18 y domingo 25', d:'El aeropuerto está a unos diez kilómetros del centro. Hay un bus especial que llega a Plaza de Armas y taxi con tarifa fija.', t:'mover', tip:'Con las valijas de tres semanas y yendo a un apartamento, el taxi es lo razonable. Confirmar la tarifa fija al subir, que cambia según el día y la hora. Para la vuelta del domingo 25 de noche, pedirlo con anticipación o usar Cabify.'},
+    {nota:1, n:'Florencia y La Spezia', d:'A Florencia llegamos en tren y salimos en auto; a La Spezia llegamos en auto y salimos en tren. En ninguna hace falta un traslado de aeropuerto.', t:'mover', tip:'En las dos, del alojamiento a la estación se va caminando o con un taxi corto. En Florencia son diez minutos a pie hasta Santa Maria Novella.'}
   ]},
 
   {s:'Cuando algo sale mal', k:'mover', items:[
-    {nota:1, n:'Las huelgas de transporte en Italia', d:'Los <em>scioperi</em> de trenes, buses o aviones son bastante habituales y no son sorpresa: se anuncian con al menos diez días de anticipación, tienen día y horario definidos, y hay franjas horarias con servicio garantizado.', t:'mover', tip:'Conviene mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del miércoles 14. Si cae huelga justo ese día, se mueve el horario dentro de la franja garantizada y listo. En España pasa lo mismo y también se anuncian con servicios mínimos.'},
-    {nota:1, n:'Si se cae el tren del miércoles 14', d:'Es el día sin colchón: si el primer tramo llega tarde y perdemos la combinación de Parma, se atrasa todo y el museo puede quedar afuera.', t:'mover', tip:'El plan B es simple y hay que tenerlo pensado: si llegamos a Módena pasado el mediodía, se saltea el almuerzo tranquilo y se va directo al museo, que es lo único que no se puede hacer otro día. Y si la cosa se complica de verdad, Módena se puede saltear entero y seguir a Milán, que es donde dormimos.'},
-    {nota:1, n:'Los márgenes que conviene dejar', d:'Para vuelos internacionales, tres horas antes en el mostrador. Para los vuelos internos de Iberia, dos. Para trenes de alta velocidad, media hora en la estación. Para regionales, quince minutos.', t:'mover', tip:'La excepción es Termini el jueves 8, donde conviene estar cuarenta minutos antes: es enorme, confusa, y la vía se anuncia con poca anticipación. Mejor esperar sentados con un café que correr por el andén con las valijas.'},
-    {nota:1, n:'Todo junto y sin conexión', d:'Los pasajes, los vouchers de los ocho alojamientos, la reserva del auto y las entradas conviene tenerlos bajados al teléfono en una carpeta, más una copia en papel de lo importante.', t:'mover', tip:'En un andén italiano o en la fila de una rentadora la señal suele ser mala, y es justo el momento en que hace falta mostrar algo. Y una copia en el teléfono de cada uno, no en uno solo.'}
+    {nota:1, n:'Las huelgas de transporte en Italia', d:'Los <em>scioperi</em> de trenes, buses o aviones son habituales y no son sorpresa: se anuncian con al menos diez días de anticipación, tienen día y horario definidos, y hay franjas con servicio garantizado.', t:'mover', tip:'Mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del miércoles 14. Si cae huelga ese día, se mueve el horario dentro de la franja garantizada. En España pasa lo mismo y también se anuncian con servicios mínimos.'},
+    {nota:1, n:'Si se cae el tren del miércoles 14', d:'Es el día sin colchón: si el primer tramo llega tarde y perdemos la combinación de Parma, se atrasa todo y el museo puede quedar afuera.', t:'mover', tip:'El plan B es simple y hay que tenerlo pensado: si llegamos a Módena pasado el mediodía, se saltea el almuerzo tranquilo y se va directo al museo, que es lo único que no se puede hacer otro día. Y si se complica de verdad, Módena se saltea entero y seguimos a Milán, que es donde dormimos.'},
+    {nota:1, n:'Los márgenes que conviene dejar', d:'Vuelos internacionales, tres horas antes en el mostrador. Vuelos internos de Iberia, dos. Trenes de alta velocidad, media hora en la estación. Regionales, quince minutos.', t:'mover', tip:'La excepción es Termini el jueves 8, donde mejor estar cuarenta minutos antes: es enorme, confusa, y la vía se anuncia con poca anticipación. Mejor esperar sentados con un café que correr por el andén con las valijas.'},
+    {nota:1, n:'Todo junto y sin conexión', d:'Los pasajes, los vouchers de los ocho alojamientos, la reserva del auto y las entradas van bajados al teléfono en una carpeta, más una copia en papel de lo importante.', t:'mover', tip:'En un andén italiano o en la fila de una rentadora la señal suele ser mala, y es justo cuando hay que mostrar algo. Una copia en el teléfono de cada uno, no en uno solo.'}
   ]}
   ]
 },
@@ -659,28 +812,36 @@ const CITIES = [
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Domingo 4: llegada y el centro barroco</h3>
-      <p>Llegamos, dejamos las valijas en el Four Rivers y salimos a almorzar liviano y cerca. <b>Supplizio</b> queda a siete minutos y es perfecto para eso: unos supplì de pie y seguimos, sin comprometer la tarde con una sobremesa.</p>
-      <p>Después el circuito clásico, que además es el que tenemos en la puerta: <b>Piazza Navona</b> con la fuente de los Cuatro Ríos, que es justo la que le da nombre al hotel, el <b>Panteón</b>, la <b>Piazza della Minerva</b> con el elefantito de Bernini, y de ahí al río para el <b>Ponte Sant’Angelo</b> y la zona del castillo. Son quince minutos de punta a punta y hay algo para mirar en cada cuadra.</p>
-      <p>Al caer la tarde, <b>Fontana di Trevi</b> y de ahí subimos a la <b>Fontana delle Naiadi</b> en Piazza della Repubblica. Ahí mismo está Santa Maria degli Angeli, que es gratis y vale los diez minutos.</p>
-      <p>Y la cena cae sola: <b>La Matriciana dal 1870</b> está a pocos minutos de la Repubblica, así que cerramos el día donde lo terminamos en vez de cruzar el centro de nuevo. Hay que reservarla sí o sí, y siendo el día del vuelo conviene una hora temprana, tipo 19:30 o 20:00.</p>
-      <p><b>Ojo con el Ghetto este día.</b> El domingo 4 cae en la fiesta judía de Simjá Torá, así que las panaderías y los restaurantes kosher del Portico d’Ottavia, Boccione incluido, lo más probable es que estén cerrados. Por eso el Ghetto queda para el miércoles. Conviene confirmarlo igual antes de caminar hasta allá.</p>
+      <ul>
+        <li>Valijas en el Four Rivers y almuerzo liviano y cerca: <b>Supplizio</b>, a siete minutos, unos supplì de pie y seguimos.</li>
+        <li>El circuito clásico, todo en la puerta: <b>Piazza Navona</b> y la fuente de los Cuatro Ríos, que le da nombre al hotel; el <b>Panteón</b>; la <b>Piazza della Minerva</b> con el elefantito de Bernini; y de ahí al río, al <b>Ponte Sant’Angelo</b> y el castillo. Quince minutos de punta a punta.</li>
+        <li>Al caer la tarde, <b>Fontana di Trevi</b> y subida a la <b>Fontana delle Naiadi</b> en Piazza della Repubblica. Ahí mismo, Santa Maria degli Angeli, gratis y diez minutos.</li>
+        <li>Cena en <b>La Matriciana dal 1870</b>, a pocos minutos de la Repubblica. Reservar sí o sí, y siendo el día del vuelo, hora temprana: 19:30 o 20:00.</li>
+      </ul>
+      <p><b>Ojo con el Ghetto este día.</b> El domingo 4 cae en Simjá Torá, así que las panaderías y los restaurantes kosher del Portico d’Ottavia, Boccione incluido, lo más probable es que estén cerrados. Por eso el Ghetto queda para el miércoles.</p>
       <h3>Lunes 5: Trevi al amanecer, Trastevere y el Aventino</h3>
-      <p>Arrancamos con la <b>Fontana di Trevi</b> a las 7, con el sol saliendo a las 7:15. Es literalmente otra fuente sin gente delante, y es la única forma de tener la foto.</p>
-      <p>Después bajamos al <b>Coliseo</b>. Si no conseguimos entradas, la vuelta por fuera y la vista desde la <b>Via dei Fori Imperiali</b> y desde la terraza del Campidoglio son gratis y están muy bien. La entrada al Foro se compra aparte de la del Coliseo, así que ahí sí hay chance.</p>
-      <p>Al mediodía cruzamos a <b>Trastevere</b> y ahí está todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre, los tres a pocas cuadras entre sí.</p>
-      <p>De Trastevere cruzamos el río al <b>Aventino</b>, que es el orden que conviene. Primero el <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, después el <b>Giardino degli Aranci</b> a dos minutos, que es donde hay que estar al atardecer, y recién ahí bajamos al <b>Roseto Comunale</b> y al <b>Circo Massimo</b>, que están al pie de la colina. Es la misma lista que teníamos, ordenada para no subir y bajar la colina dos veces.</p>
-      <p>Cena de vuelta en el centro, en <b>Renato e Luisa</b>, que es chico y hay que reservar con días.</p>
+      <ul>
+        <li><b>Fontana di Trevi</b> a las 7, con el sol saliendo 7:15. Es la única forma de tener la foto sin gente.</li>
+        <li><b>Coliseo</b>. Sin entradas, la vuelta por fuera y la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio son gratis. La entrada al Foro se compra aparte, ahí hay chance.</li>
+        <li>Mediodía en <b>Trastevere</b>, todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre.</li>
+        <li>De Trastevere al <b>Aventino</b>, en este orden para no subir y bajar la colina dos veces: <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> a dos minutos para el atardecer, y recién ahí el <b>Roseto Comunale</b> y el <b>Circo Massimo</b>, al pie.</li>
+        <li>Cena en el centro, en <b>Renato e Luisa</b>, chico y de reservar con días.</li>
+      </ul>
       <h3>Martes 6: el Vaticano y la tarde libre</h3>
-      <p>Entrada a las 8:00, que es el mejor turno que hay. Con nuestro ritmo, museos y basílica se hacen en unas cuatro horas y salimos a almorzar por Prati. Toda la logística fina está en la sección del Vaticano, más abajo.</p>
-      <p>La tarde queda liviana a propósito, porque el día arranca temprano. Castel Sant’Angelo por dentro está a diez minutos de la basílica y cierra bien el barrio, o si preferimos parar, una siesta corta y salir de nuevo a las cinco.</p>
-      <p>La cena de este día es la de <b>Al 384</b>, la pizzería que queda lejos: como la tarde es tranquila, es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</p>
+      <ul>
+        <li>Entrada a las 8:00, el mejor turno. Museos y basílica en unas cuatro horas; a las 12:30 salimos a almorzar por Prati. La logística fina está en la sección del Vaticano.</li>
+        <li>Tarde liviana a propósito: Castel Sant’Angelo por dentro está a diez minutos de la basílica, o una siesta corta y salir de nuevo a las cinco.</li>
+        <li>Cena en <b>Al 384</b>, la pizzería lejana. La tarde tranquila es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</li>
+      </ul>
       <h3>Miércoles 7: Coliseo, Foro y el Ghetto</h3>
-      <p>El día libre, y el que más depende de las entradas. Si conseguimos Coliseo y Foro, van acá de mañana temprano: se entra por el Coliseo, se sigue por el Palatino y se sale por el Foro hacia los Fori Imperiali, que es el recorrido natural y cuesta abajo.</p>
-      <p>Al salir caminamos hasta el <b>Ghetto</b>, que queda a quince minutos, y ahí almorzamos: el sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y de postre la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, que están a tres cuadras una de la otra. Este es el día para hacerlo, con el Ghetto funcionando normal.</p>
-      <p>La tarde tiene opciones según cómo venga el cuerpo: la <b>Galleria Borghese</b> si conseguimos turno, la <b>Basílica de San Clemente</b> con sus tres niveles enterrados uno debajo del otro, o simplemente el <b>Ghetto y la Isola Tiberina</b> con calma.</p>
-      <p>Última cena en <b>Roscioli</b>, que está a ocho minutos del hotel, con una parada previa en <b>Dar Filettaro</b> por un filete de bacalao, que abre solo de noche y está a la vuelta. Cena cerca y sin trasnochar, que al otro día hay tren.</p>
+      <ul>
+        <li>El día que más depende de las entradas. Con Coliseo y Foro, van de mañana temprano: se entra por el Coliseo, se sigue por el Palatino y se sale por el Foro hacia los Fori Imperiali, cuesta abajo.</li>
+        <li>Almuerzo en el <b>Ghetto</b>, a quince minutos: sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, a tres cuadras. Hoy funciona normal.</li>
+        <li>Tarde según el cuerpo: <b>Galleria Borghese</b> si hay turno, <b>Basílica de San Clemente</b> con sus tres niveles enterrados, o el <b>Ghetto y la Isola Tiberina</b> con calma.</li>
+        <li>Última cena en <b>Roscioli</b>, a ocho minutos del hotel, con parada previa en <b>Dar Filettaro</b> por un filete de bacalao. Cerca y sin trasnochar, que al otro día hay tren.</li>
+      </ul>
       <h3>Jueves 8: a Florencia</h3>
-      <p>Tren 9:20 desde Termini. Del hotel a Termini son unos veinte minutos en taxi con valijas, así que salimos 8:15 y llegamos con margen. Los andenes de Termini se anuncian en el cartel general y a veces con poca anticipación, así que conviene estar en la estación y no en la puerta.</p>
+      <p>Tren 9:20 desde Termini. Del hotel a Termini, veinte minutos en taxi con valijas: salimos 8:15 y llegamos con margen. La vía se anuncia con poca anticipación, así que mejor esperar dentro de la estación.</p>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[
@@ -797,15 +958,19 @@ const CITIES = [
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Jueves 8: llegada, Uffizi y el atardecer</h3>
-      <p>El tren de Roma nos deja en Santa Maria Novella cerca de las 11. Del andén al hotel son diez minutos caminando, así que dejamos las valijas y salimos, sin esperar a que sea la hora del check in.</p>
-      <p>Almuerzo rápido y sin sobremesa, porque la tarde está comprometida: <b>All’Antico Vinaio</b> para una schiacciata comida parados en la calle, o el <b>Mercato Centrale</b>, que además tiene abajo el puesto de lampredotto.</p>
-      <p>A la tarde, la <b>Galería Uffizi</b> con entrada reservada. Con nuestro ritmo se hace en dos horas y media eligiendo bien: no hay que verla entera.</p>
-      <p>Al salir caminamos al <b>Ponte Vecchio</b>, cruzamos al Oltrarno y subimos al <b>Piazzale Michelangelo</b> para el atardecer. El sol se pone 18:55, así que hay que estar arriba 18:20. Son unos veinticinco minutos de subida a pie desde el puente, o el bus 12 si las piernas ya dijeron basta.</p>
-      <p>Cena en el Oltrarno bajando del Piazzale, que es el lado bueno del río y el que menos turistas tiene de noche.</p>
+      <ul>
+        <li>El tren de Roma llega a Santa Maria Novella cerca de las 11. Diez minutos a pie hasta el hotel: dejamos las valijas y salimos, sin esperar el check in.</li>
+        <li>Almuerzo rápido: <b>All’Antico Vinaio</b> para una schiacciata en la calle, o el <b>Mercato Centrale</b>, que abajo tiene el puesto de lampredotto.</li>
+        <li>A la tarde, la <b>Galería Uffizi</b> con entrada reservada. Dos horas y media eligiendo bien, no hay que verla entera.</li>
+        <li>Al salir, <b>Ponte Vecchio</b>, cruce al Oltrarno y subida al <b>Piazzale Michelangelo</b> para el atardecer. El sol se pone 18:55: hay que estar arriba 18:20. Veinticinco minutos a pie desde el puente, o el bus 12.</li>
+        <li>Cena en el Oltrarno bajando del Piazzale, el lado del río con menos turistas de noche.</li>
+      </ul>
       <h3>Viernes 9: el Duomo y el auto</h3>
-      <p>Temprano, el <b>Duomo</b>: la plaza, el baptisterio y, si sacamos turno, la subida a la cúpula de Brunelleschi. La cúpula se reserva con día y hora aparte y a las 8:30 es el mejor momento, con la ciudad recién despierta y sin calor adentro de la escalera.</p>
-      <p>Después el desayuno toscano de barra, un paseo corto por la <b>Piazza della Signoria</b> y la <b>Piazza della Repubblica</b>, y volvemos al hotel a buscar las valijas.</p>
-      <p>Y acá viene lo importante del día: <b>el auto no se retira en el centro</b>. Caminamos o tomamos un taxi hasta Santa Maria Novella, tomamos el tranvía T2 hasta el aeropuerto de Peretola con las valijas, retiramos el auto ahí y salimos directo a San Gimignano por afuera de la ciudad. Son unos veinte minutos de tranvía y una hora larga de manejo, y nos ahorra el peor problema que tiene Florencia, que está en la sección de abajo.</p>
+      <ul>
+        <li>Temprano, el <b>Duomo</b>: la plaza, el baptisterio y, con turno, la subida a la cúpula de Brunelleschi. La cúpula se reserva con día y hora aparte; a las 8:30 es el mejor momento, sin calor adentro de la escalera.</li>
+        <li>Desayuno toscano de barra, un paseo corto por la <b>Piazza della Signoria</b> y la <b>Piazza della Repubblica</b>, y al hotel a buscar las valijas.</li>
+        <li><b>El auto no se retira en el centro.</b> Caminando o en taxi hasta Santa Maria Novella, tranvía T2 al aeropuerto de Peretola con las valijas, retiro ahí y salida directa a San Gimignano por afuera de la ciudad. Veinte minutos de tranvía y una hora larga de manejo. Por qué, en la sección de abajo.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse y el asunto de la ZTL', k:'mover', items:[
@@ -865,21 +1030,31 @@ const CITIES = [
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Viernes 9: llegada y San Gimignano de noche</h3>
-      <p>Salimos de Florencia con el auto retirado en el aeropuerto y llegamos al <b>Hotel Sovestro</b> a la tarde. Está afuera de las murallas, sobre la carretera, así que tiene estacionamiento y no hay que pelearse con la ZTL.</p>
-      <p>Esa primera tarde es para <b>San Gimignano mismo</b>, que es la mejor hora para verlo: los excursionistas de un día se van a las cinco y el pueblo queda casi vacío. Piazza della Cisterna, Piazza del Duomo, la subida a la Rocca para ver las torres contra el atardecer, y un <b>Dondoli</b>, que es el heladero campeón del mundo y está en la plaza.</p>
+      <ul>
+        <li>De Florencia con el auto retirado en Peretola, llegada al <b>Hotel Sovestro</b> a la tarde. Está afuera de las murallas, sobre la carretera: tiene estacionamiento y no hay ZTL.</li>
+        <li>La primera tarde es para <b>San Gimignano</b>, que es la mejor hora: los excursionistas de un día se van a las cinco y el pueblo queda casi vacío. Piazza della Cisterna, Piazza del Duomo, la subida a la Rocca para ver las torres contra el atardecer, y un <b>Dondoli</b>, el heladero campeón del mundo, en la plaza.</li>
+      </ul>
       <h3>Sábado 10: Siena y Monteriggioni</h3>
-      <p>Siena está a cuarenta y cinco minutos y es la excursión más grande que tenemos cerca. La Piazza del Campo con forma de concha, el Duomo con la fachada rayada y, si tenemos suerte con las fechas, el piso de mármol descubierto, que solo se destapa unas semanas por año y suele ser justo hasta mediados de octubre.</p>
-      <p>Volviendo, parada en <b>Monteriggioni</b>, que está en el camino: un pueblo amurallado circular y minúsculo, entero adentro de sus murallas, que se recorre en cuarenta minutos y se puede caminar por arriba de la muralla.</p>
+      <ul>
+        <li><b>Siena</b>, a cuarenta y cinco minutos, la excursión más grande que tenemos cerca. La Piazza del Campo con forma de concha, el Duomo con la fachada rayada y, con suerte, el piso de mármol descubierto, que solo se destapa unas semanas por año, casi siempre hasta mediados de octubre.</li>
+        <li>Volviendo, <b>Monteriggioni</b>, en el camino: un pueblo amurallado circular y minúsculo, entero dentro de sus murallas, que se recorre en cuarenta minutos por arriba de la muralla incluida.</li>
+      </ul>
       <h3>Domingo 11: la Val d’Orcia y las termas</h3>
-      <p>El día largo y el más lindo del tramo. Salimos temprano hacia el sur por las carreteras de cipreses: <b>Pienza</b> para el queso pecorino y la vista del valle, <b>Bagno Vignoni</b> con su plaza que en vez de plaza es una pileta termal humeante del siglo XV, y <b>Bagni San Filippo</b> para meterse de verdad en el agua caliente, gratis, entre formaciones blancas de cal.</p>
-      <p>Si queda cuerpo, <b>Montalcino</b> a la vuelta para un Brunello en la enoteca de la fortaleza. Es un día de unas seis horas de paseo y dos y media de auto en total.</p>
-      <h3>Lunes 12: Volterra y el Chianti, o el día de descanso</h3>
-      <p>Dos opciones según cómo venga el cuerpo, y las dos están bien. <b>Volterra</b> está a cuarenta y cinco minutos y es lo opuesto a San Gimignano: etrusca, oscura, de piedra gris, con un teatro romano y talleres de alabastro donde se ve trabajar.</p>
-      <p>La otra es la <b>ruta del Chianti</b> hacia el norte, parando en Castellina y Panzano, con una bodega reservada de antemano. Si elegimos esta, hay que decidir antes quién maneja y quién prueba.</p>
-      <p>Y la tercera opción, que no hay que descartar: quedarse en San Gimignano, dormir la siesta y caminar el pueblo con calma. Son cuatro días de mucho auto y uno de descanso a la mitad no es tiempo perdido.</p>
+      <ul>
+        <li>El día largo y el más lindo. Temprano hacia el sur por las carreteras de cipreses: <b>Pienza</b> para el pecorino y la vista del valle, <b>Bagno Vignoni</b> con su plaza que es una pileta termal humeante del siglo XV, y <b>Bagni San Filippo</b> para meterse de verdad en el agua caliente, gratis, entre formaciones blancas de cal.</li>
+        <li>Si queda cuerpo, <b>Montalcino</b> a la vuelta para un Brunello en la enoteca de la fortaleza. Son unas seis horas de paseo y dos y media de auto en total.</li>
+      </ul>
+      <h3>Lunes 12: Volterra y el Chianti, o descanso</h3>
+      <ul>
+        <li><b>Volterra</b>, a cuarenta y cinco minutos, lo opuesto a San Gimignano: etrusca, oscura, de piedra gris, con un teatro romano y talleres de alabastro donde se ve trabajar.</li>
+        <li>La <b>ruta del Chianti</b> hacia el norte, parando en Castellina y Panzano, con una bodega reservada de antemano. Si elegimos esta, decidir antes quién maneja y quién prueba.</li>
+        <li>O quedarse en San Gimignano, siesta y caminar el pueblo con calma. Son cuatro días de mucho auto y uno de descanso a la mitad no es tiempo perdido.</li>
+      </ul>
       <h3>Martes 13: a La Spezia</h3>
-      <p>Salimos temprano, sobre las 8:30. Son unas dos horas y cuarto hasta La Spezia. Dejamos el auto en la oficina de la rentadora, las valijas en el alojamiento y salimos a Cinque Terre con la tarde entera por delante.</p>
-      <p>Pisa queda de paso y tienta, pero desviarse cuesta una hora larga entre ida, vuelta y estacionamiento, y esa hora sale de Cinque Terre. Si igual queremos la foto de la torre, hay que salir 7:30 y no estirar la parada más de cuarenta minutos.</p>
+      <ul>
+        <li>Salida sobre las 8:30, unas dos horas y cuarto hasta La Spezia. Auto en la oficina de la rentadora, valijas en el alojamiento, y a Cinque Terre con la tarde entera por delante.</li>
+        <li>Pisa queda de paso y tienta, pero el desvío cuesta una hora larga entre ida, vuelta y estacionamiento, y esa hora sale de Cinque Terre. Si igual queremos la foto de la torre, salir 7:30 y no estirar la parada más de cuarenta minutos.</li>
+      </ul>
     `},
 
   {s:'El auto: todo lo que hay que saber', k:'mover', items:[
@@ -954,14 +1129,18 @@ const CITIES = [
   sections:[
   {s:'El plan de la media tarde', k:'plan', html:`
       <h3>Martes 13: llegar, soltar todo y salir</h3>
-      <p>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Lo primero es <b>devolver el auto</b>, después dejar las valijas en el alojamiento y salir con la mochila y nada más. A Cinque Terre no se va con valijas: los andenes son cortos, los trenes vienen llenos y los pueblos son todos escaleras.</p>
-      <p>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos está en cualquiera de los cinco pueblos. La idea es estar arriba del primer tren cerca del mediodía.</p>
-      <p><b>Primero Vernazza</b>, que es el más bonito de los cinco y el que tiene el puerto con forma de herradura. Se recorre en dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, que es de donde sale la foto clásica del pueblo desde arriba.</p>
-      <p><b>Después Manarola</b>, que es donde queremos estar al atardecer. Son diez minutos de tren. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, que es gratis y de donde sale la postal de las casas de colores apiladas sobre el acantilado.</p>
-      <p>El sol se pone 18:55, así que hay que estar en Manarola desde las 17 para tener tiempo de subir, tomar algo y esperar la luz. Después, tren de vuelta a La Spezia y cena ahí, que es más barata y más tranquila que en los pueblos.</p>
-      <h3>Miércoles 14: a Modena</h3>
-      <p>El tren a Modena lleva unas tres horas y en general se hace con un cambio en Parma. Conviene comprarlo con anticipación en la app de Trenitalia y salir temprano, para llegar a Modena con el día por delante.</p>
-      <p>Si nos levantamos con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Modena, así que mejor no forzar.</p>
+      <ul>
+        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Primero <b>devolver el auto</b>, después valijas en el alojamiento, y salir con la mochila y nada más. A Cinque Terre no se va con valijas: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
+        <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
+        <li><b>Primero Vernazza</b>, el más bonito y el del puerto con forma de herradura. Dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, de donde sale la foto clásica.</li>
+        <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
+        <li>El sol se pone 18:55: estar en Manarola desde las 17 para subir, tomar algo y esperar la luz. Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</li>
+      </ul>
+      <h3>Miércoles 14: a Módena</h3>
+      <ul>
+        <li>El tren a Módena lleva unas tres horas, casi siempre con un cambio en Parma. Comprarlo con anticipación en la app de Trenitalia y salir temprano.</li>
+        <li>Con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Módena, así que mejor no forzar.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[
@@ -1002,15 +1181,22 @@ const CITIES = [
   ],
   sections:[
   {s:'Cómo armar el día', k:'plan', html:`
-      <h3>El problema del día es la logística, no el museo</h3>
-      <p>Llegamos de La Spezia con las valijas encima y a la noche tenemos que estar en Milán. O sea que el día se arma alrededor de dos preguntas: dónde dejamos el equipaje y cuánto tiempo real nos queda.</p>
-      <p>Lo primero es averiguar antes de viajar si la estación de Módena tiene consigna de equipaje y en qué horario, y si no, si el <b>Museo Enzo Ferrari</b> guarda valijas. Muchos museos aceptan mochilas pero no valijas grandes, así que conviene escribirles y no descubrirlo en la puerta.</p>
+      <h3>El problema es la logística, no el museo</h3>
+      <ul>
+        <li>Llegamos de La Spezia con las valijas encima y a la noche tenemos que estar en Milán. El día se arma alrededor de dos preguntas: dónde dejamos el equipaje y cuánto tiempo real queda.</li>
+        <li>Averiguar antes de viajar si la estación de Módena tiene consigna y en qué horario, y si no, si el <b>Museo Enzo Ferrari</b> guarda valijas. Muchos museos aceptan mochilas pero no valijas grandes: escribirles y no descubrirlo en la puerta.</li>
+      </ul>
       <h3>La versión corta, que es la que recomiendo</h3>
-      <p>Tren desde La Spezia llegando cerca del mediodía. Dejamos las valijas, caminamos quince minutos hasta el <b>Museo Enzo Ferrari</b>, que está al lado de la estación, y lo hacemos en una hora y media larga.</p>
-      <p>Después almuerzo en el centro, que está a diez minutos: la <b>Piazza Grande</b>, el Duomo y la torre Ghirlandina se ven de paso, y el <b>Mercato Albinelli</b> resuelve el almuerzo con lo mejor de Emilia. A media tarde, tren a Milán y a las siete estamos haciendo el check in.</p>
+      <ul>
+        <li>Tren desde La Spezia llegando cerca del mediodía. Valijas en consigna, quince minutos a pie hasta el <b>Museo Enzo Ferrari</b>, al lado de la estación, y una hora y media larga adentro.</li>
+        <li>Almuerzo en el centro, a diez minutos: la <b>Piazza Grande</b>, el Duomo y la torre Ghirlandina se ven de paso, y el <b>Mercato Albinelli</b> resuelve el almuerzo con lo mejor de Emilia.</li>
+        <li>A media tarde, tren a Milán, y a las siete el check in.</li>
+      </ul>
       <h3>La versión larga, si somos fanáticos</h3>
-      <p>Si lo que queremos son los autos de Fórmula 1 de verdad, hay que ir a <b>Maranello</b>, que está a unos veinte kilómetros. Hay entrada combinada para los dos museos y una lanzadera que los une, y el viaje son unos treinta minutos cada tramo.</p>
-      <p>Eso significa salir de La Spezia bien temprano y llegar a Milán de noche. Es hacible, pero el día se convierte en una carrera y con valijas se complica. Si Ferrari es <em>el</em> motivo del día, vale la pena; si es una parada más del viaje, con Módena alcanza.</p>
+      <ul>
+        <li>Para los autos de Fórmula 1 de verdad hay que ir a <b>Maranello</b>, a unos veinte kilómetros. Hay entrada combinada para los dos museos y una lanzadera que los une, unos treinta minutos cada tramo.</li>
+        <li>Eso es salir de La Spezia bien temprano y llegar a Milán de noche, con el día convertido en una carrera y valijas encima. Si Ferrari es <em>el</em> motivo del día, vale la pena; si es una parada más, con Módena alcanza.</li>
+      </ul>
     `},
 
   {s:'Los dos museos, y cuál conviene', k:'visita', items:[
@@ -1042,18 +1228,24 @@ const CITIES = [
   sections:[
   {s:'El plan, día por día', k:'plan', html:`
       <h3>Miércoles 14: llegada y el Duomo de noche</h3>
-      <p>Llegamos de Módena a la tarde, hacemos el check in y salimos a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo, así que la primera imagen de la ciudad es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</p>
-      <p>Entramos a la <b>Galleria Vittorio Emanuele</b>, que está abierta las veinticuatro horas y de noche vacía es otra cosa, y cenamos cerca. Si llegamos con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche entera.</p>
+      <ul>
+        <li>Llegamos de Módena a la tarde, check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
+        <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
+      </ul>
       <h3>Jueves 15: el día de Milán</h3>
-      <p>Arrancamos con el <b>Duomo</b> temprano y, sobre todo, con las <b>terrazas</b>: se sube al techo y se camina entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor que tiene Milán y hay que sacar la entrada online.</p>
-      <p>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y de ahí caminando al <b>Castello Sforzesco</b>, que está a quince minutos y tiene la última Pietà de Miguel Ángel, la que dejó sin terminar.</p>
-      <p>Si conseguimos entrada para <b>La Última Cena</b>, va en este día: Santa Maria delle Grazie queda a diez minutos del castillo y el turno dura quince minutos exactos, así que se planifica alrededor de esa hora y no al revés.</p>
-      <p>A la tarde, <b>Brera</b> para caminar el barrio lindo, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena sin problema. Los <b>Navigli</b>, que son los canales, son el otro lugar donde hacerlo y de noche están muy bien.</p>
+      <ul>
+        <li>El <b>Duomo</b> temprano y, sobre todo, las <b>terrazas</b>: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán. Entrada online.</li>
+        <li>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y a quince minutos a pie el <b>Castello Sforzesco</b>, con la última Pietà de Miguel Ángel, la que dejó sin terminar.</li>
+        <li>Con entrada para <b>La Última Cena</b>, va este día: Santa Maria delle Grazie está a diez minutos del castillo y el turno dura quince minutos exactos, así que el día se arma alrededor de esa hora.</li>
+        <li>A la tarde, <b>Brera</b> para caminar el barrio, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena. Los <b>Navigli</b>, los canales, son el otro lugar donde hacerlo.</li>
+      </ul>
       <h3>Viernes 16: el lago de Como</h3>
-      <p>Día entero afuera. La versión que recomiendo es tren a <b>Varenna</b>, que es poco más de una hora desde Centrale, y de ahí el ferry a <b>Bellagio</b>, que son quince minutos cruzando el lago. Varenna es un pueblo de casas de colores sobre el agua y Bellagio es el de las escalinatas y las tiendas, en la punta donde el lago se abre en dos brazos.</p>
-      <p>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</p>
+      <ul>
+        <li>Día entero afuera. La versión que recomiendo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
+        <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
+      </ul>
       <h3>Sábado 17: a Barcelona</h3>
-      <p>Vuelo IB 5543. Según de qué aeropuerto salga, el traslado cambia bastante: de Linate son veinte minutos en metro y de Malpensa casi una hora en tren. Hay que mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
+      <p>Vuelo IB 5543. El traslado cambia bastante según el aeropuerto: de Linate son veinte minutos en metro, de Malpensa casi una hora en tren. Mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[
@@ -1124,15 +1316,19 @@ const CITIES = [
   sections:[
   {s:'El plan de la tarde y la mañana', k:'plan', html:`
       <h3>Sábado 17: el centro y la fuente</h3>
-      <p>Llegamos de Milán, dejamos las valijas en el <b>Continental Palacete</b> y salimos caminando. El hotel está sobre la Rambla de Catalunya, así que bajamos por ahí, que es la versión tranquila y arbolada de la Rambla famosa, con la gente de Barcelona en vez de turistas.</p>
-      <p>Un desvío de dos cuadras para ver por fuera la <b>Casa Batlló</b> y <b>La Pedrera</b>, en el Passeig de Gràcia, y seguimos hasta la <b>Plaça Catalunya</b>, que es donde empieza todo.</p>
-      <p>De ahí bajamos por <b>Las Ramblas</b> hasta el <b>Mercat de la Boqueria</b>, y en cualquier punto nos metemos a la izquierda al <b>Barrio Gótico</b>, que es lo que de verdad vale: la Catedral, la Plaça del Rei, el Pont del Bisbe y las calles angostas donde uno se pierde a propósito.</p>
-      <p>A las 19:30 tomamos el metro a <b>Plaça d’Espanya</b> y subimos caminando hacia el Museo Nacional. La <b>Fuente Mágica</b> arranca cuando ya oscureció, así que hay tiempo de sobra para acomodarse en la escalinata. Es gratis.</p>
-      <p>Y la cena cae perfecta: bajando de Montjuïc, a diez minutos, está <b>Poble Sec</b> y su calle de pinchos. No hay que cruzar la ciudad de vuelta ni reservar nada.</p>
+      <ul>
+        <li>Valijas en el <b>Continental Palacete</b> y a caminar. El hotel está sobre la Rambla de Catalunya, la versión tranquila y arbolada de la Rambla famosa, con gente de Barcelona en vez de turistas.</li>
+        <li>Un desvío de dos cuadras para ver por fuera la <b>Casa Batlló</b> y <b>La Pedrera</b> en el Passeig de Gràcia, y seguir hasta la <b>Plaça Catalunya</b>.</li>
+        <li>Bajar por <b>Las Ramblas</b> hasta el <b>Mercat de la Boqueria</b>, y en cualquier punto meterse a la izquierda al <b>Barrio Gótico</b>, que es lo que de verdad vale: la Catedral, la Plaça del Rei, el Pont del Bisbe y las calles angostas donde uno se pierde a propósito.</li>
+        <li>A las 19:30, metro a <b>Plaça d’Espanya</b> y subida a pie hacia el Museo Nacional. La <b>Fuente Mágica</b> arranca cuando ya oscureció, hay tiempo de sobra para acomodarse en la escalinata. Es gratis.</li>
+        <li>La cena cae perfecta: bajando de Montjuïc, a diez minutos, <b>Poble Sec</b> y su calle de pinchos. Sin cruzar la ciudad de vuelta y sin reservar.</li>
+      </ul>
       <h3>Domingo 18: la Sagrada Familia y el mar</h3>
-      <p>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, que es la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora correcta para verla y para la foto. Se da la vuelta completa al templo en media hora y se ven las dos fachadas.</p>
-      <p>Después metro a la <b>Barceloneta</b>: el barrio de pescadores con las calles angostas, el paseo marítimo y la playa. Un vermut a media mañana en una terraza mirando el mar es exactamente el plan de un domingo de octubre.</p>
-      <p>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</p>
+      <ul>
+        <li>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora para verla y para la foto. La vuelta completa al templo son media hora.</li>
+        <li>Metro a la <b>Barceloneta</b>: calles angostas, paseo marítimo y playa. Un vermut a media mañana en una terraza mirando el mar es el plan de un domingo de octubre.</li>
+        <li>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse', k:'mover', items:[
@@ -1181,21 +1377,35 @@ const CITIES = [
   sections:[
   {s:'El plan de la semana', k:'plan', html:`
       <h3>Domingo 18: llegada y primera vuelta</h3>
-      <p>Llegamos de Barcelona, hacemos el check in en el apartamento y salimos a caminar sin plan. Lo primero es lo práctico: encontrar el supermercado más cercano, ver cómo funciona la casa con cinco personas adentro y comprar para el desayuno de la semana.</p>
-      <p>Después, la primera vuelta por el centro con la última luz, que es la mejor hora de Sevilla: la <b>Catedral</b> y la <b>Giralda</b> por fuera, el <b>Barrio de Santa Cruz</b> y una cena de tapas temprana, que el domingo muchas cocinas cierran a las once.</p>
-      <p>Y lo más importante del día: <b>medir el camino a Loyola</b>. Con la dirección exacta en la mano, ver en Google Maps cuánto lleva a la hora a la que Vale tiene que estar el lunes, y sumarle un margen. Si la sede está en el campus de Dos Hermanas, afuera de la ciudad, el viaje no es corto y conviene saberlo hoy y no mañana a las ocho.</p>
+      <ul>
+        <li>Check in en el apartamento y a caminar sin plan. Lo práctico primero: el supermercado más cercano, cómo funciona la casa con cinco personas adentro, y la compra del desayuno de la semana.</li>
+        <li>Primera vuelta por el centro con la última luz, la mejor hora de Sevilla: la <b>Catedral</b> y la <b>Giralda</b> por fuera, el <b>Barrio de Santa Cruz</b> y una cena de tapas temprana, que el domingo muchas cocinas cierran a las once.</li>
+        <li>Lo más importante del día: <b>medir el camino a Loyola</b>. Con la dirección exacta, ver en Google Maps cuánto lleva a la hora en que Vale tiene que estar el lunes, más un margen. Si la sede está en el campus de Dos Hermanas, el viaje no es corto y hay que saberlo hoy.</li>
+      </ul>
       <h3>Lunes a viernes: la semana partida</h3>
-      <p>Las mañanas cada uno con lo suyo: Vale en la universidad y yo trabajando. El horario juega a favor, porque Uruguay está cinco horas atrás y la mañana española es tiempo tranquilo antes de que arranque el día allá.</p>
-      <p>El plan de las tardes es simple: aprovechar que anochece a las 19:35 y que a las seis de la tarde Sevilla recién se despierta. Una cosa por tarde, sin apurar:</p>
-      <p><b>Lunes</b>, la <b>Plaza de España</b> al atardecer, que es la más impresionante de la ciudad y es gratis. <b>Martes</b>, <b>Triana</b> cruzando el puente, el mercado y la calle Betis con la vista de la ciudad del otro lado del río. <b>Miércoles</b>, las <b>Setas</b> al atardecer y tapas por la Alfalfa. <b>Jueves</b>, la <b>Catedral y la Giralda</b>, que ya están reservadas a las 17:20. <b>Viernes</b>, el <b>Real Alcázar</b> a las 16:30 y, saliendo, flamenco.</p>
-      <p>Las noches son de tapeo, que acá no es una comida sino un recorrido: se toma algo y una tapa en un bar, se paga, y se sigue al siguiente. Tres o cuatro bares es una cena.</p>
+      <ul>
+        <li>Las mañanas, cada uno con lo suyo: Vale en la universidad, yo trabajando. Uruguay está cinco horas atrás, así que la mañana española es tiempo tranquilo antes de que arranque el día allá.</li>
+        <li>Las tardes, una cosa por día sin apurar, aprovechando que a las seis Sevilla recién se despierta y anochece a las 19:35:</li>
+      </ul>
+      <ul>
+        <li><b>Lunes:</b> la <b>Plaza de España</b> al atardecer, la más impresionante de la ciudad y gratis.</li>
+        <li><b>Martes:</b> <b>Triana</b> cruzando el puente, el mercado y la calle Betis, con la vista de la ciudad del otro lado del río.</li>
+        <li><b>Miércoles:</b> las <b>Setas</b> al atardecer y tapas por la Alfalfa.</li>
+        <li><b>Jueves:</b> la <b>Catedral y la Giralda</b>, reservadas a las 17:20.</li>
+        <li><b>Viernes:</b> el <b>Real Alcázar</b> a las 16:30 y, saliendo, flamenco.</li>
+      </ul>
+      <p>Las noches son de tapeo, que acá no es una comida sino un recorrido: algo para tomar y una tapa en un bar, se paga, y al siguiente. Tres o cuatro bares es una cena.</p>
       <h3>Sábado 24: el día largo</h3>
-      <p>El único día completo de los dos juntos. Dos opciones y las dos buenas.</p>
-      <p>La ambiciosa: <b>Córdoba</b> en el AVE, que son cuarenta y cinco minutos, para ver la Mezquita, que es de las cosas más impresionantes de España. Se va temprano, se vuelve de noche y es un día redondo.</p>
-      <p>La otra, y la que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</p>
+      <ul>
+        <li>El único día completo de los dos juntos. Dos opciones, las dos buenas.</li>
+        <li>La ambiciosa: <b>Córdoba</b> en el AVE, cuarenta y cinco minutos, para ver la Mezquita, de las cosas más impresionantes de España. Temprano de ida, de noche de vuelta.</li>
+        <li>La que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</li>
+      </ul>
       <h3>Domingo 25: el último día</h3>
-      <p>Cambio de hora de madrugada, así que ganamos una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río y las valijas a media tarde.</p>
-      <p>Cuidado con dos cosas: el domingo muchos negocios y varios restaurantes cierran, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</p>
+      <ul>
+        <li>El cambio de hora de madrugada nos da una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río, valijas a media tarde.</li>
+        <li>Dos avisos: el domingo cierran muchos negocios y varios restaurantes, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</li>
+      </ul>
     `},
 
   {s:'Cómo moverse y vivir acá', k:'mover', items:[
@@ -1307,6 +1517,16 @@ const KEY = 'italia-espana-2026';
 let visited = new Set();
 try { visited = new Set(JSON.parse(localStorage.getItem(KEY + ':visited') || '[]')); } catch (e) {}
 const saveVisited = () => { try { localStorage.setItem(KEY + ':visited', JSON.stringify([...visited])); } catch (e) {} };
+
+/* estado de los tramos de viaje: por defecto lo decide la fecha del teléfono,
+   y cada fila se puede tocar para corregirlo a mano. */
+let tramos = {};
+try { tramos = JSON.parse(localStorage.getItem(KEY + ':tramos') || '{}'); } catch (e) {}
+const saveTramos = () => { try { localStorage.setItem(KEY + ':tramos', JSON.stringify(tramos)); } catch (e) {} };
+const hoyISO = () => { const n = new Date(), z = x => String(x).padStart(2, '0');
+  return n.getFullYear() + '-' + z(n.getMonth() + 1) + '-' + z(n.getDate()); };
+const tramoId = l => l.d + '|' + l.t;
+const tramoHecho = l => { const k = tramoId(l); return k in tramos ? tramos[k] : l.d < hoyISO(); };
 
 let current = CITIES[0].id;
 let query = '';
@@ -1428,6 +1648,36 @@ function itemHTML(it) {
   </div>`;
 }
 
+/* ---------- itinerario con estado ---------- */
+function legsHTML(list) {
+  const hoy = hoyISO();
+  const hecho = list.map(tramoHecho);
+  const proximo = hecho.indexOf(false);
+  const sig = proximo >= 0 ? list[proximo] : null;
+
+  const cabeza = sig
+    ? `<p class="legs-head">Tramo ${proximo + 1} de ${list.length}<span>Sigue: ${esc(sig.w)}, ${esc(sig.t)}</span></p>`
+    : `<p class="legs-head">Los ${list.length} tramos, hechos</p>`;
+
+  const filas = list.map((l, i) => {
+    const d = hecho[i];
+    const esHoy = !d && l.d === hoy;
+    const esSig = !d && i === proximo && !esHoy;
+    const badge = esHoy ? '<span class="legbadge hoy">Hoy</span>'
+                : esSig ? '<span class="legbadge sigue">Sigue</span>' : '';
+    const falta = /[Ff]alta/.test(l.e || '');
+    return `<div class="leg${d ? ' done' : ''}${esHoy ? ' eshoy' : ''}" data-leg="${esc(tramoId(l))}">
+      <button class="legtick" aria-pressed="${d}" aria-label="Marcar ${esc(l.t)} como hecho">${ICON.check}</button>
+      <div class="leg-main">
+        <div class="leg-top"><span class="leg-w">${esc(l.w)}</span><span class="leg-t">${esc(l.t)}</span>${badge}</div>
+        <div class="leg-meta"><span>${esc(l.c)}</span><span class="leg-dur">${esc(l.dur)}</span>${l.e ? `<span class="leg-e${falta ? ' falta' : ''}">${esc(l.e)}</span>` : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `<div class="legs">${cabeza}${filas}<button class="legs-reset" data-legreset="1">Volver al estado por fecha</button></div>`;
+}
+
 /* ---------- vista de ciudad ---------- */
 function cityHTML(c) {
   const items = c.sections.flatMap(s => s.items || []);
@@ -1453,6 +1703,12 @@ function cityHTML(c) {
   if (items.length) h += `<div class="toolrow pegada"><button data-all="open">Abrir todo</button><button data-all="close">Cerrar todo</button></div>`;
 
   c.sections.forEach((sec, i) => {
+    if (sec.legs) {
+      if (filtering()) return;
+      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2></summary>
+        <div class="body">${legsHTML(sec.legs)}${sec.html ? `<div class="prose">${sec.html}</div>` : ''}</div></details>`;
+      return;
+    }
     if (sec.html) {
       if (filtering()) return;
       h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2></summary>
@@ -1534,6 +1790,13 @@ $('#view').addEventListener('click', e => {
     }
     return;
   }
+  const legtick = e.target.closest('.legtick');
+  if (legtick) {
+    const row = legtick.closest('.leg');
+    tramos[row.dataset.leg] = !row.classList.contains('done');
+    saveTramos(); render(); return;
+  }
+  if (e.target.closest('[data-legreset]')) { tramos = {}; saveTramos(); render(); return; }
   const reset = e.target.closest('[data-reset]');
   if (reset) {
     const c = CITIES.find(x => x.id === reset.dataset.reset);

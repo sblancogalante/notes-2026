@@ -299,7 +299,7 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
     <div class="searchbar">
       <div class="field">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-        <input id="q" type="search" placeholder="Buscar en toda la guía…" autocomplete="off" aria-label="Buscar">
+        <input id="q" type="search" placeholder="Buscar en toda la guía" autocomplete="off" aria-label="Buscar">
         <button class="clearbtn" id="clearq" aria-label="Borrar búsqueda">&times;</button>
       </div>
     </div>
@@ -1253,6 +1253,16 @@ let visited = new Set();
 try { visited = new Set(JSON.parse(localStorage.getItem(KEY + ':visited') || '[]')); } catch (e) {}
 const saveVisited = () => { try { localStorage.setItem(KEY + ':visited', JSON.stringify([...visited])); } catch (e) {} };
 
+/* estado de los tramos de viaje: por defecto lo decide la fecha del teléfono,
+   y cada fila se puede tocar para corregirlo a mano. */
+let tramos = {};
+try { tramos = JSON.parse(localStorage.getItem(KEY + ':tramos') || '{}'); } catch (e) {}
+const saveTramos = () => { try { localStorage.setItem(KEY + ':tramos', JSON.stringify(tramos)); } catch (e) {} };
+const hoyISO = () => { const n = new Date(), z = x => String(x).padStart(2, '0');
+  return n.getFullYear() + '-' + z(n.getMonth() + 1) + '-' + z(n.getDate()); };
+const tramoId = l => l.d + '|' + l.t;
+const tramoHecho = l => { const k = tramoId(l); return k in tramos ? tramos[k] : l.d < hoyISO(); };
+
 let current = CITIES[0].id;
 let query = '';
 let fPrice = new Set();
@@ -1373,6 +1383,36 @@ function itemHTML(it) {
   </div>`;
 }
 
+/* ---------- itinerario con estado ---------- */
+function legsHTML(list) {
+  const hoy = hoyISO();
+  const hecho = list.map(tramoHecho);
+  const proximo = hecho.indexOf(false);
+  const sig = proximo >= 0 ? list[proximo] : null;
+
+  const cabeza = sig
+    ? `<p class="legs-head">Tramo ${proximo + 1} de ${list.length}<span>Sigue: ${esc(sig.w)}, ${esc(sig.t)}</span></p>`
+    : `<p class="legs-head">Los ${list.length} tramos, hechos</p>`;
+
+  const filas = list.map((l, i) => {
+    const d = hecho[i];
+    const esHoy = !d && l.d === hoy;
+    const esSig = !d && i === proximo && !esHoy;
+    const badge = esHoy ? '<span class="legbadge hoy">Hoy</span>'
+                : esSig ? '<span class="legbadge sigue">Sigue</span>' : '';
+    const falta = /[Ff]alta/.test(l.e || '');
+    return `<div class="leg${d ? ' done' : ''}${esHoy ? ' eshoy' : ''}" data-leg="${esc(tramoId(l))}">
+      <button class="legtick" aria-pressed="${d}" aria-label="Marcar ${esc(l.t)} como hecho">${ICON.check}</button>
+      <div class="leg-main">
+        <div class="leg-top"><span class="leg-w">${esc(l.w)}</span><span class="leg-t">${esc(l.t)}</span>${badge}</div>
+        <div class="leg-meta"><span>${esc(l.c)}</span><span class="leg-dur">${esc(l.dur)}</span>${l.e ? `<span class="leg-e${falta ? ' falta' : ''}">${esc(l.e)}</span>` : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+
+  return `<div class="legs">${cabeza}${filas}<button class="legs-reset" data-legreset="1">Volver al estado por fecha</button></div>`;
+}
+
 /* ---------- vista de ciudad ---------- */
 function cityHTML(c) {
   const items = c.sections.flatMap(s => s.items || []);
@@ -1398,6 +1438,12 @@ function cityHTML(c) {
   if (items.length) h += `<div class="toolrow pegada"><button data-all="open">Abrir todo</button><button data-all="close">Cerrar todo</button></div>`;
 
   c.sections.forEach((sec, i) => {
+    if (sec.legs) {
+      if (filtering()) return;
+      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2></summary>
+        <div class="body">${legsHTML(sec.legs)}${sec.html ? `<div class="prose">${sec.html}</div>` : ''}</div></details>`;
+      return;
+    }
     if (sec.html) {
       if (filtering()) return;
       h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2></summary>
@@ -1479,6 +1525,13 @@ $('#view').addEventListener('click', e => {
     }
     return;
   }
+  const legtick = e.target.closest('.legtick');
+  if (legtick) {
+    const row = legtick.closest('.leg');
+    tramos[row.dataset.leg] = !row.classList.contains('done');
+    saveTramos(); render(); return;
+  }
+  if (e.target.closest('[data-legreset]')) { tramos = {}; saveTramos(); render(); return; }
   const reset = e.target.closest('[data-reset]');
   if (reset) {
     const c = CITIES.find(x => x.id === reset.dataset.reset);
