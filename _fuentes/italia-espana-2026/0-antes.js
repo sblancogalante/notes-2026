@@ -7,15 +7,15 @@
     ['Volvemos','Dom 25 de octubre de 2026'],
     ['Somos','Santiago y Valentina'],
     ['Días','23, con 8 alojamientos'],
-    ['Ojo','El Coliseo se agota en minutos']
+    ['Falta','Uffizi y la Última Cena de Milán']
   ],
   sections:[
   {s:'Lo que hay que sacar ya', k:'prep', html:`
-      <h3>El Coliseo, lo único de verdad urgente</h3>
+      <h3>El Coliseo, que ya está</h3>
       <ul>
-        <li>Las entradas oficiales salen en <b>coopculture.it</b> unos treinta días antes, a las 9:00 de Italia (las 4:00 de Montevideo), y se agotan en minutos. La ventana exacta la cambiaron más de una vez, así que lo primero es entrar a la web oficial y confirmar cuántos días antes se abre la venta para nuestra fecha.</li>
-        <li>Si el día que queremos ya voló, hay tres caminos oficiales: la <em>visita guiada</em> o el <em>Full Experience</em>, que tienen cupo aparte; el ticket de <b>Foro Romano y Palatino</b>, que se vende por separado y alcanza para entrar al Foro sin entrada del Coliseo; y mirar la web dos o tres días antes por devoluciones.</li>
-        <li>Lo que no sirve: la reventa a tres veces el precio. Si nada sale, el Coliseo por fuera de noche y el Foro desde la vereda del Campidoglio son gratis y están muy bien.</li>
+        <li>Tenemos entrada para el <b>miércoles 7 a las 8:30</b>: visita de grupo reducido con la <b>arena</b>, el <b>Foro</b> y el <b>Palatino</b> en el mismo turno.</li>
+        <li>Por coopculture.it, la web oficial, fue imposible: sale unos treinta días antes y se agota en minutos. La que funcionó fue la visita guiada de cupo reducido, que tiene un cupo aparte del de la entrada común, sale más cara y es la salida real cuando la oficial ya voló. La reventa suelta, no.</li>
+        <li>Voucher bajado al teléfono y en el punto de encuentro 8:15.</li>
       </ul>
       <h3>Lo demás que tiene fecha</h3>
       <ul>
@@ -151,7 +151,7 @@
         <li>Trenes: <b>Trenitalia</b> e <b>Italo</b> en Italia, <b>Renfe</b> en España.</li>
         <li>Mesa: <b>TheFork</b>, que anda en los dos países y muchas veces tiene descuento.</li>
         <li>Taxis: <b>FreeNow</b> o <b>itTaxi</b> en Italia; <b>Cabify</b> y <b>Bolt</b> en Barcelona y Sevilla, más baratas que el taxi.</li>
-        <li>Vaticano y Coliseo: la web oficial y nada más.</li>
+        <li>Museos del Vaticano: la web oficial y nada más. El Coliseo ya está sacado.</li>
         <li>Una app de notas compartida entre los dos, que en veintitrés días es donde terminan los horarios, los códigos de las puertas y los nombres que alguien nos recomendó.</li>
       </ul>
     `},

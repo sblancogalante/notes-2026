@@ -5,7 +5,7 @@
     ['Cuándo','Dom 4 a jue 8 de octubre'],
     ['Dormimos','Four Rivers, junto a Navona'],
     ['Se cena','20:00 a 22:30'],
-    ['Octubre','23° / 13°, anochece 18:50'],
+    ['Coliseo','Mié 7, 8:30, con la arena'],
     ['Salimos','Jue 8, tren 9:20 de Termini']
   ],
   sections:[
@@ -21,7 +21,7 @@
       <h3>Lunes 5: Trevi al amanecer, Trastevere y el Aventino</h3>
       <ul>
         <li><b>Fontana di Trevi</b> a las 7, con el sol saliendo 7:15. Es la única forma de tener la foto sin gente.</li>
-        <li><b>Coliseo</b>. Sin entradas, la vuelta por fuera y la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio son gratis. La entrada al Foro se compra aparte, ahí hay chance.</li>
+        <li>El <b>Coliseo</b> por fuera de paso, con la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio, gratis las dos. La visita con arena, Foro y Palatino es el miércoles.</li>
         <li>Mediodía en <b>Trastevere</b>, todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre.</li>
         <li>De Trastevere al <b>Aventino</b>, en este orden para no subir y bajar la colina dos veces: <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> a dos minutos para el atardecer, y recién ahí el <b>Roseto Comunale</b> y el <b>Circo Massimo</b>, al pie.</li>
         <li>Cena en el centro, en <b>Renato e Luisa</b>, chico y de reservar con días.</li>
@@ -34,7 +34,7 @@
       </ul>
       <h3>Miércoles 7: Coliseo, Foro y el Ghetto</h3>
       <ul>
-        <li>El día que más depende de las entradas. Con Coliseo y Foro, van de mañana temprano: se entra por el Coliseo, se sigue por el Palatino y se sale por el Foro hacia los Fori Imperiali, cuesta abajo.</li>
+        <li><b>8:30, la visita de grupo reducido al Coliseo</b>, con arena, Foro y Palatino en el mismo turno. Punto de encuentro 8:15. Se entra por el Coliseo, se baja a la arena, y después Palatino y Foro saliendo hacia los Fori Imperiali, cuesta abajo. Termina a media mañana.</li>
         <li>Almuerzo en el <b>Ghetto</b>, a quince minutos: sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, a tres cuadras. Hoy funciona normal.</li>
         <li>Tarde según el cuerpo: <b>Galleria Borghese</b> si hay turno, <b>Basílica de San Clemente</b> con sus tres niveles enterrados, o el <b>Ghetto y la Isola Tiberina</b> con calma.</li>
         <li>Última cena en <b>Roscioli</b>, a ocho minutos del hotel, con parada previa en <b>Dar Filettaro</b> por un filete de bacalao. Cerca y sin trasnochar, que al otro día hay tren.</li>
@@ -135,11 +135,10 @@
   ]},
 
   {s:'El Coliseo y el Foro', k:'visita', items:[
-    {nota:1, n:'La situación de las entradas', d:'Las oficiales salen en coopculture.it unos treinta días antes, a las 9:00 de Italia, y se agotan en minutos. No hay truco ni contacto: es entrar puntual el día que se abre la venta.', t:'visita', tip:'Si el día que queremos ya voló, quedan tres caminos oficiales: la visita guiada o el Full Experience, que tienen cupo aparte; el ticket de Foro Romano y Palatino, que se vende por separado; y mirar la web dos o tres días antes por devoluciones. Lo que no vale la pena es la reventa.'},
-    {nota:1, n:'El Foro se puede visitar sin entrada del Coliseo', d:'Esta es la respuesta a la duda: el Parque Arqueológico vende un ticket de <em>Foro Romano y Palatino</em> separado del que incluye el Coliseo. Con ese se entra al Foro y al Palatino sin problema, y es bastante más fácil de conseguir.', t:'visita', tip:'Además el Palatino es la parte que más se disfruta y la que menos gente tiene: son las ruinas de los palacios imperiales sobre la colina, con vista al Foro de un lado y al Circo Massimo del otro.'},
-    {nota:1, n:'Si igual no hay entradas', d:'El Coliseo por fuera es gratis y sigue siendo impresionante. La vuelta completa a pie lleva veinte minutos y de noche, iluminado, es mejor que de día.', t:'visita', tip:'La otra jugada gratis: la terraza del Campidoglio, subiendo la escalinata de Miguel Ángel y pasando por el costado derecho del palacio, da sobre el Foro entero desde arriba. Es la mejor vista del Foro que hay y no cuesta nada.'},
-    {n:'Coliseo', d:'El anfiteatro más grande del imperio, con capacidad para más de cincuenta mil personas y un sistema de sótanos con ascensores para subir animales a la arena. Lo que falta de la fachada se lo llevaron para construir media Roma.', t:'visita', p:'€€', w:'https://parcocolosseo.it/', tip:'Si entramos, ir temprano: a las 9 hay sombra y menos gente. El acceso a la arena y a los sótanos se paga aparte y se agota antes que todo lo demás.'},
-    {ruta:['Colosseo, Roma','Arco di Tito, Roma','Foro Romano, Roma','Piazza del Campidoglio, Roma'], n:'Foro Romano y Palatino', d:'El centro de la vida pública de la Roma antigua, hoy un campo de columnas sueltas y basas de templos. Sin contexto es un montón de piedras, y con contexto es donde pasó todo.', t:'visita', p:'€€', tip:'Se entra por el Coliseo, se sube al Palatino y se sale por el Foro hacia los Fori Imperiali, que es cuesta abajo y termina cerca del Campidoglio. Bajarse un audioguía o un mapa antes: adentro casi no hay carteles y la señal es mala.'},
+    {nota:1, n:'Lo que tenemos', d:'Entrada para el <b>miércoles 7 a las 8:30</b>, visita de grupo reducido con la <b>arena</b>, el <b>Foro</b> y el <b>Palatino</b> en el mismo turno. Por coopculture.it, la web oficial, fue imposible: sale treinta días antes y se agota en minutos.', t:'visita', tip:'Punto de encuentro 8:15 con el voucher en el teléfono. La visita guiada de cupo reducido tiene un cupo aparte del de la entrada común, sale más cara, y es la salida real cuando la oficial ya voló. La reventa suelta, no.'},
+    {nota:1, n:'La terraza del Campidoglio', d:'Subiendo la escalinata de Miguel Ángel y pasando por el costado derecho del palacio, se llega a una terraza que da sobre el Foro entero desde arriba. Gratis, y es la mejor vista del Foro que hay.', t:'visita', tip:'Queda de paso yendo del Foro al Ghetto el miércoles. El Coliseo por fuera de noche, iluminado, también vale la vuelta: son veinte minutos a pie.'},
+    {n:'Coliseo', d:'El anfiteatro más grande del imperio, con capacidad para más de cincuenta mil personas y un sistema de sótanos con ascensores para subir animales a la arena. Lo que falta de la fachada se lo llevaron para construir media Roma.', t:'visita', p:'€€', w:'https://parcocolosseo.it/', tip:'Nuestra visita de las 8:30 incluye la <b>arena</b>, que se pisa por donde entraban los gladiadores. A esa hora hay sombra y el lugar está casi vacío.'},
+    {ruta:['Colosseo, Roma','Arco di Tito, Roma','Foro Romano, Roma','Piazza del Campidoglio, Roma'], n:'Foro Romano y Palatino', d:'El centro de la vida pública de la Roma antigua, hoy un campo de columnas sueltas y basas de templos. Sin contexto es un montón de piedras, y con contexto es donde pasó todo.', t:'visita', p:'€€', tip:'Van en el mismo turno del miércoles. Se sale del Coliseo, se sube al Palatino, que es la parte que más se disfruta y la que menos gente tiene, y se baja por el Foro hacia los Fori Imperiali, cuesta abajo.'},
     {ruta:['Via dei Fori Imperiali, Roma','Piazza Venezia, Roma','Piazza del Campidoglio, Roma'], n:'Los Foros Imperiales por fuera', d:'La avenida que Mussolini abrió por el medio de las ruinas, con el Foro de Trajano y su columna de un lado y el Foro Romano del otro. Se ve todo desde la vereda, gratis, y a la noche está iluminado.', t:'visita', tip:'Es el camino natural del Coliseo al Ghetto, que es justo lo que hacemos el miércoles. La columna de Trajano tiene la historia de una guerra tallada en espiral de abajo arriba, y se ve bien desde la baranda.'}
   ]}
   ]
