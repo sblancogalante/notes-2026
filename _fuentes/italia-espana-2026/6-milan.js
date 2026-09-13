@@ -6,7 +6,7 @@
     ['Dormimos','Meravigli Den, en el centro'],
     ['Se cena','20:00 a 22:00, antes que en Roma'],
     ['Octubre','19° / 10°, puede llover'],
-    ['Entradas','Duomo, jueves 15'],
+    ['Entradas','Duomo, jue 15 a las 9:00'],
     ['Salimos','Sáb 17, vuelo IB 5543 a Barcelona']
   ],
   sections:[
@@ -18,7 +18,7 @@
       </ul>
       <h3>Jueves 15: el día de Milán</h3>
       <ul>
-        <li>El <b>Duomo</b> temprano, que para este día ya tenemos entrada, y sobre todo las <b>terrazas</b>: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán. Abrir la entrada antes de salir del hotel y ver si la subida viene incluida, porque se vende junta y por separado.</li>
+        <li>El <b>Duomo</b> a primera hora, con entrada de <b>9:00 a 9:30</b> y las <b>terrazas</b> incluidas: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán, y a esa hora la luz de la mañana pega en el mármol. Del hotel son diez minutos a pie y se entra por control de seguridad, así que salir 8:30.</li>
         <li>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y a quince minutos a pie el <b>Castello Sforzesco</b>, con la última Pietà de Miguel Ángel y el Parco Sempione detrás.</li>
         <li>A la tarde, <b>Brera</b> para caminar el barrio, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena. Los <b>Navigli</b>, los canales, son el otro lugar donde hacerlo.</li>
       </ul>
@@ -69,8 +69,8 @@
   ]},
 
   {s:'Lo que hay que ver', k:'visita', items:[
-    {n:'Duomo de Milán', d:'La catedral gótica más grande de Italia, tardó casi seiscientos años en terminarse y tiene más de tres mil estatuas. Por dentro es oscura y enorme, con vitrales de veinte metros.', t:'visita', p:'€€', w:'https://www.duomomilano.it/', tip:'La entrada básica es para la iglesia; las terrazas se pagan aparte y son lo que de verdad vale. Comprar online y elegir horario temprano.'},
-    {n:'Las terrazas del Duomo', d:'Se sube al techo de la catedral y se camina entre los arbotantes, las agujas y las gárgolas, con la Madonnina dorada arriba y la ciudad alrededor. No hay nada parecido en ninguna otra catedral.', t:'visita', p:'€€', tip:'Hay opción con ascensor y opción por escalera, y la diferencia de precio es poca. El piso es de mármol inclinado y resbala, así que calzado con suela. Ir a primera hora, con la luz de la mañana pegando en el mármol.'},
+    {n:'Duomo de Milán', d:'La catedral gótica más grande de Italia, tardó casi seiscientos años en terminarse y tiene más de tres mil estatuas. Por dentro es oscura y enorme, con vitrales de veinte metros.', t:'visita', p:'€€', w:'https://www.duomomilano.it/', tip:'La entrada básica es solo para la iglesia; las terrazas se pagan aparte y son lo que de verdad vale. La nuestra las incluye y es del jueves 15, de 9:00 a 9:30.'},
+    {n:'Las terrazas del Duomo', d:'Se sube al techo de la catedral y se camina entre los arbotantes, las agujas y las gárgolas, con la Madonnina dorada arriba y la ciudad alrededor. No hay nada parecido en ninguna otra catedral.', t:'visita', p:'€€', tip:'Van incluidas en nuestra entrada del jueves 15. Hay versión con ascensor y versión por escalera: conviene mirar cuál dice el voucher antes de subir. El piso es de mármol inclinado y resbala, así que calzado con suela, y a las 9 la luz de la mañana pega en el mármol.'},
     {n:'Galleria Vittorio Emanuele II', d:'La galería comercial cubierta de 1877, con piso de mosaico, bóveda de vidrio y hierro y las tiendas de siempre. Está abierta las veinticuatro horas porque es una calle, no un shopping.', t:'visita', tip:'La tradición es apoyar el talón sobre los testículos del toro del mosaico del piso, en el octógono central, y girar tres veces. Trae suerte. El pozo que dejó de tanto girar la gente lo tienen que reponer cada tanto.'},
     {n:'Castello Sforzesco', d:'La fortaleza de los duques de Milán, con patios enormes y museos adentro. En uno de ellos está la Pietà Rondanini, la última escultura de Miguel Ángel, en la que estuvo trabajando hasta días antes de morir y que dejó sin terminar.', t:'visita', p:'€', tip:'Entrar al recinto y a los patios es gratis. Detrás está el Parco Sempione, que es el parque grande de la ciudad y el mejor lugar para sentarse un rato.'},
     {n:'Pinacoteca de Brera', d:'La colección de pintura más importante del norte de Italia, en un palacio del barrio de Brera: el Cristo muerto de Mantegna, visto desde los pies, el Beso de Hayez y Caravaggio.', t:'visita', p:'€€', tip:'Se hace en una hora y media eligiendo. El barrio de alrededor, con calles angostas y galerías, es el más lindo para caminar de Milán y no cuesta nada.'},

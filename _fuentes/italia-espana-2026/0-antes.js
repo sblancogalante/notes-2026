@@ -19,7 +19,7 @@
       </ul>
       <h3>Lo demás que tiene fecha</h3>
       <ul>
-        <li><b>Duomo de Milán</b>: ya está, para el <b>jueves 15</b>. Lo único a confirmar es si la entrada incluye las <b>terrazas</b>, que se venden juntas y por separado. Si no vienen, agregarlas: subir al techo es lo mejor de Milán y no se agota.</li>
+        <li><b>Duomo de Milán</b>: ya está, <b>jueves 15 de 9:00 a 9:30</b>, con las <b>terrazas</b> incluidas, que son las que de verdad valen. Voucher bajado al teléfono y en la plaza unos minutos antes, que se entra por control de seguridad.</li>
         <li><b>Cúpula de Brunelleschi</b>, Florencia: se reserva con día y hora aparte de la catedral, y el turno que queremos es el del <b>viernes 9 a las 8:30</b>. Es la que falta.</li>
         <li><b>Museo Ferrari</b>, Módena: no suele agotarse, pero comprarlo online ahorra la fila.</li>
         <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
