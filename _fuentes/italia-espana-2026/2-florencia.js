@@ -1,6 +1,6 @@
 {
   id:'flo', nav:'Florencia', name:'Florencia', plate:'Firenze', accent:'#9A3412', lt:'#FDBA74', maps:'Firenze',
-  lede:'Una noche sola, así que hay que ser quirúrgicos. La ciudad entera entra en un cuadrado de veinte minutos de lado y con una tarde bien usada y una mañana alcanza para lo importante.',
+  lede:'Una noche sola, así que el plan es la ciudad y no los museos: lo mejor de Florencia se ve caminando y casi todo es gratis. La ciudad entera entra en un cuadrado de veinte minutos de lado, y con una tarde bien usada y una mañana alcanza de sobra.',
   quick:[
     ['Cuándo','Jue 8 a vie 9 de octubre'],
     ['Dormimos','Duomo View, en el centro'],
@@ -14,14 +14,14 @@
       <ul>
         <li>El tren de Roma llega a Santa Maria Novella cerca de las 11. Diez minutos a pie hasta el hotel: dejamos las valijas y salimos, sin esperar el check in.</li>
         <li>Almuerzo rápido: <b>All’Antico Vinaio</b> para una schiacciata en la calle, o el <b>Mercato Centrale</b>, que abajo tiene el puesto de lampredotto.</li>
-        <li>La tarde queda para caminar, que con una noche sola es lo que más rinde: la <b>Piazza della Signoria</b> con la <b>Loggia dei Lanzi</b>, que es escultura al aire libre y gratis, y bajar despacio hacia el río. Si queremos entrar a un museo, el que vale es la <b>Galería de la Academia</b> por el David, con día y hora reservados.</li>
+        <li>La tarde entera para caminar, que con una noche sola es lo que más rinde. La <b>Piazza della Signoria</b> con la <b>Loggia dei Lanzi</b>, que es un museo de escultura al aire libre, gratis y sin cola, con el Perseo de Cellini y la copia del David en el lugar exacto donde estuvo el original. De ahí bajando despacio hacia el río.</li>
         <li>Después, <b>Ponte Vecchio</b>, cruce al Oltrarno y subida al <b>Piazzale Michelangelo</b> para el atardecer. El sol se pone 18:55: hay que estar arriba 18:20. Veinticinco minutos a pie desde el puente, o el bus 12.</li>
         <li>Cena en el Oltrarno bajando del Piazzale, el lado del río con menos turistas de noche.</li>
       </ul>
-      <h3>Viernes 9: el Duomo y el auto</h3>
+      <h3>Viernes 9: la plaza del Duomo y el auto</h3>
       <ul>
-        <li>Temprano, el <b>Duomo</b>: la plaza, el baptisterio y, con turno, la subida a la cúpula de Brunelleschi. La cúpula se reserva con día y hora aparte; a las 8:30 es el mejor momento, sin calor adentro de la escalera.</li>
-        <li>Desayuno toscano de barra, un paseo corto por la <b>Piazza della Signoria</b> y la <b>Piazza della Repubblica</b>, y al hotel a buscar las valijas.</li>
+        <li>Temprano, la <b>plaza del Duomo</b>, que a primera hora está casi vacía: la fachada de mármol blanco, verde y rosa, la vuelta completa al edificio y el <b>Baptisterio</b> con las puertas del Paraíso. Entrar a la catedral es gratis y a esa hora la cola es corta. Sin subir a la cúpula: son cuatrocientos escalones y un turno reservado que no vale la pena con el día que tenemos.</li>
+        <li>Desayuno toscano de barra y el último paseo por la <b>Piazza della Repubblica</b> y las calles de atrás del Duomo, que es donde la ciudad se ve sin gente. Después al hotel a buscar las valijas.</li>
         <li><b>El auto no se retira en el centro.</b> Caminando o en taxi hasta Santa Maria Novella, tranvía T2 al aeropuerto de Peretola con las valijas, retiro ahí y salida directa a San Gimignano por afuera de la ciudad. Veinte minutos de tranvía y una hora larga de manejo. Por qué, en la sección de abajo.</li>
       </ul>
     `},
@@ -60,12 +60,12 @@
   ]},
 
   {s:'Lo que hay que ver sí o sí', k:'visita', items:[
-    {n:'Duomo y la cúpula de Brunelleschi', d:'La catedral con la fachada de mármol blanco, verde y rosa, y encima la cúpula que Brunelleschi levantó sin andamios centrales y que sigue siendo la cúpula de ladrillo más grande del mundo. La iglesia por dentro es sorprendentemente austera.', t:'visita', p:'€€', w:'https://duomo.firenze.it/', tip:'Entrar a la catedral es gratis pero hay cola. La cúpula se sube con turno reservado aparte y son más de cuatrocientos escalones por una escalera angosta entre las dos capas del domo, sin ascensor y sin salida a mitad de camino. El primer turno de la mañana es el mejor.'},
-    {n:'Baptisterio de San Juan', d:'El edificio más viejo de la plaza, con el techo cubierto de mosaicos dorados bizantinos y un Juicio Final enorme. Las puertas del Paraíso de Ghiberti, las de la fachada este, son copias: las originales están en el museo de al lado.', t:'visita', p:'€', tip:'Está incluido en el pase del Duomo. Se ve en veinte minutos y el techo vale la entrada solo.'},
+    {n:'El Duomo y su plaza', d:'La catedral con la fachada de mármol blanco, verde y rosa, y encima la cúpula que Brunelleschi levantó sin andamios centrales y que sigue siendo la cúpula de ladrillo más grande del mundo. La iglesia por dentro es sorprendentemente austera.', t:'visita', w:'https://duomo.firenze.it/', tip:'Entrar a la catedral es gratis y a primera hora la cola es corta. No subimos a la cúpula: son más de cuatrocientos escalones con turno reservado aparte, y con un día solo rinde mucho más dar la vuelta al edificio por fuera, que es donde se ve el mármol de cerca, y guardar la vista panorámica para el Piazzale.'},
+    {n:'Baptisterio de San Juan', d:'El edificio más viejo de la plaza, con el techo cubierto de mosaicos dorados bizantinos y un Juicio Final enorme. Las puertas del Paraíso de Ghiberti, las de la fachada este, son copias: las originales están en el museo de al lado.', t:'visita', p:'€', tip:'Las puertas del Paraíso están en la fachada y se ven gratis desde la plaza, que es lo que hacemos. Entrar por dentro va con el pase del Duomo, que se compra aparte: son veinte minutos y el techo de mosaicos los vale, si el viernes de mañana sobra tiempo.'},
     {n:'Ponte Vecchio', d:'El único puente que los alemanes no volaron en 1944, con las joyerías colgadas de los dos lados y el corredor de los Medici pasando por arriba. Estaba lleno de carnicerías hasta que los Medici las echaron por el olor.', t:'visita', tip:'La foto del puente no se saca desde el puente: se saca desde el Ponte Santa Trinita, el siguiente río abajo, sobre todo al atardecer.'},
     {m:'Piazzale Michelangelo, Firenze', n:'Piazzale Michelangelo', d:'La terraza sobre la ciudad, con Florencia entera abajo, la cúpula en el medio y las colinas atrás. Es la postal de Florencia y es gratis.', t:'visita', tip:'Hay que estar 18:20 para el atardecer del jueves. Se sube a pie en veinticinco minutos desde el Ponte Vecchio por la Rampa del Poggi, que es una escalinata con fuentes, o en bus 12 o 13. Subiendo diez minutos más está San Miniato al Monte, que es una iglesia románica preciosa y tiene la misma vista con la décima parte de la gente.'},
     {n:'Piazza della Signoria', d:'La plaza del poder florentino, con el Palazzo Vecchio, la copia del David en el lugar exacto donde estaba el original y la Loggia dei Lanzi, que es un museo de esculturas al aire libre y gratis.', t:'visita', tip:'En la Loggia está el Perseo de Cellini con la cabeza de Medusa, que es de lo mejor que hay en la ciudad y se ve de paso, sin entrada ni cola.'},
-    {n:'Galería de la Academia', d:'El David original de Miguel Ángel, de más de cuatro metros, al final de un pasillo donde están los Prisioneros, unas esculturas sin terminar que parecen estar saliendo del bloque de mármol.', t:'visita', p:'€€', w:'https://www.galleriaaccademiafirenze.it/', tip:'Es el único museo que entra en el plan y va la tarde del jueves. Se reserva con día y hora, se ve en cuarenta minutos y es el David y poco más: quien va por el David sale contento, quien va por la colección no.'}
+    {n:'Galería de la Academia', d:'El David original de Miguel Ángel, de más de cuatro metros, al final de un pasillo donde están los Prisioneros, unas esculturas sin terminar que parecen estar saliendo del bloque de mármol.', t:'visita', p:'€€', w:'https://www.galleriaaccademiafirenze.it/', tip:'No está en el plan: con un día solo, entre reservar día y hora, la cola y los cuarenta minutos de adentro, sale caro en tiempo. La copia del David está en la Piazza della Signoria, en el lugar exacto donde estuvo el original, y se ve caminando y gratis. Queda anotada por si alguna vez volvemos con más días.'}
   ]}
   ]
 },
