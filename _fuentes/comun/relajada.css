@@ -72,3 +72,27 @@
 .legs-reset{margin-top:.9rem;font-size:.68rem;font-weight:600;letter-spacing:.03em;
   color:var(--muted);text-decoration:underline;text-underline-offset:3px}
 .legs-reset:hover{color:var(--ink)}
+
+/* Cada ciudad ya tiene su color en el rail y en los titulos; los recuadros
+   ahora lo toman tambien. --city-on-bg es ese acento corregido para cada tema
+   (el fuerte en claro, el pastel en oscuro) y va mezclado contra el fondo que
+   la caja ya tenia, asi que en oscuro tinta sin aclarar la pagina. Si el
+   navegador no entiende color-mix la declaracion se cae sola y queda el
+   --surface- de siempre, que es exactamente como se veia antes. */
+.quick div{
+  background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 10%, var(--surface-2));
+  border-color:color-mix(in srgb, var(--city-on-bg,var(--accent)) 25%, var(--line));
+}
+.item{
+  background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 6%, var(--surface-3));
+  border-color:color-mix(in srgb, var(--city-on-bg,var(--accent)) 26%, var(--line));
+}
+.item.done{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 3%, var(--surface))}
+/* las recomendaciones no llevan fondo: solo se les tine el punteado */
+.item.nota{background:transparent;
+  border-color:color-mix(in srgb, var(--city-on-bg,var(--accent)) 45%, var(--line))}
+/* el truco ya tenia la barra de acento; lo que se tine es el panel */
+.it-note{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 9%, var(--note-bg))}
+.leg.eshoy{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 9%, var(--note-bg))}
+.tablewrap{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 8%, var(--surface-2))}
+.tag{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 12%, var(--surface-2))}
