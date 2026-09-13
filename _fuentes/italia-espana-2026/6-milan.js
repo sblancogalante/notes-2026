@@ -1,11 +1,12 @@
 {
   id:'mil', nav:'Milán', name:'Milán', plate:'Metro ATM', accent:'#4338CA', lt:'#A5B4FC', maps:'Milano',
-  lede:'Dos días completos y el hotel en el centro. Uno se va entero al lago de Como y el otro alcanza para el Duomo, la Galleria y todo lo que queda alrededor, que está más junto de lo que parece.',
+  lede:'Dos días completos y el hotel en el centro. El viernes se va entero al lago de Como y el jueves alcanza para el Duomo, la Galleria y todo lo que queda alrededor, que está más junto de lo que parece.',
   quick:[
     ['Cuándo','Mié 14 a sáb 17 de octubre'],
     ['Dormimos','Meravigli Den, en el centro'],
     ['Se cena','20:00 a 22:00, antes que en Roma'],
     ['Octubre','19° / 10°, puede llover'],
+    ['Entradas','Duomo, jueves 15'],
     ['Salimos','Sáb 17, vuelo IB 5543 a Barcelona']
   ],
   sections:[
@@ -17,13 +18,13 @@
       </ul>
       <h3>Jueves 15: el día de Milán</h3>
       <ul>
-        <li>El <b>Duomo</b> temprano y, sobre todo, las <b>terrazas</b>: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán. Entrada online.</li>
+        <li>El <b>Duomo</b> temprano, que para este día ya tenemos entrada, y sobre todo las <b>terrazas</b>: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán. Abrir la entrada antes de salir del hotel y ver si la subida viene incluida, porque se vende junta y por separado.</li>
         <li>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y a quince minutos a pie el <b>Castello Sforzesco</b>, con la última Pietà de Miguel Ángel y el Parco Sempione detrás.</li>
         <li>A la tarde, <b>Brera</b> para caminar el barrio, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena. Los <b>Navigli</b>, los canales, son el otro lugar donde hacerlo.</li>
       </ul>
       <h3>Viernes 16: el lago de Como</h3>
       <ul>
-        <li>Día entero afuera. La versión que recomiendo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
+        <li>Día entero afuera, y ya está decidido cómo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
         <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
       </ul>
       <h3>Sábado 17: a Barcelona</h3>
@@ -79,7 +80,7 @@
   {s:'El lago de Como', k:'aire', items:[
     {a:'Varenna', n:'Varenna', d:'Un pueblo de casas amarillas y ocres apiladas sobre el agua, con un paseo colgado del acantilado que va del puerto a la estación, el Passeggiata degli Innamorati. Es el más bonito del lago y el más fácil de alcanzar en tren.', t:'aire', tip:'Del tren al puerto son diez minutos bajando. Los jardines de Villa Monastero, sobre el agua, son la visita del pueblo y se ven en cuarenta minutos.'},
     {a:'Bellagio', n:'Bellagio', d:'En la punta exacta donde el lago se divide en dos brazos, con escalinatas de piedra entre las casas y vista a las montañas de los dos lados. Es el más famoso y el más turístico, y aun así vale.', t:'aire', tip:'Quince minutos de ferry desde Varenna. Se sube por cualquiera de las escalinatas y en veinte minutos se está arriba, con la mejor vista. Los jardines de Villa Melzi están al costado del pueblo y casi nadie los pisa.'},
-    {nota:1, n:'Varenna y Bellagio, o la ciudad de Como', d:'Son dos días distintos y hay que elegir uno. Varenna y Bellagio son los pueblos de postal en el medio del lago, con el ferry cruzando entre montañas. La ciudad de Como es una ciudad de verdad, con catedral y funicular a Brunate, y está más cerca.', t:'aire', tip:'Recomiendo Varenna y Bellagio: el lago se ve mucho mejor desde el medio que desde la punta, y el cruce en barco es la mitad de la gracia. Como conviene solo si el día viene feo o si queremos algo más corto.'},
+    {nota:1, n:'Por qué Varenna y Bellagio y no la ciudad de Como', d:'El viernes 16 va entero al lago y la elección está hecha: Varenna y Bellagio, los pueblos de postal en el medio del lago, con el ferry cruzando entre montañas. La ciudad de Como es una ciudad de verdad, con catedral y funicular a Brunate, y está más cerca, pero el lago se ve mucho mejor desde el medio que desde la punta.', t:'aire', tip:'Como queda de repuesto y sirve para dos casos: que el día venga feo, porque ahí el ferry pierde la gracia, o que queramos algo más corto. Se va desde Cadorna y es media hora menos de tren.'},
     {nota:1, n:'Cómo armar el día del lago', d:'Salir de Centrale sobre las 9, llegar a Varenna a las 10, ver el pueblo hasta el mediodía, cruzar a Bellagio, almorzar ahí y volver a Varenna a media tarde para tomar el tren.', t:'aire', tip:'Lo único que puede arruinar el día es perder el último ferry, así que el horario de vuelta se anota apenas llegamos. Y llevar algo de abrigo: sobre el agua y con el barco en movimiento hace bastante más frío que en Milán.'}
   ]}
   ]
