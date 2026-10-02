@@ -24,13 +24,46 @@ _fuentes/
     sw.js                  el service worker de cada guia
     iconos.py              genera los iconos con el color de cada guia
   <guia>/
-    guia.json              titulo, color, clave de guardado, partes
+    guia.json              titulo, color, clave de guardado, idiomas, partes
     0-antes.js             la seccion de preparativos
     1-*.js ... n-*.js      una ciudad por archivo
 ```
 
 Las carpetas que empiezan con guion bajo no se publican, asi que `_fuentes`
 queda fuera del sitio.
+
+## Guias en dos idiomas
+
+Una guia puede estar en castellano y en ingles a la vez. Se declara en su
+`guia.json`:
+
+```json
+"idiomas": ["es", "en"],
+"subtitulo_en": "3 to 25 October 2026",
+```
+
+El primero de la lista es el que se ve al abrirla. Con uno solo, el boton de
+idioma no aparece y la guia queda exactamente como estaba.
+
+En el contenido, cada texto traducible pasa de ser una cadena a ser un par:
+
+```js
+{n:{es:'El Duomo y su plaza', en:'The Duomo and its square'},
+ d:{es:'La catedral con la fachada...', en:'The cathedral with its facade...'},
+ t:'visita', w:'https://duomo.firenze.it/'}
+```
+
+Una cadena suelta sigue valiendo y se usa para los dos idiomas: los nombres
+propios, las direcciones, las duraciones y los numeros de vuelo no se traducen.
+Lo que lleva par es `nav`, `name`, `lede`, `quick`, el `s` de cada seccion, el
+`html`, y de cada ficha `n`, `d` y `tip`.
+
+Lo marcado como visitado es el mismo en los dos idiomas: la clave sale siempre
+de la variante en castellano. El idioma elegido se guarda en el navegador, igual
+que el tema.
+
+`construir.py` corta si una guia bilingue tiene distinta cantidad de `es:` que
+de `en:`, que es la forma de agarrar la ficha nueva agregada en un solo idioma.
 
 ## Como se abre una guia
 

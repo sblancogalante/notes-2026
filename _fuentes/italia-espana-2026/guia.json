@@ -2,8 +2,13 @@
   "ruta": "italia-espana-2026",
   "titulo": "Santi y Vale en Italia y España",
   "subtitulo": "Del 3 al 25 de octubre de 2026",
+  "subtitulo_en": "3 to 25 October 2026",
   "descripcion": "Guia de viaje para octubre de 2026.",
   "nombre_corto": "Italia y España",
+  "idiomas": [
+    "es",
+    "en"
+  ],
   "color": "#C2410C",
   "fondo": "#FFFAF2",
   "letra": "S",
@@ -11,7 +16,7 @@
   "estilo": "relajada.css",
   "icono_fuente": "fraunces.ttf",
   "clave": "italia-espana-2026",
-  "cache": "italia-espana-2026-09-13d",
+  "cache": "italia-espana-2026-10-02a",
   "paleta": {
     "claro": {
       "--bg": "#F7E9D7",
@@ -46,7 +51,8 @@
   },
   "partes": [
     "0-antes.js",
-    "0b-traslados.js",
+    "0b-italiano.js",
+    "0c-traslados.js",
     "1-roma.js",
     "2-florencia.js",
     "3-toscana.js",

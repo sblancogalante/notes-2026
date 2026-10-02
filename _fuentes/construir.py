@@ -69,6 +69,10 @@ for ruta in SITIO["guias"]:
     shell = (COMUN / "shell.html").read_text(encoding="utf-8")
     shell = (shell.replace("__TITULO__", cfg["titulo"])
                   .replace("__SUBTITULO__", cfg["subtitulo"])
+                  # el subtitulo en ingles solo existe en las guias bilingues:
+                  # sin el, el bloque en ingles repite el castellano y queda
+                  # escondido igual, porque la guia declara un solo idioma.
+                  .replace("__SUBTITULO_EN__", cfg.get("subtitulo_en", cfg["subtitulo"]))
                   # `fuentes` y `estilo` dejan que una guia tenga su propia
                   # tipografia sin tocar a las demas: el primero cambia que
                   # familias van incrustadas, el segundo agrega reglas al final
@@ -80,12 +84,18 @@ for ruta in SITIO["guias"]:
                   .replace("__URL__", url)
                   .replace("__QR__", qr_svg(url))
                   .replace("__PALETA__\n", paleta_css(cfg)))
-    for marca in ("__TITULO__", "__SUBTITULO__", "__FUENTES__", "__QR__", "__URL__",
-                  "__PALETA__", "__EXTRA__"):
+    for marca in ("__TITULO__", "__SUBTITULO__", "__SUBTITULO_EN__", "__FUENTES__",
+                  "__QR__", "__URL__", "__PALETA__", "__EXTRA__"):
         assert marca not in shell, f"quedo sin reemplazar el marcador {marca}"
 
     ciudades = "".join((src / parte).read_text(encoding="utf-8") for parte in cfg["partes"])
     app = (COMUN / "app.js").read_text(encoding="utf-8").replace("__CLAVE__", cfg["clave"])
+    # que idiomas trae la guia. El primero es el que se lee al abrirla por
+    # primera vez; con uno solo, el boton de idioma no aparece.
+    idiomas = cfg.get("idiomas", ["es"])
+    assert idiomas and idiomas[0] == "es", "el primer idioma tiene que ser es"
+    app = app.replace("__IDIOMAS__", json.dumps(idiomas))
+    assert "__IDIOMAS__" not in app, "quedo sin reemplazar el marcador __IDIOMAS__"
     # el rango de diacriticos combinantes, en escapes ASCII para no depender de la codificacion
     app = re.sub(r"\.normalize\('NFD'\)\.replace\(/\[[^/]*\]/g,''\)",
                  r".normalize('NFD').replace(/[\\u0300-\\u036f]/g,'')", app)
@@ -127,6 +137,15 @@ for ruta in SITIO["guias"]:
     iconos.generar(dst, cfg["color"], cfg.get("letra", cfg["titulo"][0]),
                    cfg.get("icono_fuente"))
     qr_png(url, dst / "qr.png", "#2B2028")
+
+    # En una guia bilingue cada texto es un par {es:...,en:...}. Contar las dos
+    # marcas no reemplaza a leerlo, pero agarra el olvido mas probable, que es
+    # agregar una ficha nueva en un solo idioma.
+    if len(idiomas) > 1:
+        es = len(re.findall(r"[{,]\s*es:", ciudades))
+        en = len(re.findall(r"[{,]\s*en:", ciudades))
+        assert es == en, f"{cfg['ruta']}: {es} textos en castellano y {en} en ingles"
+        assert es > 0, f"{cfg['ruta']} dice ser bilingue y no tiene un solo par es/en"
 
     kb = (dst / "index.html").stat().st_size // 1024
     print("  %-26s %4d KB  ->  %s" % (cfg["ruta"], kb, url))

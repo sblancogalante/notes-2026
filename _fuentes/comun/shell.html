@@ -44,6 +44,10 @@ __PALETA__
 :root[data-theme="dark"] .rgroup{--city-on-bg:var(--city-lt)}
 
 *{box-sizing:border-box}
+/* lo que se esconde al cambiar de idioma lleva el atributo hidden, y hay
+   reglas de mas abajo que le ponen display: este !important es el que hace
+   que hidden siga queriendo decir escondido. */
+[hidden]{display:none!important}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:var(--body); font-size:16px; line-height:1.62;
@@ -252,7 +256,7 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
   font-size:.85rem;color:var(--muted);line-height:1.6}
 .foot h2{font-family:var(--display);font-weight:600;font-size:1.5rem;color:var(--ink);
   margin:0 0 .8rem}
-.foot h2:not(:first-child){margin-top:2rem}
+.foot-lang h2:not(:first-child){margin-top:2rem}
 .foot em{font-family:var(--display);font-style:italic;font-size:1.06em}
 .qrbox{display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
 .qrbox img{width:8.5rem;height:8.5rem;border-radius:var(--r-sm);background:#fff;padding:.55rem;
@@ -263,13 +267,43 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
   padding:.5rem .95rem;color:var(--ink);margin-top:.8rem;text-decoration:none;
   transition:background .15s,border-color .15s}
 .sharebtn:hover{background:var(--surface-2);border-color:var(--muted)}
+/* El boton de idioma dice a que idioma se pasa, asi que es texto y no un
+   icono: dos letras se entienden sin aprender nada. */
+.langbtn{width:auto;min-width:2.15rem;padding:0 .52rem;font-family:var(--body);
+  font-size:.67rem;font-weight:700;letter-spacing:.09em}
+
+/* El cuadro de frases. Las otras tablas de la guia son de datos cortos y no
+   parten el renglon; esta tiene una frase entera en la ultima columna, que en
+   un telefono no entra de una sola linea. */
+.frases table{min-width:0}
+.frases th{white-space:normal}
+.frases td{white-space:normal;vertical-align:top;line-height:1.45;font-variant-numeric:normal}
+.frases .fr-it{font-weight:700;color:var(--ink)}
+/* La pronunciacion va en la tipografia de texto y sin cursiva: es lo que se
+   lee en voz alta parado en un mostrador, asi que tiene que ser clara antes
+   que linda. La silaba fuerte viene en mayuscula desde el contenido. */
+.frases .fr-pr{font-family:var(--body);font-size:.78rem;letter-spacing:.01em;
+  color:var(--city-on-bg,var(--accent));white-space:nowrap}
+/* En pantalla angosta las tres columnas no entran, asi que la fila se apila:
+   el italiano, debajo como se dice, y debajo que quiere decir. La tabla pasa
+   entera a bloque, porque dejar un tr en grid colgando de un tbody que sigue
+   siendo table-row-group se rompe en algunos navegadores. */
+.frases.apilada table,.frases.apilada tbody{display:block;width:100%}
+.frases.apilada thead{display:none}
+.frases.apilada tr{display:block;padding:.55rem .75rem;border-top:1px solid var(--line)}
+.frases.apilada tr:first-child{border-top:none}
+.frases.apilada td{display:block;padding:0;border:none}
+.frases.apilada .fr-it{font-size:.92rem}
+.frases.apilada .fr-pr{white-space:normal;margin-top:.05rem}
+.frases.apilada td:last-child{color:var(--ink-2);margin-top:.22rem}
 __EXTRA__
 </style>
 
 <div class="wrap">
   <header class="top">
     <div class="top-row">
-      <div class="brand">__TITULO__<small>__SUBTITULO__</small></div>
+      <div class="brand">__TITULO__<small data-lang="es">__SUBTITULO__</small><small data-lang="en">__SUBTITULO_EN__</small></div>
+      <button class="iconbtn langbtn" id="langbtn" hidden></button>
       <button class="iconbtn" id="filterbtn" aria-label="Filtros" aria-pressed="false" title="Filtros">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M7 12h10M11 18h2"/></svg>
       </button>
@@ -289,16 +323,33 @@ __EXTRA__
   <main id="view"></main>
 
   <footer class="foot">
-    <h2>Tenerla en el celular</h2>
-    <div class="qrbox" id="qrbox">
-      <img src="__QR__" alt="Código QR que abre esta guía" width="160" height="160">
-      <p>Apunten la cámara al código y se abre la guía en el navegador. Es la forma rápida de pasarla de una pantalla a la otra.
-      <a class="sharebtn" id="sharebtn" href="__URL__">Copiar enlace</a></p>
+    <div class="foot-lang" data-lang="es">
+      <h2>Tenerla en el celular</h2>
+      <div class="qrbox">
+        <img src="__QR__" alt="Código QR que abre esta guía" width="160" height="160">
+        <p>Apunten la cámara al código y se abre la guía en el navegador. Es la forma rápida de pasarla de una pantalla a la otra.
+        <a class="sharebtn" href="__URL__">Copiar enlace</a></p>
+      </div>
+      <p>Para que después funcione sin señal, instálenla. En iPhone: botón de compartir de Safari y <em>Agregar a inicio</em>. En Android: menú de los tres puntos e <em>Instalar aplicación</em>. Queda con ícono propio y a partir de ahí abre sin datos, que es lo que van a necesitar allá.</p>
+      <p>Háganlo desde casa con wifi, antes de viajar. La primera vez se baja entera y tarda unos segundos.</p>
+      <h2>Notas</h2>
+      <p>Los horarios, precios y fechas se verificaron en agosto de 2026 y son de la temporada 2026-2027. Las carteleras de conciertos de noviembre y diciembre todavía se están armando, así que en cada ciudad dejamos el link a la cartelera oficial para mirar cerca de la fecha. Lo que dice <em>previsto</em> es porque todavía no estaba confirmado.</p>
+      <p>Lo que marquen como visitado se guarda solo en ese teléfono. Si abren la guía en los dos teléfonos, cada una lleva su propia cuenta.</p>
+      <p>El idioma se cambia con el botón de arriba, al lado del título. Lo elegido se recuerda en ese teléfono, y lo marcado como visitado es el mismo en los dos idiomas.</p>
     </div>
-    <p>Para que después funcione sin señal, instálenla. En iPhone: botón de compartir de Safari y <em>Agregar a inicio</em>. En Android: menú de los tres puntos e <em>Instalar aplicación</em>. Queda con ícono propio y a partir de ahí abre sin datos, que es lo que van a necesitar allá.</p>
-    <p>Háganlo desde casa con wifi, antes de viajar. La primera vez se baja entera y tarda unos segundos.</p>
-    <h2>Notas</h2>
-    <p>Los horarios, precios y fechas se verificaron en agosto de 2026 y son de la temporada 2026-2027. Las carteleras de conciertos de noviembre y diciembre todavía se están armando, así que en cada ciudad dejamos el link a la cartelera oficial para mirar cerca de la fecha. Lo que dice <em>previsto</em> es porque todavía no estaba confirmado.</p>
-    <p>Lo que marquen como visitado se guarda solo en ese teléfono. Si abren la guía en los dos teléfonos, cada una lleva su propia cuenta.</p>
+    <div class="foot-lang" data-lang="en">
+      <h2>Keep it on your phone</h2>
+      <div class="qrbox">
+        <img src="__QR__" alt="QR code that opens this guide" width="160" height="160">
+        <p>Point your camera at the code and the guide opens in the browser. It is the quick way to move it from one screen to another.
+        <a class="sharebtn" href="__URL__">Copy link</a></p>
+      </div>
+      <p>Install it so that it works later with no signal. On iPhone: the share button in Safari, then <em>Add to Home Screen</em>. On Android: the three dots menu, then <em>Install app</em>. It gets its own icon and from then on it opens with no data, which is what you will need over there.</p>
+      <p>Do it at home on wifi, before travelling. The first load pulls the whole guide down and takes a few seconds.</p>
+      <h2>Notes</h2>
+      <p>Opening times, prices and dates were checked in August 2026 and belong to the 2026-2027 season. The November and December concert listings are still being put together, so each city keeps a link to the official listings to check closer to the date. Anything marked <em>planned</em> was not confirmed yet.</p>
+      <p>Whatever you tick off as visited is saved on that phone only. Open the guide on two phones and each one keeps its own count.</p>
+      <p>Switch languages with the button at the top, next to the title. The choice is remembered on that phone, and what you ticked off is the same in both languages.</p>
+    </div>
   </footer>
 </div>

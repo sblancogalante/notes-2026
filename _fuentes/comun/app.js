@@ -1,4 +1,3 @@
-
 /* ---------- utilidades ---------- */
 const $ = s => document.querySelector(s);
 const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -18,18 +17,96 @@ const ICON = {
   auto:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17" /><path d="M12 3.5a8.5 8.5 0 010 17z" fill="currentColor" stroke="none"/></svg>'
 };
 
-/* aplana todas las fichas de todas las ciudades, una sola vez */
+/* ---------- los dos idiomas ---------- */
+/* El contenido de la guia viene en pares {es,en}. Una cadena suelta sirve
+   igual para los dos y no hace falta duplicarla: un nombre propio, una hora,
+   una direccion. Todo lo que se imprime pasa por T(). */
+const IDIOMAS = __IDIOMAS__;
+const par = v => !!v && typeof v === 'object' && !Array.isArray(v) && ('es' in v || 'en' in v);
+const KEY = '__CLAVE__';
+
+let lang = IDIOMAS[0];
+try {
+  const g = localStorage.getItem(KEY + ':lang');
+  if (g && IDIOMAS.indexOf(g) >= 0) lang = g;
+} catch (e) {}
+
+const T = v => par(v) ? (v[lang] != null ? v[lang] : (v.es != null ? v.es : v.en)) : v;
+/* la variante fija, para lo que no puede cambiar al cambiar de idioma: las
+   claves de lo visitado y el estado de los tramos quedarian huerfanas. */
+const FIJO = v => par(v) ? (v.es != null ? v.es : v.en) : v;
+
+/* los textos de la interfaz. Los que llevan datos adentro son funciones. */
+const UI = {
+  es:{
+    otro:'EN', cambiar:'Read this guide in English',
+    buscar:'Buscar en toda la guía', buscarAria:'Buscar', borrar:'Borrar búsqueda',
+    filtros:'Filtros', tema:'Tema', idioma:'Idioma',
+    temas:{auto:'automático', light:'claro', dark:'oscuro'}, temaPre:'Tema: ',
+    precio:'Precio', tipo:'Tipo',
+    marcar:n => 'Marcar ' + n + ' como visitado',
+    ruta:'Ruta a pie', mapa:'Mapa', web:'Web', resenas:'Reseñas', truco:'Truco',
+    tentativa:'Todavía sin confirmar',
+    cuenta:(a, b) => a + ' de ' + b, reiniciar:'Reiniciar',
+    abrir:'Abrir todo', cerrar:'Cerrar todo',
+    tramo:(i, n) => 'Tramo ' + i + ' de ' + n, sigue:s => 'Sigue: ' + s,
+    tramosHechos:n => 'Los ' + n + ' tramos, hechos',
+    hoy:'Hoy', badgeSigue:'Sigue',
+    marcarTramo:n => 'Marcar ' + n + ' como hecho',
+    tramosReset:'Volver al estado por fecha',
+    frIt:'En italiano', frPr:'Se dice', frSig:'Quiere decir',
+    sinFiltro:'Nada con esos filtros', sinFiltro2:'Prueben quitando alguno.',
+    sinNada:q => 'Sin resultados para “' + q + '”',
+    sinNada2:'Prueben con el nombre de un sitio, un barrio o algo como “mercado”, “azotea” o “vino caliente”.',
+    hallados:n => n + ' resultado' + (n === 1 ? '' : 's') + ' en toda la guía',
+    copiar:'Copiar enlace', copiado:'Enlace copiado', usenQR:'Mejor usen el QR de al lado'
+  },
+  en:{
+    otro:'ES', cambiar:'Leer esta guía en español',
+    buscar:'Search the whole guide', buscarAria:'Search', borrar:'Clear search',
+    filtros:'Filters', tema:'Theme', idioma:'Language',
+    temas:{auto:'automatic', light:'light', dark:'dark'}, temaPre:'Theme: ',
+    precio:'Price', tipo:'Kind',
+    marcar:n => 'Mark ' + n + ' as visited',
+    ruta:'Walking route', mapa:'Map', web:'Website', resenas:'Reviews', truco:'Tip',
+    tentativa:'Not confirmed yet',
+    cuenta:(a, b) => a + ' of ' + b, reiniciar:'Reset',
+    abrir:'Open all', cerrar:'Close all',
+    tramo:(i, n) => 'Leg ' + i + ' of ' + n, sigue:s => 'Next up: ' + s,
+    tramosHechos:n => 'All ' + n + ' legs done',
+    hoy:'Today', badgeSigue:'Next',
+    marcarTramo:n => 'Mark ' + n + ' as done',
+    tramosReset:'Back to the state set by date',
+    frIt:'In Italian', frPr:'Sounds like', frSig:'Means',
+    sinFiltro:'Nothing matches those filters', sinFiltro2:'Try dropping one of them.',
+    sinNada:q => 'No results for “' + q + '”',
+    sinNada2:'Try the name of a place, a neighbourhood, or something like “market”, “rooftop” or “mulled wine”.',
+    hallados:n => n + ' result' + (n === 1 ? '' : 's') + ' across the guide',
+    copiar:'Copy link', copiado:'Link copied', usenQR:'Use the QR code next to it'
+  }
+};
+const ui = k => (UI[lang] || UI.es)[k];
+
+/* aplana todas las fichas de todas las ciudades, una sola vez. El identificador
+   sale siempre de la variante fija, asi que lo marcado como visitado sobrevive
+   al cambio de idioma. El indice de busqueda, en cambio, se rearma. */
 const ALL = [];
 CITIES.forEach(c => c.sections.forEach(sec => (sec.items || []).forEach(it => {
-  it._id = c.id + ':' + slug(it.n);
+  it._id = c.id + ':' + slug(FIJO(it.n));
   it._city = c; it._sec = sec;
-  it._hay = norm([it.n, it.d, it.tip || '', it.a || '', SERVICIO[it.serv] || '',
-                 RESERVA[it.res] || '', sec.s, c.name].join(' '));
   ALL.push(it);
 })));
 
+/* el buscador trabaja sobre el idioma que se esta leyendo */
+function indexar() {
+  ALL.forEach(it => {
+    it._hay = norm([T(it.n), T(it.d), T(it.tip) || '', it.a || '',
+                    T(SERVICIO[it.serv]) || '', T(RESERVA[it.res]) || '',
+                    T(it._sec.s), T(it._city.name)].join(' '));
+  });
+}
+
 /* ---------- estado ---------- */
-const KEY = '__CLAVE__';
 let visited = new Set();
 try { visited = new Set(JSON.parse(localStorage.getItem(KEY + ':visited') || '[]')); } catch (e) {}
 const saveVisited = () => { try { localStorage.setItem(KEY + ':visited', JSON.stringify([...visited])); } catch (e) {} };
@@ -41,7 +118,7 @@ try { tramos = JSON.parse(localStorage.getItem(KEY + ':tramos') || '{}'); } catc
 const saveTramos = () => { try { localStorage.setItem(KEY + ':tramos', JSON.stringify(tramos)); } catch (e) {} };
 const hoyISO = () => { const n = new Date(), z = x => String(x).padStart(2, '0');
   return n.getFullYear() + '-' + z(n.getMonth() + 1) + '-' + z(n.getDate()); };
-const tramoId = l => l.d + '|' + l.t;
+const tramoId = l => l.d + '|' + FIJO(l.t);
 const tramoHecho = l => { const k = tramoId(l); return k in tramos ? tramos[k] : l.d < hoyISO(); };
 
 let current = CITIES[0].id;
@@ -59,34 +136,69 @@ function applyTheme() {
   else r.setAttribute('data-theme', themeMode);
   const btn = $('#themebtn');
   btn.innerHTML = themeMode === 'light' ? ICON.sun : themeMode === 'dark' ? ICON.moon : ICON.auto;
-  btn.title = 'Tema: ' + ({auto:'automático', light:'claro', dark:'oscuro'})[themeMode];
+  btn.title = ui('temaPre') + ui('temas')[themeMode];
 }
 $('#themebtn').addEventListener('click', () => {
   themeMode = themeMode === 'auto' ? 'light' : themeMode === 'light' ? 'dark' : 'auto';
   try { localStorage.setItem(KEY + ':theme', themeMode); } catch (e) {}
   applyTheme();
 });
-applyTheme();
+
+/* ---------- idioma ---------- */
+/* Lo que está escrito a mano en el shell lleva data-lang y se muestra o se
+   esconde; lo que es un atributo (el placeholder, los aria-label, los title)
+   se escribe desde UI. El botón dice el idioma al que se pasa, no el que se
+   está leyendo, que es lo que se entiende sin pensarlo. */
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll('[data-lang]').forEach(el => { el.hidden = el.dataset.lang !== lang; });
+  const q = $('#q');
+  q.placeholder = ui('buscar');
+  q.setAttribute('aria-label', ui('buscarAria'));
+  $('#clearq').setAttribute('aria-label', ui('borrar'));
+  $('#filterbtn').setAttribute('aria-label', ui('filtros'));
+  $('#filterbtn').title = ui('filtros');
+  $('#themebtn').setAttribute('aria-label', ui('tema'));
+  const lb = $('#langbtn');
+  if (lb) {
+    lb.textContent = ui('otro');
+    lb.title = ui('cambiar');
+    lb.setAttribute('aria-label', ui('cambiar'));
+  }
+  applyTheme();
+}
+if (IDIOMAS.length > 1) {
+  $('#langbtn').hidden = false;
+  $('#langbtn').addEventListener('click', () => {
+    lang = IDIOMAS[(IDIOMAS.indexOf(lang) + 1) % IDIOMAS.length];
+    try { localStorage.setItem(KEY + ':lang', lang); } catch (e) {} 
+    indexar(); applyLang(); paintRail(); paintFilters(); render();
+  });
+}
 
 /* ---------- filtros ---------- */
 const PRICES = ['€', '€€', '€€€'];
-function buildFilters() {
+function paintFilters() {
   const f = $('#filters');
-  let h = '<span class="chip sep">Precio</span>';
-  PRICES.forEach(p => { h += `<button class="chip" data-price="${p}" aria-pressed="false">${p}</button>`; });
-  h += '<span class="chip sep">Tipo</span>';
-  Object.keys(TIPOS).forEach(k => { h += `<button class="chip" data-type="${k}" aria-pressed="false">${esc(TIPOS[k])}</button>`; });
-  f.innerHTML = h;
-  f.addEventListener('click', e => {
-    const b = e.target.closest('button[data-price],button[data-type]');
-    if (!b) return;
-    const set = b.dataset.price ? fPrice : fType;
-    const val = b.dataset.price || b.dataset.type;
-    set.has(val) ? set.delete(val) : set.add(val);
-    b.setAttribute('aria-pressed', set.has(val) ? 'true' : 'false');
-    render();
+  let h = `<span class="chip sep">${esc(ui('precio'))}</span>`;
+  PRICES.forEach(p => {
+    h += `<button class="chip" data-price="${p}" aria-pressed="${fPrice.has(p)}">${p}</button>`;
   });
+  h += `<span class="chip sep">${esc(ui('tipo'))}</span>`;
+  Object.keys(TIPOS).forEach(k => {
+    h += `<button class="chip" data-type="${k}" aria-pressed="${fType.has(k)}">${esc(T(TIPOS[k]))}</button>`;
+  });
+  f.innerHTML = h;
 }
+$('#filters').addEventListener('click', e => {
+  const b = e.target.closest('button[data-price],button[data-type]');
+  if (!b) return;
+  const set = b.dataset.price ? fPrice : fType;
+  const val = b.dataset.price || b.dataset.type;
+  set.has(val) ? set.delete(val) : set.add(val);
+  b.setAttribute('aria-pressed', set.has(val) ? 'true' : 'false');
+  render();
+});
 $('#filterbtn').addEventListener('click', () => {
   const on = $('#filters').classList.toggle('on');
   $('#filterbtn').setAttribute('aria-pressed', on ? 'true' : 'false');
@@ -100,20 +212,20 @@ function passes(it) {
 const filtering = () => fPrice.size > 0 || fType.size > 0;
 
 /* ---------- raíl de ciudades ---------- */
-function buildRail() {
+function paintRail() {
   /* data-opt: destino todavia sin confirmar. Se marca en el rail y en la portada. */
   $('#rail').innerHTML = CITIES.map(c =>
-    `<button role="tab" data-city="${c.id}"${c.opcional ? ' data-opt="1"' : ''} aria-selected="${c.id === current}">${esc(c.nav)}</button>`
+    `<button role="tab" data-city="${c.id}"${c.opcional ? ' data-opt="1"' : ''} aria-selected="${c.id === current}">${esc(T(c.nav))}</button>`
   ).join('');
-  $('#rail').addEventListener('click', e => {
-    const b = e.target.closest('button[data-city]');
-    if (!b) return;
-    current = b.dataset.city;
-    if (query) { query = ''; $('#q').value = ''; $('#clearq').classList.remove('on'); }
-    render();
-    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
-  });
 }
+$('#rail').addEventListener('click', e => {
+  const b = e.target.closest('button[data-city]');
+  if (!b) return;
+  current = b.dataset.city;
+  if (query) { query = ''; $('#q').value = ''; $('#clearq').classList.remove('on'); }
+  render();
+  window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+});
 
 /* ---------- render de una ficha ---------- */
 function mapsUrl(it) {
@@ -124,39 +236,41 @@ function mapsUrl(it) {
       + '&origin=' + p[0] + '&destination=' + p[p.length - 1]
       + (p.length > 2 ? '&waypoints=' + p.slice(1, -1).join('%7C') : '');
   }
-  /* it.m: cuando el nombre de la ficha no sirve como busqueda */
-  const q = it.m || ((it.a ? it.n + ', ' + it.a : it.n) + (it._city.maps ? ', ' + it._city.maps : ''));
+  /* it.m: cuando el nombre de la ficha no sirve como busqueda. Si no está, el
+     nombre que se busca es el fijo: Maps entiende mejor el nombre local que la
+     traducción. */
+  const q = it.m || ((it.a ? FIJO(it.n) + ', ' + it.a : FIJO(it.n)) + (it._city.maps ? ', ' + it._city.maps : ''));
   return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
 }
 function revUrl(it) {
-  return 'https://www.tripadvisor.com/Search?q=' + encodeURIComponent(it.n + ' ' + (it._city.maps || ''));
+  return 'https://www.tripadvisor.com/Search?q=' + encodeURIComponent(FIJO(it.n) + ' ' + (it._city.maps || ''));
 }
 const REVIEWABLE = { comer: 1, cafe: 1, coctel: 1 };
 
 function itemHTML(it) {
   const tags = [];
   if (it.p) tags.push(`<span class="tag price">${it.p}</span>`);
-  if (TIPOS[it.t]) tags.push(`<span class="tag">${esc(TIPOS[it.t])}</span>`);
+  if (TIPOS[it.t]) tags.push(`<span class="tag">${esc(T(TIPOS[it.t]))}</span>`);
   /* it.serv y it.res: como funciona el servicio y si conviene reservar */
-  if (SERVICIO[it.serv]) tags.push(`<span class="tag serv">${esc(SERVICIO[it.serv])}</span>`);
-  if (RESERVA[it.res]) tags.push(`<span class="tag res">${esc(RESERVA[it.res])}</span>`);
-  const cuerpo = `<h3 class="it-name">${esc(it.n)}</h3>
-      <p class="it-desc">${rich(it.d)}</p>
-      ${it.tip ? `<p class="it-note"><b>Truco</b>${rich(it.tip)}</p>` : ''}
+  if (SERVICIO[it.serv]) tags.push(`<span class="tag serv">${esc(T(SERVICIO[it.serv]))}</span>`);
+  if (RESERVA[it.res]) tags.push(`<span class="tag res">${esc(T(RESERVA[it.res]))}</span>`);
+  const cuerpo = `<h3 class="it-name">${esc(T(it.n))}</h3>
+      <p class="it-desc">${rich(T(it.d))}</p>
+      ${it.tip ? `<p class="it-note"><b>${esc(ui('truco'))}</b>${rich(T(it.tip))}</p>` : ''}
       ${tags.length ? `<div class="tags">${tags.join('')}</div>` : ''}`;
 
   /* it.nota: es una recomendacion, no un sitio. Ni casilla ni mapa. */
   if (it.nota) {
-    const web = it.w ? `<div class="links"><a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}Web</a></div>` : '';
+    const web = it.w ? `<div class="links"><a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}${esc(ui('web'))}</a></div>` : '';
     return `<div class="item nota" data-id="${esc(it._id)}"><div class="it-main">${cuerpo}${web}</div></div>`;
   }
 
   const done = visited.has(it._id);
-  const links = [`<a href="${esc(mapsUrl(it))}" target="_blank" rel="noopener">${ICON.pin}${it.ruta ? 'Ruta a pie' : 'Mapa'}</a>`];
-  if (it.w) links.push(`<a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}Web</a>`);
-  if (REVIEWABLE[it.t]) links.push(`<a href="${esc(revUrl(it))}" target="_blank" rel="noopener">${ICON.star}Reseñas</a>`);
+  const links = [`<a href="${esc(mapsUrl(it))}" target="_blank" rel="noopener">${ICON.pin}${esc(it.ruta ? ui('ruta') : ui('mapa'))}</a>`];
+  if (it.w) links.push(`<a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}${esc(ui('web'))}</a>`);
+  if (REVIEWABLE[it.t]) links.push(`<a href="${esc(revUrl(it))}" target="_blank" rel="noopener">${ICON.star}${esc(ui('resenas'))}</a>`);
   return `<div class="item${done ? ' done' : ''}" data-id="${esc(it._id)}">
-    <button class="tick" aria-pressed="${done}" aria-label="Marcar ${esc(it.n)} como visitado">${ICON.check}</button>
+    <button class="tick" aria-pressed="${done}" aria-label="${esc(ui('marcar')(T(it.n)))}">${ICON.check}</button>
     <div class="it-main">
       ${cuerpo}
       <div class="links">${links.join('')}</div>
@@ -172,26 +286,40 @@ function legsHTML(list) {
   const sig = proximo >= 0 ? list[proximo] : null;
 
   const cabeza = sig
-    ? `<p class="legs-head">Tramo ${proximo + 1} de ${list.length}<span>Sigue: ${esc(sig.w)}, ${esc(sig.t)}</span></p>`
-    : `<p class="legs-head">Los ${list.length} tramos, hechos</p>`;
+    ? `<p class="legs-head">${esc(ui('tramo')(proximo + 1, list.length))}<span>${esc(ui('sigue')(T(sig.w) + ', ' + T(sig.t)))}</span></p>`
+    : `<p class="legs-head">${esc(ui('tramosHechos')(list.length))}</p>`;
 
   const filas = list.map((l, i) => {
     const d = hecho[i];
     const esHoy = !d && l.d === hoy;
     const esSig = !d && i === proximo && !esHoy;
-    const badge = esHoy ? '<span class="legbadge hoy">Hoy</span>'
-                : esSig ? '<span class="legbadge sigue">Sigue</span>' : '';
-    const falta = /[Ff]alta/.test(l.e || '');
+    const badge = esHoy ? `<span class="legbadge hoy">${esc(ui('hoy'))}</span>`
+                : esSig ? `<span class="legbadge sigue">${esc(ui('badgeSigue'))}</span>` : '';
+    /* lo pendiente se resalta. Se mira la variante fija, que no cambia de idioma. */
+    const falta = /[Ff]alta/.test(FIJO(l.e) || '');
     return `<div class="leg${d ? ' done' : ''}${esHoy ? ' eshoy' : ''}" data-leg="${esc(tramoId(l))}">
-      <button class="legtick" aria-pressed="${d}" aria-label="Marcar ${esc(l.t)} como hecho">${ICON.check}</button>
+      <button class="legtick" aria-pressed="${d}" aria-label="${esc(ui('marcarTramo')(T(l.t)))}">${ICON.check}</button>
       <div class="leg-main">
-        <div class="leg-top"><span class="leg-w">${esc(l.w)}</span><span class="leg-t">${esc(l.t)}</span>${badge}</div>
-        <div class="leg-meta"><span>${esc(l.c)}</span><span class="leg-dur">${esc(l.dur)}</span>${l.e ? `<span class="leg-e${falta ? ' falta' : ''}">${esc(l.e)}</span>` : ''}</div>
+        <div class="leg-top"><span class="leg-w">${esc(T(l.w))}</span><span class="leg-t">${esc(T(l.t))}</span>${badge}</div>
+        <div class="leg-meta"><span>${esc(T(l.c))}</span><span class="leg-dur">${esc(T(l.dur))}</span>${l.e ? `<span class="leg-e${falta ? ' falta' : ''}">${esc(T(l.e))}</span>` : ''}</div>
       </div>
     </div>`;
   }).join('');
 
-  return `<div class="legs">${cabeza}${filas}<button class="legs-reset" data-legreset="1">Volver al estado por fecha</button></div>`;
+  return `<div class="legs">${cabeza}${filas}<button class="legs-reset" data-legreset="1">${esc(ui('tramosReset'))}</button></div>`;
+}
+
+/* ---------- el cuadro de frases ---------- */
+/* Una fila por frase: como se escribe, como se dice y que quiere decir. La
+   columna del medio es la que hace que sirva parado en un mostrador. */
+function frasesHTML(list) {
+  const filas = list.map(f =>
+    `<tr><td class="fr-it">${esc(T(f[0]))}</td><td class="fr-pr">${esc(T(f[1]))}</td><td>${rich(T(f[2]))}</td></tr>`
+  ).join('');
+  return `<div class="tablewrap frases"><table>
+      <thead><tr><th>${esc(ui('frIt'))}</th><th>${esc(ui('frPr'))}</th><th>${esc(ui('frSig'))}</th></tr></thead>
+      <tbody>${filas}</tbody>
+    </table></div>`;
 }
 
 /* ---------- vista de ciudad ---------- */
@@ -203,45 +331,46 @@ function cityHTML(c) {
   const pct = hitos.length ? Math.round(done / hitos.length * 100) : 0;
 
   let h = `<section class="cityhead">
-    <span class="plate">${esc(c.plate)}</span>
-    <h1 class="cityname">${esc(c.name)}</h1>
+    <span class="plate">${esc(T(c.plate))}</span>
+    <h1 class="cityname">${esc(T(c.name))}</h1>
     <div class="cityrule"></div>
-    ${c.opcional ? '<p class="tentativa">Todavía sin confirmar</p>' : ''}
-    <p class="citylede">${esc(c.lede)}</p>
-    <dl class="quick">${c.quick.map(q => `<div><dt>${esc(q[0])}</dt><dd>${esc(q[1])}</dd></div>`).join('')}</dl>`;
+    ${c.opcional ? `<p class="tentativa">${esc(ui('tentativa'))}</p>` : ''}
+    <p class="citylede">${esc(T(c.lede))}</p>
+    <dl class="quick">${c.quick.map(q => `<div><dt>${esc(T(q[0]))}</dt><dd>${esc(T(q[1]))}</dd></div>`).join('')}</dl>`;
   if (hitos.length) {
-    h += `<div class="progress"><span>${done} de ${hitos.length}</span>
+    h += `<div class="progress"><span>${esc(ui('cuenta')(done, hitos.length))}</span>
       <span class="bar"><i style="width:${pct}%"></i></span>
-      <button data-reset="${c.id}">Reiniciar</button></div>`;
+      <button data-reset="${c.id}">${esc(ui('reiniciar'))}</button></div>`;
   }
   h += `</section>`;
 
-  if (items.length) h += `<div class="toolrow pegada"><button data-all="open">Abrir todo</button><button data-all="close">Cerrar todo</button></div>`;
+  if (items.length) h += `<div class="toolrow pegada"><button data-all="open">${esc(ui('abrir'))}</button><button data-all="close">${esc(ui('cerrar'))}</button></div>`;
 
   c.sections.forEach((sec, i) => {
-    if (sec.legs) {
+    if (sec.legs || sec.frases) {
       if (filtering()) return;
-      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2></summary>
-        <div class="body">${legsHTML(sec.legs)}${sec.html ? `<div class="prose">${sec.html}</div>` : ''}</div></details>`;
+      const cuadro = sec.legs ? legsHTML(sec.legs) : frasesHTML(sec.frases);
+      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(T(sec.s))}</h2></summary>
+        <div class="body">${cuadro}${sec.html ? `<div class="prose">${T(sec.html)}</div>` : ''}</div></details>`;
       return;
     }
     if (sec.html) {
       if (filtering()) return;
-      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2></summary>
-        <div class="body"><div class="prose">${sec.html}</div></div></details>`;
+      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(T(sec.s))}</h2></summary>
+        <div class="body"><div class="prose">${T(sec.html)}</div></div></details>`;
       return;
     }
     const list = (sec.items || []).filter(passes);
     if (!list.length) return;
     const shitos = list.filter(x => !x.nota);
     const sdone = shitos.filter(x => visited.has(x._id)).length;
-    h += `<details class="sec"${filtering() || i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(sec.s)}</h2>
+    h += `<details class="sec"${filtering() || i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(T(sec.s))}</h2>
       ${shitos.length ? `<span class="count">${sdone}/${shitos.length}</span>` : ''}</summary>
       <div class="body">${list.map(itemHTML).join('')}</div></details>`;
   });
 
   if (filtering() && !shown.length) {
-    h += `<div class="empty"><strong>Nada con esos filtros</strong>Prueben quitando alguno.</div>`;
+    h += `<div class="empty"><strong>${esc(ui('sinFiltro'))}</strong>${esc(ui('sinFiltro2'))}</div>`;
   }
   return h;
 }
@@ -251,20 +380,28 @@ function searchHTML() {
   const q = norm(query).split(/\s+/).filter(Boolean);
   const hits = ALL.filter(it => passes(it) && q.every(w => it._hay.includes(w)));
   if (!hits.length) {
-    return `<div class="empty"><strong>Sin resultados para “${esc(query)}”</strong>
-      Prueben con el nombre de un sitio, un barrio o algo como “mercado”, “azotea” o “vino caliente”.</div>`;
+    return `<div class="empty"><strong>${esc(ui('sinNada')(query))}</strong>
+      ${esc(ui('sinNada2'))}</div>`;
   }
   let h = '', last = null;
   hits.forEach(it => {
     if (it._city !== last) {
       if (last) h += '</div>';
-      h += `<div class="rgroup" style="--city:${it._city.accent};--city-lt:${it._city.lt}"><h2>${esc(it._city.name)}</h2>`;
+      h += `<div class="rgroup" style="--city:${it._city.accent};--city-lt:${it._city.lt}"><h2>${esc(T(it._city.name))}</h2>`;
       last = it._city;
     }
-    h += `<p class="rpath">${esc(it._sec.s)}</p>` + itemHTML(it);
+    h += `<p class="rpath">${esc(T(it._sec.s))}</p>` + itemHTML(it);
   });
   h += '</div>';
-  return `<div class="toolrow"><span>${hits.length} resultado${hits.length === 1 ? '' : 's'} en toda la guía</span></div>` + h;
+  return `<div class="toolrow"><span>${esc(ui('hallados')(hits.length))}</span></div>` + h;
+}
+
+/* Las tablas de frases se apilan en una sola columna cuando no entran en tres.
+   Se mide el ancho que quedo, no el de la pantalla: asi tambien vale para una
+   ventana angosta en la computadora, no solo para un telefono. */
+function medirFrases() {
+  document.querySelectorAll('#view .frases').forEach(f =>
+    f.classList.toggle('apilada', f.clientWidth < 400));
 }
 
 /* ---------- render ---------- */
@@ -278,6 +415,7 @@ function render() {
     el.style.setProperty('--city-lt', c.lt);
   });
   view.innerHTML = query ? searchHTML() : cityHTML(c);
+  medirFrases();
 }
 
 /* ---------- eventos delegados ---------- */
@@ -295,7 +433,7 @@ $('#view').addEventListener('click', e => {
       const hitos = c.sections.flatMap(s => s.items || []).filter(i => !i.nota);
       const done = hitos.filter(i => visited.has(i._id)).length;
       const p = $('.progress');
-      if (p) { p.firstElementChild.textContent = `${done} de ${hitos.length}`;
+      if (p) { p.firstElementChild.textContent = ui('cuenta')(done, hitos.length);
         p.querySelector('.bar i').style.width = (hitos.length ? done / hitos.length * 100 : 0) + '%'; }
       const sec = row.closest('details');
       const cnt = sec && sec.querySelector('.count');
@@ -372,22 +510,24 @@ function copiarALaVieja(texto) {
   return bien;
 }
 
-$('#sharebtn').addEventListener('click', async e => {
+document.querySelectorAll('.sharebtn').forEach(b => b.addEventListener('click', async e => {
   e.preventDefault();
   const btn = e.currentTarget, url = btn.href;
   const avisar = t => {
     btn.textContent = t;
-    setTimeout(() => { btn.textContent = 'Copiar enlace'; }, 2400);
+    setTimeout(() => { btn.textContent = ui('copiar'); }, 2400);
   };
   if (navigator.clipboard && isSecureContext) {
-    try { await navigator.clipboard.writeText(url); avisar('Enlace copiado'); return; } catch (err) {}
+    try { await navigator.clipboard.writeText(url); avisar(ui('copiado')); return; } catch (err) {}
   }
   /* si tampoco se puede, el QR esta justo al lado y ese siempre funciona */
-  avisar(copiarALaVieja(url) ? 'Enlace copiado' : 'Mejor usen el QR de al lado');
-});
+  avisar(copiarALaVieja(url) ? ui('copiado') : ui('usenQR'));
+}));
 
-buildRail();
-buildFilters();
+indexar();
+applyLang();
+paintRail();
+paintFilters();
 render();
 
 /* la barra de abrir y cerrar se ancla justo debajo de la cabecera, que no
@@ -398,3 +538,4 @@ const medirCabecera = () =>
 medirCabecera();
 if (window.ResizeObserver) new ResizeObserver(medirCabecera).observe(cabecera);
 else addEventListener('resize', medirCabecera);
+addEventListener('resize', medirFrases);
