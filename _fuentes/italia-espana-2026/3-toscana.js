@@ -9,7 +9,7 @@
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Vie 9 a mar 13 de octubre',en:'Fri 9 to Tue 13 October'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Hotel Sovestro, San Gimignano',en:'Hotel Sovestro, San Gimignano'}],
-    [{es:'El auto',en:'The car'},{es:'Se devuelve en La Spezia el mar 13',en:'Handed back in La Spezia on Tue 13'}],
+    [{es:'El auto',en:'The car'},{es:'Sigue con nosotros hasta Milán',en:'Stays with us as far as Milan'}],
     [{es:'Octubre',en:'October'},{es:'21° / 10°, niebla al amanecer',en:'21° / 10°, fog at dawn'}],
     [{es:'Ojo',en:'Watch out'},{es:'ZTL: cámara y multa en cada pueblo',en:'ZTL: a camera and a fine in every town'}]
   ],
@@ -152,7 +152,7 @@
         <li><b>8:40, Pisa.</b> Estacionar en <b>Via Pietrasantina</b>, que es gratis para autos y queda afuera de la ZTL, y caminar los 900 metros hasta la Piazza dei Miracoli. A esa hora la plaza está casi vacía y la luz entra de costado.</li>
         <li><b>9:30, de vuelta al auto.</b> Cuarenta minutos adentro de la plaza alcanzan de sobra. No subimos a la torre: son turnos reservados y casi trescientos escalones en espiral inclinada.</li>
         <li><b>10:20, Forte dei Marmi.</b> Un café y el <b>pontile</b>, el muelle de madera que entra al mar y es solo peatonal: desde la punta se ve la costa entera de Viareggio a La Spezia, con los Alpes Apuanos de fondo. Es el balneario más caro de Italia y en octubre a esta hora no cobra nada.</li>
-        <li><b>11:55, La Spezia.</b> Auto a la rentadora, valijas al alojamiento, y Cinque Terre con la tarde entera por delante.</li>
+        <li><b>11:55, La Spezia.</b> El auto <b>no</b> se devuelve acá: va al Park Centro Stazione, enfrente de la estación, porque lo necesitamos el miércoles para Módena. Valijas al alojamiento y Cinque Terre con la tarde entera por delante.</li>
       </ul>
     `, en:`
       <p>Both stops are on the same road: the FI-PI-LI as far as Pisa and then the A12, which runs right along the sea to La Spezia. They do not come out of Cinque Terre, they come out of getting up an hour earlier.</p>
@@ -161,7 +161,7 @@
         <li><b>8:40, Pisa.</b> Park on <b>Via Pietrasantina</b>, which is free for cars and sits outside the ZTL, and walk the 900 metres to Piazza dei Miracoli. At that hour the square is nearly empty and the light comes in sideways.</li>
         <li><b>9:30, back at the car.</b> Forty minutes inside the square is more than enough. We are not climbing the tower: timed slots and almost three hundred steps up a leaning spiral.</li>
         <li><b>10:20, Forte dei Marmi.</b> A coffee and the <b>pontile</b>, the wooden pier that runs out into the sea and is pedestrians only: from the end you see the whole coast from Viareggio to La Spezia, with the Apuan Alps behind. It is the most expensive beach resort in Italy and in October at this hour it charges nothing.</li>
-        <li><b>11:55, La Spezia.</b> Car to the rental office, bags to the apartment, and off to Cinque Terre with the whole afternoon ahead.</li>
+        <li><b>11:55, La Spezia.</b> The car is <b>not</b> handed back here: it goes into the Park Centro Stazione, across from the station, because we need it on Wednesday for Modena. Bags to the apartment and off to Cinque Terre with the whole afternoon ahead.</li>
       </ul>
     `}}
   ]},

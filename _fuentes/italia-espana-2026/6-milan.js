@@ -9,6 +9,7 @@
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mié 14 a sáb 17 de octubre',en:'Wed 14 to Sat 17 October'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Meravigli Den, en el centro',en:'Meravigli Den, in the centre'}],
+    [{es:'El auto',en:'The car'},{es:'Se devuelve mié 14, Vittor Pisani 19',en:'Handed back Wed 14, Vittor Pisani 19'}],
     [{es:'Se cena',en:'Dinner runs'},{es:'20:00 a 22:00, antes que en Roma',en:'20:00 to 22:00, earlier than Rome'}],
     [{es:'Octubre',en:'October'},{es:'19° / 10°, puede llover',en:'19° / 10°, rain possible'}],
     [{es:'Entradas',en:'Tickets'},{es:'Duomo, jue 15 a las 9:00',en:'Duomo, Thu 15 at 9:00'}],
@@ -20,12 +21,16 @@
      t:{es:'Miércoles 14: llegada y el Duomo de noche',en:'Wednesday the 14th: arrival and the Duomo at night'},
      html:{es:`
       <ul>
-        <li>Llegamos de Módena a la tarde, check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
+        <li><b>Primero el auto, después el hotel.</b> Llegamos de Persiceto cerca de las 18:00 y la entrega es en <b>Via Vittor Pisani 19, nivel -2</b>, que es el punto de devolución de la oficina de Via Galvani. Queda a diez minutos a pie de Centrale. Hay dos razones para ir derecho ahí y no al hotel: el horario de la oficina, y que el hotel está adentro del <b>Área C</b>.</li>
+        <li><b>El Área C</b> es la ZTL del centro de Milán y los miércoles rige de 7:30 a 19:30: entrar con el auto se paga. Vittor Pisani queda <b>afuera</b>, así que devolviendo primero no pagamos nada y al hotel vamos en metro, dos paradas. <b>Confirmar en el voucher a qué hora cierra la entrega</b>: si fuera antes de las 18:00 hay que salir de Persiceto más temprano o arreglar la devolución para el jueves.</li>
+        <li>Con el auto entregado, check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
         <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
       </ul>
     `, en:`
       <ul>
-        <li>We arrive from Modena in the afternoon, check in, and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
+        <li><b>The car first, the hotel after.</b> We arrive from Persiceto around 18:00 and the drop off is at <b>Via Vittor Pisani 19, level -2</b>, the return point for the Via Galvani office. It is a ten minute walk from Centrale. There are two reasons to go straight there rather than to the hotel: the office hours, and the fact that the hotel sits inside <b>Area C</b>.</li>
+        <li><b>Area C</b> is the ZTL of central Milan and on Wednesdays it runs 7:30 to 19:30: driving in is charged. Vittor Pisani is <b>outside</b> it, so handing the car back first costs us nothing and we take the metro to the hotel, two stops. <b>Check the voucher for the drop off closing time</b>: if it were before 18:00 we have to leave Persiceto earlier or arrange the handover for Thursday.</li>
+        <li>With the car gone, check in and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
         <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
       </ul>
     `}},
@@ -50,13 +55,19 @@
      t:{es:'Viernes 16: el lago de Como',en:'Friday the 16th: Lake Como'},
      html:{es:`
       <ul>
-        <li>Día entero afuera, y ya está decidido cómo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
-        <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
+        <li><b>Los trenes ya están tomados.</b> Ida: <b>7:20 de Milán Centrale</b>, el regional TN 2814 que va a Tirano, y llega a <b>Varenna Esino 8:24</b>. Vuelta: <b>18:35 de Varenna</b>, el TN 2837, llegando a <b>Centrale 19:43</b>. Son once horas de lago, así que el día alcanza para los dos pueblos sin apurar nada.</li>
+        <li><b>8:24, Varenna.</b> La estación queda arriba y el pueblo abajo, diez minutos de bajada hasta el agua. A esa hora no hay nadie: el paseo de la orilla, la Passeggiata degli Innamorati, y los jardines de Villa Monastero.</li>
+        <li><b>Al mediodía, ferry a Bellagio</b>, quince minutos cruzando. Es la punta donde el lago se abre en dos brazos: escalinatas, tiendas y el almuerzo mirando el agua.</li>
+        <li><b>La vuelta en ferry a Varenna</b> conviene tomarla con tiempo, porque el tren de las 18:35 es el que tenemos. El horario de otoño rige del 5 de octubre al 1 de noviembre y hay cruces hasta bien entrada la noche, pero las tablas de días hábiles y feriados son distintas: mirar el cartel del muelle al llegar a Bellagio y no confiar en la memoria.</li>
+        <li>El sol se pone 18:30, así que la última media hora en Varenna y el tren son ya de noche. Mejor así: la luz buena del lago es la de la mañana temprano, que es justo la que agarramos.</li>
       </ul>
     `, en:`
       <ul>
-        <li>A whole day out, and the shape of it is settled: train to <b>Varenna</b>, a little over an hour from Centrale, and the ferry to <b>Bellagio</b>, fifteen minutes across the lake. Varenna is coloured houses over the water; Bellagio is stone staircases and shops on the point where the lake splits into two arms.</li>
-        <li>That makes a complete day: two villages, two boat crossings and lunch looking at the water. We get back in daylight, which in October means half past six.</li>
+        <li><b>The trains are already booked.</b> Out: <b>7:20 from Milano Centrale</b>, the TN 2814 regional heading for Tirano, arriving <b>Varenna Esino 8:24</b>. Back: <b>18:35 from Varenna</b>, the TN 2837, reaching <b>Centrale at 19:43</b>. That is eleven hours on the lake, so the day is enough for both villages with nothing rushed.</li>
+        <li><b>8:24, Varenna.</b> The station is up the hill and the village is down by the water, ten minutes of descent. At that hour there is nobody about: the lakeside walk, the Passeggiata degli Innamorati, and the gardens of Villa Monastero.</li>
+        <li><b>At midday, the ferry to Bellagio</b>, fifteen minutes across. It is the point where the lake splits into two arms: stone staircases, shops and lunch looking at the water.</li>
+        <li><b>The ferry back to Varenna</b> is worth catching early, because the 18:35 train is the one we hold. The autumn timetable runs from 5 October to 1 November and there are crossings well into the evening, but the weekday and holiday tables differ: read the board on the pier when we land at Bellagio rather than trusting memory.</li>
+        <li>The sun sets at 18:30, so the last half hour in Varenna and the train are already in the dark. Better that way: the good light on the lake is early morning, which is exactly what we catch.</li>
       </ul>
     `}},
 
@@ -72,6 +83,13 @@
   ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
+    {m:'Europcar, Via Vittor Pisani 19, Milano', a:'Via Vittor Pisani 19, Milán',
+     n:{es:'Devolver el auto: Vittor Pisani 19',en:'Handing the car back: Vittor Pisani 19'},
+     d:{es:'El punto de entrega de Europcar está en el <b>nivel -2</b> del estacionamiento de Via Vittor Pisani 19, que es el de la oficina de Via Galvani. Es un garaje de interscambio grande, de 943 plazas, a diez minutos a pie de Milán Centrale y a dos paradas de metro del Duomo.',
+        en:'The Europcar drop off is on <b>level -2</b> of the car park at Via Vittor Pisani 19, which belongs to the Via Galvani office. It is a large interchange garage, 943 spaces, a ten minute walk from Milano Centrale and two metro stops from the Duomo.'},
+     t:'mover',
+     tip:{es:'Lo único que hay que confirmar es el horario, que en el voucher figura y en las oficinas de ciudad suele ser más corto que en las de estación: algunas cierran 18:00 y no abren los domingos. Llegando de Persiceto a las 18:00 estamos justos, así que vale mirarlo antes de salir a la mañana y, si cierra temprano, adelantar la salida. Y sacar fotos del auto y del tablero al entregarlo.',
+          en:'The one thing to confirm is the hours, which are on the voucher and in city offices tend to be shorter than at the station ones: some close at 18:00 and do not open on Sundays. Arriving from Persiceto at 18:00 leaves us tight, so it is worth checking before we set off in the morning and, if it closes early, leaving sooner. And photograph the car and the dashboard when handing it over.'}},
     {m:'Milan Meravigli Den Hotels & Suites',
      n:{es:'Dónde dormimos: Meravigli Den',en:'Where we sleep: Meravigli Den'},
      d:{es:'Sobre Via Meravigli, entre el Duomo y el Castello Sforzesco. Es de las mejores zonas para estos tres días: todo el centro se camina y hay metro y tranvía a media cuadra.',

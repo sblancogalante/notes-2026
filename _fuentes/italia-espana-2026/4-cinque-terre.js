@@ -7,7 +7,7 @@
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mar 13 a mié 14 de octubre',en:'Tue 13 to Wed 14 October'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Alba Rooms, La Spezia',en:'Alba Rooms, La Spezia'}],
-    [{es:'El auto',en:'The car'},{es:'Se devuelve al llegar',en:'Handed back on arrival'}],
+    [{es:'El auto',en:'The car'},{es:'Se queda, lo devolvemos en Milán',en:'Stays with us, handed back in Milan'}],
     [{es:'Cómo se mueve uno',en:'Getting about'},{es:'Tren, cada 15 a 30 min',en:'Train, every 15 to 30 min'}],
     [{es:'Atardece',en:'Sunset'},{es:'18:55, y ahí está la foto',en:'18:55, and that is the photograph'}]
   ],
@@ -17,7 +17,7 @@
      t:{es:'Martes 13: llegar, soltar todo y salir',en:'Tuesday the 13th: arrive, drop everything and get out'},
      html:{es:`
       <ul>
-        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Primero <b>devolver el auto</b>, después valijas en el alojamiento, y salir con la mochila y nada más. A Cinque Terre no se va con valijas: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
+        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. El auto <b>ya no se devuelve acá</b>: se queda con nosotros hasta Milán, así que lo primero es meterlo en el <b>Park Centro Stazione</b>, enfrente de la estación, y las valijas en el alojamiento. A Cinque Terre se va con la mochila y nada más: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
         <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
         <li><b>Primero Vernazza</b>, el más bonito y el del puerto con forma de herradura. Dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, de donde sale la foto clásica.</li>
         <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
@@ -25,7 +25,7 @@
       </ul>
     `, en:`
       <ul>
-        <li>We reach La Spezia around 11 from San Gimignano. First <b>hand back the car</b>, then bags at the apartment, and out with a backpack and nothing else. You do not go to Cinque Terre with suitcases: short platforms, full trains and villages made entirely of stairs.</li>
+        <li>We reach La Spezia around 11 from San Gimignano. The car <b>is no longer handed back here</b>: it stays with us until Milan, so the first thing is to put it in the <b>Park Centro Stazione</b>, across from the station, and the bags at the apartment. You go to Cinque Terre with a backpack and nothing else: short platforms, full trains and villages made entirely of stairs.</li>
         <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five villages in under twenty minutes. The idea is to catch the first one around midday.</li>
         <li><b>Vernazza first</b>, the prettiest and the one with the horseshoe harbour. A good two hours: the harbour square, the church built out on the rocks, and the climb to the Doria castle, where the classic photograph comes from.</li>
         <li><b>Then Manarola</b>, ten minutes on by train, which is where we want to be at sunset. That is where <b>Nessun Dorma</b> is, and a hundred metres on the <b>Punta Bonfiglio</b> viewpoint, free, the source of the postcard of coloured houses on the cliff.</li>
@@ -34,23 +34,32 @@
     `}},
 
     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
-     t:{es:'Miércoles 14: a Módena',en:'Wednesday the 14th: on to Modena'},
+     t:{es:'Miércoles 14: a Módena y a Milán, en auto',en:'Wednesday the 14th: to Modena and Milan, by car'},
      html:{es:`
       <ul>
-        <li>El tren a Módena lleva unas tres horas, casi siempre con un cambio en Parma. Comprarlo con anticipación en la app de Trenitalia y salir temprano.</li>
-        <li>Con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Módena, así que mejor no forzar.</li>
+        <li><b>8:00, salir de La Spezia.</b> En auto y no en tren: son <b>dos horas y cinco hasta Módena</b> por la A15 y la A1, con peaje. Saliendo a esta hora se llega al museo 10:15 y el almuerzo queda con margen de sobra.</li>
+        <li>El día está armado alrededor de una <b>reserva a las 13:45</b> en San Giovanni in Persiceto que no se puede perder: cancelan si uno llega más de veinte minutos tarde sin avisar. Por eso hoy no hay paseo por La Spezia: el mercado de Piazza Cavour y el paseo marítimo quedan para quien se levante a las siete.</li>
+        <li>Cargar nafta antes de la autopista, que en las áreas de servicio de la A1 el litro sale bastante más.</li>
+        <li>El resto del día está en el capítulo de <b>Módena</b>: el museo, dónde dejar el auto con las valijas adentro, y el almuerzo. Y la llegada a Milán, con la devolución del auto, en el de <b>Milán</b>.</li>
       </ul>
-    
     `, en:`
       <ul>
-        <li>The train to Modena takes about three hours, almost always with a change at Parma. Buy it ahead on the Trenitalia app and leave early.</li>
-        <li>If there is appetite for it, La Spezia has a pleasant seafront for half an hour’s walk before the station, and the Piazza Cavour market in the morning. But the point of the day is in Modena, so better not to push it.</li>
+        <li><b>8:00, leave La Spezia.</b> By car, not by train: it is <b>two hours five to Modena</b> on the A15 and the A1, with tolls. Leaving at this hour puts us at the museum at 10:15 and leaves plenty of slack before lunch.</li>
+        <li>The day is built around a <b>13:45 booking</b> in San Giovanni in Persiceto that cannot be missed: they cancel if you turn up more than twenty minutes late without calling. So there is no walk around La Spezia today: the Piazza Cavour market and the seafront are for whoever gets up at seven.</li>
+        <li>Fill up before the motorway, since at the A1 service areas the litre costs noticeably more.</li>
+        <li>The rest of the day is in the <b>Modena</b> chapter: the museum, where to leave the car with the bags inside, and lunch. And the arrival in Milan, with the car handover, in the <b>Milan</b> one.</li>
       </ul>
-    
     `}}
   ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
+    {m:'Park Centro Stazione, Piazzale Medaglie d Oro, La Spezia', a:'La Spezia',
+     n:{es:'Dónde dejar el auto: Park Centro Stazione',en:'Where to leave the car: Park Centro Stazione'},
+     d:{es:'En Piazzale delle Medaglie d’Oro, enfrente de la entrada de la estación. Dos niveles bajo tierra, cubierto, 218 plazas, 64 cámaras y abierto las veinticuatro horas todos los días. 1,50 euros la hora de 8:00 a 20:00 y 1 euro de 20:00 a 8:00.',
+        en:'On Piazzale delle Medaglie d’Oro, across from the station entrance. Two underground levels, covered, 218 spaces, 64 cameras and open around the clock every day. 1.50 euros an hour from 8:00 to 20:00 and 1 euro from 20:00 to 8:00.'},
+     t:'mover', p:'€€',
+     tip:{es:'Primero preguntar en Alba Rooms: muchos alojamientos de La Spezia tienen acuerdo con un garaje o permiso de zona, y eso sale menos que las veintitrés horas de reloj que vamos a estar. Si no, este es el que conviene igual, porque todos los trenes a los pueblos salen de esa estación y volvemos de noche. Más barato pero a diez minutos a pie está el de Piazza d’Armi.',
+          en:'Ask at Alba Rooms first: plenty of La Spezia places have an arrangement with a garage or a zone permit, and that comes to less than the twenty three hours we will actually be there. Otherwise this is the one anyway, because every village train leaves from that station and we come back after dark. Cheaper but a ten minute walk away is the Piazza d’Armi one.'}},
     {m:'Alba Rooms, La Spezia',
      n:{es:'Dónde dormimos: Alba Rooms',en:'Where we sleep: Alba Rooms'},
      d:{es:'En La Spezia, que es la base lógica: es una ciudad de verdad, con supermercados, restaurantes a precio normal y la estación desde donde salen todos los trenes a los pueblos.',

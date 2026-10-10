@@ -260,64 +260,38 @@
      d:{es:'Tres: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a hora y media cada uno; y San Gimignano a La Spezia el martes 13, unas dos horas y cuarto.',
         en:'Three: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to an hour and a half each; and San Gimignano to La Spezia on Tuesday the 13th, about two and a quarter hours.'},
      t:'mover',
-     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, sobre las 8:30, para llegar a La Spezia con la tarde entera.',
-          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, around 8:30, to reach La Spezia with the whole afternoon ahead.'}}
+     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera.',
+          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead.'}}
   ]},
 
-  {s:{es:'Quedarse el auto hasta Milán y Como',en:'Keeping the car as far as Milan and Como'}, k:'mover', html:{es:`
-      <p>El plan por defecto devuelve el auto en La Spezia el martes 13. La alternativa es quedárselo hasta el sábado 17: dejarlo parado en La Spezia los dos días de Cinque Terre, usarlo el miércoles 14 para ir a Módena y llegar a Milán, y el viernes 16 para el día del lago. No para moverse dentro de las ciudades, solo para los traslados entre una y otra.</p>
-      <p>Funciona, y para el día de Módena y el del lago es cómodo tener el auto. Pero suma costo y fricción, y por eso no es lo que recomendaría. Esto es lo que cambia, por rubro.</p>
-      <h3>Plata</h3>
+  {s:{es:'El auto se queda hasta Milán',en:'The car stays as far as Milan'}, k:'mover', html:{es:`
+      <p>Decidido: el auto no se devuelve en La Spezia el martes 13 como decía el plan original, sino en <b>Milán el miércoles 14</b>, en Via Vittor Pisani 19. Es la opción del medio y es la que cierra mejor, porque el día de Módena es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa y seguir a Milán no se hace en tren sin perder medio día en combinaciones.</p>
+      <p>Lo que queda afuera de la discusión: el auto <b>no</b> sigue hasta el sábado. El lago de Como se hace en tren el viernes, que es lo correcto, y los días de Milán no lo necesitan. Eso evita dos noches de garage en el hotel y el estacionamiento de Varenna, que es escaso y caro.</p>
+      <h3>Lo que hay que tener presente</h3>
       <ul>
-        <li>Cuatro días más de alquiler, del 13 al 17.</li>
-        <li>El cargo por devolver en otra ciudad crece con la distancia, y devolver en Milán o en un aeropuerto suele tener un recargo aparte.</li>
-        <li>Dos noches de estacionamiento en el hotel de Milán, entre veinticinco y cuarenta euros cada una.</li>
-        <li>El estacionamiento en La Spezia mientras estamos en Cinque Terre, un día entero de garage.</li>
-        <li>El <b>Área C</b> de Milán: 7,50 euros por entrar al centro un día hábil, y el miércoles 14 lo es. El hotel está en el borde de esa zona.</li>
-        <li>Peajes y nafta de los cuatro tramos, que entre dos personas cuesta parecido a los boletos de tren.</li>
+        <li><b>Dos días parado en La Spezia</b>, martes y miércoles a la mañana. Va al Park Centro Stazione, enfrente de la estación: 1,50 euros la hora de día y 1 de noche, cubierto y con cámaras. Antes de pagarlo, preguntar en el alojamiento si tiene acuerdo con algún garage.</li>
+        <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige los miércoles de 7:30 a 19:30. Vittor Pisani queda <b>afuera</b>: devolviendo el auto antes de ir al hotel no se paga. Al hotel se va en metro.</li>
+        <li><b>El Área B</b> cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero conviene confirmarlo al retirarlo.</li>
+        <li><b>El cargo por devolver en otra ciudad</b> crece con la distancia y Milán no es Florencia. Ya está en el contrato, pero vale mirar el detalle para no sorprenderse.</li>
+        <li><b>El horario de la oficina.</b> Las de ciudad cierran más temprano que las de estación y algunas no abren domingos. La hora de entrega figura en el voucher: mirarla antes del miércoles, porque desde Persiceto llegamos cerca de las 18:00.</li>
+        <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna en Módena. Sí hace falta la regla de siempre: todo al baúl y nada a la vista.</li>
       </ul>
-      <h3>Vueltas</h3>
-      <ul>
-        <li>El <b>Área B</b> de Milán cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero hay que confirmarlo al retirarlo y, si la patente es extranjera y la cámara no la reconoce, registrarla antes en el sitio oficial. La multa arranca en ochenta euros.</li>
-        <li>En <b>Varenna</b> el estacionamiento es escaso y caro: el playón de la estación tiene unas ochenta plazas, cuesta veinte euros el día y se llena; el garage del pueblo tiene rampas angostas que rayan autos. Varenna está sobre la línea de tren de Milán, y por eso todo el mundo recomienda el tren.</li>
-        <li>El auto queda sin usar el martes y el miércoles en Cinque Terre, y de nuevo el viernes de noche y el sábado hasta que lo devolvemos.</li>
-        <li>El estacionamiento del hotel de Milán hay que resolverlo antes de llegar, no improvisarlo.</li>
-      </ul>
-      <h3>Tiempo</h3>
-      <ul>
-        <li>La Spezia a Módena y de ahí a Milán en auto empata con el tren una vez que se suma estacionar en Módena y entrar a Milán en hora pico.</li>
-        <li>En tren, el Museo Enzo Ferrari queda a quince minutos a pie de la estación de Módena: se baja y se camina.</li>
-        <li>El día del lago es más rápido en auto solo si el estacionamiento sale bien, y en Varenna muchas veces no sale.</li>
-      </ul>
-      <h3>Si igual se hace</h3>
-      <p>La jugada menos mala no es quedarse este auto toda la semana, sino alquilar uno aparte y chico donde de verdad sirve: medio día desde la estación de Módena para los dos museos Ferrari, o un día desde Milán para el lago. Sale menos, no tiene cargo por devolución en otra ciudad y no nos mete en Milán con el auto grande de la Toscana. El detalle de Módena está en el capítulo de esa ciudad.</p>
+      <h3>Al entregarlo</h3>
+      <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Si la oficina está cerrada y hay buzón de llaves, esas fotos son la única prueba de cómo se dejó. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
     `, en:`
-      <p>The default plan hands the car back in La Spezia on Tuesday the 13th. The alternative is keeping it until Saturday the 17th: leaving it parked in La Spezia for the two Cinque Terre days, using it on Wednesday the 14th to reach Modena and then Milan, and on Friday the 16th for the lake. Not for moving around inside the cities, only for the hops between them.</p>
-      <p>It works, and for the Modena day and the lake day having the car is convenient. But it adds cost and friction, which is why it is not what I would recommend. Here is what changes, category by category.</p>
-      <h3>Money</h3>
+      <p>Settled: the car is not handed back in La Spezia on Tuesday the 13th as the original plan had it, but in <b>Milan on Wednesday the 14th</b>, at Via Vittor Pisani 19. It is the middle option and the one that fits best, because the Modena day is the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain and then on to Milan cannot be done by train without losing half a day to connections.</p>
+      <p>What is off the table: the car does <b>not</b> stay until Saturday. Lake Como is done by train on Friday, which is correct, and the Milan days do not need it. That avoids two nights of hotel garage and parking at Varenna, which is scarce and expensive.</p>
+      <h3>What to keep in mind</h3>
       <ul>
-        <li>Four more rental days, the 13th to the 17th.</li>
-        <li>The one way fee grows with distance, and returning in Milan or at an airport usually carries a surcharge of its own.</li>
-        <li>Two nights of hotel parking in Milan, between twenty five and forty euros each.</li>
-        <li>Parking in La Spezia while we are in Cinque Terre, a full day of garage.</li>
-        <li>Milan’s <b>Area C</b>: 7.50 euros to enter the centre on a working day, and Wednesday the 14th is one. The hotel sits on the edge of that zone.</li>
-        <li>Tolls and fuel for the four stretches, which between two people costs about the same as the train tickets.</li>
+        <li><b>Two days standing still in La Spezia</b>, Tuesday and Wednesday morning. It goes in the Park Centro Stazione, across from the station: 1.50 euros an hour by day and 1 by night, covered and with cameras. Before paying for it, ask the apartment whether they have an arrangement with a garage.</li>
+        <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs on Wednesdays from 7:30 to 19:30. Vittor Pisani is <b>outside</b> it: handing the car back before going to the hotel costs nothing. We take the metro to the hotel.</li>
+        <li><b>Area B</b> covers almost the whole city and runs Monday to Friday. A new hire car meets the standard and passes, but it is worth confirming at pick up.</li>
+        <li><b>The one way drop charge</b> grows with distance and Milan is not Florence. It is already in the contract, but worth reading the line so it is not a surprise.</li>
+        <li><b>The office hours.</b> City offices close earlier than station ones and some do not open on Sundays. The drop off time is on the voucher: check it before Wednesday, because we arrive from Persiceto around 18:00.</li>
+        <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena. The usual rule does apply: everything in the boot and nothing in sight.</li>
       </ul>
-      <h3>Hassle</h3>
-      <ul>
-        <li>Milan’s <b>Area B</b> covers nearly the whole city and applies Monday to Friday. A new rental car meets the standard and gets through, but confirm it on collection and, if the plate is foreign and the camera does not recognise it, register it in advance on the official site. Fines start at eighty euros.</li>
-        <li>In <b>Varenna</b> parking is scarce and expensive: the station lot has around eighty spaces, costs twenty euros a day and fills up; the village garage has narrow ramps that scrape cars. Varenna sits on the Milan train line, which is why everyone recommends the train.</li>
-        <li>The car sits unused on Tuesday and Wednesday in Cinque Terre, and again on Friday night and Saturday until we hand it back.</li>
-        <li>Parking at the Milan hotel has to be sorted before arriving, not improvised.</li>
-      </ul>
-      <h3>Time</h3>
-      <ul>
-        <li>La Spezia to Modena and on to Milan by car breaks even with the train once you add parking in Modena and driving into Milan at rush hour.</li>
-        <li>By train, the Enzo Ferrari Museum is fifteen minutes on foot from Modena station: you get off and walk.</li>
-        <li>The lake day is faster by car only if the parking works out, and in Varenna it often does not.</li>
-      </ul>
-      <h3>If we do it anyway</h3>
-      <p>The least bad move is not keeping this car all week, but renting a separate small one exactly where it earns its place: half a day from Modena station for the two Ferrari museums, or one day from Milan for the lake. It costs less, carries no one way fee, and does not put us into Milan in the big Tuscan car. The Modena detail is in that city’s chapter.</p>
+      <h3>When handing it over</h3>
+      <p>Photographs of the car from all four sides, of the dashboard with the mileage and the fuel level, and of the interior. If the office is closed and there is a key drop, those photographs are the only record of how it was left. And the card hold is released several days later, not there and then.</p>
     `}},
 
   {s:{es:'Del aeropuerto al centro y al revés',en:'Airport to centre and back'}, k:'mover', items:[
