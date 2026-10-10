@@ -49,41 +49,66 @@
     `}},
 
     {d:'2026-10-11', w:{es:'Dom 11',en:'Sun 11'},
-     t:{es:'Domingo 11: Montepulciano, la Val d’Orcia y las termas',en:'Sunday the 11th: Montepulciano, the Val d’Orcia and the hot springs'},
+     t:{es:'Domingo 11: la Val d’Orcia entera, de Montepulciano a Montalcino',en:'Sunday the 11th: the whole Val d’Orcia, from Montepulciano to Montalcino'},
      html:{es:`
-      <p>El día más largo de los cuatro y el que más rinde. Todo queda al sur y en la misma dirección, así que se hace en un solo lazo sin volver sobre los pasos. Son unas tres horas y media de auto repartidas en cinco tramos cortos.</p>
+      <p>El día grande, y el más denso de los cuatro. La lógica del recorrido es una sola: <b>primero lo más lejos</b>, que es Montepulciano, y después volver hacia casa barriendo el valle de este a oeste, sin repetir un kilómetro. Son unas cinco horas de auto en ocho tramos, y el más largo es el de la ida.</p>
       <ul>
-        <li><b>8:00, salida.</b> Hora y media hasta Montepulciano. Si el valle está con niebla, a las 10 ya está despejado.</li>
-        <li><b>9:35, Montepulciano.</b> El pueblo sube hasta la Piazza Grande y debajo está lo bueno: las cantinas históricas excavadas en la roca, con galerías que conectan un palacio con el otro. La <b>Contucci</b>, en Via del Teatro 1, abre 9:30 a 12:30 y bajar entre las barricas es gratis. Las <b>Cantine De’ Ricci</b>, en Via Ricci 11, tienen una escalera monumental que parece una catedral y se visitan con reserva.</li>
-        <li><b>11:45, Pienza.</b> Los quesos de la calle principal, donde hacen probar antes de comprar, y el paseo colgado sobre el valle detrás de la catedral. Se ve en una hora, y es el almuerzo.</li>
-        <li><b>13:50, Bagno Vignoni.</b> Media hora alcanza: la plaza que no es plaza sino una pileta termal del siglo XV humeando entre las casas, y abajo el Parco dei Mulini.</li>
-        <li><b>14:40, Bagni San Filippo.</b> Dos horas largas en el agua caliente, entre las formaciones blancas de cal. Es el centro del día y no una parada: no hay vestuarios, se llega cambiado.</li>
-        <li><b>17:30, Montalcino.</b> Cuarenta minutos desde San Filippo y queda de camino a casa. Un Brunello en la enoteca de la fortaleza con el sol bajando sobre los viñedos, que se pone 18:45.</li>
-        <li><b>20:00</b>, de vuelta en el hotel.</li>
+        <li><b>8:00, salida.</b> Hora y media hasta Montepulciano, por Siena y la Cassia. Si el valle está con niebla a esa hora, a las 10 ya se despejó.</li>
+        <li><b>9:35, Montepulciano.</b> Hora y media. El pueblo sube hasta la Piazza Grande y lo bueno está debajo: las cantinas históricas excavadas en la roca, con galerías que conectan un palacio con el otro. La <b>Contucci</b>, en Via del Teatro 1, abre 9:30 a 12:30 y bajar entre las barricas es gratis. Las <b>Cantine De’ Ricci</b>, en Via Ricci 11, tienen una escalera monumental que parece una catedral y se visitan con reserva.</li>
+        <li><b>11:25, Pienza.</b> Hora y cuarto, y acá es el almuerzo. Es el pueblo que un papa mandó a rehacer entero en el siglo XV para que fuera la ciudad ideal del Renacimiento, y mide cuatro calles. Los quesos de la calle principal, donde hacen probar antes de comprar, y el paseo colgado sobre el valle detrás de la catedral.</li>
       </ul>
-      <h3>Los dos cambios que valen la pena</h3>
+      <h3>La Val d’Orcia: cuatro paradas, en orden</h3>
+      <p>Esto es la Val d’Orcia, y conviene decirlo porque no es un pueblo: son los veinte kilómetros de lomas entre Pienza y San Quirico, declarados patrimonio de la humanidad por el paisaje y no por los edificios. Todo lo que sigue está sobre la <b>SP146</b> o a un desvío corto de ella, y se hace en poco más de dos horas con las cuatro paradas.</p>
       <ul>
+        <li><b>12:50, el campo de Gladiador.</b> Diez minutos desde Pienza. El <b>Campo di Terrapille</b> está tres kilómetros al sur del pueblo: se sigue el cartel del casale Terrapille y aparece la hilera de cipreses entre los trigales. Es el campo de la escena del Elíseo, la que Máximo camina pasando la mano por las espigas. Media hora alcanza.</li>
+        <li><b>13:35, la capilla de Vitaleta.</b> Sobre la SP146, con cartel. Se entra por un tramo de tierra, se deja el auto y se camina un kilómetro hasta la capillita de dos cipreses, que es la postal más repetida de la Toscana. Entre ida, vuelta y fotos son cuarenta minutos.</li>
+        <li><b>14:25, la casa de Máximo.</b> El <b>Podere Poggio Manzuoli</b>, que en Google Maps figura como el set del Gladiador, está sobre la misma SP146 justo en la entrada de San Quirico, y se estaciona enfrente. Es la casa de las escenas de la familia. Es una parada de quince minutos, de las de bajarse, mirar y seguir.</li>
+        <li><b>14:45, San Quirico d’Orcia.</b> Media hora en el pueblo mismo, que está sobre la vía Francigena y casi no tiene turistas: la Collegiata con los leones en la puerta y los Horti Leonini, un jardín renacentista de entrada libre. Saliendo hacia el noreste por la Cassia están los <b>cipreses de I Triboli</b>, el grupito sobre la loma pelada que sale en todas las fotos.</li>
+      </ul>
+      <ul>
+        <li><b>15:25, Bagno Vignoni.</b> Ocho minutos desde San Quirico, media hora ahí. La plaza que no es plaza sino una pileta termal del siglo XV humeando entre las casas, y abajo el Parco dei Mulini.</li>
+        <li><b>16:10, Bagni San Filippo.</b> Veinticinco minutos, y son dos horas en el agua. El arroyo caliente que baja por el bosque entre formaciones blancas de cal, con la Ballena Blanca al final. Es el centro del día y no una parada: no hay vestuarios, se llega cambiado.</li>
+        <li><b>18:25, Montalcino.</b> Cuarenta minutos, y queda de camino a casa. Un Brunello en la enoteca de la fortaleza con el sol bajando sobre los viñedos, que se pone 18:45.</li>
+        <li><b>21:00</b>, de vuelta en el hotel.</li>
+      </ul>
+      <h3>Los cambios que valen la pena</h3>
+      <ul>
+        <li><b>Si se hace largo, lo que se saca es Vitaleta.</b> Es la única parada con caminata y la única que se puede ver desde el auto, de lejos, sin bajar. Sacarla devuelve cuarenta minutos y el resto del día queda igual.</li>
         <li><b>Rapolano en vez de Montalcino.</b> Las Terme San Giovanni abren los domingos hasta las 22:00 y quedan a cincuenta minutos de San Filippo, sobre el camino de vuelta: agua a treinta y ocho grados, vestuario, toalla y bar, 25 euros el día entero o 22 entrando después de las 16:00. Terminar un día de auto metidos en agua caliente de noche, con el aire fresco de octubre, es otra cosa que una poza en el bosque.</li>
         <li><b>Sant’Antimo en vez de las cantinas.</b> La abadía está a diez minutos de Montalcino y los domingos cantan la misa en gregoriano a las 11:00. Para llegar hay que salir 9:00 y dar el día al revés, arrancando por Montalcino y dejando Montepulciano afuera. En octubre abre 10:00 a 18:00 y entrar es gratis.</li>
+        <li><b>El atardecer, si se prefiere el valle al pueblo.</b> La luz buena de la Val d’Orcia es la de las siete de la tarde, no la de las dos. Quien quiera esa foto hace el día al revés: San Filippo al mediodía y las cuatro paradas del valle al final, volviendo desde Pienza. Se pierde Montalcino y se gana la hora dorada.</li>
+        <li><b>Saturnia no entra acá.</b> Las cascadas están a dos horas y veinte del hotel, 152 kilómetros casi todos de provincial: ida y vuelta son cinco horas de auto. No es una parada más lejana, es un día entero, y San Filippo es la misma cosa a veinticinco minutos de Bagno Vignoni.</li>
       </ul>
     `, en:`
-      <p>The longest of the four days and the one that pays off most. It is all south and all in the same direction, so it runs as a single loop with no doubling back. About three and a half hours of driving split into five short hops.</p>
+      <p>The big day, and the fullest of the four. The route has one logic: <b>farthest first</b>, which is Montepulciano, then head home sweeping the valley from east to west without repeating a kilometre. About five hours of driving in eight hops, and the longest is the one out.</p>
       <ul>
-        <li><b>8:00, leave.</b> An hour and a half to Montepulciano. If the valley is under fog, by 10 it has cleared.</li>
-        <li><b>9:35, Montepulciano.</b> The town climbs to Piazza Grande and the good part is underneath: historic cellars cut into the rock, with tunnels linking one palace to the next. <b>Contucci</b>, at Via del Teatro 1, opens 9:30 to 12:30 and walking down among the barrels is free. <b>Cantine De’ Ricci</b>, at Via Ricci 11, have a monumental staircase that looks like a cathedral and are visited by appointment.</li>
-        <li><b>11:45, Pienza.</b> The cheese shops on the main street, where they have you taste before buying, and the walkway hanging over the valley behind the cathedral. An hour does it, and it is lunch.</li>
-        <li><b>13:50, Bagno Vignoni.</b> Half an hour is enough: the square that is not a square but a fifteenth century thermal pool steaming among the houses, and the Parco dei Mulini below.</li>
-        <li><b>14:40, Bagni San Filippo.</b> A good two hours in the hot water, among the white limestone formations. It is the centre of the day rather than a stop: there are no changing rooms, so arrive changed.</li>
-        <li><b>17:30, Montalcino.</b> Forty minutes from San Filippo and on the way home. A Brunello at the fortress wine bar with the sun dropping over the vineyards, which sets at 18:45.</li>
-        <li><b>20:00</b>, back at the hotel.</li>
+        <li><b>8:00, leave.</b> An hour and a half to Montepulciano, by Siena and the Cassia. If the valley is under fog at that hour, by 10 it has cleared.</li>
+        <li><b>9:35, Montepulciano.</b> An hour and a half. The town climbs to Piazza Grande and the good part is underneath: historic cellars cut into the rock, with tunnels linking one palace to the next. <b>Contucci</b>, at Via del Teatro 1, opens 9:30 to 12:30 and walking down among the barrels is free. <b>Cantine De’ Ricci</b>, at Via Ricci 11, have a monumental staircase that looks like a cathedral and are visited by appointment.</li>
+        <li><b>11:25, Pienza.</b> An hour and a quarter, and this is lunch. It is the town a pope had rebuilt from scratch in the fifteenth century to be the ideal Renaissance city, and it is four streets long. The cheese shops on the main street, where they give you a taste before you buy, and the walk hanging over the valley behind the cathedral.</li>
       </ul>
-      <h3>The two swaps worth making</h3>
+      <h3>The Val d’Orcia: four stops, in order</h3>
+      <p>This is the Val d’Orcia, and it is worth saying because it is not a town: it is the twenty kilometres of rolling hills between Pienza and San Quirico, listed as world heritage for the landscape rather than the buildings. Everything that follows sits on the <b>SP146</b> or a short turn off it, and all four stops take a little over two hours.</p>
       <ul>
-        <li><b>Rapolano instead of Montalcino.</b> Terme San Giovanni opens on Sundays until 22:00 and sits fifty minutes from San Filippo, on the way home: thirty eight degree water, changing rooms, towels and a bar, 25 euros for the whole day or 22 going in after 16:00. Ending a day of driving sunk in hot water after dark, in the cool October air, is a different thing from a pool in the woods.</li>
-        <li><b>Sant’Antimo instead of the cellars.</b> The abbey is ten minutes from Montalcino and on Sundays they sing mass in Gregorian chant at 11:00. To make it we would leave at 9:00 and run the day backwards, starting at Montalcino and dropping Montepulciano. In October it opens 10:00 to 18:00 and entry is free.</li>
+        <li><b>12:50, the Gladiator field.</b> Ten minutes from Pienza. <b>Campo di Terrapille</b> is three kilometres south of the town: follow the sign for the Terrapille farmhouse and the row of cypresses appears among the wheat. It is the field of the Elysium scene, the one Maximus walks through running his hand over the ears of grain. Half an hour is enough.</li>
+        <li><b>13:35, the Vitaleta chapel.</b> On the SP146, signposted. You turn onto a dirt stretch, leave the car and walk a kilometre to the little two cypress chapel, the most repeated postcard in Tuscany. There, back and photographs comes to forty minutes.</li>
+        <li><b>14:25, Maximus’s house.</b> <b>Podere Poggio Manzuoli</b>, which Google Maps lists as the Gladiator set, is on the same SP146 right at the entrance to San Quirico, and you park in front. It is the house from the family scenes. A fifteen minute stop, the kind where you get out, look and move on.</li>
+        <li><b>14:45, San Quirico d’Orcia.</b> Half an hour in the town itself, which sits on the Via Francigena and has almost no tourists: the Collegiata with its lions at the door and the Horti Leonini, a Renaissance garden you walk into for free. Leaving north east on the Cassia you pass the <b>I Triboli cypresses</b>, the little cluster on the bare hill that turns up in every photograph.</li>
+      </ul>
+      <ul>
+        <li><b>15:25, Bagno Vignoni.</b> Eight minutes from San Quirico, half an hour there. The square that is not a square but a fifteenth century thermal pool steaming among the houses, and below it the Parco dei Mulini.</li>
+        <li><b>16:10, Bagni San Filippo.</b> Twenty five minutes, and two hours in the water. The hot stream running down through the woods among white limestone formations, with the White Whale at the end. It is the centre of the day, not a stop: there are no changing rooms, arrive changed.</li>
+        <li><b>18:25, Montalcino.</b> Forty minutes, and it is on the way home. A Brunello in the enoteca inside the fortress with the sun going down over the vineyards, which sets at 18:45.</li>
+        <li><b>21:00</b>, back at the hotel.</li>
+      </ul>
+      <h3>The swaps worth making</h3>
+      <ul>
+        <li><b>If it runs long, the one to drop is Vitaleta.</b> It is the only stop with a walk and the only one you can see from the car, at a distance, without getting out. Dropping it gives back forty minutes and leaves the rest of the day untouched.</li>
+        <li><b>Rapolano instead of Montalcino.</b> Terme San Giovanni opens on Sundays until 22:00 and sits fifty minutes from San Filippo, on the way home: thirty eight degree water, changing rooms, towel and bar, 25 euros for the whole day or 22 going in after 16:00. Ending a day of driving sunk in hot water after dark, in the cool October air, is not the same as a pool in the woods.</li>
+        <li><b>Sant’Antimo instead of the cellars.</b> The abbey is ten minutes from Montalcino and on Sundays they sing mass in Gregorian chant at 11:00. Getting there means leaving at 9:00 and running the day backwards, starting at Montalcino and leaving Montepulciano out. In October it opens 10:00 to 18:00 and entry is free.</li>
+        <li><b>Sunset, if you would rather have the valley than the town.</b> The good light in the Val d’Orcia is at seven in the evening, not at two. Anyone who wants that photograph runs the day backwards: San Filippo at midday and the four valley stops at the end, driving home from Pienza. You lose Montalcino and gain the golden hour.</li>
+        <li><b>Saturnia does not fit here.</b> The waterfalls are two hours twenty from the hotel, 152 kilometres of mostly provincial road: there and back is five hours of driving. It is not a stop further out, it is a whole day, and San Filippo is the same thing twenty five minutes from Bagno Vignoni.</li>
       </ul>
     `}},
-
     {d:'2026-10-12', w:{es:'Lun 12',en:'Mon 12'},
      t:{es:'Lunes 12: Castiglioncello y Livorno, el día de mar',en:'Monday the 12th: Castiglioncello and Livorno, the sea day'},
      html:{es:`
@@ -238,6 +263,20 @@
      t:'mover', p:'€',
      tip:{es:'Llegando al mediodía de un domingo hay que dar una vuelta: es el pueblo más visitado de la Val d’Orcia y tiene lugar para muy pocos autos. Conviene seguir hasta la punta del viale, donde casi nadie mira.',
           en:'Arriving at midday on a Sunday means circling once: it is the most visited town in the Val d’Orcia and has room for very few cars. Carry on to the far end of the viale, where hardly anyone looks.'}},
+    {m:'Parcheggio Via Scuole 1, San Quirico d Orcia', a:'San Quirico d’Orcia',
+     n:{es:'San Quirico: Via Scuole',en:'San Quirico: Via Scuole'},
+     d:{es:'Gratis para autos y pegado al centro histórico, en Via Scuole 1. San Quirico es el pueblo del valle donde todavía no hay que pagar por dejar el auto.',
+        en:'Free for cars and right against the historic centre, at Via Scuole 1. San Quirico is the village in the valley where you still do not pay to leave the car.'},
+     t:'mover',
+     tip:{es:'Desde ahí se entra caminando a los Horti Leonini y a la Collegiata en cinco minutos. La casa de Máximo queda en la entrada del pueblo, antes de llegar: conviene pararla primero y después estacionar.',
+          en:'From there it is a five minute walk to the Horti Leonini and the Collegiata. Maximus’s house is at the entrance to the village, before you arrive: worth stopping there first and parking afterwards.'}},
+    {m:'Strada di Terrapille, Pienza', a:'Pienza',
+     n:{es:'Las paradas de la SP146: banquina y tierra',en:'The SP146 stops: verge and dirt'},
+     d:{es:'Terrapille, Vitaleta, Belvedere y los cipreses de I Triboli no tienen estacionamiento: son banquina ancha o un tramo de tierra con lugar para tres o cuatro autos. No se paga nada y no hay nada, tampoco baños.',
+        en:'Terrapille, Vitaleta, Belvedere and the I Triboli cypresses have no car park: they are a wide verge or a dirt stretch with room for three or four cars. Nothing to pay and nothing there, no toilets either.'},
+     t:'mover',
+     tip:{es:'La SP146 es angosta y de doble mano, con curvas ciegas: hay que meter el auto entero afuera del asfalto antes de bajarse, y no cruzar a saltos para la foto. Los caminos de tierra del valle son de tosca blanca y en octubre pueden estar barrosos.',
+          en:'The SP146 is narrow and two way with blind bends: get the whole car off the tarmac before getting out, and do not dash across for the photograph. The valley dirt roads are white clay and in October they can be muddy.'}},
     {m:'Parcheggio P1 Porta al Prato, Montepulciano', a:'Montepulciano',
      n:{es:'Montepulciano: P1 Porta al Prato',en:'Montepulciano: P1 Porta al Prato'},
      d:{es:'Abajo y al oeste, pegado a la puerta por donde arranca la calle principal. La sosta del centro se paga de 8:00 a 20:00, alrededor de 1,50 euros la hora.',
@@ -503,6 +542,51 @@
      t:'aire',
      tip:{es:'Dos cosas que nadie avisa: el azufre huele a huevo podrido y el olor queda en la malla y en el pelo, así que mejor una malla vieja. Y el azufre ennegrece la plata: los anillos y las cadenas se sacan antes de entrar.',
           en:'Two things nobody warns you about: the sulphur smells of rotten eggs and the smell stays in your swimsuit and your hair, so bring an old one. And sulphur blackens silver: rings and chains come off before you get in.'}}
+  ]},
+
+  {s:{es:'La Val d’Orcia, punto por punto',en:'The Val d’Orcia, point by point'}, k:'visita', items:[
+    {nota:1,
+     n:{es:'Qué es, exactamente',en:'What it actually is'},
+     d:{es:'La Val d’Orcia no es un pueblo ni un parque con entrada: son los veinte kilómetros de lomas entre Pienza y San Quirico d’Orcia, con la SP146 cruzándolos por el medio. Está en la lista de patrimonio de la humanidad por el paisaje, que es agrícola y está dibujado así desde el siglo XIV.',
+        en:'The Val d’Orcia is not a town and not a park with a gate: it is the twenty kilometres of rolling hills between Pienza and San Quirico d’Orcia, with the SP146 running through the middle. It is on the world heritage list for the landscape, which is farmland and has been drawn this way since the fourteenth century.'},
+     t:'visita',
+     tip:{es:'Por eso no hay una visita sino paradas sobre la ruta, y por eso conviene ir despacio: los cuatro puntos de abajo están todos sobre la SP146 o a un desvío de dos minutos, en el orden en que aparecen viniendo de Pienza.',
+          en:'That is why there is no single visit but stops along the road, and why it pays to go slowly: the four points below all sit on the SP146 or a two minute turn off it, in the order they come driving from Pienza.'}},
+    {m:'Campo di Terrapille, Pienza', a:'Pienza',
+     n:{es:'El campo de Gladiador: Terrapille',en:'The Gladiator field: Terrapille'},
+     d:{es:'Tres kilómetros al sur de Pienza, por la strada di Terrapille. La hilera de cipreses sobre la loma, entre los trigales, es donde se filmó la escena del Elíseo: la casa, la mano pasando por las espigas, el final de la película. Se sigue el cartel del casale Terrapille y se deja el auto antes de la tranquera.',
+        en:'Three kilometres south of Pienza, along the strada di Terrapille. The row of cypresses on the ridge among the wheat fields is where the Elysium scene was shot: the house, the hand brushing the ears of grain, the end of the film. Follow the sign for the Terrapille farmhouse and leave the car before the gate.'},
+     t:'visita',
+     tip:{es:'Es campo privado y se trabaja: se mira y se fotografía desde el camino, no se entra al trigal. En octubre ya está arado y marrón, no dorado como en la película, que se filmó en junio.',
+          en:'It is private working farmland: you look and photograph from the track, you do not walk into the field. In October it is already ploughed and brown, not golden as in the film, which was shot in June.'}},
+    {m:'Cappella della Madonna di Vitaleta, San Quirico d Orcia', a:'San Quirico d’Orcia',
+     n:{es:'La capilla de Vitaleta',en:'The Vitaleta chapel'},
+     d:{es:'La capillita sola en la loma, con un ciprés a cada lado, que es la imagen más repetida de la Toscana. Está sobre la SP146 entre Pienza y San Quirico, con cartel: se entra por un tramo de tierra, se estaciona y se camina un kilómetro.',
+        en:'The little chapel alone on the hill, with a cypress on each side, the most repeated image of Tuscany. It is on the SP146 between Pienza and San Quirico, signposted: turn onto a dirt stretch, park and walk a kilometre.'},
+     t:'visita',
+     tip:{es:'Es la única parada del valle que pide caminata, y entre ida, vuelta y fotos son cuarenta minutos. También se ve de lejos desde la ruta sin bajarse: si el día viene apretado, esta es la que se saca.',
+          en:'It is the only stop in the valley that asks for a walk, and there, back and photographs comes to forty minutes. It can also be seen from the road without getting out: if the day is running tight, this is the one to drop.'}},
+    {m:'Podere Poggio Manzuoli, San Quirico d Orcia', a:'San Quirico d’Orcia',
+     n:{es:'La casa de Máximo: Poggio Manzuoli',en:'Maximus’s house: Poggio Manzuoli'},
+     d:{es:'El casale de las escenas de la familia de Gladiador, sobre la SP146 justo en la entrada de San Quirico. En Google Maps figura como el set del Gladiador, que es el punto que aparece buscando la película, y se estaciona enfrente de la entrada.',
+        en:'The farmhouse from the family scenes in Gladiator, on the SP146 right at the entrance to San Quirico. Google Maps lists it as the Gladiator set, which is the point that comes up searching for the film, and you park in front of the gate.'},
+     t:'visita',
+     tip:{es:'Quince minutos, de bajarse, mirar y seguir. Es propiedad privada: no se entra, se ve desde la ruta. Está a cuatro minutos del campo de Terrapille, así que los dos puntos de la película se hacen juntos.',
+          en:'Fifteen minutes, the kind of stop where you get out, look and move on. It is private property: you do not go in, you see it from the road. It is four minutes from the Terrapille field, so the two film locations are done together.'}},
+    {a:'San Quirico d’Orcia',
+     n:{es:'San Quirico d’Orcia',en:'San Quirico d’Orcia'},
+     d:{es:'El pueblo del valle que casi nadie para a ver, sobre la vía Francigena: la Collegiata con los leones de piedra en la puerta y los Horti Leonini, un jardín renacentista de entrada libre en el medio del pueblo.',
+        en:'The village in the valley almost nobody stops for, on the Via Francigena: the Collegiata with its stone lions at the door and the Horti Leonini, a Renaissance garden in the middle of town that you walk into for free.'},
+     t:'visita',
+     tip:{es:'Media hora y es el único de la Val d’Orcia sin fila para nada. Saliendo hacia el noreste por la Cassia están los cipreses de I Triboli, el grupito sobre la loma pelada: están sobre la ruta y se para en la banquina.',
+          en:'Half an hour, and it is the one place in the Val d’Orcia with no queue for anything. Leaving north east on the Cassia you come to the I Triboli cypresses, the little cluster on the bare hill: they are right by the road and you pull over on the verge.'}},
+    {m:'Podere Belvedere, San Quirico d Orcia', a:'San Quirico d’Orcia',
+     n:{es:'Podere Belvedere',en:'Podere Belvedere'},
+     d:{es:'La casa de piedra sola sobre la loma, con el valle cayendo detrás, que es la otra foto clásica del valle. Está sobre la SP146 y se ve desde la banquina, sin caminar.',
+        en:'The stone house alone on its ridge with the valley falling away behind, the other classic photograph of the valley. It is on the SP146 and visible from the verge, with no walking.'},
+     t:'visita',
+     tip:{es:'Los fotógrafos van temprano a la mañana, con la niebla en el valle. Pasando a la tarde se ve igual pero a contraluz: es una parada de cinco minutos, no un desvío.',
+          en:'Photographers go early in the morning, with mist in the valley. Passing in the afternoon you see it just as well but against the light: it is a five minute stop, not a detour.'}}
   ]},
 
   {s:{es:'Los pueblos',en:'The towns'}, k:'visita', items:[
