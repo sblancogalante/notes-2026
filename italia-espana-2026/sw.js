@@ -1,6 +1,6 @@
 /* Guarda la guia entera en el telefono para que funcione sin senal.
    Al cambiar CACHE se descarta la copia vieja y se baja la nueva. */
-const CACHE = 'italia-espana-2026-10-10e';
+const CACHE = 'italia-espana-2026-10-10f';
 const ASSETS = [
   './',
   './index.html',
