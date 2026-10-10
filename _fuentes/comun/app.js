@@ -14,6 +14,7 @@ const ICON = {
   star:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 10l6.1-.9z"/></svg>',
   sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>',
   moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 106 10.5z"/></svg>',
+  nav:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.6l7.6 2.8L13.4 21z"/></svg>',
   auto:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17" /><path d="M12 3.5a8.5 8.5 0 010 17z" fill="currentColor" stroke="none"/></svg>'
 };
 
@@ -54,6 +55,7 @@ const UI = {
     hoy:'Hoy', badgeSigue:'Sigue',
     marcarTramo:n => 'Marcar ' + n + ' como hecho',
     tramosReset:'Volver al estado por fecha',
+    todosDias:'Todos', verDia:n => 'Ver ' + n, waze:'Waze',
     frIt:'En italiano', frPr:'Se dice', frSig:'Quiere decir',
     sinFiltro:'Nada con esos filtros', sinFiltro2:'Prueben quitando alguno.',
     sinNada:q => 'Sin resultados para “' + q + '”',
@@ -77,6 +79,7 @@ const UI = {
     hoy:'Today', badgeSigue:'Next',
     marcarTramo:n => 'Mark ' + n + ' as done',
     tramosReset:'Back to the state set by date',
+    todosDias:'All days', verDia:n => 'See ' + n, waze:'Waze',
     frIt:'In Italian', frPr:'Sounds like', frSig:'Means',
     sinFiltro:'Nothing matches those filters', sinFiltro2:'Try dropping one of them.',
     sinNada:q => 'No results for “' + q + '”',
@@ -121,7 +124,18 @@ const hoyISO = () => { const n = new Date(), z = x => String(x).padStart(2, '0')
 const tramoId = l => l.d + '|' + FIJO(l.t);
 const tramoHecho = l => { const k = tramoId(l); return k in tramos ? tramos[k] : l.d < hoyISO(); };
 
-let current = CITIES[0].id;
+/* La guia abre en el capitulo que toca hoy. Cada uno con fechas declara d1 y
+   d2; si hoy cae adentro, abre ahi. Antes del viaje y despues del viaje abre en
+   el primero, que son los preparativos, igual que siempre. En los dias de
+   traslado los rangos se pisan a proposito: gana el primero en orden de
+   contenido, que es el capitulo donde arranca la manana, y el otro queda a un
+   toque en el rail, marcado tambien como de hoy. */
+const enFecha = c => !!c.d1 && !!c.d2 && c.d1 <= hoyISO() && hoyISO() <= c.d2;
+let current = (CITIES.find(enFecha) || CITIES[0]).id;
+/* que dia del plan se muestra. null quiere decir que lo decide la fecha, un
+   numero que lo eligio quien lee, y 'todos' que quiere el capitulo entero. No se
+   guarda en el telefono: al volver a abrir la guia manda la fecha de nuevo. */
+let dia = null;
 let query = '';
 let fPrice = new Set();
 let fType = new Set();
@@ -215,19 +229,31 @@ const filtering = () => fPrice.size > 0 || fType.size > 0;
 function paintRail() {
   /* data-opt: destino todavia sin confirmar. Se marca en el rail y en la portada. */
   $('#rail').innerHTML = CITIES.map(c =>
-    `<button role="tab" data-city="${c.id}"${c.opcional ? ' data-opt="1"' : ''} aria-selected="${c.id === current}">${esc(T(c.nav))}</button>`
+    `<button role="tab" data-city="${c.id}"${c.opcional ? ' data-opt="1"' : ''}${enFecha(c) ? ' data-hoy="1"' : ''} aria-selected="${c.id === current}">${esc(T(c.nav))}</button>`
   ).join('');
 }
 $('#rail').addEventListener('click', e => {
   const b = e.target.closest('button[data-city]');
   if (!b) return;
   current = b.dataset.city;
+  dia = null;
   if (query) { query = ''; $('#q').value = ''; $('#clearq').classList.remove('on'); }
   render();
   window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
 });
 
 /* ---------- render de una ficha ---------- */
+/* it.m: cuando el nombre de la ficha no sirve como busqueda. Si no esta, el
+   nombre que se busca es el fijo: Maps entiende mejor el nombre local que la
+   traduccion. */
+function mapsQuery(it) {
+  return it.m || ((it.a ? FIJO(it.n) + ', ' + it.a : FIJO(it.n)) + (it._city.maps ? ', ' + it._city.maps : ''));
+}
+/* Waze con la misma consulta que Maps, y arrancando a navegar. Va solo en los
+   capitulos que llevan auto: en una ciudad donde se camina es ruido. */
+function wazeUrl(it) {
+  return 'https://waze.com/ul?q=' + encodeURIComponent(mapsQuery(it)) + '&navigate=yes';
+}
 function mapsUrl(it) {
   /* it.ruta: una caminata. Maps la dibuja de verdad en vez de buscar el titulo. */
   if (it.ruta && it.ruta.length > 1) {
@@ -236,11 +262,7 @@ function mapsUrl(it) {
       + '&origin=' + p[0] + '&destination=' + p[p.length - 1]
       + (p.length > 2 ? '&waypoints=' + p.slice(1, -1).join('%7C') : '');
   }
-  /* it.m: cuando el nombre de la ficha no sirve como busqueda. Si no está, el
-     nombre que se busca es el fijo: Maps entiende mejor el nombre local que la
-     traducción. */
-  const q = it.m || ((it.a ? FIJO(it.n) + ', ' + it.a : FIJO(it.n)) + (it._city.maps ? ', ' + it._city.maps : ''));
-  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(mapsQuery(it));
 }
 function revUrl(it) {
   return 'https://www.tripadvisor.com/Search?q=' + encodeURIComponent(FIJO(it.n) + ' ' + (it._city.maps || ''));
@@ -267,6 +289,7 @@ function itemHTML(it) {
 
   const done = visited.has(it._id);
   const links = [`<a href="${esc(mapsUrl(it))}" target="_blank" rel="noopener">${ICON.pin}${esc(it.ruta ? ui('ruta') : ui('mapa'))}</a>`];
+  if (it._city.auto && !it.ruta) links.push(`<a href="${esc(wazeUrl(it))}" target="_blank" rel="noopener">${ICON.nav}${esc(ui('waze'))}</a>`);
   if (it.w) links.push(`<a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}${esc(ui('web'))}</a>`);
   if (REVIEWABLE[it.t]) links.push(`<a href="${esc(revUrl(it))}" target="_blank" rel="noopener">${ICON.star}${esc(ui('resenas'))}</a>`);
   return `<div class="item${done ? ' done' : ''}" data-id="${esc(it._id)}">
@@ -309,6 +332,39 @@ function legsHTML(list) {
   return `<div class="legs">${cabeza}${filas}<button class="legs-reset" data-legreset="1">${esc(ui('tramosReset'))}</button></div>`;
 }
 
+/* ---------- el plan, un dia por vez ---------- */
+/* La guia se lee parada en la calle, asi que el plan abre en el dia de hoy y no
+   en los cinco juntos. Los chips dejan ir al dia que viene o volver al que quedo
+   a medias, y el ultimo muestra el capitulo entero, como estaba antes. */
+function diasHTML(list) {
+  const hoy = hoyISO();
+  /* un dia puede abarcar varios, como la semana de trabajo de Sevilla: entonces
+     lleva d2 y la fecha de hoy tiene que caer entre las dos. */
+  const esHoy = x => x.d <= hoy && hoy <= (x.d2 || x.d);
+  /* el dia de hoy; si hoy no es ninguno, el primero que todavia no paso, que es
+     el que viene; y si ya pasaron todos, el ultimo. */
+  const porFecha = () => {
+    const i = list.findIndex(esHoy);
+    if (i >= 0) return i;
+    const j = list.findIndex(x => x.d > hoy);
+    return j >= 0 ? j : list.length - 1;
+  };
+  const sel = dia === 'todos' ? 'todos' : (dia == null ? porFecha() : dia);
+
+  const chips = list.map((l, i) =>
+    `<button data-dia="${i}" aria-selected="${sel === i}"${esHoy(l) ? ' data-hoy="1"' : ''}`
+    + ` aria-label="${esc(ui('verDia')(T(l.t)))}">${esc(T(l.w))}</button>`).join('')
+    + `<button data-dia="todos" aria-selected="${sel === 'todos'}">${esc(ui('todosDias'))}</button>`;
+
+  const uno = l => `<h3 class="diatit">${esc(T(l.t))}`
+    + (esHoy(l) ? `<span class="diahoy">${esc(ui('hoy'))}</span>` : '')
+    + `</h3><div class="prose">${T(l.html)}</div>`;
+
+  return `<div class="dias"><div class="diasrail">${chips}</div>`
+    + (sel === 'todos' ? list.map(uno).join('') : uno(list[sel]))
+    + `</div>`;
+}
+
 /* ---------- el cuadro de frases ---------- */
 /* Una fila por frase: como se escribe, como se dice y que quiere decir. La
    columna del medio es la que hace que sirva parado en un mostrador. */
@@ -347,6 +403,12 @@ function cityHTML(c) {
   if (items.length) h += `<div class="toolrow pegada"><button data-all="open">${esc(ui('abrir'))}</button><button data-all="close">${esc(ui('cerrar'))}</button></div>`;
 
   c.sections.forEach((sec, i) => {
+    if (sec.dias) {
+      if (filtering()) return;
+      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(T(sec.s))}</h2></summary>
+        <div class="body">${diasHTML(sec.dias)}</div></details>`;
+      return;
+    }
     if (sec.legs || sec.frases) {
       if (filtering()) return;
       const cuadro = sec.legs ? legsHTML(sec.legs) : frasesHTML(sec.frases);
@@ -442,6 +504,16 @@ $('#view').addEventListener('click', e => {
         cnt.textContent = rows.filter(r => r.classList.contains('done')).length + '/' + rows.length;
       }
     }
+    return;
+  }
+  const chip = e.target.closest('[data-dia]');
+  if (chip) {
+    dia = chip.dataset.dia === 'todos' ? 'todos' : Number(chip.dataset.dia);
+    /* se repinta solo el bloque del plan. Repintar la ciudad entera cerraria las
+       secciones que quien lee dejo abiertas, y es lo que mas molesta. */
+    const caja = chip.closest('.dias');
+    const sec = (CITIES.find(x => x.id === current) || CITIES[0]).sections.find(s => s.dias);
+    if (caja && sec) caja.outerHTML = diasHTML(sec.dias);
     return;
   }
   const legtick = e.target.closest('.legtick');

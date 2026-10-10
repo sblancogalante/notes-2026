@@ -1,6 +1,7 @@
 {
   id:'cin', nav:'Cinque Terre', name:'Cinque Terre', plate:'La Spezia',
   accent:'#0E7490', lt:'#67E8F9', maps:'La Spezia',
+  d1:'2026-10-13', d2:'2026-10-14',
   lede:{es:'Una noche y media tarde, así que hay que elegir. Con ese tiempo son dos pueblos bien hechos y no cinco a las corridas: los cinco se parecen bastante entre sí y verlos todos es la manera segura de no disfrutar ninguno.',
         en:'One night and half an afternoon, so we have to choose. With that much time it is two villages done properly rather than five at a run: the five resemble each other closely, and seeing them all is the surest way to enjoy none of them.'},
   quick:[
@@ -11,8 +12,10 @@
     [{es:'Atardece',en:'Sunset'},{es:'18:55, y ahí está la foto',en:'18:55, and that is the photograph'}]
   ],
   sections:[
-  {s:{es:'El plan de la media tarde',en:'The half afternoon plan'}, k:'plan', html:{es:`
-      <h3>Martes 13: llegar, soltar todo y salir</h3>
+  {s:{es:'El plan de la media tarde',en:'The half afternoon plan'}, k:'plan', dias:[
+    {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'},
+     t:{es:'Martes 13: llegar, soltar todo y salir',en:'Tuesday the 13th: arrive, drop everything and get out'},
+     html:{es:`
       <ul>
         <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Primero <b>devolver el auto</b>, después valijas en el alojamiento, y salir con la mochila y nada más. A Cinque Terre no se va con valijas: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
         <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
@@ -20,13 +23,7 @@
         <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
         <li>El sol se pone 18:55: estar en Manarola desde las 17 para subir, tomar algo y esperar la luz. Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</li>
       </ul>
-      <h3>Miércoles 14: a Módena</h3>
-      <ul>
-        <li>El tren a Módena lleva unas tres horas, casi siempre con un cambio en Parma. Comprarlo con anticipación en la app de Trenitalia y salir temprano.</li>
-        <li>Con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Módena, así que mejor no forzar.</li>
-      </ul>
     `, en:`
-      <h3>Tuesday the 13th: arrive, drop everything and get out</h3>
       <ul>
         <li>We reach La Spezia around 11 from San Gimignano. First <b>hand back the car</b>, then bags at the apartment, and out with a backpack and nothing else. You do not go to Cinque Terre with suitcases: short platforms, full trains and villages made entirely of stairs.</li>
         <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five villages in under twenty minutes. The idea is to catch the first one around midday.</li>
@@ -34,12 +31,24 @@
         <li><b>Then Manarola</b>, ten minutes on by train, which is where we want to be at sunset. That is where <b>Nessun Dorma</b> is, and a hundred metres on the <b>Punta Bonfiglio</b> viewpoint, free, the source of the postcard of coloured houses on the cliff.</li>
         <li>The sun sets at 18:55: be in Manarola from 17:00 to climb up, have a drink and wait for the light. Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</li>
       </ul>
-      <h3>Wednesday the 14th: on to Modena</h3>
+    `}},
+
+    {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
+     t:{es:'Miércoles 14: a Módena',en:'Wednesday the 14th: on to Modena'},
+     html:{es:`
+      <ul>
+        <li>El tren a Módena lleva unas tres horas, casi siempre con un cambio en Parma. Comprarlo con anticipación en la app de Trenitalia y salir temprano.</li>
+        <li>Con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Módena, así que mejor no forzar.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>The train to Modena takes about three hours, almost always with a change at Parma. Buy it ahead on the Trenitalia app and leave early.</li>
         <li>If there is appetite for it, La Spezia has a pleasant seafront for half an hour’s walk before the station, and the Piazza Cavour market in the morning. But the point of the day is in Modena, so better not to push it.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Alba Rooms, La Spezia',

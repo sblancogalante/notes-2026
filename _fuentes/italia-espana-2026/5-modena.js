@@ -3,6 +3,7 @@
   nav:{es:'Módena',en:'Modena'},
   name:{es:'Módena',en:'Modena'},
   plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena',
+  d1:'2026-10-14', d2:'2026-10-14',
   lede:{es:'Un día de paso entre La Spezia y Milán, con un objetivo claro. La pregunta no es si vamos a un museo Ferrari, es a cuál de los dos, y la respuesta depende de a qué hora llegamos y con cuántas valijas.',
         en:'A day in transit between La Spezia and Milan, with one clear objective. The question is not whether we go to a Ferrari museum but which of the two, and the answer depends on what time we arrive and how many bags we have.'},
   quick:[

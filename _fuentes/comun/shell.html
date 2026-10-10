@@ -35,12 +35,14 @@ __PALETA__
 
 /* el acento de ciudad se usa como fondo (--city) o como texto (--city-on-bg).
    en oscuro, el texto pasa a la variante pastel para que siga leyendose. */
-#view,.rgroup{--city-on-bg:var(--city)}
+#view,.rail,.rgroup{--city-on-bg:var(--city)}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) #view,
+  :root:not([data-theme="light"]) .rail,
   :root:not([data-theme="light"]) .rgroup{--city-on-bg:var(--city-lt)}
 }
 :root[data-theme="dark"] #view,
+:root[data-theme="dark"] .rail,
 :root[data-theme="dark"] .rgroup{--city-on-bg:var(--city-lt)}
 
 *{box-sizing:border-box}
@@ -98,6 +100,11 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .rail button:hover{color:var(--ink)}
 /* destino sin confirmar: contorno punteado, sin mover el pastilla de sitio */
 .rail button[data-opt]{outline:1px dashed var(--line-2);outline-offset:-1px}
+/* el capitulo que toca hoy, para volver a el de un toque desde cualquier otro */
+.rail button[data-hoy]::before{content:"";display:inline-block;width:.3rem;height:.3rem;
+  border-radius:50%;background:var(--city-on-bg,var(--accent));margin-right:.34rem;
+  vertical-align:.1em}
+.rail button[data-hoy][aria-selected="true"]::before{background:currentColor}
 .rail button[aria-selected="true"]{color:#fff;background:var(--city,var(--accent))}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) .rail button[aria-selected="true"]{
@@ -105,6 +112,36 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 :root[data-theme="dark"] .rail button[aria-selected="true"]{
   color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+
+/* el plan, un dia por vez: una fila de chips y abajo el dia elegido. Abre en el
+   de hoy, que lleva un punto, y el ultimo chip muestra el capitulo entero. */
+.dias{margin:.1rem 0 .2rem}
+.diasrail{display:flex;gap:.3rem;overflow-x:auto;scrollbar-width:none;padding:0 0 .95rem}
+.diasrail::-webkit-scrollbar{display:none}
+.diasrail button{flex:none;font-family:var(--body);font-size:.7rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:.3rem .72rem;
+  font-variant-numeric:tabular-nums;transition:background .15s,border-color .15s,color .15s}
+.diasrail button:hover{border-color:var(--line-2);color:var(--ink)}
+.diasrail button[data-hoy]::before{content:"";display:inline-block;width:.33rem;height:.33rem;
+  border-radius:50%;background:var(--city-on-bg,var(--accent));margin-right:.36rem;
+  vertical-align:.08em}
+.diasrail button[aria-selected="true"]{color:#fff;background:var(--city,var(--accent));
+  border-color:var(--city,var(--accent))}
+.diasrail button[aria-selected="true"][data-hoy]::before{background:currentColor}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .diasrail button[aria-selected="true"]{color:#1B141B;
+    background:var(--city-lt,var(--accent-lt));border-color:var(--city-lt,var(--accent-lt))}
+}
+:root[data-theme="dark"] .diasrail button[aria-selected="true"]{color:#1B141B;
+  background:var(--city-lt,var(--accent-lt));border-color:var(--city-lt,var(--accent-lt))}
+.diatit{font-family:var(--display);font-size:1.15rem;font-weight:600;letter-spacing:.002em;
+  color:var(--ink);margin:.1rem 0 .55rem;display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:.5rem}
+.dias .diatit:not(:first-of-type){margin-top:1.7rem}
+.diahoy{font-family:var(--body);font-size:.57rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;padding:.14rem .45rem;border-radius:999px;
+  background:var(--city-on-bg,var(--accent));color:var(--surface)}
 
 /* filtros */
 .filters{padding:.2rem var(--pad) .8rem;display:none;flex-wrap:wrap;gap:.35rem;align-items:center}
@@ -334,6 +371,7 @@ __EXTRA__
       <p>Háganlo desde casa con wifi, antes de viajar. La primera vez se baja entera y tarda unos segundos.</p>
       <h2>Notas</h2>
       <p>Los horarios, precios y fechas se verificaron en agosto de 2026 y son de la temporada 2026-2027. Las carteleras de conciertos de noviembre y diciembre todavía se están armando, así que en cada ciudad dejamos el link a la cartelera oficial para mirar cerca de la fecha. Lo que dice <em>previsto</em> es porque todavía no estaba confirmado.</p>
+      <p>La guía abre sola en la ciudad y en el día de hoy. Arriba del plan hay una fila de botones con los días: el de hoy lleva un punto, se puede ir a cualquier otro para revisar lo que quedó sin hacer o lo que viene, y el último los muestra todos juntos. Los datos de la Toscana se volvieron a verificar el 10 de octubre de 2026, ya en viaje.</p>
       <p>Lo que marquen como visitado se guarda solo en ese teléfono. Si abren la guía en los dos teléfonos, cada una lleva su propia cuenta.</p>
       <p>El idioma se cambia con el botón de arriba, al lado del título. Lo elegido se recuerda en ese teléfono, y lo marcado como visitado es el mismo en los dos idiomas.</p>
     </div>
@@ -348,6 +386,7 @@ __EXTRA__
       <p>Do it at home on wifi, before travelling. The first load pulls the whole guide down and takes a few seconds.</p>
       <h2>Notes</h2>
       <p>Opening times, prices and dates were checked in August 2026 and belong to the 2026-2027 season. The November and December concert listings are still being put together, so each city keeps a link to the official listings to check closer to the date. Anything marked <em>planned</em> was not confirmed yet.</p>
+      <p>The guide opens by itself on today's city and today's day. Above the plan there is a row of buttons for the days: today carries a dot, you can jump to any other to check what is still undone or what is coming, and the last one shows them all together. The Tuscany details were checked again on 10 October 2026, already on the road.</p>
       <p>Whatever you tick off as visited is saved on that phone only. Open the guide on two phones and each one keeps its own count.</p>
       <p>Switch languages with the button at the top, next to the title. The choice is remembered on that phone, and what you ticked off is the same in both languages.</p>
     </div>

@@ -3,6 +3,7 @@
   nav:{es:'Sevilla',en:'Seville'},
   name:{es:'Sevilla',en:'Seville'},
   plate:'Tussam', accent:'#7E22CE', lt:'#D8B4FE', maps:'Sevilla',
+  d1:'2026-10-18', d2:'2026-10-25',
   lede:{es:'Una semana entera y con otra lógica: Vale en la universidad de lunes a viernes, yo trabajando desde el apartamento, y las tardes y el fin de semana para los dos. Es la parte del viaje donde conviene vivir la ciudad en vez de recorrerla.',
         en:'A whole week, and running on a different logic: Vale at the university Monday to Friday, me working from the apartment, and the evenings and weekend for the two of us. This is the part of the trip where it pays to live in the city rather than tour it.'},
   quick:[
@@ -13,14 +14,26 @@
     [{es:'Volvemos',en:'We fly home'},{es:'Dom 25 de noche, vía Madrid',en:'Sun 25 at night, via Madrid'}]
   ],
   sections:[
-  {s:{es:'El plan de la semana',en:'The week’s plan'}, k:'plan', html:{es:`
-      <h3>Domingo 18: llegada y primera vuelta</h3>
+  {s:{es:'El plan de la semana',en:'The week’s plan'}, k:'plan', dias:[
+    {d:'2026-10-18', w:{es:'Dom 18',en:'Sun 18'},
+     t:{es:'Domingo 18: llegada y primera vuelta',en:'Sunday the 18th: arrival and a first loop'},
+     html:{es:`
       <ul>
         <li>Check in en el apartamento y a caminar sin plan. Lo práctico primero: el supermercado más cercano, cómo funciona la casa con cinco personas adentro, y la compra del desayuno de la semana.</li>
         <li>Primera vuelta por el centro con la última luz, la mejor hora de Sevilla: la <b>Catedral</b> y la <b>Giralda</b> por fuera, el <b>Barrio de Santa Cruz</b> y una cena de tapas temprana, que el domingo muchas cocinas cierran a las once.</li>
         <li>Lo más importante del día: <b>medir el camino a Loyola</b>. Con la dirección exacta, ver en Google Maps cuánto lleva a la hora en que Vale tiene que estar el lunes, más un margen. Si la sede está en el campus de Dos Hermanas, el viaje no es corto y hay que saberlo hoy.</li>
       </ul>
-      <h3>Lunes a viernes: la semana partida</h3>
+    `, en:`
+      <ul>
+        <li>Check in at the apartment and out walking with no plan. The practical things first: the nearest supermarket, how the flat works with five people in it, and the week’s breakfast shopping.</li>
+        <li>A first loop through the centre in the last light, which is Seville’s best hour: the <b>Cathedral</b> and the <b>Giralda</b> from outside, the <b>Santa Cruz quarter</b>, and an early tapas dinner, since on Sunday many kitchens shut at eleven.</li>
+        <li>The most important thing of the day: <b>time the journey to Loyola</b>. With the exact address, check in Google Maps how long it takes at the hour Vale has to be there on Monday, plus a margin. If the venue is the Dos Hermanas campus, the journey is not short and we need to know that today.</li>
+      </ul>
+    `}},
+
+    {d:'2026-10-19', d2:'2026-10-23', w:{es:'Lun a vie',en:'Mon to Fri'},
+     t:{es:'Lunes a viernes: la semana partida',en:'Monday to Friday: the split week'},
+     html:{es:`
       <ul>
         <li>Las mañanas, cada uno con lo suyo: Vale en la universidad, yo trabajando. Uruguay está cinco horas atrás, así que la mañana española es tiempo tranquilo antes de que arranque el día allá.</li>
         <li>Las tardes, una cosa por día sin apurar, aprovechando que a las seis Sevilla recién se despierta y anochece a las 19:35:</li>
@@ -33,25 +46,7 @@
         <li><b>Viernes:</b> el <b>Real Alcázar</b> a las 16:30 y, saliendo, flamenco.</li>
       </ul>
       <p>Las noches son de tapeo, que acá no es una comida sino un recorrido: algo para tomar y una tapa en un bar, se paga, y al siguiente. Tres o cuatro bares es una cena.</p>
-      <h3>Sábado 24: el día largo</h3>
-      <ul>
-        <li>El único día completo de los dos juntos. Dos opciones, las dos buenas.</li>
-        <li>La ambiciosa: <b>Córdoba</b> en el AVE, cuarenta y cinco minutos, para ver la Mezquita, de las cosas más impresionantes de España. Temprano de ida, de noche de vuelta.</li>
-        <li>La que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</li>
-      </ul>
-      <h3>Domingo 25: el último día</h3>
-      <ul>
-        <li>El cambio de hora de madrugada nos da una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río, valijas a media tarde.</li>
-        <li>Dos avisos: el domingo cierran muchos negocios y varios restaurantes, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</li>
-      </ul>
     `, en:`
-      <h3>Sunday the 18th: arrival and a first loop</h3>
-      <ul>
-        <li>Check in at the apartment and out walking with no plan. The practical things first: the nearest supermarket, how the flat works with five people in it, and the week’s breakfast shopping.</li>
-        <li>A first loop through the centre in the last light, which is Seville’s best hour: the <b>Cathedral</b> and the <b>Giralda</b> from outside, the <b>Santa Cruz quarter</b>, and an early tapas dinner, since on Sunday many kitchens shut at eleven.</li>
-        <li>The most important thing of the day: <b>time the journey to Loyola</b>. With the exact address, check in Google Maps how long it takes at the hour Vale has to be there on Monday, plus a margin. If the venue is the Dos Hermanas campus, the journey is not short and we need to know that today.</li>
-      </ul>
-      <h3>Monday to Friday: the split week</h3>
       <ul>
         <li>Mornings, each to our own: Vale at the university, me working. Uruguay is five hours behind, so the Spanish morning is quiet time before the day starts over there.</li>
         <li>Evenings, one thing a day without rushing, taking advantage of a city that only wakes up at six and goes dark at 19:35:</li>
@@ -64,18 +59,40 @@
         <li><b>Friday:</b> the <b>Real Alcázar</b> at 16:30 and, on the way out, flamenco.</li>
       </ul>
       <p>Evenings are for tapeo, which here is not a meal but a circuit: something to drink and a tapa in one bar, you pay, and on to the next. Three or four bars is a dinner.</p>
-      <h3>Saturday the 24th: the long day</h3>
+    `}},
+
+    {d:'2026-10-24', w:{es:'Sáb 24',en:'Sat 24'},
+     t:{es:'Sábado 24: el día largo',en:'Saturday the 24th: the long day'},
+     html:{es:`
+      <ul>
+        <li>El único día completo de los dos juntos. Dos opciones, las dos buenas.</li>
+        <li>La ambiciosa: <b>Córdoba</b> en el AVE, cuarenta y cinco minutos, para ver la Mezquita, de las cosas más impresionantes de España. Temprano de ida, de noche de vuelta.</li>
+        <li>La que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</li>
+      </ul>
+    `, en:`
       <ul>
         <li>The only full day the two of us have together. Two options, both good.</li>
         <li>The ambitious one: <b>Córdoba</b> on the AVE, forty five minutes, to see the Mezquita, one of the most striking things in Spain. Out early, back after dark.</li>
         <li>The one I would recommend if the week has been heavy: stay put. A boat trip on the <b>Guadalquivir</b>, the <b>Parque de María Luisa</b> taken slowly, the <b>Casa de Pilatos</b>, which almost nobody visits and is beautiful, and a long dinner without watching the clock.</li>
       </ul>
-      <h3>Sunday the 25th: the last day</h3>
+    `}},
+
+    {d:'2026-10-25', w:{es:'Dom 25',en:'Sun 25'},
+     t:{es:'Domingo 25: el último día',en:'Sunday the 25th: the last day'},
+     html:{es:`
+      <ul>
+        <li>El cambio de hora de madrugada nos da una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río, valijas a media tarde.</li>
+        <li>Dos avisos: el domingo cierran muchos negocios y varios restaurantes, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>The clock change before dawn gives us an extra hour of sleep. The flight is at night, so the day is intact: the Sunday vermouth, a last walk by the river, bags mid afternoon.</li>
         <li>Two warnings: on Sunday many shops and several restaurants close, and Seville airport is small but check in for a flight with an international connection wants a margin.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse y vivir acá',en:'Getting around and living here'}, k:'mover', items:[
     {nota:1,

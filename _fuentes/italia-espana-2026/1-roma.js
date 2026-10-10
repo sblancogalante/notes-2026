@@ -3,6 +3,7 @@
   nav:{es:'Roma',en:'Rome'},
   name:{es:'Roma',en:'Rome'},
   plate:'ATAC', accent:'#A16207', lt:'#FDE047', maps:'Roma',
+  d1:'2026-10-04', d2:'2026-10-08',
   lede:{es:'Cuatro días completos y el hotel en el mejor lugar posible, a metros de Piazza Navona. Casi todo el plan entra caminando, así que el orden importa más que el transporte.',
         en:'Four full days and the hotel in the best possible spot, metres from Piazza Navona. Almost the whole plan fits on foot, so the order matters more than the transport.'},
   quick:[
@@ -13,8 +14,10 @@
     [{es:'Salimos',en:'We leave'},{es:'Jue 8, tren 9:20 de Termini',en:'Thu 8, 9:20 train from Termini'}]
   ],
   sections:[
-  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', html:{es:`
-      <h3>Domingo 4: llegada y el centro barroco</h3>
+  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', dias:[
+    {d:'2026-10-04', w:{es:'Dom 4',en:'Sun 4'},
+     t:{es:'Domingo 4: llegada y el centro barroco',en:'Sunday the 4th: arrival and the baroque centre'},
+     html:{es:`
       <ul>
         <li>Valijas en el Four Rivers y almuerzo liviano y cerca: <b>Supplizio</b>, a siete minutos, unos supplì de pie y seguimos.</li>
         <li>El circuito clásico, todo en la puerta: <b>Piazza Navona</b> y la fuente de los Cuatro Ríos, que le da nombre al hotel; el <b>Panteón</b>; la <b>Piazza della Minerva</b> con el elefantito de Bernini; y de ahí al río, al <b>Ponte Sant’Angelo</b> y el castillo. Quince minutos de punta a punta.</li>
@@ -22,31 +25,7 @@
         <li>Cena en <b>La Matriciana dal 1870</b>, a pocos minutos de la Repubblica. Reservar sí o sí, y siendo el día del vuelo, hora temprana: 19:30 o 20:00.</li>
       </ul>
       <p><b>Ojo con el Ghetto este día.</b> El domingo 4 cae en Simjá Torá, así que las panaderías y los restaurantes kosher del Portico d’Ottavia, Boccione incluido, lo más probable es que estén cerrados. Por eso el Ghetto queda para el miércoles.</p>
-      <h3>Lunes 5: Trevi al amanecer, Trastevere y el Aventino</h3>
-      <ul>
-        <li><b>Fontana di Trevi</b> a las 7, con el sol saliendo 7:15. Es la única forma de tener la foto sin gente.</li>
-        <li>El <b>Coliseo</b> por fuera de paso, con la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio, gratis las dos. La visita con arena, Foro y Palatino es el miércoles.</li>
-        <li>Mediodía en <b>Trastevere</b>, todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre.</li>
-        <li>De Trastevere al <b>Aventino</b>, en este orden para no subir y bajar la colina dos veces: <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> a dos minutos para el atardecer, y recién ahí el <b>Roseto Comunale</b> y el <b>Circo Massimo</b>, al pie.</li>
-        <li>Cena en el centro, en <b>Renato e Luisa</b>, chico y de reservar con días.</li>
-      </ul>
-      <h3>Martes 6: el Vaticano y la tarde libre</h3>
-      <ul>
-        <li>Entrada a las 8:00, el mejor turno. Museos y basílica en unas cuatro horas; a las 12:30 salimos a almorzar por Prati. La logística fina está en la sección del Vaticano.</li>
-        <li>Tarde liviana a propósito: Castel Sant’Angelo por dentro está a diez minutos de la basílica, o una siesta corta y salir de nuevo a las cinco.</li>
-        <li>Cena en <b>Al 384</b>, la pizzería lejana. La tarde tranquila es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</li>
-      </ul>
-      <h3>Miércoles 7: Coliseo, Foro y el Ghetto</h3>
-      <ul>
-        <li><b>8:30, la visita de grupo reducido al Coliseo</b>, con arena, Foro y Palatino en el mismo turno. Punto de encuentro 8:15. Se entra por el Coliseo, se baja a la arena, y después Palatino y Foro saliendo hacia los Fori Imperiali, cuesta abajo. Termina a media mañana.</li>
-        <li>Almuerzo en el <b>Ghetto</b>, a quince minutos: sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, a tres cuadras. Hoy funciona normal.</li>
-        <li>Tarde según el cuerpo: <b>Galleria Borghese</b> si hay turno, <b>Basílica de San Clemente</b> con sus tres niveles enterrados, o el <b>Ghetto y la Isola Tiberina</b> con calma.</li>
-        <li>Última cena en <b>Roscioli</b>, a ocho minutos del hotel, con parada previa en <b>Dar Filettaro</b> por un filete de bacalao. Cerca y sin trasnochar, que al otro día hay tren.</li>
-      </ul>
-      <h3>Jueves 8: a Florencia</h3>
-      <p>Tren 9:20 desde Termini. Del hotel a Termini, veinte minutos en taxi con valijas: salimos 8:15 y llegamos con margen. La vía se anuncia con poca anticipación, así que mejor esperar dentro de la estación.</p>
     `, en:`
-      <h3>Sunday the 4th: arrival and the baroque centre</h3>
       <ul>
         <li>Bags at the Four Rivers and a light lunch close by: <b>Supplizio</b>, seven minutes away, a few supplì standing up and on we go.</li>
         <li>The classic circuit, all right outside the door: <b>Piazza Navona</b> and the Fountain of the Four Rivers, which gives the hotel its name; the <b>Pantheon</b>; <b>Piazza della Minerva</b> with Bernini’s little elephant; and from there to the river, to <b>Ponte Sant’Angelo</b> and the castle. Fifteen minutes end to end.</li>
@@ -54,7 +33,19 @@
         <li>Dinner at <b>La Matriciana dal 1870</b>, a few minutes from the Repubblica. Book it without fail, and being flight day, make it early: 19:30 or 20:00.</li>
       </ul>
       <p><b>Careful with the Ghetto today.</b> Sunday the 4th falls on Simchat Torah, so the kosher bakeries and restaurants on Portico d’Ottavia, Boccione included, are most likely closed. That is why the Ghetto is saved for Wednesday.</p>
-      <h3>Monday the 5th: Trevi at dawn, Trastevere and the Aventine</h3>
+    `}},
+
+    {d:'2026-10-05', w:{es:'Lun 5',en:'Mon 5'},
+     t:{es:'Lunes 5: Trevi al amanecer, Trastevere y el Aventino',en:'Monday the 5th: Trevi at dawn, Trastevere and the Aventine'},
+     html:{es:`
+      <ul>
+        <li><b>Fontana di Trevi</b> a las 7, con el sol saliendo 7:15. Es la única forma de tener la foto sin gente.</li>
+        <li>El <b>Coliseo</b> por fuera de paso, con la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio, gratis las dos. La visita con arena, Foro y Palatino es el miércoles.</li>
+        <li>Mediodía en <b>Trastevere</b>, todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre.</li>
+        <li>De Trastevere al <b>Aventino</b>, en este orden para no subir y bajar la colina dos veces: <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> a dos minutos para el atardecer, y recién ahí el <b>Roseto Comunale</b> y el <b>Circo Massimo</b>, al pie.</li>
+        <li>Cena en el centro, en <b>Renato e Luisa</b>, chico y de reservar con días.</li>
+      </ul>
+    `, en:`
       <ul>
         <li><b>Trevi Fountain</b> at 7, with sunrise at 7:15. It is the only way to get the photograph without the crowd.</li>
         <li>The <b>Colosseum</b> from outside in passing, with the view from <b>Via dei Fori Imperiali</b> and the Campidoglio terrace, both free. The visit with arena, Forum and Palatine is Wednesday.</li>
@@ -62,22 +53,52 @@
         <li>From Trastevere to the <b>Aventine</b>, in this order so as not to climb the hill twice: the <b>keyhole</b> at Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> two minutes away for sunset, and only then the <b>Roseto Comunale</b> and the <b>Circo Massimo</b>, at the foot.</li>
         <li>Dinner back in the centre at <b>Renato e Luisa</b>, small and needing a booking days ahead.</li>
       </ul>
-      <h3>Tuesday the 6th: the Vatican and a free afternoon</h3>
+    `}},
+
+    {d:'2026-10-06', w:{es:'Mar 6',en:'Tue 6'},
+     t:{es:'Martes 6: el Vaticano y la tarde libre',en:'Tuesday the 6th: the Vatican and a free afternoon'},
+     html:{es:`
+      <ul>
+        <li>Entrada a las 8:00, el mejor turno. Museos y basílica en unas cuatro horas; a las 12:30 salimos a almorzar por Prati. La logística fina está en la sección del Vaticano.</li>
+        <li>Tarde liviana a propósito: Castel Sant’Angelo por dentro está a diez minutos de la basílica, o una siesta corta y salir de nuevo a las cinco.</li>
+        <li>Cena en <b>Al 384</b>, la pizzería lejana. La tarde tranquila es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</li>
+      </ul>
+    `, en:`
       <ul>
         <li>Entry at 8:00, the best slot. Museums and basilica in about four hours; by 12:30 we are out and looking for lunch around Prati. The fine logistics are in the Vatican section.</li>
         <li>A deliberately light afternoon: Castel Sant’Angelo inside is ten minutes from the basilica, or a short nap and back out at five.</li>
         <li>Dinner at <b>Al 384</b>, the far away pizzeria. A quiet afternoon is the day that best absorbs a taxi there and back. Book early.</li>
       </ul>
-      <h3>Wednesday the 7th: Colosseum, Forum and the Ghetto</h3>
+    `}},
+
+    {d:'2026-10-07', w:{es:'Mié 7',en:'Wed 7'},
+     t:{es:'Miércoles 7: Coliseo, Foro y el Ghetto',en:'Wednesday the 7th: Colosseum, Forum and the Ghetto'},
+     html:{es:`
+      <ul>
+        <li><b>8:30, la visita de grupo reducido al Coliseo</b>, con arena, Foro y Palatino en el mismo turno. Punto de encuentro 8:15. Se entra por el Coliseo, se baja a la arena, y después Palatino y Foro saliendo hacia los Fori Imperiali, cuesta abajo. Termina a media mañana.</li>
+        <li>Almuerzo en el <b>Ghetto</b>, a quince minutos: sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, a tres cuadras. Hoy funciona normal.</li>
+        <li>Tarde según el cuerpo: <b>Galleria Borghese</b> si hay turno, <b>Basílica de San Clemente</b> con sus tres niveles enterrados, o el <b>Ghetto y la Isola Tiberina</b> con calma.</li>
+        <li>Última cena en <b>Roscioli</b>, a ocho minutos del hotel, con parada previa en <b>Dar Filettaro</b> por un filete de bacalao. Cerca y sin trasnochar, que al otro día hay tren.</li>
+      </ul>
+    `, en:`
       <ul>
         <li><b>8:30, the small group Colosseum tour</b>, with arena, Forum and Palatine in one slot. Meeting point 8:15. In through the Colosseum, down onto the arena, then the Palatine and the Forum, coming out towards the Fori Imperiali, all downhill. It finishes mid morning.</li>
         <li>Lunch in the <b>Ghetto</b>, fifteen minutes away: a pastrami sandwich from <b>Cappuccino Bar</b> on Via Arenula and the ricotta and sour cherry tart from <b>Pasticceria Boccione</b>, three blocks on. Today it is all open as normal.</li>
         <li>Afternoon according to how the legs feel: <b>Galleria Borghese</b> if there is a slot, the <b>Basilica of San Clemente</b> with its three buried levels, or the <b>Ghetto and Isola Tiberina</b> taken slowly.</li>
         <li>Last dinner at <b>Roscioli</b>, eight minutes from the hotel, with a stop beforehand at <b>Dar Filettaro</b> for a fried cod fillet. Close by and no late night, since there is a train in the morning.</li>
       </ul>
-      <h3>Thursday the 8th: on to Florence</h3>
-      <p>9:20 train from Termini. Hotel to Termini is twenty minutes by taxi with bags: leave at 8:15 and arrive with room. The platform goes up at short notice, so better to wait inside the station.</p>
     `}},
+
+    {d:'2026-10-08', w:{es:'Jue 8',en:'Thu 8'},
+     t:{es:'Jueves 8: a Florencia',en:'Thursday the 8th: on to Florence'},
+     html:{es:`
+      <p>Tren 9:20 desde Termini. Del hotel a Termini, veinte minutos en taxi con valijas: salimos 8:15 y llegamos con margen. La vía se anuncia con poca anticipación, así que mejor esperar dentro de la estación.</p>
+    
+    `, en:`
+      <p>9:20 train from Termini. Hotel to Termini is twenty minutes by taxi with bags: leave at 8:15 and arrive with room. The platform goes up at short notice, so better to wait inside the station.</p>
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Four Rivers Hotel, Roma',

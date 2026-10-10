@@ -96,3 +96,11 @@
 .leg.eshoy{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 9%, var(--note-bg))}
 .tablewrap{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 8%, var(--surface-2))}
 .tag{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 12%, var(--surface-2))}
+
+/* El plan por dia toma el color de la ciudad igual que el resto de los
+   recuadros, y el titulo baja un escalon como todos los de Fraunces. */
+.diatit{font-size:1.04rem;letter-spacing:-.004em}
+.diasrail button{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 7%, var(--surface-3));
+  border-color:color-mix(in srgb, var(--city-on-bg,var(--accent)) 26%, var(--line))}
+.diasrail button[aria-selected="true"]{background:var(--city-on-bg,var(--accent));
+  border-color:var(--city-on-bg,var(--accent));color:var(--surface)}

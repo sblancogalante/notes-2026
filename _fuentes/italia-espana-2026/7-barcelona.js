@@ -1,6 +1,7 @@
 {
   id:'bcn', nav:'Barcelona', name:'Barcelona', plate:'TMB',
   accent:'#BE185D', lt:'#F9A8D4', maps:'Barcelona',
+  d1:'2026-10-17', d2:'2026-10-18',
   lede:{es:'Una tarde y una mañana, con una lista corta y una asignatura pendiente: la Fuente Mágica de Montjuïc, que Vale no llegó a ver la vez anterior. Todo el plan está armado alrededor de eso.',
         en:'One afternoon and one morning, with a short list and one piece of unfinished business: the Magic Fountain of Montjuïc, which Vale did not get to see last time. The whole plan is built around that.'},
   quick:[
@@ -11,8 +12,10 @@
     [{es:'Ojo',en:'Watch out'},{es:'Carteristas en Ramblas y metro',en:'Pickpockets on the Ramblas and the metro'}]
   ],
   sections:[
-  {s:{es:'El plan de la tarde y la mañana',en:'The afternoon and morning plan'}, k:'plan', html:{es:`
-      <h3>Sábado 17: el centro y la fuente</h3>
+  {s:{es:'El plan de la tarde y la mañana',en:'The afternoon and morning plan'}, k:'plan', dias:[
+    {d:'2026-10-17', w:{es:'Sáb 17',en:'Sat 17'},
+     t:{es:'Sábado 17: el centro y la fuente',en:'Saturday the 17th: the centre and the fountain'},
+     html:{es:`
       <ul>
         <li>Valijas en el <b>Continental Palacete</b> y a caminar. El hotel está sobre la Rambla de Catalunya, la versión tranquila y arbolada de la Rambla famosa, con gente de Barcelona en vez de turistas.</li>
         <li>Un desvío de dos cuadras para ver por fuera la <b>Casa Batlló</b> y <b>La Pedrera</b> en el Passeig de Gràcia, y seguir hasta la <b>Plaça Catalunya</b>.</li>
@@ -20,14 +23,7 @@
         <li>A las 19:30, metro a <b>Plaça d’Espanya</b> y subida a pie hacia el Museo Nacional. La <b>Fuente Mágica</b> arranca cuando ya oscureció, hay tiempo de sobra para acomodarse en la escalinata. Es gratis.</li>
         <li>La cena cae perfecta: bajando de Montjuïc, a diez minutos, <b>Poble Sec</b> y su calle de pinchos. Sin cruzar la ciudad de vuelta y sin reservar.</li>
       </ul>
-      <h3>Domingo 18: la Sagrada Familia y el mar</h3>
-      <ul>
-        <li>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora para verla y para la foto. La vuelta completa al templo son media hora.</li>
-        <li>Metro a la <b>Barceloneta</b>: calles angostas, paseo marítimo y playa. Un vermut a media mañana en una terraza mirando el mar es el plan de un domingo de octubre.</li>
-        <li>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</li>
-      </ul>
     `, en:`
-      <h3>Saturday the 17th: the centre and the fountain</h3>
       <ul>
         <li>Bags at the <b>Continental Palacete</b> and out walking. The hotel is on Rambla de Catalunya, the calm tree lined version of the famous Rambla, with people from Barcelona on it instead of tourists.</li>
         <li>A two block detour to see <b>Casa Batlló</b> and <b>La Pedrera</b> from outside on Passeig de Gràcia, then on to <b>Plaça Catalunya</b>.</li>
@@ -35,13 +31,26 @@
         <li>At 19:30, metro to <b>Plaça d’Espanya</b> and up on foot towards the National Museum. The <b>Magic Fountain</b> starts once it is properly dark, with plenty of time to settle on the steps. It is free.</li>
         <li>Dinner falls perfectly: down off Montjuïc, ten minutes away, <b>Poble Sec</b> and its street of pinchos. No crossing the city again and no booking.</li>
       </ul>
-      <h3>Sunday the 18th: the Sagrada Familia and the sea</h3>
+    `}},
+
+    {d:'2026-10-18', w:{es:'Dom 18',en:'Sun 18'},
+     t:{es:'Domingo 18: la Sagrada Familia y el mar',en:'Sunday the 18th: the Sagrada Familia and the sea'},
+     html:{es:`
+      <ul>
+        <li>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora para verla y para la foto. La vuelta completa al templo son media hora.</li>
+        <li>Metro a la <b>Barceloneta</b>: calles angostas, paseo marítimo y playa. Un vermut a media mañana en una terraza mirando el mar es el plan de un domingo de octubre.</li>
+        <li>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>Early, the <b>Sagrada Familia</b> from outside. The Nativity facade, the east side and the only one Gaudí completed in his lifetime, catches the morning sun: that is the hour to see it and to photograph it. A full lap of the building is half an hour.</li>
         <li>Metro to <b>Barceloneta</b>: narrow streets, seafront walk and beach. A vermouth mid morning on a terrace looking at the sea is the plan for an October Sunday.</li>
         <li>Early lunch and off to the airport, with whatever margin flight IB 5064 to Seville demands.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Hotel Continental Palacete, Barcelona',

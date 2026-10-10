@@ -3,6 +3,7 @@
   nav:{es:'Florencia',en:'Florence'},
   name:{es:'Florencia',en:'Florence'},
   plate:'Firenze', accent:'#9A3412', lt:'#FDBA74', maps:'Firenze',
+  d1:'2026-10-08', d2:'2026-10-09',
   lede:{es:'Una noche sola, así que el plan es la ciudad y no los museos: lo mejor de Florencia se ve caminando y casi todo es gratis. La ciudad entera entra en un cuadrado de veinte minutos de lado, y con una tarde bien usada y una mañana alcanza de sobra.',
         en:'One night only, so the plan is the city rather than the museums: the best of Florence is seen on foot and almost all of it is free. The whole place fits inside a square twenty minutes on a side, and one well used afternoon plus a morning is more than enough.'},
   quick:[
@@ -13,8 +14,10 @@
     [{es:'Ojo',en:'Watch out'},{es:'La ZTL y el auto del viernes',en:'The ZTL and Friday’s car'}]
   ],
   sections:[
-  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', html:{es:`
-      <h3>Jueves 8: llegada, el centro y el atardecer</h3>
+  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', dias:[
+    {d:'2026-10-08', w:{es:'Jue 8',en:'Thu 8'},
+     t:{es:'Jueves 8: llegada, el centro y el atardecer',en:'Thursday the 8th: arrival, the centre and the sunset'},
+     html:{es:`
       <ul>
         <li>El tren de Roma llega a Santa Maria Novella cerca de las 11. Diez minutos a pie hasta el hotel: dejamos las valijas y salimos, sin esperar el check in.</li>
         <li>Almuerzo rápido: <b>All’Antico Vinaio</b> para una schiacciata en la calle, o el <b>Mercato Centrale</b>, que abajo tiene el puesto de lampredotto.</li>
@@ -22,14 +25,7 @@
         <li>Después, <b>Ponte Vecchio</b>, cruce al Oltrarno y subida al <b>Piazzale Michelangelo</b> para el atardecer. El sol se pone 18:55: hay que estar arriba 18:20. Veinticinco minutos a pie desde el puente, o el bus 12.</li>
         <li>Cena en el Oltrarno bajando del Piazzale, el lado del río con menos turistas de noche.</li>
       </ul>
-      <h3>Viernes 9: la plaza del Duomo y el auto</h3>
-      <ul>
-        <li>Temprano, la <b>plaza del Duomo</b>, que a primera hora está casi vacía: la fachada de mármol blanco, verde y rosa, la vuelta completa al edificio y el <b>Baptisterio</b> con las puertas del Paraíso. Entrar a la catedral es gratis y a esa hora la cola es corta. Sin subir a la cúpula: son cuatrocientos escalones y un turno reservado que no vale la pena con el día que tenemos.</li>
-        <li>Desayuno toscano de barra y el último paseo por la <b>Piazza della Repubblica</b> y las calles de atrás del Duomo, que es donde la ciudad se ve sin gente. Después al hotel a buscar las valijas.</li>
-        <li><b>El auto no se retira en el centro.</b> Caminando o en taxi hasta Santa Maria Novella, tranvía T2 al aeropuerto de Peretola con las valijas, retiro ahí y salida directa a San Gimignano por afuera de la ciudad. Veinte minutos de tranvía y una hora larga de manejo. Por qué, en la sección de abajo.</li>
-      </ul>
     `, en:`
-      <h3>Thursday the 8th: arrival, the centre and the sunset</h3>
       <ul>
         <li>The train from Rome reaches Santa Maria Novella around 11. Ten minutes on foot to the hotel: drop the bags and head out, without waiting for check in.</li>
         <li>Quick lunch: <b>All’Antico Vinaio</b> for a schiacciata eaten in the street, or the <b>Mercato Centrale</b>, which has the lampredotto stall downstairs.</li>
@@ -37,13 +33,26 @@
         <li>Then <b>Ponte Vecchio</b>, across into the Oltrarno and up to <b>Piazzale Michelangelo</b> for sunset. The sun sets at 18:55: be up there by 18:20. Twenty five minutes on foot from the bridge, or the number 12 bus.</li>
         <li>Dinner in the Oltrarno on the way down from the Piazzale, the side of the river with fewer tourists at night.</li>
       </ul>
-      <h3>Friday the 9th: the Duomo square and the car</h3>
+    `}},
+
+    {d:'2026-10-09', w:{es:'Vie 9',en:'Fri 9'},
+     t:{es:'Viernes 9: la plaza del Duomo y el auto',en:'Friday the 9th: the Duomo square and the car'},
+     html:{es:`
+      <ul>
+        <li>Temprano, la <b>plaza del Duomo</b>, que a primera hora está casi vacía: la fachada de mármol blanco, verde y rosa, la vuelta completa al edificio y el <b>Baptisterio</b> con las puertas del Paraíso. Entrar a la catedral es gratis y a esa hora la cola es corta. Sin subir a la cúpula: son cuatrocientos escalones y un turno reservado que no vale la pena con el día que tenemos.</li>
+        <li>Desayuno toscano de barra y el último paseo por la <b>Piazza della Repubblica</b> y las calles de atrás del Duomo, que es donde la ciudad se ve sin gente. Después al hotel a buscar las valijas.</li>
+        <li><b>El auto no se retira en el centro.</b> Caminando o en taxi hasta Santa Maria Novella, tranvía T2 al aeropuerto de Peretola con las valijas, retiro ahí y salida directa a San Gimignano por afuera de la ciudad. Veinte minutos de tranvía y una hora larga de manejo. Por qué, en la sección de abajo.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>Early, the <b>Duomo square</b>, which at first light is almost empty: the facade in white, green and pink marble, a full lap of the building, and the <b>Baptistery</b> with the Gates of Paradise. Entering the cathedral is free and at that hour the queue is short. We are not climbing the dome: four hundred steps and a separate timed slot that is not worth it on the day we have.</li>
         <li>A Tuscan breakfast at the bar and one last walk through <b>Piazza della Repubblica</b> and the streets behind the Duomo, which is where you see the city without the crowds. Then back to the hotel for the bags.</li>
         <li><b>The car does not get collected in the centre.</b> Walk or short taxi to Santa Maria Novella, the T2 tram to Peretola airport with the bags, pick up there and straight out to San Gimignano around the outside of the city. Twenty minutes of tram and a solid hour of driving. Why, in the section below.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse y el asunto de la ZTL',en:'Getting around, and the ZTL business'}, k:'mover', items:[
     {m:'Duomo View, Firenze',

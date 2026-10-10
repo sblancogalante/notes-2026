@@ -3,6 +3,7 @@
   nav:{es:'Milán',en:'Milan'},
   name:{es:'Milán',en:'Milan'},
   plate:'Metro ATM', accent:'#4338CA', lt:'#A5B4FC', maps:'Milano',
+  d1:'2026-10-14', d2:'2026-10-17',
   lede:{es:'Dos días completos y el hotel en el centro. El viernes se va entero al lago de Como y el jueves alcanza para el Duomo, la Galleria y todo lo que queda alrededor, que está más junto de lo que parece.',
         en:'Two full days and the hotel in the centre. Friday goes entirely to Lake Como, and Thursday is enough for the Duomo, the Galleria and everything around them, which sits closer together than you would think.'},
   quick:[
@@ -14,45 +15,61 @@
     [{es:'Salimos',en:'We leave'},{es:'Sáb 17, vuelo IB 5543 a Barcelona',en:'Sat 17, flight IB 5543 to Barcelona'}]
   ],
   sections:[
-  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', html:{es:`
-      <h3>Miércoles 14: llegada y el Duomo de noche</h3>
+  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', dias:[
+    {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
+     t:{es:'Miércoles 14: llegada y el Duomo de noche',en:'Wednesday the 14th: arrival and the Duomo at night'},
+     html:{es:`
       <ul>
         <li>Llegamos de Módena a la tarde, check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
         <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
       </ul>
-      <h3>Jueves 15: el día de Milán</h3>
+    `, en:`
+      <ul>
+        <li>We arrive from Modena in the afternoon, check in, and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
+        <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
+      </ul>
+    `}},
+
+    {d:'2026-10-15', w:{es:'Jue 15',en:'Thu 15'},
+     t:{es:'Jueves 15: el día de Milán',en:'Thursday the 15th: the Milan day'},
+     html:{es:`
       <ul>
         <li>El <b>Duomo</b> a primera hora, con entrada de <b>9:00 a 9:30</b> y las <b>terrazas</b> incluidas: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán, y a esa hora la luz de la mañana pega en el mármol. Del hotel son diez minutos a pie y se entra por control de seguridad, así que salir 8:30.</li>
         <li>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y a quince minutos a pie el <b>Castello Sforzesco</b>, con la última Pietà de Miguel Ángel y el Parco Sempione detrás.</li>
         <li>A la tarde, <b>Brera</b> para caminar el barrio, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena. Los <b>Navigli</b>, los canales, son el otro lugar donde hacerlo.</li>
       </ul>
-      <h3>Viernes 16: el lago de Como</h3>
-      <ul>
-        <li>Día entero afuera, y ya está decidido cómo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
-        <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
-      </ul>
-      <h3>Sábado 17: a Barcelona</h3>
-      <p>Vuelo IB 5543. El traslado cambia bastante según el aeropuerto: de Linate son veinte minutos en metro, de Malpensa casi una hora en tren. Mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
     `, en:`
-      <h3>Wednesday the 14th: arrival and the Duomo at night</h3>
-      <ul>
-        <li>We arrive from Modena in the afternoon, check in, and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
-        <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
-      </ul>
-      <h3>Thursday the 15th: the Milan day</h3>
       <ul>
         <li>The <b>Duomo</b> first thing, with entry from <b>9:00 to 9:30</b> and the <b>rooftop terraces</b> included: you walk the roof among the spires and the statues with the city below. It is the best thing in Milan, and at that hour the morning light hits the marble. Ten minutes on foot from the hotel, and entry goes through a security check, so leave at 8:30.</li>
         <li>Coming down, the <b>Galleria</b> by day, <b>La Scala</b> from outside or its museum, and fifteen minutes on foot the <b>Castello Sforzesco</b>, with Michelangelo’s last Pietà and the Parco Sempione behind it.</li>
         <li>In the afternoon, <b>Brera</b> for walking the neighbourhood, and at seven the <b>aperitivo</b>, which in Milan replaces dinner. The <b>Navigli</b>, the canals, are the other place to do it.</li>
       </ul>
-      <h3>Friday the 16th: Lake Como</h3>
+    `}},
+
+    {d:'2026-10-16', w:{es:'Vie 16',en:'Fri 16'},
+     t:{es:'Viernes 16: el lago de Como',en:'Friday the 16th: Lake Como'},
+     html:{es:`
+      <ul>
+        <li>Día entero afuera, y ya está decidido cómo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
+        <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
+      </ul>
+    `, en:`
       <ul>
         <li>A whole day out, and the shape of it is settled: train to <b>Varenna</b>, a little over an hour from Centrale, and the ferry to <b>Bellagio</b>, fifteen minutes across the lake. Varenna is coloured houses over the water; Bellagio is stone staircases and shops on the point where the lake splits into two arms.</li>
         <li>That makes a complete day: two villages, two boat crossings and lunch looking at the water. We get back in daylight, which in October means half past six.</li>
       </ul>
-      <h3>Saturday the 17th: on to Barcelona</h3>
-      <p>Flight IB 5543. The transfer changes a lot depending on the airport: twenty minutes on the metro from Linate, nearly an hour by train from Malpensa. Check it in advance and work back from being at the desk three hours before.</p>
     `}},
+
+    {d:'2026-10-17', w:{es:'Sáb 17',en:'Sat 17'},
+     t:{es:'Sábado 17: a Barcelona',en:'Saturday the 17th: on to Barcelona'},
+     html:{es:`
+      <p>Vuelo IB 5543. El traslado cambia bastante según el aeropuerto: de Linate son veinte minutos en metro, de Malpensa casi una hora en tren. Mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
+    
+    `, en:`
+      <p>Flight IB 5543. The transfer changes a lot depending on the airport: twenty minutes on the metro from Linate, nearly an hour by train from Malpensa. Check it in advance and work back from being at the desk three hours before.</p>
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Milan Meravigli Den Hotels & Suites',

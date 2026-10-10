@@ -105,12 +105,14 @@
 
 /* el acento de ciudad se usa como fondo (--city) o como texto (--city-on-bg).
    en oscuro, el texto pasa a la variante pastel para que siga leyendose. */
-#view,.rgroup{--city-on-bg:var(--city)}
+#view,.rail,.rgroup{--city-on-bg:var(--city)}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) #view,
+  :root:not([data-theme="light"]) .rail,
   :root:not([data-theme="light"]) .rgroup{--city-on-bg:var(--city-lt)}
 }
 :root[data-theme="dark"] #view,
+:root[data-theme="dark"] .rail,
 :root[data-theme="dark"] .rgroup{--city-on-bg:var(--city-lt)}
 
 *{box-sizing:border-box}
@@ -168,6 +170,11 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 .rail button:hover{color:var(--ink)}
 /* destino sin confirmar: contorno punteado, sin mover el pastilla de sitio */
 .rail button[data-opt]{outline:1px dashed var(--line-2);outline-offset:-1px}
+/* el capitulo que toca hoy, para volver a el de un toque desde cualquier otro */
+.rail button[data-hoy]::before{content:"";display:inline-block;width:.3rem;height:.3rem;
+  border-radius:50%;background:var(--city-on-bg,var(--accent));margin-right:.34rem;
+  vertical-align:.1em}
+.rail button[data-hoy][aria-selected="true"]::before{background:currentColor}
 .rail button[aria-selected="true"]{color:#fff;background:var(--city,var(--accent))}
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]) .rail button[aria-selected="true"]{
@@ -175,6 +182,36 @@ button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
 }
 :root[data-theme="dark"] .rail button[aria-selected="true"]{
   color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+
+/* el plan, un dia por vez: una fila de chips y abajo el dia elegido. Abre en el
+   de hoy, que lleva un punto, y el ultimo chip muestra el capitulo entero. */
+.dias{margin:.1rem 0 .2rem}
+.diasrail{display:flex;gap:.3rem;overflow-x:auto;scrollbar-width:none;padding:0 0 .95rem}
+.diasrail::-webkit-scrollbar{display:none}
+.diasrail button{flex:none;font-family:var(--body);font-size:.7rem;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:var(--muted);
+  border:1px solid var(--line);border-radius:999px;padding:.3rem .72rem;
+  font-variant-numeric:tabular-nums;transition:background .15s,border-color .15s,color .15s}
+.diasrail button:hover{border-color:var(--line-2);color:var(--ink)}
+.diasrail button[data-hoy]::before{content:"";display:inline-block;width:.33rem;height:.33rem;
+  border-radius:50%;background:var(--city-on-bg,var(--accent));margin-right:.36rem;
+  vertical-align:.08em}
+.diasrail button[aria-selected="true"]{color:#fff;background:var(--city,var(--accent));
+  border-color:var(--city,var(--accent))}
+.diasrail button[aria-selected="true"][data-hoy]::before{background:currentColor}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .diasrail button[aria-selected="true"]{color:#1B141B;
+    background:var(--city-lt,var(--accent-lt));border-color:var(--city-lt,var(--accent-lt))}
+}
+:root[data-theme="dark"] .diasrail button[aria-selected="true"]{color:#1B141B;
+  background:var(--city-lt,var(--accent-lt));border-color:var(--city-lt,var(--accent-lt))}
+.diatit{font-family:var(--display);font-size:1.15rem;font-weight:600;letter-spacing:.002em;
+  color:var(--ink);margin:.1rem 0 .55rem;display:flex;flex-wrap:wrap;align-items:baseline;
+  gap:.5rem}
+.dias .diatit:not(:first-of-type){margin-top:1.7rem}
+.diahoy{font-family:var(--body);font-size:.57rem;font-weight:800;letter-spacing:.09em;
+  text-transform:uppercase;padding:.14rem .45rem;border-radius:999px;
+  background:var(--city-on-bg,var(--accent));color:var(--surface)}
 
 /* filtros */
 .filters{padding:.2rem var(--pad) .8rem;display:none;flex-wrap:wrap;gap:.35rem;align-items:center}
@@ -464,6 +501,14 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
 .leg.eshoy{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 9%, var(--note-bg))}
 .tablewrap{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 8%, var(--surface-2))}
 .tag{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 12%, var(--surface-2))}
+
+/* El plan por dia toma el color de la ciudad igual que el resto de los
+   recuadros, y el titulo baja un escalon como todos los de Fraunces. */
+.diatit{font-size:1.04rem;letter-spacing:-.004em}
+.diasrail button{background:color-mix(in srgb, var(--city-on-bg,var(--accent)) 7%, var(--surface-3));
+  border-color:color-mix(in srgb, var(--city-on-bg,var(--accent)) 26%, var(--line))}
+.diasrail button[aria-selected="true"]{background:var(--city-on-bg,var(--accent));
+  border-color:var(--city-on-bg,var(--accent));color:var(--surface)}
 </style>
 
 <div class="wrap">
@@ -501,6 +546,7 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
       <p>Háganlo desde casa con wifi, antes de viajar. La primera vez se baja entera y tarda unos segundos.</p>
       <h2>Notas</h2>
       <p>Los horarios, precios y fechas se verificaron en agosto de 2026 y son de la temporada 2026-2027. Las carteleras de conciertos de noviembre y diciembre todavía se están armando, así que en cada ciudad dejamos el link a la cartelera oficial para mirar cerca de la fecha. Lo que dice <em>previsto</em> es porque todavía no estaba confirmado.</p>
+      <p>La guía abre sola en la ciudad y en el día de hoy. Arriba del plan hay una fila de botones con los días: el de hoy lleva un punto, se puede ir a cualquier otro para revisar lo que quedó sin hacer o lo que viene, y el último los muestra todos juntos. Los datos de la Toscana se volvieron a verificar el 10 de octubre de 2026, ya en viaje.</p>
       <p>Lo que marquen como visitado se guarda solo en ese teléfono. Si abren la guía en los dos teléfonos, cada una lleva su propia cuenta.</p>
       <p>El idioma se cambia con el botón de arriba, al lado del título. Lo elegido se recuerda en ese teléfono, y lo marcado como visitado es el mismo en los dos idiomas.</p>
     </div>
@@ -515,6 +561,7 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
       <p>Do it at home on wifi, before travelling. The first load pulls the whole guide down and takes a few seconds.</p>
       <h2>Notes</h2>
       <p>Opening times, prices and dates were checked in August 2026 and belong to the 2026-2027 season. The November and December concert listings are still being put together, so each city keeps a link to the official listings to check closer to the date. Anything marked <em>planned</em> was not confirmed yet.</p>
+      <p>The guide opens by itself on today's city and today's day. Above the plan there is a row of buttons for the days: today carries a dot, you can jump to any other to check what is still undone or what is coming, and the last one shows them all together. The Tuscany details were checked again on 10 October 2026, already on the road.</p>
       <p>Whatever you tick off as visited is saved on that phone only. Open the guide on two phones and each one keeps its own count.</p>
       <p>Switch languages with the button at the top, next to the title. The choice is remembered on that phone, and what you ticked off is the same in both languages.</p>
     </div>
@@ -1685,6 +1732,7 @@ const CITIES = [
   nav:{es:'Roma',en:'Rome'},
   name:{es:'Roma',en:'Rome'},
   plate:'ATAC', accent:'#A16207', lt:'#FDE047', maps:'Roma',
+  d1:'2026-10-04', d2:'2026-10-08',
   lede:{es:'Cuatro días completos y el hotel en el mejor lugar posible, a metros de Piazza Navona. Casi todo el plan entra caminando, así que el orden importa más que el transporte.',
         en:'Four full days and the hotel in the best possible spot, metres from Piazza Navona. Almost the whole plan fits on foot, so the order matters more than the transport.'},
   quick:[
@@ -1695,8 +1743,10 @@ const CITIES = [
     [{es:'Salimos',en:'We leave'},{es:'Jue 8, tren 9:20 de Termini',en:'Thu 8, 9:20 train from Termini'}]
   ],
   sections:[
-  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', html:{es:`
-      <h3>Domingo 4: llegada y el centro barroco</h3>
+  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', dias:[
+    {d:'2026-10-04', w:{es:'Dom 4',en:'Sun 4'},
+     t:{es:'Domingo 4: llegada y el centro barroco',en:'Sunday the 4th: arrival and the baroque centre'},
+     html:{es:`
       <ul>
         <li>Valijas en el Four Rivers y almuerzo liviano y cerca: <b>Supplizio</b>, a siete minutos, unos supplì de pie y seguimos.</li>
         <li>El circuito clásico, todo en la puerta: <b>Piazza Navona</b> y la fuente de los Cuatro Ríos, que le da nombre al hotel; el <b>Panteón</b>; la <b>Piazza della Minerva</b> con el elefantito de Bernini; y de ahí al río, al <b>Ponte Sant’Angelo</b> y el castillo. Quince minutos de punta a punta.</li>
@@ -1704,31 +1754,7 @@ const CITIES = [
         <li>Cena en <b>La Matriciana dal 1870</b>, a pocos minutos de la Repubblica. Reservar sí o sí, y siendo el día del vuelo, hora temprana: 19:30 o 20:00.</li>
       </ul>
       <p><b>Ojo con el Ghetto este día.</b> El domingo 4 cae en Simjá Torá, así que las panaderías y los restaurantes kosher del Portico d’Ottavia, Boccione incluido, lo más probable es que estén cerrados. Por eso el Ghetto queda para el miércoles.</p>
-      <h3>Lunes 5: Trevi al amanecer, Trastevere y el Aventino</h3>
-      <ul>
-        <li><b>Fontana di Trevi</b> a las 7, con el sol saliendo 7:15. Es la única forma de tener la foto sin gente.</li>
-        <li>El <b>Coliseo</b> por fuera de paso, con la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio, gratis las dos. La visita con arena, Foro y Palatino es el miércoles.</li>
-        <li>Mediodía en <b>Trastevere</b>, todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre.</li>
-        <li>De Trastevere al <b>Aventino</b>, en este orden para no subir y bajar la colina dos veces: <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> a dos minutos para el atardecer, y recién ahí el <b>Roseto Comunale</b> y el <b>Circo Massimo</b>, al pie.</li>
-        <li>Cena en el centro, en <b>Renato e Luisa</b>, chico y de reservar con días.</li>
-      </ul>
-      <h3>Martes 6: el Vaticano y la tarde libre</h3>
-      <ul>
-        <li>Entrada a las 8:00, el mejor turno. Museos y basílica en unas cuatro horas; a las 12:30 salimos a almorzar por Prati. La logística fina está en la sección del Vaticano.</li>
-        <li>Tarde liviana a propósito: Castel Sant’Angelo por dentro está a diez minutos de la basílica, o una siesta corta y salir de nuevo a las cinco.</li>
-        <li>Cena en <b>Al 384</b>, la pizzería lejana. La tarde tranquila es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</li>
-      </ul>
-      <h3>Miércoles 7: Coliseo, Foro y el Ghetto</h3>
-      <ul>
-        <li><b>8:30, la visita de grupo reducido al Coliseo</b>, con arena, Foro y Palatino en el mismo turno. Punto de encuentro 8:15. Se entra por el Coliseo, se baja a la arena, y después Palatino y Foro saliendo hacia los Fori Imperiali, cuesta abajo. Termina a media mañana.</li>
-        <li>Almuerzo en el <b>Ghetto</b>, a quince minutos: sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, a tres cuadras. Hoy funciona normal.</li>
-        <li>Tarde según el cuerpo: <b>Galleria Borghese</b> si hay turno, <b>Basílica de San Clemente</b> con sus tres niveles enterrados, o el <b>Ghetto y la Isola Tiberina</b> con calma.</li>
-        <li>Última cena en <b>Roscioli</b>, a ocho minutos del hotel, con parada previa en <b>Dar Filettaro</b> por un filete de bacalao. Cerca y sin trasnochar, que al otro día hay tren.</li>
-      </ul>
-      <h3>Jueves 8: a Florencia</h3>
-      <p>Tren 9:20 desde Termini. Del hotel a Termini, veinte minutos en taxi con valijas: salimos 8:15 y llegamos con margen. La vía se anuncia con poca anticipación, así que mejor esperar dentro de la estación.</p>
     `, en:`
-      <h3>Sunday the 4th: arrival and the baroque centre</h3>
       <ul>
         <li>Bags at the Four Rivers and a light lunch close by: <b>Supplizio</b>, seven minutes away, a few supplì standing up and on we go.</li>
         <li>The classic circuit, all right outside the door: <b>Piazza Navona</b> and the Fountain of the Four Rivers, which gives the hotel its name; the <b>Pantheon</b>; <b>Piazza della Minerva</b> with Bernini’s little elephant; and from there to the river, to <b>Ponte Sant’Angelo</b> and the castle. Fifteen minutes end to end.</li>
@@ -1736,7 +1762,19 @@ const CITIES = [
         <li>Dinner at <b>La Matriciana dal 1870</b>, a few minutes from the Repubblica. Book it without fail, and being flight day, make it early: 19:30 or 20:00.</li>
       </ul>
       <p><b>Careful with the Ghetto today.</b> Sunday the 4th falls on Simchat Torah, so the kosher bakeries and restaurants on Portico d’Ottavia, Boccione included, are most likely closed. That is why the Ghetto is saved for Wednesday.</p>
-      <h3>Monday the 5th: Trevi at dawn, Trastevere and the Aventine</h3>
+    `}},
+
+    {d:'2026-10-05', w:{es:'Lun 5',en:'Mon 5'},
+     t:{es:'Lunes 5: Trevi al amanecer, Trastevere y el Aventino',en:'Monday the 5th: Trevi at dawn, Trastevere and the Aventine'},
+     html:{es:`
+      <ul>
+        <li><b>Fontana di Trevi</b> a las 7, con el sol saliendo 7:15. Es la única forma de tener la foto sin gente.</li>
+        <li>El <b>Coliseo</b> por fuera de paso, con la vista desde la <b>Via dei Fori Imperiali</b> y la terraza del Campidoglio, gratis las dos. La visita con arena, Foro y Palatino es el miércoles.</li>
+        <li>Mediodía en <b>Trastevere</b>, todo junto: <b>Trapizzino</b>, la <b>Norcineria Iacozzilli</b> para porchetta y embutidos, y <b>Otaleg</b> de postre.</li>
+        <li>De Trastevere al <b>Aventino</b>, en este orden para no subir y bajar la colina dos veces: <b>ojo de la cerradura</b> en la Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> a dos minutos para el atardecer, y recién ahí el <b>Roseto Comunale</b> y el <b>Circo Massimo</b>, al pie.</li>
+        <li>Cena en el centro, en <b>Renato e Luisa</b>, chico y de reservar con días.</li>
+      </ul>
+    `, en:`
       <ul>
         <li><b>Trevi Fountain</b> at 7, with sunrise at 7:15. It is the only way to get the photograph without the crowd.</li>
         <li>The <b>Colosseum</b> from outside in passing, with the view from <b>Via dei Fori Imperiali</b> and the Campidoglio terrace, both free. The visit with arena, Forum and Palatine is Wednesday.</li>
@@ -1744,22 +1782,52 @@ const CITIES = [
         <li>From Trastevere to the <b>Aventine</b>, in this order so as not to climb the hill twice: the <b>keyhole</b> at Piazza dei Cavalieri di Malta, <b>Giardino degli Aranci</b> two minutes away for sunset, and only then the <b>Roseto Comunale</b> and the <b>Circo Massimo</b>, at the foot.</li>
         <li>Dinner back in the centre at <b>Renato e Luisa</b>, small and needing a booking days ahead.</li>
       </ul>
-      <h3>Tuesday the 6th: the Vatican and a free afternoon</h3>
+    `}},
+
+    {d:'2026-10-06', w:{es:'Mar 6',en:'Tue 6'},
+     t:{es:'Martes 6: el Vaticano y la tarde libre',en:'Tuesday the 6th: the Vatican and a free afternoon'},
+     html:{es:`
+      <ul>
+        <li>Entrada a las 8:00, el mejor turno. Museos y basílica en unas cuatro horas; a las 12:30 salimos a almorzar por Prati. La logística fina está en la sección del Vaticano.</li>
+        <li>Tarde liviana a propósito: Castel Sant’Angelo por dentro está a diez minutos de la basílica, o una siesta corta y salir de nuevo a las cinco.</li>
+        <li>Cena en <b>Al 384</b>, la pizzería lejana. La tarde tranquila es el día que mejor aguanta un taxi de ida y vuelta. Reservar temprano.</li>
+      </ul>
+    `, en:`
       <ul>
         <li>Entry at 8:00, the best slot. Museums and basilica in about four hours; by 12:30 we are out and looking for lunch around Prati. The fine logistics are in the Vatican section.</li>
         <li>A deliberately light afternoon: Castel Sant’Angelo inside is ten minutes from the basilica, or a short nap and back out at five.</li>
         <li>Dinner at <b>Al 384</b>, the far away pizzeria. A quiet afternoon is the day that best absorbs a taxi there and back. Book early.</li>
       </ul>
-      <h3>Wednesday the 7th: Colosseum, Forum and the Ghetto</h3>
+    `}},
+
+    {d:'2026-10-07', w:{es:'Mié 7',en:'Wed 7'},
+     t:{es:'Miércoles 7: Coliseo, Foro y el Ghetto',en:'Wednesday the 7th: Colosseum, Forum and the Ghetto'},
+     html:{es:`
+      <ul>
+        <li><b>8:30, la visita de grupo reducido al Coliseo</b>, con arena, Foro y Palatino en el mismo turno. Punto de encuentro 8:15. Se entra por el Coliseo, se baja a la arena, y después Palatino y Foro saliendo hacia los Fori Imperiali, cuesta abajo. Termina a media mañana.</li>
+        <li>Almuerzo en el <b>Ghetto</b>, a quince minutos: sándwich de pastrami del <b>Cappuccino Bar</b> en Via Arenula y la tarta de ricota y visciole de la <b>Pasticceria Boccione</b>, a tres cuadras. Hoy funciona normal.</li>
+        <li>Tarde según el cuerpo: <b>Galleria Borghese</b> si hay turno, <b>Basílica de San Clemente</b> con sus tres niveles enterrados, o el <b>Ghetto y la Isola Tiberina</b> con calma.</li>
+        <li>Última cena en <b>Roscioli</b>, a ocho minutos del hotel, con parada previa en <b>Dar Filettaro</b> por un filete de bacalao. Cerca y sin trasnochar, que al otro día hay tren.</li>
+      </ul>
+    `, en:`
       <ul>
         <li><b>8:30, the small group Colosseum tour</b>, with arena, Forum and Palatine in one slot. Meeting point 8:15. In through the Colosseum, down onto the arena, then the Palatine and the Forum, coming out towards the Fori Imperiali, all downhill. It finishes mid morning.</li>
         <li>Lunch in the <b>Ghetto</b>, fifteen minutes away: a pastrami sandwich from <b>Cappuccino Bar</b> on Via Arenula and the ricotta and sour cherry tart from <b>Pasticceria Boccione</b>, three blocks on. Today it is all open as normal.</li>
         <li>Afternoon according to how the legs feel: <b>Galleria Borghese</b> if there is a slot, the <b>Basilica of San Clemente</b> with its three buried levels, or the <b>Ghetto and Isola Tiberina</b> taken slowly.</li>
         <li>Last dinner at <b>Roscioli</b>, eight minutes from the hotel, with a stop beforehand at <b>Dar Filettaro</b> for a fried cod fillet. Close by and no late night, since there is a train in the morning.</li>
       </ul>
-      <h3>Thursday the 8th: on to Florence</h3>
-      <p>9:20 train from Termini. Hotel to Termini is twenty minutes by taxi with bags: leave at 8:15 and arrive with room. The platform goes up at short notice, so better to wait inside the station.</p>
     `}},
+
+    {d:'2026-10-08', w:{es:'Jue 8',en:'Thu 8'},
+     t:{es:'Jueves 8: a Florencia',en:'Thursday the 8th: on to Florence'},
+     html:{es:`
+      <p>Tren 9:20 desde Termini. Del hotel a Termini, veinte minutos en taxi con valijas: salimos 8:15 y llegamos con margen. La vía se anuncia con poca anticipación, así que mejor esperar dentro de la estación.</p>
+    
+    `, en:`
+      <p>9:20 train from Termini. Hotel to Termini is twenty minutes by taxi with bags: leave at 8:15 and arrive with room. The platform goes up at short notice, so better to wait inside the station.</p>
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Four Rivers Hotel, Roma',
@@ -2260,6 +2328,7 @@ const CITIES = [
   nav:{es:'Florencia',en:'Florence'},
   name:{es:'Florencia',en:'Florence'},
   plate:'Firenze', accent:'#9A3412', lt:'#FDBA74', maps:'Firenze',
+  d1:'2026-10-08', d2:'2026-10-09',
   lede:{es:'Una noche sola, así que el plan es la ciudad y no los museos: lo mejor de Florencia se ve caminando y casi todo es gratis. La ciudad entera entra en un cuadrado de veinte minutos de lado, y con una tarde bien usada y una mañana alcanza de sobra.',
         en:'One night only, so the plan is the city rather than the museums: the best of Florence is seen on foot and almost all of it is free. The whole place fits inside a square twenty minutes on a side, and one well used afternoon plus a morning is more than enough.'},
   quick:[
@@ -2270,8 +2339,10 @@ const CITIES = [
     [{es:'Ojo',en:'Watch out'},{es:'La ZTL y el auto del viernes',en:'The ZTL and Friday’s car'}]
   ],
   sections:[
-  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', html:{es:`
-      <h3>Jueves 8: llegada, el centro y el atardecer</h3>
+  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', dias:[
+    {d:'2026-10-08', w:{es:'Jue 8',en:'Thu 8'},
+     t:{es:'Jueves 8: llegada, el centro y el atardecer',en:'Thursday the 8th: arrival, the centre and the sunset'},
+     html:{es:`
       <ul>
         <li>El tren de Roma llega a Santa Maria Novella cerca de las 11. Diez minutos a pie hasta el hotel: dejamos las valijas y salimos, sin esperar el check in.</li>
         <li>Almuerzo rápido: <b>All’Antico Vinaio</b> para una schiacciata en la calle, o el <b>Mercato Centrale</b>, que abajo tiene el puesto de lampredotto.</li>
@@ -2279,14 +2350,7 @@ const CITIES = [
         <li>Después, <b>Ponte Vecchio</b>, cruce al Oltrarno y subida al <b>Piazzale Michelangelo</b> para el atardecer. El sol se pone 18:55: hay que estar arriba 18:20. Veinticinco minutos a pie desde el puente, o el bus 12.</li>
         <li>Cena en el Oltrarno bajando del Piazzale, el lado del río con menos turistas de noche.</li>
       </ul>
-      <h3>Viernes 9: la plaza del Duomo y el auto</h3>
-      <ul>
-        <li>Temprano, la <b>plaza del Duomo</b>, que a primera hora está casi vacía: la fachada de mármol blanco, verde y rosa, la vuelta completa al edificio y el <b>Baptisterio</b> con las puertas del Paraíso. Entrar a la catedral es gratis y a esa hora la cola es corta. Sin subir a la cúpula: son cuatrocientos escalones y un turno reservado que no vale la pena con el día que tenemos.</li>
-        <li>Desayuno toscano de barra y el último paseo por la <b>Piazza della Repubblica</b> y las calles de atrás del Duomo, que es donde la ciudad se ve sin gente. Después al hotel a buscar las valijas.</li>
-        <li><b>El auto no se retira en el centro.</b> Caminando o en taxi hasta Santa Maria Novella, tranvía T2 al aeropuerto de Peretola con las valijas, retiro ahí y salida directa a San Gimignano por afuera de la ciudad. Veinte minutos de tranvía y una hora larga de manejo. Por qué, en la sección de abajo.</li>
-      </ul>
     `, en:`
-      <h3>Thursday the 8th: arrival, the centre and the sunset</h3>
       <ul>
         <li>The train from Rome reaches Santa Maria Novella around 11. Ten minutes on foot to the hotel: drop the bags and head out, without waiting for check in.</li>
         <li>Quick lunch: <b>All’Antico Vinaio</b> for a schiacciata eaten in the street, or the <b>Mercato Centrale</b>, which has the lampredotto stall downstairs.</li>
@@ -2294,13 +2358,26 @@ const CITIES = [
         <li>Then <b>Ponte Vecchio</b>, across into the Oltrarno and up to <b>Piazzale Michelangelo</b> for sunset. The sun sets at 18:55: be up there by 18:20. Twenty five minutes on foot from the bridge, or the number 12 bus.</li>
         <li>Dinner in the Oltrarno on the way down from the Piazzale, the side of the river with fewer tourists at night.</li>
       </ul>
-      <h3>Friday the 9th: the Duomo square and the car</h3>
+    `}},
+
+    {d:'2026-10-09', w:{es:'Vie 9',en:'Fri 9'},
+     t:{es:'Viernes 9: la plaza del Duomo y el auto',en:'Friday the 9th: the Duomo square and the car'},
+     html:{es:`
+      <ul>
+        <li>Temprano, la <b>plaza del Duomo</b>, que a primera hora está casi vacía: la fachada de mármol blanco, verde y rosa, la vuelta completa al edificio y el <b>Baptisterio</b> con las puertas del Paraíso. Entrar a la catedral es gratis y a esa hora la cola es corta. Sin subir a la cúpula: son cuatrocientos escalones y un turno reservado que no vale la pena con el día que tenemos.</li>
+        <li>Desayuno toscano de barra y el último paseo por la <b>Piazza della Repubblica</b> y las calles de atrás del Duomo, que es donde la ciudad se ve sin gente. Después al hotel a buscar las valijas.</li>
+        <li><b>El auto no se retira en el centro.</b> Caminando o en taxi hasta Santa Maria Novella, tranvía T2 al aeropuerto de Peretola con las valijas, retiro ahí y salida directa a San Gimignano por afuera de la ciudad. Veinte minutos de tranvía y una hora larga de manejo. Por qué, en la sección de abajo.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>Early, the <b>Duomo square</b>, which at first light is almost empty: the facade in white, green and pink marble, a full lap of the building, and the <b>Baptistery</b> with the Gates of Paradise. Entering the cathedral is free and at that hour the queue is short. We are not climbing the dome: four hundred steps and a separate timed slot that is not worth it on the day we have.</li>
         <li>A Tuscan breakfast at the bar and one last walk through <b>Piazza della Repubblica</b> and the streets behind the Duomo, which is where you see the city without the crowds. Then back to the hotel for the bags.</li>
         <li><b>The car does not get collected in the centre.</b> Walk or short taxi to Santa Maria Novella, the T2 tram to Peretola airport with the bags, pick up there and straight out to San Gimignano around the outside of the city. Twenty minutes of tram and a solid hour of driving. Why, in the section below.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse y el asunto de la ZTL',en:'Getting around, and the ZTL business'}, k:'mover', items:[
     {m:'Duomo View, Firenze',
@@ -2490,71 +2567,145 @@ const CITIES = [
   nav:{es:'Toscana',en:'Tuscany'},
   name:{es:'Toscana',en:'Tuscany'},
   plate:'San Gimignano', accent:'#4D7C0F', lt:'#BEF264', maps:'Toscana',
-  lede:{es:'Cuatro noches en San Gimignano con auto, que es la única forma de aprovechar esto. La base está bien elegida: Siena, Volterra, el Chianti y la Val d’Orcia quedan todos a menos de hora y media.',
-        en:'Four nights in San Gimignano with a car, which is the only way to make this work. The base is well chosen: Siena, Volterra, Chianti and the Val d’Orcia are all under an hour and a half away.'},
+  d1:'2026-10-09', d2:'2026-10-13', auto:1,
+  lede:{es:'Cuatro noches en San Gimignano con auto, que es la única forma de aprovechar esto. La base está bien elegida: Siena, Volterra, la Val d’Orcia y la costa quedan todos a menos de hora y media, y los pueblos se recorren más rápido de lo que dice cualquier guía, así que en cada día entra una cosa más.',
+        en:'Four nights in San Gimignano with a car, which is the only way to make this work. The base is well chosen: Siena, Volterra, the Val d’Orcia and the coast are all under an hour and a half away, and the towns take less time than any guidebook claims, so one more thing fits into every day.'},
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Vie 9 a mar 13 de octubre',en:'Fri 9 to Tue 13 October'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Hotel Sovestro, San Gimignano',en:'Hotel Sovestro, San Gimignano'}],
-    [{es:'El auto',en:'The car'},{es:'Se retira en Peretola',en:'Picked up at Peretola'}],
+    [{es:'El auto',en:'The car'},{es:'Se devuelve en La Spezia el mar 13',en:'Handed back in La Spezia on Tue 13'}],
     [{es:'Octubre',en:'October'},{es:'21° / 10°, niebla al amanecer',en:'21° / 10°, fog at dawn'}],
     [{es:'Ojo',en:'Watch out'},{es:'ZTL: cámara y multa en cada pueblo',en:'ZTL: a camera and a fine in every town'}]
   ],
   sections:[
-  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', html:{es:`
-      <h3>Viernes 9: llegada y San Gimignano de noche</h3>
+  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', dias:[
+
+    {d:'2026-10-09', w:{es:'Vie 9',en:'Fri 9'},
+     t:{es:'Viernes 9: llegada y San Gimignano de noche',en:'Friday the 9th: arrival and San Gimignano at night'},
+     html:{es:`
       <ul>
-        <li>De Florencia con el auto retirado en Peretola, llegada al <b>Hotel Sovestro</b> a la tarde. Está afuera de las murallas, sobre la carretera: tiene estacionamiento y no hay ZTL.</li>
-        <li>La primera tarde es para <b>San Gimignano</b>, que es la mejor hora: los excursionistas de un día se van a las cinco y el pueblo queda casi vacío. Piazza della Cisterna, Piazza del Duomo, la subida a la Rocca para ver las torres contra el atardecer, y un <b>Dondoli</b>, el heladero campeón del mundo, en la plaza.</li>
-      </ul>
-      <h3>Sábado 10: Siena y Monteriggioni</h3>
-      <ul>
-        <li><b>Siena</b>, a cuarenta y cinco minutos, la excursión más grande que tenemos cerca. La Piazza del Campo con forma de concha, el Duomo con la fachada rayada y, con suerte, el piso de mármol descubierto, que solo se destapa unas semanas por año, casi siempre hasta mediados de octubre.</li>
-        <li>Volviendo, <b>Monteriggioni</b>, en el camino: un pueblo amurallado circular y minúsculo, entero dentro de sus murallas, que se recorre en cuarenta minutos por arriba de la muralla incluida.</li>
-      </ul>
-      <h3>Domingo 11: la Val d’Orcia y las termas</h3>
-      <ul>
-        <li>El día largo y el más lindo. Temprano hacia el sur por las carreteras de cipreses: <b>Pienza</b> para el pecorino y la vista del valle, <b>Bagno Vignoni</b> con su plaza que es una pileta termal humeante del siglo XV, y <b>Bagni San Filippo</b> para meterse de verdad en el agua caliente, gratis, entre formaciones blancas de cal.</li>
-        <li>Si queda cuerpo, <b>Montalcino</b> a la vuelta para un Brunello en la enoteca de la fortaleza. Son unas seis horas de paseo y dos y media de auto en total.</li>
-      </ul>
-      <h3>Lunes 12: Volterra y el Chianti, o descanso</h3>
-      <ul>
-        <li><b>Volterra</b>, a cuarenta y cinco minutos, lo opuesto a San Gimignano: etrusca, oscura, de piedra gris, con un teatro romano y talleres de alabastro donde se ve trabajar.</li>
-        <li>La <b>ruta del Chianti</b> hacia el norte, parando en Castellina y Panzano, con una bodega reservada de antemano. Si elegimos esta, decidir antes quién maneja y quién prueba.</li>
-        <li>O quedarse en San Gimignano, siesta y caminar el pueblo con calma. Son cuatro días de mucho auto y uno de descanso a la mitad no es tiempo perdido.</li>
-      </ul>
-      <h3>Martes 13: a La Spezia</h3>
-      <ul>
-        <li>Salida sobre las 8:30, unas dos horas y cuarto hasta La Spezia. Auto en la oficina de la rentadora, valijas en el alojamiento, y a Cinque Terre con la tarde entera por delante.</li>
-        <li>Pisa queda de paso y tienta, pero el desvío cuesta una hora larga entre ida, vuelta y estacionamiento, y esa hora sale de Cinque Terre. Si igual queremos la foto de la torre, salir 7:30 y no estirar la parada más de cuarenta minutos.</li>
+        <li>Auto retirado en Peretola y llegada al <b>Hotel Sovestro</b> a la tarde. Está afuera de las murallas, sobre la carretera, con estacionamiento propio y sin ZTL.</li>
+        <li>La primera tarde fue para <b>San Gimignano</b>, que es la mejor hora: los excursionistas de un día se van a las cinco y el pueblo queda casi vacío. Piazza della Cisterna, Piazza del Duomo, la subida a la Rocca con las torres contra el atardecer, y un <b>Dondoli</b> en la plaza.</li>
       </ul>
     `, en:`
-      <h3>Friday the 9th: arrival and San Gimignano at night</h3>
       <ul>
-        <li>From Florence with the car picked up at Peretola, reaching the <b>Hotel Sovestro</b> in the afternoon. It is outside the walls, on the main road: it has parking and there is no ZTL.</li>
-        <li>The first evening belongs to <b>San Gimignano</b>, which is the best hour of the day: the day trippers leave at five and the town empties out. Piazza della Cisterna, Piazza del Duomo, the climb up to the Rocca to see the towers against the sunset, and a <b>Dondoli</b>, from the world champion gelato maker, on the square.</li>
-      </ul>
-      <h3>Saturday the 10th: Siena and Monteriggioni</h3>
-      <ul>
-        <li><b>Siena</b>, forty five minutes away, the biggest day out we have nearby. The shell shaped Piazza del Campo, the Duomo with its striped facade and, with luck, the marble floor uncovered, which only happens for a few weeks a year, usually through to mid October.</li>
-        <li>On the way back, <b>Monteriggioni</b>, which is on the route: a tiny circular walled town, all of it inside its walls, walked end to end in forty minutes including a stretch along the top of the wall.</li>
-      </ul>
-      <h3>Sunday the 11th: the Val d’Orcia and the hot springs</h3>
-      <ul>
-        <li>The long day and the loveliest. Early, south along the cypress roads: <b>Pienza</b> for the pecorino and the view over the valley, <b>Bagno Vignoni</b> with its square that is a steaming fifteenth century thermal pool, and <b>Bagni San Filippo</b> to actually get into the hot water, free, among white limestone formations.</li>
-        <li>If there is anything left, <b>Montalcino</b> on the way back for a Brunello at the fortress wine bar. Around six hours out and two and a half of driving in total.</li>
-      </ul>
-      <h3>Monday the 12th: Volterra and Chianti, or a rest</h3>
-      <ul>
-        <li><b>Volterra</b>, forty five minutes away, the opposite of San Gimignano: Etruscan, dark, built in grey stone, with a Roman theatre and alabaster workshops where you can watch people work.</li>
-        <li>The <b>Chianti road</b> north, stopping at Castellina and Panzano, with a winery booked in advance. If we pick this, decide beforehand who drives and who tastes.</li>
-        <li>Or stay in San Gimignano, nap, and walk the town slowly. It is four days with a lot of driving and one rest day in the middle is not wasted time.</li>
-      </ul>
-      <h3>Tuesday the 13th: on to La Spezia</h3>
-      <ul>
-        <li>Leave around 8:30, about two and a quarter hours to La Spezia. Car to the rental office, bags to the apartment, and off to Cinque Terre with the whole afternoon ahead.</li>
-        <li>Pisa is on the way and tempting, but the detour costs a good hour between there, back and parking, and that hour comes out of Cinque Terre. If we want the tower photograph anyway, leave at 7:30 and keep the stop under forty minutes.</li>
+        <li>Car picked up at Peretola and into the <b>Hotel Sovestro</b> in the afternoon. It sits outside the walls, on the main road, with its own parking and no ZTL.</li>
+        <li>The first evening went to <b>San Gimignano</b>, which is the best hour of the day: the day trippers leave at five and the town empties out. Piazza della Cisterna, Piazza del Duomo, the climb to the Rocca with the towers against the sunset, and a <b>Dondoli</b> on the square.</li>
       </ul>
     `}},
+
+    {d:'2026-10-10', w:{es:'Sáb 10',en:'Sat 10'},
+     t:{es:'Sábado 10: Siena, Monteriggioni y Volterra',en:'Saturday the 10th: Siena, Monteriggioni and Volterra'},
+     html:{es:`
+      <ul>
+        <li><b>Siena</b> a la mañana: la Piazza del Campo con forma de concha, el Duomo rayado y el piso de mármol destapado, que solo se ve unas semanas al año.</li>
+        <li><b>Monteriggioni</b> volviendo, cuarenta minutos adentro del círculo de murallas, tramo de arriba incluido.</li>
+        <li>Y <b>Volterra</b>, que estaba agendada para el lunes y entró igual: etrusca, de piedra gris, con el teatro romano que se ve entero y gratis desde arriba.</li>
+        <li>Tres pueblos en un día es el ritmo real nuestro, no el de la guía. Haber adelantado Volterra deja el <b>lunes entero libre</b>, que ahora es el día de mar.</li>
+      </ul>
+    `, en:`
+      <ul>
+        <li><b>Siena</b> in the morning: the shell shaped Piazza del Campo, the striped Duomo and the marble floor uncovered, which only shows for a few weeks a year.</li>
+        <li><b>Monteriggioni</b> on the way back, forty minutes inside the ring of walls, the stretch along the top included.</li>
+        <li>And <b>Volterra</b>, which was down for Monday and went in anyway: Etruscan, built in grey stone, with the Roman theatre you see whole and for free from above.</li>
+        <li>Three towns in a day is our real pace, not the guidebook one. Getting Volterra out of the way leaves <b>Monday completely free</b>, which is now the sea day.</li>
+      </ul>
+    `}},
+
+    {d:'2026-10-11', w:{es:'Dom 11',en:'Sun 11'},
+     t:{es:'Domingo 11: Montepulciano, la Val d’Orcia y las termas',en:'Sunday the 11th: Montepulciano, the Val d’Orcia and the hot springs'},
+     html:{es:`
+      <p>El día más largo de los cuatro y el que más rinde. Todo queda al sur y en la misma dirección, así que se hace en un solo lazo sin volver sobre los pasos. Son unas tres horas y media de auto repartidas en cinco tramos cortos.</p>
+      <ul>
+        <li><b>8:00, salida.</b> Hora y media hasta Montepulciano. Si el valle está con niebla, a las 10 ya está despejado.</li>
+        <li><b>9:35, Montepulciano.</b> El pueblo sube hasta la Piazza Grande y debajo está lo bueno: las cantinas históricas excavadas en la roca, con galerías que conectan un palacio con el otro. La <b>Contucci</b>, en Via del Teatro 1, abre 9:30 a 12:30 y bajar entre las barricas es gratis. Las <b>Cantine De’ Ricci</b>, en Via Ricci 11, tienen una escalera monumental que parece una catedral y se visitan con reserva.</li>
+        <li><b>11:45, Pienza.</b> Los quesos de la calle principal, donde hacen probar antes de comprar, y el paseo colgado sobre el valle detrás de la catedral. Se ve en una hora, y es el almuerzo.</li>
+        <li><b>13:50, Bagno Vignoni.</b> Media hora alcanza: la plaza que no es plaza sino una pileta termal del siglo XV humeando entre las casas, y abajo el Parco dei Mulini.</li>
+        <li><b>14:40, Bagni San Filippo.</b> Dos horas largas en el agua caliente, entre las formaciones blancas de cal. Es el centro del día y no una parada: no hay vestuarios, se llega cambiado.</li>
+        <li><b>17:30, Montalcino.</b> Cuarenta minutos desde San Filippo y queda de camino a casa. Un Brunello en la enoteca de la fortaleza con el sol bajando sobre los viñedos, que se pone 18:45.</li>
+        <li><b>20:00</b>, de vuelta en el hotel.</li>
+      </ul>
+      <h3>Los dos cambios que valen la pena</h3>
+      <ul>
+        <li><b>Rapolano en vez de Montalcino.</b> Las Terme San Giovanni abren los domingos hasta las 22:00 y quedan a cincuenta minutos de San Filippo, sobre el camino de vuelta: agua a treinta y ocho grados, vestuario, toalla y bar, 25 euros el día entero o 22 entrando después de las 16:00. Terminar un día de auto metidos en agua caliente de noche, con el aire fresco de octubre, es otra cosa que una poza en el bosque.</li>
+        <li><b>Sant’Antimo en vez de las cantinas.</b> La abadía está a diez minutos de Montalcino y los domingos cantan la misa en gregoriano a las 11:00. Para llegar hay que salir 9:00 y dar el día al revés, arrancando por Montalcino y dejando Montepulciano afuera. En octubre abre 10:00 a 18:00 y entrar es gratis.</li>
+      </ul>
+    `, en:`
+      <p>The longest of the four days and the one that pays off most. It is all south and all in the same direction, so it runs as a single loop with no doubling back. About three and a half hours of driving split into five short hops.</p>
+      <ul>
+        <li><b>8:00, leave.</b> An hour and a half to Montepulciano. If the valley is under fog, by 10 it has cleared.</li>
+        <li><b>9:35, Montepulciano.</b> The town climbs to Piazza Grande and the good part is underneath: historic cellars cut into the rock, with tunnels linking one palace to the next. <b>Contucci</b>, at Via del Teatro 1, opens 9:30 to 12:30 and walking down among the barrels is free. <b>Cantine De’ Ricci</b>, at Via Ricci 11, have a monumental staircase that looks like a cathedral and are visited by appointment.</li>
+        <li><b>11:45, Pienza.</b> The cheese shops on the main street, where they have you taste before buying, and the walkway hanging over the valley behind the cathedral. An hour does it, and it is lunch.</li>
+        <li><b>13:50, Bagno Vignoni.</b> Half an hour is enough: the square that is not a square but a fifteenth century thermal pool steaming among the houses, and the Parco dei Mulini below.</li>
+        <li><b>14:40, Bagni San Filippo.</b> A good two hours in the hot water, among the white limestone formations. It is the centre of the day rather than a stop: there are no changing rooms, so arrive changed.</li>
+        <li><b>17:30, Montalcino.</b> Forty minutes from San Filippo and on the way home. A Brunello at the fortress wine bar with the sun dropping over the vineyards, which sets at 18:45.</li>
+        <li><b>20:00</b>, back at the hotel.</li>
+      </ul>
+      <h3>The two swaps worth making</h3>
+      <ul>
+        <li><b>Rapolano instead of Montalcino.</b> Terme San Giovanni opens on Sundays until 22:00 and sits fifty minutes from San Filippo, on the way home: thirty eight degree water, changing rooms, towels and a bar, 25 euros for the whole day or 22 going in after 16:00. Ending a day of driving sunk in hot water after dark, in the cool October air, is a different thing from a pool in the woods.</li>
+        <li><b>Sant’Antimo instead of the cellars.</b> The abbey is ten minutes from Montalcino and on Sundays they sing mass in Gregorian chant at 11:00. To make it we would leave at 9:00 and run the day backwards, starting at Montalcino and dropping Montepulciano. In October it opens 10:00 to 18:00 and entry is free.</li>
+      </ul>
+    `}},
+
+    {d:'2026-10-12', w:{es:'Lun 12',en:'Mon 12'},
+     t:{es:'Lunes 12: Castiglioncello y Livorno, el día de mar',en:'Monday the 12th: Castiglioncello and Livorno, the sea day'},
+     html:{es:`
+      <p>El lunes quedó libre al haber hecho Volterra el sábado, y la costa está más cerca que la Val d’Orcia: una hora y diez por la FI-PI-LI, que es gratis. Después de cuatro pueblos de piedra, el cambio de paisaje es el punto.</p>
+      <ul>
+        <li><b>9:00, salida.</b></li>
+        <li><b>10:10, Castiglioncello.</b> Pueblo de mar sobre las rocas, con pinos que llegan hasta el agua y el <b>Castello Pasquini</b> arriba, con su parque abierto. Bajando del castillo está la <b>Baia del Quercetano</b>, la única ensenada de arena de esta costa, metida entre acantilados. En octubre está vacía.</li>
+        <li><b>12:30, Livorno</b>, a veinticinco minutos. El <b>Mercato Centrale</b> cierra 14:00, así que va primero: una nave de hierro y vidrio del 1800 con los puestos de pescado al fondo.</li>
+        <li><b>13:15, el almuerzo</b>, que acá es el <b>cacciucco</b>: una sopa espesa de pescado y mariscos con pan frotado con ajo en el fondo del plato. Es el plato de Livorno y no se come bien en ningún otro lado de la Toscana.</li>
+        <li><b>14:45, la Venezia Nuova.</b> El barrio de los canales, con los puentes y las barcas amarradas entre las casas. Hay paseos en barco por los Fossi Medicei desde ahí, unos 15 euros, que es la manera de verlo desde abajo.</li>
+        <li><b>16:00, la Terrazza Mascagni.</b> Un damero blanco y negro de treinta y cuatro mil baldosas asomado al mar abierto, con la balaustrada curva. Es gratis, está siempre abierta y es la foto de Livorno.</li>
+        <li><b>16:45, vuelta.</b> A las 18:00 estamos en el hotel.</li>
+      </ul>
+      <h3>La bodega, si queremos sumarla</h3>
+      <ul>
+        <li><b>Tenuta Sovestro</b> está pegada al hotel y cierra 18:00, así que hay que llamar a la mañana (+39 0577 940148) y dejar pedida una degustación, saliendo de Livorno 15:30 en vez de 16:45. Son 18 a 30 euros y es la única bodega a la que podemos ir sin manejar después.</li>
+        <li><b>Monterosola</b>, la que vimos en Volterra, <b>cierra los lunes</b>. Si la queremos, tiene que ser el martes temprano, y el martes ya está ocupado.</li>
+      </ul>
+    `, en:`
+      <p>Monday came free because Volterra got done on Saturday, and the coast is closer than the Val d’Orcia: an hour and ten on the FI-PI-LI, which is toll free. After four stone towns, the change of landscape is the point.</p>
+      <ul>
+        <li><b>9:00, leave.</b></li>
+        <li><b>10:10, Castiglioncello.</b> A seaside town on the rocks, with pines running down to the water and the <b>Castello Pasquini</b> above, its park open. Down from the castle lies the <b>Baia del Quercetano</b>, the only sandy inlet on this coast, set between cliffs. In October it is empty.</li>
+        <li><b>12:30, Livorno</b>, twenty five minutes on. The <b>Mercato Centrale</b> closes at 14:00, so it goes first: an iron and glass hall from the 1800s with the fish stalls at the back.</li>
+        <li><b>13:15, lunch</b>, which here means <b>cacciucco</b>: a thick soup of fish and shellfish over bread rubbed with garlic at the bottom of the bowl. It is Livorno’s dish and nowhere else in Tuscany does it properly.</li>
+        <li><b>14:45, the Venezia Nuova.</b> The canal quarter, with its bridges and the boats moored between the houses. Boat trips along the Fossi Medicei leave from there, around 15 euros, which is how you see it from below.</li>
+        <li><b>16:00, the Terrazza Mascagni.</b> A black and white chequerboard of thirty four thousand tiles jutting into the open sea, with its curved balustrade. Free, always open, and the photograph of Livorno.</li>
+        <li><b>16:45, back.</b> At the hotel by 18:00.</li>
+      </ul>
+      <h3>The winery, if we want to add it</h3>
+      <ul>
+        <li><b>Tenuta Sovestro</b> is right next to the hotel and closes at 18:00, so it means ringing in the morning (+39 0577 940148) to have a tasting held, and leaving Livorno at 15:30 rather than 16:45. It runs 18 to 30 euros and is the one winery we can visit without driving afterwards.</li>
+        <li><b>Monterosola</b>, the one we saw over in Volterra, <b>closes on Mondays</b>. If we want it, it has to be Tuesday early, and Tuesday is already taken.</li>
+      </ul>
+    `}},
+
+    {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'},
+     t:{es:'Martes 13: a La Spezia, por Pisa y Forte dei Marmi',en:'Tuesday the 13th: on to La Spezia, via Pisa and Forte dei Marmi'},
+     html:{es:`
+      <p>Las dos paradas están sobre la misma ruta: la FI-PI-LI hasta Pisa y de ahí la A12, que va pegada al mar hasta La Spezia. No le sacan tiempo a Cinque Terre, se pagan madrugando una hora.</p>
+      <ul>
+        <li><b>7:30, salida</b> de San Gimignano, con las valijas cargadas la noche anterior.</li>
+        <li><b>8:40, Pisa.</b> Estacionar en <b>Via Pietrasantina</b>, que es gratis para autos y queda afuera de la ZTL, y caminar los 900 metros hasta la Piazza dei Miracoli. A esa hora la plaza está casi vacía y la luz entra de costado.</li>
+        <li><b>9:30, de vuelta al auto.</b> Cuarenta minutos adentro de la plaza alcanzan de sobra. No subimos a la torre: son turnos reservados y casi trescientos escalones en espiral inclinada.</li>
+        <li><b>10:20, Forte dei Marmi.</b> Un café y el <b>pontile</b>, el muelle de madera que entra al mar y es solo peatonal: desde la punta se ve la costa entera de Viareggio a La Spezia, con los Alpes Apuanos de fondo. Es el balneario más caro de Italia y en octubre a esta hora no cobra nada.</li>
+        <li><b>11:55, La Spezia.</b> Auto a la rentadora, valijas al alojamiento, y Cinque Terre con la tarde entera por delante.</li>
+      </ul>
+    `, en:`
+      <p>Both stops are on the same road: the FI-PI-LI as far as Pisa and then the A12, which runs right along the sea to La Spezia. They do not come out of Cinque Terre, they come out of getting up an hour earlier.</p>
+      <ul>
+        <li><b>7:30, leave</b> San Gimignano, with the bags loaded the night before.</li>
+        <li><b>8:40, Pisa.</b> Park on <b>Via Pietrasantina</b>, which is free for cars and sits outside the ZTL, and walk the 900 metres to Piazza dei Miracoli. At that hour the square is nearly empty and the light comes in sideways.</li>
+        <li><b>9:30, back at the car.</b> Forty minutes inside the square is more than enough. We are not climbing the tower: timed slots and almost three hundred steps up a leaning spiral.</li>
+        <li><b>10:20, Forte dei Marmi.</b> A coffee and the <b>pontile</b>, the wooden pier that runs out into the sea and is pedestrians only: from the end you see the whole coast from Viareggio to La Spezia, with the Apuan Alps behind. It is the most expensive beach resort in Italy and in October at this hour it charges nothing.</li>
+        <li><b>11:55, La Spezia.</b> Car to the rental office, bags to the apartment, and off to Cinque Terre with the whole afternoon ahead.</li>
+      </ul>
+    `}}
+  ]},
 
   {s:{es:'El auto: todo lo que hay que saber',en:'The car: everything you need to know'}, k:'mover', items:[
     {m:'Hotel Sovestro, San Gimignano',
@@ -2562,22 +2713,15 @@ const CITIES = [
      d:{es:'Afuera de las murallas de San Gimignano, sobre la carretera de Poggibonsi, con estacionamiento propio y campo alrededor. Al pueblo se llega en unos minutos en auto o caminando un tramo de subida.',
         en:'Outside the walls of San Gimignano, on the Poggibonsi road, with its own parking and open country around it. The town is a few minutes by car or a walk up a slope.'},
      t:'mover',
-     tip:{es:'Estar afuera de las murallas es una ventaja y no una desventaja: no hay ZTL, hay dónde dejar el auto y de noche se ve el pueblo iluminado desde afuera.',
-          en:'Being outside the walls is an advantage, not a drawback: no ZTL, somewhere to leave the car, and at night you see the town lit up from the outside.'}},
+     tip:{es:'Estar afuera de las murallas es una ventaja y no una desventaja: no hay ZTL, hay dónde dejar el auto y de noche se ve el pueblo iluminado desde afuera. Y la bodega de al lado, Tenuta Sovestro, se hace caminando.',
+          en:'Being outside the walls is an advantage, not a drawback: no ZTL, somewhere to leave the car, and at night you see the town lit up from the outside. And the winery next door, Tenuta Sovestro, is walkable.'}},
     {nota:1,
      n:{es:'La ZTL, otra vez y en todos lados',en:'The ZTL, again and everywhere'},
-     d:{es:'San Gimignano, Siena, Volterra, Montalcino y Pienza tienen zona restringida en el centro histórico, con cámara que lee la patente. La multa llega meses después a la rentadora, que la reenvía con su cargo agregado.',
-        en:'San Gimignano, Siena, Volterra, Montalcino and Pienza all have a restricted zone in the historic centre, with a camera reading plates. The fine arrives months later at the rental company, which passes it on with its own charge added.'},
+     d:{es:'San Gimignano, Siena, Volterra, Montalcino, Montepulciano y Pienza tienen zona restringida en el centro histórico, con cámara que lee la patente. La multa llega meses después a la rentadora, que la reenvía con su cargo agregado.',
+        en:'San Gimignano, Siena, Volterra, Montalcino, Montepulciano and Pienza all have a restricted zone in the historic centre, with a camera reading plates. The fine arrives months later at the rental company, which passes it on with its own charge added.'},
      t:'mover',
      tip:{es:'La regla que no falla: se estaciona <em>afuera</em> de las murallas y se entra caminando. En estos pueblos siempre hay playas de estacionamiento pagas justo antes de la puerta, señalizadas con la P. Nunca cruzar un cartel redondo con borde rojo que diga "zona traffico limitato", aunque el GPS lo indique.',
           en:'The rule that never fails: park <em>outside</em> the walls and walk in. These towns always have paid car parks right before the gate, signposted with a P. Never cross a round sign with a red border reading "zona traffico limitato", even if the GPS tells you to.'}},
-    {nota:1,
-     n:{es:'Estacionar en San Gimignano y en Siena',en:'Parking in San Gimignano and Siena'},
-     d:{es:'En San Gimignano hay varias playas numeradas alrededor de las murallas, todas pagas y a pocos minutos a pie de las puertas. En Siena, lo más cómodo es el estacionamiento del Santa Caterina, que tiene escaleras mecánicas que suben hasta el centro.',
-        en:'San Gimignano has several numbered car parks around the walls, all paid and a few minutes on foot from the gates. In Siena the easiest is the Santa Caterina car park, which has escalators up into the centre.'},
-     t:'mover',
-     tip:{es:'Se paga en la máquina antes de volver al auto, no al salir. Y conviene llevar algunas monedas: algunas máquinas viejas todavía no toman tarjeta.',
-          en:'You pay at the machine before going back to the car, not on the way out. And carry some coins: a few of the older machines still do not take cards.'}},
     {nota:1,
      n:{es:'Nafta, gasoil y las estaciones',en:'Petrol, diesel and the filling stations'},
      d:{es:'Al retirar el auto hay que preguntar y anotar qué carga: <em>benzina</em> es nafta y <em>gasolio</em> es gasoil. Equivocarse arruina el motor y no lo cubre ningún seguro.',
@@ -2590,8 +2734,8 @@ const CITIES = [
      d:{es:'En la autopista se saca un ticket al entrar y se paga al salir según los kilómetros. Las cabinas amarillas con la T son solo para Telepass y no hay que meterse: si entramos en una sin el dispositivo, se traba todo.',
         en:'On the motorway you take a ticket on entry and pay on exit according to the distance. The yellow lanes marked T are for Telepass only and are not to be entered: going into one without the device jams everything up.'},
      t:'mover',
-     tip:{es:'Las cabinas blancas son de tarjeta y las azules de billetes. Las carreteras secundarias entre pueblos son gratis, más lindas y más lentas: para la Val d’Orcia son las que hay que tomar, para llegar a La Spezia conviene la autopista.',
-          en:'White lanes take cards and blue ones take cash. The back roads between towns are free, prettier and slower: for the Val d’Orcia they are the ones to take, and for reaching La Spezia the motorway is better.'}},
+     tip:{es:'Las cabinas blancas son de tarjeta y las azules de billetes. Las carreteras secundarias entre pueblos son gratis, más lindas y más lentas: para la Val d’Orcia son las que hay que tomar. La FI-PI-LI, que es la que nos lleva a la costa y a Pisa, es gratis y rápida; la A12 de Pisa a La Spezia tiene peaje.',
+          en:'White lanes take cards and blue ones take cash. The back roads between towns are free, prettier and slower: for the Val d’Orcia they are the ones to take. The FI-PI-LI, which is what carries us to the coast and to Pisa, is free and fast; the A12 from Pisa to La Spezia is tolled.'}},
     {nota:1,
      n:{es:'Devolver el auto en La Spezia',en:'Returning the car in La Spezia'},
      d:{es:'Es un alquiler de una punta a la otra, así que tiene cargo por devolución en otra ciudad. Conviene tener claro de antemano la dirección exacta de la oficina, el horario y si cierran al mediodía, que muchas lo hacen.',
@@ -2606,6 +2750,121 @@ const CITIES = [
      t:'mover',
      tip:{es:'La señal de celular se corta entre colinas, así que los mapas hay que bajarlos antes. Y ojo con la niebla de la mañana en octubre: en el valle a las 8 puede no verse nada y a las 10 estar despejado.',
           en:'The phone signal drops between hills, so maps have to be downloaded beforehand. And watch for October morning fog: down in the valley at 8 you may see nothing and by 10 it is clear.'}}
+  ]},
+
+  {s:{es:'Dónde estacionar, pueblo por pueblo',en:'Where to park, town by town'}, k:'mover', items:[
+    {nota:1,
+     n:{es:'Cómo funcionan estas fichas',en:'How these cards work'},
+     d:{es:'Una por cada lugar del día a día, con el precio y los minutos a pie. Cada una tiene el botón de Mapa, que abre el punto exacto en Google Maps, y el de Waze, que arranca a navegar directo desde la app.',
+        en:'One for each place in the day by day, with the price and the minutes on foot. Each has a Map button, which opens the exact spot in Google Maps, and a Waze button, which starts navigating straight from the app.'},
+     t:'mover',
+     tip:{es:'Casi todas las máquinas se pagan antes de volver al auto y no al salir, y algunas viejas todavía no toman tarjeta: conviene llevar monedas de uno y de dos euros en la guantera todo el viaje.',
+          en:'Most machines are paid before you walk back to the car rather than on the way out, and some older ones still do not take cards: keep one and two euro coins in the glovebox for the whole trip.'}},
+    {m:'Parcheggio P1 Giubileo, San Gimignano', a:'San Gimignano',
+     n:{es:'San Gimignano: P1 Giubileo',en:'San Gimignano: P1 Giubileo'},
+     d:{es:'El más grande del pueblo, con trescientas cinco plazas, al sur y pegado a la Porta San Giovanni. 2 euros la primera y la segunda hora, 1,50 las siguientes y un tope de 7 euros en veinticuatro horas.',
+        en:'The biggest in town, three hundred and five spaces, on the south side right by Porta San Giovanni. 2 euros for the first and second hour, 1.50 after that and a cap of 7 euros in twenty four hours.'},
+     t:'mover', p:'€',
+     tip:{es:'Es el que conviene de lejos: los otros tienen tope de 15 o de 20 euros al día. Y de 20:00 a 8:00 la tarifa es 1 euro, así que bajar a cenar al pueblo y dejar el auto ahí no cuesta nada.',
+          en:'It wins by a distance: the others cap at 15 or 20 euros a day. And from 20:00 to 8:00 the rate is 1 euro, so coming down for dinner and leaving the car there costs nothing.'}},
+    {m:'Parcheggio P3 Bagnaia, San Gimignano', a:'San Gimignano',
+     n:{es:'San Gimignano: P3 y P4 Bagnaia',en:'San Gimignano: P3 and P4 Bagnaia'},
+     d:{es:'Los dos del lado norte, uno al lado del otro, debajo de la entrada nororiental. 2 euros la hora con tope de 15 al día, y 5 euros de 20:00 a 8:00.',
+        en:'The two on the north side, one next to the other, below the north eastern gate. 2 euros an hour capped at 15 a day, and 5 euros from 20:00 to 8:00.'},
+     t:'mover', p:'€',
+     tip:{es:'Sirven solo si venimos de Poggibonsi y el P1 está lleno, que en octubre no pasa. Viniendo del hotel, seguir de largo hasta el P1 cuesta tres minutos más y sale la mitad.',
+          en:'They only make sense coming from Poggibonsi with the P1 full, which in October does not happen. Coming from the hotel, carrying on to the P1 costs three more minutes and half the money.'}},
+    {m:'Parcheggio Santa Caterina, Siena', a:'Siena',
+     n:{es:'Siena: Santa Caterina',en:'Siena: Santa Caterina'},
+     d:{es:'Abajo del complejo de Santa Maria della Scala, con escaleras mecánicas que suben hasta el centro y dejan a cinco minutos de la Piazza del Campo. 2 euros la hora, abierto las veinticuatro horas.',
+        en:'Below the Santa Maria della Scala complex, with escalators up into the centre that leave you five minutes from Piazza del Campo. 2 euros an hour, open around the clock.'},
+     t:'mover', p:'€€',
+     tip:{es:'Las escaleras mecánicas son el motivo: Siena está toda en cuesta y los otros estacionamientos se pagan subiendo a pie. El tope diario son 35 euros, así que para medio día conviene mirar el reloj.',
+          en:'The escalators are the point: Siena is all slope and the other car parks are paid for on foot, uphill. The daily cap is 35 euros, so for half a day keep an eye on the clock.'}},
+    {m:'Parcheggio Il Campo, Siena', a:'Siena',
+     n:{es:'Siena: Il Campo',en:'Siena: Il Campo'},
+     d:{es:'Cerca de la Porta Tufi, del otro lado del centro, también a pocos minutos de la Piazza del Campo y de la Torre del Mangia. Misma tarifa: 2 euros la hora.',
+        en:'Near Porta Tufi, on the other side of the centre, also a few minutes from Piazza del Campo and the Torre del Mangia. Same rate: 2 euros an hour.'},
+     t:'mover', p:'€€',
+     tip:{es:'Es el de reserva si Santa Caterina está lleno. Quien duerme en un alojamiento de Siena tiene descuento en los dos, pero a nosotros no nos toca.',
+          en:'It is the fallback if Santa Caterina is full. Anyone staying in Siena gets a discount at both, but that is not us.'}},
+    {m:'Parcheggio Cipressino, Monteriggioni', a:'Monteriggioni',
+     n:{es:'Monteriggioni: Cipressino',en:'Monteriggioni: Cipressino'},
+     d:{es:'A unos doscientos cincuenta metros de la puerta, cinco minutos de subida. Hay otro, el Castello, a cincuenta metros de la entrada, que cuesta bastante más por la misma caminata corta.',
+        en:'About two hundred and fifty metres from the gate, a five minute walk up. There is another, the Castello, fifty metres from the entrance, which costs considerably more for the same short walk.'},
+     t:'mover', p:'€',
+     tip:{es:'Para cuarenta minutos adentro de la muralla, el Cipressino y listo. El pueblo entero son una plaza y dos calles: no hace falta quedar en la puerta.',
+          en:'For forty minutes inside the walls, the Cipressino and that is that. The whole town is one square and two streets: no need to be parked at the door.'}},
+    {m:'Parcheggio Via del Cassello, Pienza', a:'Pienza',
+     n:{es:'Pienza: la circunvalación',en:'Pienza: the ring road'},
+     d:{es:'Pienza es minúscula y el centro es todo ZTL. Las playas pagas están sobre el viale di Circonvallazione, justo antes de la entrada del pueblo, a dos o tres minutos de la plaza.',
+        en:'Pienza is tiny and the centre is all ZTL. The paid lots sit along the viale di Circonvallazione, right before the town gate, two or three minutes from the square.'},
+     t:'mover', p:'€',
+     tip:{es:'Llegando al mediodía de un domingo hay que dar una vuelta: es el pueblo más visitado de la Val d’Orcia y tiene lugar para muy pocos autos. Conviene seguir hasta la punta del viale, donde casi nadie mira.',
+          en:'Arriving at midday on a Sunday means circling once: it is the most visited town in the Val d’Orcia and has room for very few cars. Carry on to the far end of the viale, where hardly anyone looks.'}},
+    {m:'Parcheggio P1 Porta al Prato, Montepulciano', a:'Montepulciano',
+     n:{es:'Montepulciano: P1 Porta al Prato',en:'Montepulciano: P1 Porta al Prato'},
+     d:{es:'Abajo y al oeste, pegado a la puerta por donde arranca la calle principal. La sosta del centro se paga de 8:00 a 20:00, alrededor de 1,50 euros la hora.',
+        en:'Down at the western end, right by the gate where the main street starts. Central parking is paid from 8:00 to 20:00, around 1.50 euros an hour.'},
+     t:'mover', p:'€',
+     tip:{es:'Montepulciano es una sola calle en subida de punta a punta, y entrando por Porta al Prato se sube con el pueblo de frente y se baja de vuelta al auto. Entrando por arriba se hace al revés y la cuesta se siente el doble.',
+          en:'Montepulciano is a single climbing street from end to end, and coming in through Porta al Prato you walk up with the town ahead of you and walk back down to the car. Coming in from the top you do it backwards and the hill feels twice as steep.'}},
+    {m:'Parcheggio Piazzale Fortezza, Montalcino', a:'Montalcino',
+     n:{es:'Montalcino: Piazzale Fortezza',en:'Montalcino: Piazzale Fortezza'},
+     d:{es:'A unos pasos de la fortaleza y de la enoteca de adentro. 1,60 euros la hora de 8:00 a 20:00, y gratis de 20:00 a 8:00.',
+        en:'A few steps from the fortress and the wine bar inside it. 1.60 euros an hour from 8:00 to 20:00, and free from 20:00 to 8:00.'},
+     t:'mover', p:'€',
+     tip:{es:'Se llena rápido y es el único cómodo, así que llegando al atardecer de un domingo puede no haber lugar. Si está completo, hay lugares sobre la via Aurelio Saffi, bajando, y se sube caminando cinco minutos.',
+          en:'It fills fast and is the only convenient one, so arriving at sunset on a Sunday there may be nothing. If it is full there are spaces down along via Aurelio Saffi, and it is a five minute walk back up.'}},
+    {m:'Parcheggio Bagno Vignoni', a:'Bagno Vignoni',
+     n:{es:'Bagno Vignoni: el playón de arriba',en:'Bagno Vignoni: the lot above'},
+     d:{es:'Hay un playón grande y gratis a la entrada del pueblo, con vista a las colinas, dividido en dos sectores. El de atrás es de pedregullo y es el que siempre tiene lugar.',
+        en:'There is a big free lot at the entrance to the village, looking over the hills, split into two sections. The back one is gravel and always has room.'},
+     t:'mover',
+     tip:{es:'Del playón a la plaza termal son tres minutos a pie. El pueblo es peatonal, así que no hay forma de acercarse más, y tampoco hace falta.',
+          en:'From the lot to the thermal square is three minutes on foot. The village is pedestrian, so there is no way to get closer, and no need either.'}},
+    {m:'Parcheggio Fosso Bianco, Bagni San Filippo', a:'Bagni San Filippo',
+     n:{es:'Bagni San Filippo: el truco del playón de arriba',en:'Bagni San Filippo: the trick of the lot above'},
+     d:{es:'Sobre la via del Fosso Bianco, la bajada a las termas, todo es línea azul y se paga: 7,50 euros por tres horas o 15 euros el día hasta las 20:00. Pero hay un playón gratis sobre la carretera provincial SP61, a diez minutos a pie.',
+        en:'Along via del Fosso Bianco, the road down to the springs, it is all blue lines and paid: 7.50 euros for three hours or 15 euros for the day until 20:00. But there is a free lot up on the SP61 provincial road, ten minutes on foot.'},
+     t:'mover', p:'€',
+     tip:{es:'Los diez minutos son cuesta abajo a la ida y cuesta arriba a la vuelta, mojados y con la toalla encima. Si vamos a estar dos horas, los 7,50 del de abajo están bien gastados.',
+          en:'Those ten minutes are downhill going and uphill coming back, wet and carrying a towel. If we are staying two hours, the 7.50 for the lower one is money well spent.'}},
+    {m:'Terme San Giovanni, Rapolano Terme', a:'Rapolano Terme',
+     n:{es:'Rapolano: el de las termas',en:'Rapolano: the one at the baths'},
+     d:{es:'Las Terme San Giovanni tienen estacionamiento propio en el predio, gratis para quien entra a las piletas. Se llega por la carretera y no hay ZTL en el medio.',
+        en:'Terme San Giovanni has its own parking on site, free for anyone going into the pools. You reach it by road with no ZTL in between.'},
+     t:'mover',
+     tip:{es:'Es la única parada del domingo donde el auto queda a la puerta, que con el pelo mojado y de noche no es poca cosa.',
+          en:'It is the one stop on Sunday where the car is right at the door, which with wet hair and after dark counts for something.'}},
+    {m:'Parcheggio Via Gigli, Castiglioncello', a:'Castiglioncello',
+     n:{es:'Castiglioncello: Via Gigli',en:'Castiglioncello: Via Gigli'},
+     d:{es:'El estacionamiento comunal del pueblo, a pocos minutos del castillo y de la bajada a la Baia del Quercetano. Fuera de temporada alta no se cobra.',
+        en:'The town’s municipal car park, a few minutes from the castle and from the path down to the Baia del Quercetano. Out of high season there is no charge.'},
+     t:'mover',
+     tip:{es:'En octubre esta costa está vacía y se estaciona en cualquier parte, incluso en la calle de arriba de la bahía, que en verano es imposible. Es la ventaja de venir ahora.',
+          en:'In October this coast is empty and you can park anywhere, including the street above the bay, which in summer is hopeless. That is the advantage of coming now.'}},
+    {m:'Park Odeon, Livorno', a:'Livorno',
+     n:{es:'Livorno: Park Odeon',en:'Livorno: Park Odeon'},
+     d:{es:'Garage cubierto y de los más cercanos al centro histórico, 2 euros la hora. Livorno es una ciudad grande y de puerto: acá no hay playón al lado de la puerta de un pueblo.',
+        en:'A covered garage and one of the closest to the historic centre, 2 euros an hour. Livorno is a big port city: there is no lot beside a village gate here.'},
+     t:'mover', p:'€€',
+     tip:{es:'Desde ahí el mercado, la Venezia Nuova y el almuerzo quedan a pie, pero la Terrazza Mascagni está a dos kilómetros por el Viale Italia: eso se hace en auto y se estaciona sobre el mismo viale, frente al mar.',
+          en:'From there the market, the Venezia Nuova and lunch are walkable, but the Terrazza Mascagni is two kilometres away along Viale Italia: that bit is done by car, parking on the viale itself, facing the sea.'}},
+    {m:'Parcheggio Via Pietrasantina, Pisa', a:'Pisa',
+     n:{es:'Pisa: Via Pietrasantina',en:'Pisa: Via Pietrasantina'},
+     d:{es:'Gratis para autos, afuera de la ZTL y a novecientos metros de la Piazza dei Miracoli, diez o doce minutos a pie. Tiene baños, agua y un bar.',
+        en:'Free for cars, outside the ZTL and nine hundred metres from Piazza dei Miracoli, ten or twelve minutes on foot. It has toilets, water and a bar.'},
+     t:'mover',
+     tip:{es:'Es el estacionamiento de Pisa y por eso lo conocen todos, pero a las 8:40 de un martes de octubre está casi vacío. Hay una lanzadera de 1 euro ida y vuelta: con doce minutos de caminata no vale la espera.',
+          en:'It is the Pisa car park and everyone knows it, but at 8:40 on an October Tuesday it is nearly empty. There is a 1 euro return shuttle: with a twelve minute walk it is not worth the wait.'}},
+    {m:'Forte dei Marmi centro', a:'Forte dei Marmi',
+     n:{es:'Forte dei Marmi: línea azul y la app',en:'Forte dei Marmi: blue lines and the app'},
+     d:{es:'Acá no hay un playón grande: es todo línea azul en la calle, repartida en sectores con tarifas distintas, y algunos tramos se cobran hasta la madrugada. El cartel vertical de al lado del lugar es el que manda.',
+        en:'There is no big lot here: it is all blue lines on the street, split into sectors with different rates, and some stretches are charged into the small hours. The upright sign next to the space is what counts.'},
+     t:'mover', p:'€€',
+     tip:{es:'Se paga con la app ParkingMyCar, que resuelve el problema de las monedas. Para cuarenta minutos de muelle y un café, buscar lugar sobre la Via Carducci o la Via Mazzini, que desembocan en el pontile.',
+          en:'You pay through the ParkingMyCar app, which solves the coin problem. For forty minutes of pier and a coffee, look for a space on Via Carducci or Via Mazzini, which both run down to the pontile.'}}
   ]},
 
   {s:{es:'Sentarse a comer',en:'Sitting down to eat'}, k:'comer', items:[
@@ -2668,8 +2927,8 @@ const CITIES = [
      d:{es:'Detrás de la Piazza del Campo, en la Piazza del Mercato. Casera, barata y de toda la vida: pici all’aglione, ribollita, conejo.',
         en:'Behind Piazza del Campo, on Piazza del Mercato. Home cooking, cheap and long established: pici all’aglione, ribollita, rabbit.'},
      t:'comer', p:'€', serv:'mesa', res:'conviene',
-     tip:{es:'Es el almuerzo del sábado en Siena. Tiene mesas afuera con vista al valle, que es un lujo que no cobra.',
-          en:'This is Saturday lunch in Siena. It has outside tables looking over the valley, a luxury it does not charge for.'}},
+     tip:{es:'Tiene mesas afuera con vista al valle, que es un lujo que no cobra.',
+          en:'It has outside tables looking over the valley, a luxury it does not charge for.'}},
     {a:'Pienza',
      n:{es:'Los quesos de Pienza',en:'The cheeses of Pienza'},
      d:{es:'Pienza vive del pecorino y la calle principal es una sucesión de tiendas donde te hacen probar antes de comprar: fresco, semicurado, curado, o envuelto en heno o en hojas de nogal.',
@@ -2683,7 +2942,21 @@ const CITIES = [
         en:'Inside the town fortress, with tables set among the walls. The most direct place to try a Brunello without booking a winery slot.'},
      t:'comer', p:'€€', serv:'barra', res:'no',
      tip:{es:'El Brunello necesita años en botella y por eso es caro. El Rosso di Montalcino es el mismo viñedo con menos crianza, sale bastante menos y para tomar ahora está mejor.',
-          en:'Brunello needs years in the bottle, which is why it costs what it does. Rosso di Montalcino is the same vineyard with less ageing, costs considerably less, and is better for drinking now.'}}
+          en:'Brunello needs years in the bottle, which is why it costs what it does. Rosso di Montalcino is the same vineyard with less ageing, costs considerably less, and is better for drinking now.'}},
+    {a:'Livorno',
+     n:{es:'El cacciucco de Livorno',en:'Livorno cacciucco'},
+     d:{es:'Una sopa espesa de pescado y mariscos, servida sobre pan frotado con ajo en el fondo del plato. La receta pide cinco bichos distintos, uno por cada c del nombre, y se come con las manos y un babero.',
+        en:'A thick soup of fish and shellfish, served over bread rubbed with garlic at the bottom of the bowl. The recipe calls for five different creatures, one for each c in the name, and it is eaten with your hands and a bib.'},
+     t:'comer', p:'€€', serv:'mesa', res:'conviene',
+     tip:{es:'Los dos nombres que repiten los livorneses son la Trattoria Galileo, que lo hace desde 1959, y la Cantina Senese, en Borgo Cappuccini. La Barrocciaia es la otra que recomiendan todos, pero <b>cierra los lunes</b>, que es justo el día que vamos.',
+          en:'The two names Livornese people keep repeating are Trattoria Galileo, at it since 1959, and Cantina Senese, over on Borgo Cappuccini. La Barrocciaia is the other one everybody recommends, but it <b>closes on Mondays</b>, which is exactly the day we are going.'}},
+    {a:'Livorno',
+     n:{es:'Mercato Centrale de Livorno',en:'Livorno central market'},
+     d:{es:'Una nave de hierro y vidrio del siglo XIX, de las más grandes de Italia, con los puestos de pescado al fondo y la fruta y los quesos adelante. Abre de lunes a sábado de 7:30 a 14:00.',
+        en:'A nineteenth century iron and glass hall, one of the biggest in Italy, with the fish stalls at the back and fruit and cheese at the front. Open Monday to Saturday, 7:30 to 14:00.'},
+     t:'comer', p:'€', serv:'puesto', res:'no',
+     tip:{es:'Cierra a las 14:00 en punto y por eso va antes del almuerzo y no después. A las 13:00 los puestos de pescado ya están lavando el hielo, así que llegar sobre las 12:30.',
+          en:'It shuts at 14:00 on the dot, which is why it comes before lunch and not after. By 13:00 the fish stalls are already washing down the ice, so get there around 12:30.'}}
   ]},
 
   {s:{es:'Café y gelato',en:'Coffee and gelato'}, k:'cafe', items:[
@@ -2705,39 +2978,60 @@ const CITIES = [
      d:{es:'El desayuno italiano es dulce y corto: café, cornetto y poco más. Si el del hotel no alcanza, en cualquier bar del pueblo se resuelve de pie en tres minutos.',
         en:'Italian breakfast is sweet and short: coffee, a cornetto and little else. If the hotel one is not enough, any bar in town sorts it out standing up in three minutes.'},
      t:'cafe',
-     tip:{es:'Y una advertencia de octubre: en los pueblos chicos los bares abren temprano pero cierran a media tarde, y el domingo muchos directamente no abren.',
-          en:'And an October warning: in the small towns the bars open early but close mid afternoon, and on Sunday many do not open at all.'}}
+     tip:{es:'Y una advertencia de octubre: en los pueblos chicos los bares abren temprano pero cierran a media tarde, y el domingo muchos directamente no abren. El martes, saliendo 7:30, el café se toma en Pisa y no acá.',
+          en:'And an October warning: in the small towns the bars open early but close mid afternoon, and on Sunday many do not open at all. On Tuesday, leaving at 7:30, coffee happens in Pisa rather than here.'}}
   ]},
 
   {s:{es:'Vino',en:'Wine'}, k:'coctel', items:[
+    {m:'Tenuta Sovestro, Localita Sovestro 62, San Gimignano', a:'San Gimignano',
+     n:{es:'Tenuta Sovestro, la de al lado del hotel',en:'Tenuta Sovestro, the one next to the hotel'},
+     d:{es:'Está en la Località Sovestro 62, a menos de dos kilómetros del pueblo y a unos metros de donde dormimos. Abre todos los días de 12:30 a 18:00 y hacen cuatro degustaciones distintas, de 18 a 30 euros: los cuatro DOCG, las producciones de menos de mil botellas, las siete etiquetas, o cuatro a elección con una vuelta por el viñedo.',
+        en:'It sits at Località Sovestro 62, under two kilometres from town and a few metres from where we sleep. Open every day 12:30 to 18:00, with four different tastings from 18 to 30 euros: the four DOCG wines, the bottlings under a thousand bottles, all seven labels, or four of your choosing with a walk through the vineyard.'},
+     t:'coctel', p:'€', serv:'mesa', res:'conviene', w:'https://www.tenutasovestro.com/',
+     tip:{es:'Es la única bodega del viaje a la que podemos ir sin que uno de los dos se quede sin tomar, porque se vuelve caminando. Conviene avisar por teléfono a la mañana: +39 0577 940148.',
+          en:'It is the one winery on this trip where neither of us has to stay dry, because you walk home. Worth ringing in the morning: +39 0577 940148.'}},
+    {m:'Il Colombaio di Santa Chiara, San Donato, San Gimignano', a:'San Gimignano',
+     n:{es:'Il Colombaio di Santa Chiara',en:'Il Colombaio di Santa Chiara'},
+     d:{es:'En la aldea de San Donato, al suroeste del pueblo, de la familia Logi y de las que mejor hacen la Vernaccia. Las degustaciones van de 11:30 a 17:30: tres vinos clásicos por 35 euros o un recorrido de seis por 50.',
+        en:'In the hamlet of San Donato, south west of town, run by the Logi family and among the best at Vernaccia. Tastings run 11:30 to 17:30: three classics for 35 euros or a journey through six for 50.'},
+     t:'coctel', p:'€€', serv:'mesa', res:'si', w:'https://colombaiosantachiara.it/',
+     tip:{es:'Es el escalón de arriba de Sovestro, en vino y en precio, y hay que reservar: +39 0577 942004. Queda a quince minutos del hotel por carretera secundaria.',
+          en:'It is the step up from Sovestro, in wine and in price, and you have to book: +39 0577 942004. Fifteen minutes from the hotel on back roads.'}},
+    {m:'Tenuta MonteRosola, Volterra', a:'Volterra',
+     n:{es:'Tenuta Monterosola, la que vimos en Volterra',en:'Tenuta Monterosola, the one we saw in Volterra'},
+     d:{es:'Recibe de martes a domingo en tres turnos, 11:00, 13:00 y 15:00, con reserva de un día para el otro. La degustación Essenza son cuatro vinos con sommelier por 30 euros, y la Cammino son seis en hora y media por 50, con la opción de sumar un plato liviano.',
+        en:'It receives Tuesday to Sunday in three slots, 11:00, 13:00 and 15:00, booked a day ahead. The Essenza tasting is four wines with a sommelier for 30 euros, and the Cammino is six over an hour and a half for 50, with the option of adding a light plate.'},
+     t:'coctel', p:'€€', serv:'mesa', res:'si', w:'https://www.monterosola.com/',
+     tip:{es:'<b>Cierra los lunes</b>, que es el único día que nos queda suelto, así que en la práctica quedó afuera. Es la más linda de las tres y la más seria, pero son cuarenta y cinco minutos de ida y hay que volver manejando.',
+          en:'It <b>closes on Mondays</b>, the one day we have loose, so in practice it has fallen out. It is the loveliest of the three and the most serious, but it is forty five minutes each way and someone has to drive back.'}},
     {a:'San Gimignano',
      n:{es:'Vernaccia en la Rocca',en:'Vernaccia up at the Rocca'},
      d:{es:'La Vernaccia di San Gimignano fue la primera denominación de origen de Italia, en 1966, y es un blanco seco y mineral que casi no sale del pueblo. Arriba, en la Rocca de Montestaffoli, hay una terraza con vista a las torres y al valle donde se toma por copa.',
         en:'Vernaccia di San Gimignano was Italy’s first denomination of origin, in 1966, a dry mineral white that barely leaves the town. Up at the Rocca di Montestaffoli there is a terrace looking at the towers and the valley where it is poured by the glass.'},
      t:'coctel', p:'€', serv:'barra', res:'no',
-     tip:{es:'La subida a la Rocca es gratis y la vista al atardecer es la mejor del pueblo. Es el plan de la primera tarde.',
-          en:'The climb up to the Rocca is free and the sunset view is the best in town. This is the plan for the first evening.'}},
+     tip:{es:'La subida a la Rocca es gratis y la vista al atardecer es la mejor del pueblo. Es el plan de cualquier tarde que volvamos temprano.',
+          en:'The climb up to the Rocca is free and the sunset view is the best in town. The plan for any afternoon we get back early.'}},
     {m:'Antinori nel Chianti Classico, Bargino',
      n:{es:'Bodega Antinori nel Chianti Classico',en:'Antinori nel Chianti Classico winery'},
      d:{es:'Una bodega enterrada en la colina, con el techo cubierto de viñedo y una escalera de caracol que baja entre las barricas. La familia hace vino desde 1385 y el edificio es de lo mejor de la arquitectura italiana reciente.',
         en:'A winery buried in the hillside, its roof planted with vines and a spiral staircase descending among the barrels. The family has made wine since 1385 and the building is among the best recent Italian architecture.'},
      t:'coctel', p:'€€', serv:'mesa', res:'si', w:'https://www.antinorichianticlassico.it/',
-     tip:{es:'Está camino a Florencia, a unos cuarenta minutos, y se visita solo con reserva. Es la bodega más fácil de sumar a un día de Chianti sin meterse en caminos de tierra.',
-          en:'It is on the Florence road, about forty minutes away, and visits are by booking only. The easiest winery to add to a Chianti day without getting onto gravel roads.'}},
+     tip:{es:'Está camino a Florencia, a unos cuarenta minutos, y se visita solo con reserva. Con los días repartidos como quedaron, es la que sobra: queda para el norte y nosotros vamos al sur y a la costa.',
+          en:'It is on the Florence road, about forty minutes away, and visits are by booking only. With the days as they now fall, it is the one left over: it lies north and we are going south and to the coast.'}},
     {nota:1,
      n:{es:'Bodegas en octubre',en:'Wineries in October'},
-     d:{es:'Octubre es después de la vendimia, así que las bodegas están tranquilas y siguen recibiendo, pero con horario corto y solo con reserva previa. La ventaja es grande: en vez de una visita en grupo de treinta personas, muchas veces atiende el dueño sin apuro.',
-        en:'October is after the harvest, so the wineries are quiet and still receiving visitors, but on short hours and by appointment only. The upside is real: instead of a group tour of thirty, it is often the owner showing you round in no hurry.'},
+     d:{es:'Octubre es después de la vendimia, así que las bodegas están tranquilas y siguen recibiendo, pero con horario corto y casi siempre con reserva previa. Muchas cierran un día fijo de la semana, y el lunes es el más común.',
+        en:'October is after the harvest, so the wineries are quiet and still receiving visitors, but on short hours and almost always by appointment. Many close one fixed day a week, and Monday is the most common one.'},
      t:'coctel',
-     tip:{es:'Si manejamos, hay que acordar antes quién prueba y quién no. Una degustación son cinco o seis copas por cabeza, que es media botella, y los controles en la ruta existen y son duros.',
-          en:'If we are driving, agree beforehand who tastes and who does not. A tasting is five or six glasses a head, which is half a bottle, and roadside checks exist and are strict.'}},
+     tip:{es:'La ventaja es grande: en vez de una visita en grupo de treinta personas, muchas veces atiende el dueño sin apuro. Y si manejamos, hay que acordar antes quién prueba: una degustación son cinco o seis copas por cabeza, que es media botella, y los controles en la ruta existen y son duros.',
+          en:'The upside is real: instead of a group tour of thirty, it is often the owner showing you round in no hurry. And if we are driving, agree beforehand who tastes: a tasting is five or six glasses a head, which is half a bottle, and roadside checks exist and are strict.'}},
     {nota:1,
      n:{es:'La ruta del Chianti',en:'The Chianti road'},
      d:{es:'La carretera SR222, que va de Florencia a Siena por el medio de las colinas, es el paseo en auto clásico de la Toscana: viñedos, cipreses, castillos y pueblos de piedra cada quince minutos.',
         en:'The SR222, running from Florence to Siena through the middle of the hills, is the classic Tuscan drive: vineyards, cypresses, castles and stone villages every fifteen minutes.'},
      t:'coctel',
-     tip:{es:'Los pueblos que valen la parada son Castellina, Panzano, que tiene la carnicería de Dario Cecchini, y Radda. En una tarde se hacen dos, no los tres.',
-          en:'The towns worth stopping in are Castellina, Panzano, which has Dario Cecchini’s butcher shop, and Radda. In one afternoon you do two, not three.'}}
+     tip:{es:'Los pueblos que valen la parada son Castellina, Panzano, que tiene la carnicería de Dario Cecchini, y Radda. Quedó como el plan de reserva: si el lunes amanece lloviendo sobre la costa, esto se hace igual con lluvia.',
+          en:'The towns worth stopping in are Castellina, Panzano, which has Dario Cecchini’s butcher shop, and Radda. It has become the fallback plan: if Monday dawns raining over the coast, this works in the rain anyway.'}}
   ]},
 
   {s:{es:'Las termas',en:'The hot springs'}, k:'aire', items:[
@@ -2753,6 +3047,12 @@ const CITIES = [
      t:'aire',
      tip:{es:'Está a diez minutos de San Filippo, así que los dos entran en el mismo día. La plaza con vapor a primera hora de la mañana es una de las imágenes más raras de la Toscana.',
           en:'It is ten minutes from San Filippo, so both fit into the same day. The square steaming first thing in the morning is one of the strangest sights in Tuscany.'}},
+    {m:'Terme San Giovanni, Rapolano Terme', n:'Rapolano Terme',
+     d:{es:'Termas de verdad, con cinco piletas a distintas temperaturas, vestuarios, toallas y bar. Las Terme San Giovanni abren los <b>domingos de 9:00 a 22:00</b>: 25 euros el día entero, o 22 entrando después de las 16:00.',
+        en:'Proper spa baths, with five pools at different temperatures, changing rooms, towels and a bar. Terme San Giovanni opens on <b>Sundays from 9:00 to 22:00</b>: 25 euros for the whole day, or 22 going in after 16:00.'},
+     t:'aire', p:'€€', res:'conviene',
+     tip:{es:'Es el mejor final posible para el domingo: están a cincuenta minutos de San Filippo, sobre el camino de vuelta, y meterse en agua a treinta y ocho grados ya de noche, con el aire fresco de octubre, no se parece a nada. La otra de Rapolano, la Antica Querciolaia, hace baño nocturno pero los <b>sábados</b>, hasta la una de la mañana.',
+          en:'It is the best possible way to end Sunday: fifty minutes from San Filippo, on the way home, and sinking into thirty eight degree water after dark in the cool October air is not like anything else. The other one in Rapolano, Antica Querciolaia, does night bathing but on <b>Saturdays</b>, until one in the morning.'}},
     {m:'Terme di Saturnia, Cascate del Mulino',
      n:{es:'Las cascadas de Saturnia',en:'The Saturnia waterfalls'},
      d:{es:'Las termas más famosas de Italia: una serie de piletas de travertino blanco escalonadas, con el agua turquesa cayendo de una a otra. La versión libre, las Cascate del Mulino, es gratis y abierta las veinticuatro horas.',
@@ -2760,12 +3060,6 @@ const CITIES = [
      t:'aire',
      tip:{es:'El problema es la distancia: son unas dos horas y cuarto desde San Gimignano, cada tramo. Es un día entero de auto para un baño. Si lo que queremos es la foto famosa, vale; si lo que queremos es meternos en agua caliente, San Filippo está mucho más cerca y es igual de lindo.',
           en:'The problem is the distance: about two and a quarter hours from San Gimignano, each way. That is a whole day of driving for a soak. If what we want is the famous photograph, it is worth it; if what we want is to get into hot water, San Filippo is far closer and just as lovely.'}},
-    {m:'Terme San Giovanni, Rapolano Terme', n:'Rapolano Terme',
-     d:{es:'Termas de verdad, con piletas de agua caliente, vestuarios, toallas y bar. La opción cómoda y sin barro, a poco más de una hora.',
-        en:'Proper spa baths, with hot pools, changing rooms, towels and a bar. The comfortable option with no mud, a little over an hour away.'},
-     t:'aire', p:'€€', res:'conviene',
-     tip:{es:'Abren de noche varios días de la semana, y meterse en agua a treinta y ocho grados con el aire fresco de octubre y ya oscuro es exactamente el plan de un día de mucho auto. Conviene confirmar el horario nocturno antes de ir.',
-          en:'They open at night several days a week, and sinking into thirty eight degree water in the cool October air after dark is exactly the right end to a long day of driving. Confirm the evening hours before going.'}},
     {nota:1,
      n:{es:'Cómo se va a las termas libres',en:'How to go to the free hot springs'},
      d:{es:'Ojotas o sandalias que se puedan mojar, porque el fondo es piedra resbalosa. Toalla grande, bolsa para la ropa mojada, y agua para tomar, que el calor deshidrata más de lo que parece.',
@@ -2794,8 +3088,8 @@ const CITIES = [
      d:{es:'Rayado en blanco y negro por dentro y por fuera, con un piso de mármol con incrustaciones que cuenta escenas enteras y que está tapado casi todo el año para protegerlo.',
         en:'Striped black and white inside and out, with an inlaid marble floor telling whole scenes that stays covered most of the year to protect it.'},
      t:'visita', p:'€€', w:'https://operaduomo.siena.it/',
-     tip:{es:'El piso se destapa unas pocas semanas por año, normalmente entre agosto y mediados de octubre. Vale la pena mirar en la web si nuestra fecha cae adentro, porque cambia la visita por completo. Y la Libreria Piccolomini, con los frescos de Pinturicchio de colores intactos, es lo mejor de adentro.',
-          en:'The floor is uncovered for a few weeks a year, normally between August and mid October. Worth checking the website to see whether our date falls inside, because it changes the visit entirely. And the Piccolomini Library, with Pinturicchio frescoes whose colours are untouched, is the best thing inside.'}},
+     tip:{es:'El piso se destapa unas pocas semanas por año, normalmente entre agosto y mediados de octubre, así que nos tocó adentro. Y la Libreria Piccolomini, con los frescos de Pinturicchio de colores intactos, es lo mejor de adentro.',
+          en:'The floor is uncovered for a few weeks a year, normally between August and mid October, so we caught it. And the Piccolomini Library, with Pinturicchio frescoes whose colours are untouched, is the best thing inside.'}},
     {a:'Monteriggioni', n:'Monteriggioni',
      d:{es:'Un círculo de murallas con catorce torres en el medio del campo, y adentro apenas una plaza y dos calles. Dante lo nombra en el Infierno comparando las torres con gigantes asomados.',
         en:'A ring of walls with fourteen towers out in open country, and inside barely a square and two streets. Dante names it in the Inferno, comparing the towers to giants looking over the edge.'},
@@ -2808,6 +3102,13 @@ const CITIES = [
      t:'visita',
      tip:{es:'Es el contraste perfecto con San Gimignano: acá no hay postal, hay ciudad. El Museo Etrusco Guarnacci tiene la Sombra de la Noche, una figura de bronce alargadísima de hace dos mil quinientos años.',
           en:'It is the perfect contrast with San Gimignano: there is no postcard here, there is a city. The Guarnacci Etruscan Museum holds the Shadow of the Evening, an extraordinarily elongated bronze figure from two and a half thousand years ago.'}},
+    {a:'Montepulciano',
+     n:{es:'Montepulciano y las cantinas de abajo',en:'Montepulciano and the cellars below'},
+     d:{es:'Un pueblo largo y en subida sobre una loma, con palacios renacentistas de los dos lados y la Piazza Grande arriba del todo. Lo que no se ve desde la calle es que debajo está hueco: las bodegas de las familias excavaron galerías en la roca que conectan un palacio con el otro.',
+        en:'A long climbing town along a ridge, with Renaissance palaces on both sides and Piazza Grande right at the top. What you cannot see from the street is that it is hollow underneath: the family wineries dug tunnels through the rock linking one palace to the next.'},
+     t:'visita',
+     tip:{es:'La Cantina Contucci, en Via del Teatro 1, abre todos los días de 9:30 a 12:30 y de 14:30 a 18:00, y bajar entre las barricas no se paga. Las Cantine De’ Ricci, en Via Ricci 11, tienen una escalera monumental que baja a una sala con arcos de catedral, y se visitan con reserva al +39 0578 757166.',
+          en:'Cantina Contucci, at Via del Teatro 1, opens every day 9:30 to 12:30 and 14:30 to 18:00, and walking down among the barrels is not charged for. Cantine De’ Ricci, at Via Ricci 11, have a monumental staircase down into a hall with cathedral arches, visited by appointment on +39 0578 757166.'}},
     {a:'Pienza',
      n:{es:'Pienza y el balcón de la Val d’Orcia',en:'Pienza and the Val d’Orcia balcony'},
      d:{es:'Un pueblo entero rediseñado en el siglo XV por un papa que había nacido ahí, como la primera ciudad ideal del Renacimiento. Detrás de la catedral hay un paseo colgado sobre el valle que es la vista de postal de la Toscana.',
@@ -2815,6 +3116,41 @@ const CITIES = [
      t:'visita',
      tip:{es:'Es chico y se ve en una hora. Las calles del centro tienen nombres como Via dell’Amore y Via del Bacio, que le puso el mismo papa. Ideal para el almuerzo del domingo antes de las termas.',
           en:'It is small and takes an hour. The central streets have names like Via dell’Amore and Via del Bacio, given by that same pope. Ideal for Sunday lunch before the hot springs.'}},
+    {m:'Abbazia di Sant Antimo, Castelnuovo dell Abate', a:'Montalcino',
+     n:{es:'Abadía de Sant’Antimo',en:'Sant’Antimo Abbey'},
+     d:{es:'Una abadía románica del año 1100 sola en el medio de un valle de olivos, a diez minutos de Montalcino. Está hecha en travertino y alabastro, que con el sol de la tarde se pone dorada por dentro. En octubre abre de 10:00 a 18:00 y entrar es gratis.',
+        en:'A Romanesque abbey from around 1100 standing alone in a valley of olive trees, ten minutes from Montalcino. It is built of travertine and alabaster, which the afternoon sun turns golden inside. In October it opens 10:00 to 18:00 and entry is free.'},
+     t:'visita',
+     tip:{es:'Los domingos cantan la misa en gregoriano a las 11:00, que es el motivo real para ir. Para llegar a esa hora hay que dar el domingo al revés: salir 9:00 y arrancar por acá en vez de por Montepulciano.',
+          en:'On Sundays they sing mass in Gregorian chant at 11:00, which is the real reason to go. Making that means running Sunday backwards: leaving at 9:00 and starting here instead of at Montepulciano.'}},
+    {a:'Castiglioncello',
+     n:{es:'Castiglioncello y la Baia del Quercetano',en:'Castiglioncello and the Baia del Quercetano'},
+     d:{es:'Pueblo de mar sobre acantilados bajos, con pinos que bajan hasta el agua y el Castello Pasquini arriba, copiado del Palazzo Vecchio de Florencia y rodeado de un parque abierto. Acá pintaban los Macchiaioli, que fueron los impresionistas italianos.',
+        en:'A seaside town on low cliffs, with pines running down to the water and the Castello Pasquini above, modelled on the Palazzo Vecchio in Florence and ringed by an open park. The Macchiaioli, the Italian impressionists, painted here.'},
+     t:'visita',
+     tip:{es:'Bajando del castillo está la Baia del Quercetano, la única ensenada de arena de esta costa de rocas, metida entre acantilados y tapada del viento. En octubre no hay nadie, y el agua del Tirreno todavía está templada.',
+          en:'Down from the castle lies the Baia del Quercetano, the only sandy inlet on this rocky coast, set between cliffs and sheltered from the wind. In October there is nobody there, and the Tyrrhenian is still mild.'}},
+    {a:'Livorno',
+     n:{es:'Livorno: los canales y la terraza',en:'Livorno: the canals and the terrace'},
+     d:{es:'La ciudad que los Medici inventaron de cero como puerto franco, y que por eso no se parece a ninguna otra de la Toscana: sin murallas, sin centro medieval y con cuatro siglos de gente de todas partes. El barrio de la Venezia Nuova se construyó sobre canales, con los puentes y las barcas entre las casas.',
+        en:'The city the Medici invented from scratch as a free port, which is why it looks like nowhere else in Tuscany: no walls, no medieval centre, and four centuries of people from everywhere. The Venezia Nuova quarter was built on canals, with bridges and boats between the houses.'},
+     t:'visita',
+     tip:{es:'Los paseos en barco por los Fossi Medicei salen de la Venezia Nuova y cuestan unos 15 euros: es la forma de ver la ciudad desde abajo, por donde entraban las mercaderías. Y la Terrazza Mascagni, el damero blanco y negro asomado al mar, es gratis y está siempre abierta.',
+          en:'The boat trips along the Fossi Medicei leave from the Venezia Nuova and cost around 15 euros: it is how you see the city from below, the way the goods came in. And the Terrazza Mascagni, the black and white chequerboard jutting into the sea, is free and always open.'}},
+    {a:'Pisa',
+     n:{es:'Pisa: la foto y nada más',en:'Pisa: the photograph and nothing else'},
+     d:{es:'La Piazza dei Miracoli es un prado verde con cuatro edificios de mármol blanco encima, y entrar a la plaza es gratis. La torre se empezó a inclinar antes de terminarse, porque está apoyada sobre tres metros de arcilla blanda.',
+        en:'Piazza dei Miracoli is a green lawn with four white marble buildings set on it, and walking into the square is free. The tower started leaning before it was finished, because it stands on three metres of soft clay.'},
+     t:'visita',
+     tip:{es:'El amontonamiento de gente haciendo la pose está del lado sur, por donde se entra desde Via Santa Maria. Cruzando el prado al lado norte, detrás del ábside de la catedral, la torre queda con el Duomo adelante, no hay casi nadie, y agachándose un poco la inclinación se exagera sola. A las 9 de la mañana de un martes de octubre la plaza es nuestra.',
+          en:'The crush of people doing the pose is on the south side, where you come in from Via Santa Maria. Crossing the lawn to the north side, behind the cathedral apse, the tower sits with the Duomo in front of it, there is hardly anybody, and crouching a little exaggerates the lean by itself. At 9 in the morning on an October Tuesday the square is ours.'}},
+    {a:'Forte dei Marmi',
+     n:{es:'El pontile de Forte dei Marmi',en:'The Forte dei Marmi pontile'},
+     d:{es:'Un muelle de madera y hormigón que entra derecho al mar, solo para peatones. Se construyó para cargar el mármol que bajaba de las canteras de Carrara, que es de donde sale el nombre del pueblo.',
+        en:'A wooden and concrete pier running straight out to sea, pedestrians only. It was built to load the marble coming down from the Carrara quarries, which is where the town’s name comes from.'},
+     t:'aire',
+     tip:{es:'Desde la punta se ve la costa entera, de Viareggio a La Spezia, con los Alpes Apuanos de fondo. Las manchas blancas de esas montañas no son nieve: son las canteras de mármol, abiertas desde los romanos, y de ahí salió el David.',
+          en:'From the end you see the whole coast, Viareggio to La Spezia, with the Apuan Alps behind. The white patches on those mountains are not snow: they are the marble quarries, open since Roman times, and the David came out of them.'}},
     {ruta:['Pienza, Italia','San Quirico d Orcia, Italia','Bagno Vignoni, Italia','Bagni San Filippo, Italia'],
      n:{es:'La ruta de los cipreses',en:'The cypress road'},
      d:{es:'El tramo de la Val d’Orcia entre Pienza y San Quirico es el paisaje que sale en todas las fotos: colinas peladas, caminos de tierra en curva y grupos de cipreses solitarios.',
@@ -2828,6 +3164,7 @@ const CITIES = [
 {
   id:'cin', nav:'Cinque Terre', name:'Cinque Terre', plate:'La Spezia',
   accent:'#0E7490', lt:'#67E8F9', maps:'La Spezia',
+  d1:'2026-10-13', d2:'2026-10-14',
   lede:{es:'Una noche y media tarde, así que hay que elegir. Con ese tiempo son dos pueblos bien hechos y no cinco a las corridas: los cinco se parecen bastante entre sí y verlos todos es la manera segura de no disfrutar ninguno.',
         en:'One night and half an afternoon, so we have to choose. With that much time it is two villages done properly rather than five at a run: the five resemble each other closely, and seeing them all is the surest way to enjoy none of them.'},
   quick:[
@@ -2838,8 +3175,10 @@ const CITIES = [
     [{es:'Atardece',en:'Sunset'},{es:'18:55, y ahí está la foto',en:'18:55, and that is the photograph'}]
   ],
   sections:[
-  {s:{es:'El plan de la media tarde',en:'The half afternoon plan'}, k:'plan', html:{es:`
-      <h3>Martes 13: llegar, soltar todo y salir</h3>
+  {s:{es:'El plan de la media tarde',en:'The half afternoon plan'}, k:'plan', dias:[
+    {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'},
+     t:{es:'Martes 13: llegar, soltar todo y salir',en:'Tuesday the 13th: arrive, drop everything and get out'},
+     html:{es:`
       <ul>
         <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Primero <b>devolver el auto</b>, después valijas en el alojamiento, y salir con la mochila y nada más. A Cinque Terre no se va con valijas: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
         <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
@@ -2847,13 +3186,7 @@ const CITIES = [
         <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
         <li>El sol se pone 18:55: estar en Manarola desde las 17 para subir, tomar algo y esperar la luz. Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</li>
       </ul>
-      <h3>Miércoles 14: a Módena</h3>
-      <ul>
-        <li>El tren a Módena lleva unas tres horas, casi siempre con un cambio en Parma. Comprarlo con anticipación en la app de Trenitalia y salir temprano.</li>
-        <li>Con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Módena, así que mejor no forzar.</li>
-      </ul>
     `, en:`
-      <h3>Tuesday the 13th: arrive, drop everything and get out</h3>
       <ul>
         <li>We reach La Spezia around 11 from San Gimignano. First <b>hand back the car</b>, then bags at the apartment, and out with a backpack and nothing else. You do not go to Cinque Terre with suitcases: short platforms, full trains and villages made entirely of stairs.</li>
         <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five villages in under twenty minutes. The idea is to catch the first one around midday.</li>
@@ -2861,12 +3194,24 @@ const CITIES = [
         <li><b>Then Manarola</b>, ten minutes on by train, which is where we want to be at sunset. That is where <b>Nessun Dorma</b> is, and a hundred metres on the <b>Punta Bonfiglio</b> viewpoint, free, the source of the postcard of coloured houses on the cliff.</li>
         <li>The sun sets at 18:55: be in Manarola from 17:00 to climb up, have a drink and wait for the light. Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</li>
       </ul>
-      <h3>Wednesday the 14th: on to Modena</h3>
+    `}},
+
+    {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
+     t:{es:'Miércoles 14: a Módena',en:'Wednesday the 14th: on to Modena'},
+     html:{es:`
+      <ul>
+        <li>El tren a Módena lleva unas tres horas, casi siempre con un cambio en Parma. Comprarlo con anticipación en la app de Trenitalia y salir temprano.</li>
+        <li>Con ganas, La Spezia tiene un paseo marítimo lindo para caminar media hora antes de la estación, y el mercado de Piazza Cavour a la mañana. Pero el objetivo del día está en Módena, así que mejor no forzar.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>The train to Modena takes about three hours, almost always with a change at Parma. Buy it ahead on the Trenitalia app and leave early.</li>
         <li>If there is appetite for it, La Spezia has a pleasant seafront for half an hour’s walk before the station, and the Piazza Cavour market in the morning. But the point of the day is in Modena, so better not to push it.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Alba Rooms, La Spezia',
@@ -2991,6 +3336,7 @@ const CITIES = [
   nav:{es:'Módena',en:'Modena'},
   name:{es:'Módena',en:'Modena'},
   plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena',
+  d1:'2026-10-14', d2:'2026-10-14',
   lede:{es:'Un día de paso entre La Spezia y Milán, con un objetivo claro. La pregunta no es si vamos a un museo Ferrari, es a cuál de los dos, y la respuesta depende de a qué hora llegamos y con cuántas valijas.',
         en:'A day in transit between La Spezia and Milan, with one clear objective. The question is not whether we go to a Ferrari museum but which of the two, and the answer depends on what time we arrive and how many bags we have.'},
   quick:[
@@ -3109,6 +3455,7 @@ const CITIES = [
   nav:{es:'Milán',en:'Milan'},
   name:{es:'Milán',en:'Milan'},
   plate:'Metro ATM', accent:'#4338CA', lt:'#A5B4FC', maps:'Milano',
+  d1:'2026-10-14', d2:'2026-10-17',
   lede:{es:'Dos días completos y el hotel en el centro. El viernes se va entero al lago de Como y el jueves alcanza para el Duomo, la Galleria y todo lo que queda alrededor, que está más junto de lo que parece.',
         en:'Two full days and the hotel in the centre. Friday goes entirely to Lake Como, and Thursday is enough for the Duomo, the Galleria and everything around them, which sits closer together than you would think.'},
   quick:[
@@ -3120,45 +3467,61 @@ const CITIES = [
     [{es:'Salimos',en:'We leave'},{es:'Sáb 17, vuelo IB 5543 a Barcelona',en:'Sat 17, flight IB 5543 to Barcelona'}]
   ],
   sections:[
-  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', html:{es:`
-      <h3>Miércoles 14: llegada y el Duomo de noche</h3>
+  {s:{es:'El plan, día por día',en:'The plan, day by day'}, k:'plan', dias:[
+    {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
+     t:{es:'Miércoles 14: llegada y el Duomo de noche',en:'Wednesday the 14th: arrival and the Duomo at night'},
+     html:{es:`
       <ul>
         <li>Llegamos de Módena a la tarde, check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
         <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
       </ul>
-      <h3>Jueves 15: el día de Milán</h3>
+    `, en:`
+      <ul>
+        <li>We arrive from Modena in the afternoon, check in, and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
+        <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
+      </ul>
+    `}},
+
+    {d:'2026-10-15', w:{es:'Jue 15',en:'Thu 15'},
+     t:{es:'Jueves 15: el día de Milán',en:'Thursday the 15th: the Milan day'},
+     html:{es:`
       <ul>
         <li>El <b>Duomo</b> a primera hora, con entrada de <b>9:00 a 9:30</b> y las <b>terrazas</b> incluidas: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán, y a esa hora la luz de la mañana pega en el mármol. Del hotel son diez minutos a pie y se entra por control de seguridad, así que salir 8:30.</li>
         <li>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y a quince minutos a pie el <b>Castello Sforzesco</b>, con la última Pietà de Miguel Ángel y el Parco Sempione detrás.</li>
         <li>A la tarde, <b>Brera</b> para caminar el barrio, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena. Los <b>Navigli</b>, los canales, son el otro lugar donde hacerlo.</li>
       </ul>
-      <h3>Viernes 16: el lago de Como</h3>
-      <ul>
-        <li>Día entero afuera, y ya está decidido cómo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
-        <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
-      </ul>
-      <h3>Sábado 17: a Barcelona</h3>
-      <p>Vuelo IB 5543. El traslado cambia bastante según el aeropuerto: de Linate son veinte minutos en metro, de Malpensa casi una hora en tren. Mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
     `, en:`
-      <h3>Wednesday the 14th: arrival and the Duomo at night</h3>
-      <ul>
-        <li>We arrive from Modena in the afternoon, check in, and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
-        <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
-      </ul>
-      <h3>Thursday the 15th: the Milan day</h3>
       <ul>
         <li>The <b>Duomo</b> first thing, with entry from <b>9:00 to 9:30</b> and the <b>rooftop terraces</b> included: you walk the roof among the spires and the statues with the city below. It is the best thing in Milan, and at that hour the morning light hits the marble. Ten minutes on foot from the hotel, and entry goes through a security check, so leave at 8:30.</li>
         <li>Coming down, the <b>Galleria</b> by day, <b>La Scala</b> from outside or its museum, and fifteen minutes on foot the <b>Castello Sforzesco</b>, with Michelangelo’s last Pietà and the Parco Sempione behind it.</li>
         <li>In the afternoon, <b>Brera</b> for walking the neighbourhood, and at seven the <b>aperitivo</b>, which in Milan replaces dinner. The <b>Navigli</b>, the canals, are the other place to do it.</li>
       </ul>
-      <h3>Friday the 16th: Lake Como</h3>
+    `}},
+
+    {d:'2026-10-16', w:{es:'Vie 16',en:'Fri 16'},
+     t:{es:'Viernes 16: el lago de Como',en:'Friday the 16th: Lake Como'},
+     html:{es:`
+      <ul>
+        <li>Día entero afuera, y ya está decidido cómo: tren a <b>Varenna</b>, poco más de una hora desde Centrale, y ferry a <b>Bellagio</b>, quince minutos cruzando el lago. Varenna es casas de colores sobre el agua; Bellagio, escalinatas y tiendas en la punta donde el lago se abre en dos brazos.</li>
+        <li>Con eso el día está completo: dos pueblos, dos travesías en barco y almuerzo mirando el agua. Volvemos con luz, que en octubre es a las seis y media.</li>
+      </ul>
+    `, en:`
       <ul>
         <li>A whole day out, and the shape of it is settled: train to <b>Varenna</b>, a little over an hour from Centrale, and the ferry to <b>Bellagio</b>, fifteen minutes across the lake. Varenna is coloured houses over the water; Bellagio is stone staircases and shops on the point where the lake splits into two arms.</li>
         <li>That makes a complete day: two villages, two boat crossings and lunch looking at the water. We get back in daylight, which in October means half past six.</li>
       </ul>
-      <h3>Saturday the 17th: on to Barcelona</h3>
-      <p>Flight IB 5543. The transfer changes a lot depending on the airport: twenty minutes on the metro from Linate, nearly an hour by train from Malpensa. Check it in advance and work back from being at the desk three hours before.</p>
     `}},
+
+    {d:'2026-10-17', w:{es:'Sáb 17',en:'Sat 17'},
+     t:{es:'Sábado 17: a Barcelona',en:'Saturday the 17th: on to Barcelona'},
+     html:{es:`
+      <p>Vuelo IB 5543. El traslado cambia bastante según el aeropuerto: de Linate son veinte minutos en metro, de Malpensa casi una hora en tren. Mirarlo con anticipación y calcular la salida del hotel para estar tres horas antes en el mostrador.</p>
+    
+    `, en:`
+      <p>Flight IB 5543. The transfer changes a lot depending on the airport: twenty minutes on the metro from Linate, nearly an hour by train from Malpensa. Check it in advance and work back from being at the desk three hours before.</p>
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Milan Meravigli Den Hotels & Suites',
@@ -3391,6 +3754,7 @@ const CITIES = [
 {
   id:'bcn', nav:'Barcelona', name:'Barcelona', plate:'TMB',
   accent:'#BE185D', lt:'#F9A8D4', maps:'Barcelona',
+  d1:'2026-10-17', d2:'2026-10-18',
   lede:{es:'Una tarde y una mañana, con una lista corta y una asignatura pendiente: la Fuente Mágica de Montjuïc, que Vale no llegó a ver la vez anterior. Todo el plan está armado alrededor de eso.',
         en:'One afternoon and one morning, with a short list and one piece of unfinished business: the Magic Fountain of Montjuïc, which Vale did not get to see last time. The whole plan is built around that.'},
   quick:[
@@ -3401,8 +3765,10 @@ const CITIES = [
     [{es:'Ojo',en:'Watch out'},{es:'Carteristas en Ramblas y metro',en:'Pickpockets on the Ramblas and the metro'}]
   ],
   sections:[
-  {s:{es:'El plan de la tarde y la mañana',en:'The afternoon and morning plan'}, k:'plan', html:{es:`
-      <h3>Sábado 17: el centro y la fuente</h3>
+  {s:{es:'El plan de la tarde y la mañana',en:'The afternoon and morning plan'}, k:'plan', dias:[
+    {d:'2026-10-17', w:{es:'Sáb 17',en:'Sat 17'},
+     t:{es:'Sábado 17: el centro y la fuente',en:'Saturday the 17th: the centre and the fountain'},
+     html:{es:`
       <ul>
         <li>Valijas en el <b>Continental Palacete</b> y a caminar. El hotel está sobre la Rambla de Catalunya, la versión tranquila y arbolada de la Rambla famosa, con gente de Barcelona en vez de turistas.</li>
         <li>Un desvío de dos cuadras para ver por fuera la <b>Casa Batlló</b> y <b>La Pedrera</b> en el Passeig de Gràcia, y seguir hasta la <b>Plaça Catalunya</b>.</li>
@@ -3410,14 +3776,7 @@ const CITIES = [
         <li>A las 19:30, metro a <b>Plaça d’Espanya</b> y subida a pie hacia el Museo Nacional. La <b>Fuente Mágica</b> arranca cuando ya oscureció, hay tiempo de sobra para acomodarse en la escalinata. Es gratis.</li>
         <li>La cena cae perfecta: bajando de Montjuïc, a diez minutos, <b>Poble Sec</b> y su calle de pinchos. Sin cruzar la ciudad de vuelta y sin reservar.</li>
       </ul>
-      <h3>Domingo 18: la Sagrada Familia y el mar</h3>
-      <ul>
-        <li>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora para verla y para la foto. La vuelta completa al templo son media hora.</li>
-        <li>Metro a la <b>Barceloneta</b>: calles angostas, paseo marítimo y playa. Un vermut a media mañana en una terraza mirando el mar es el plan de un domingo de octubre.</li>
-        <li>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</li>
-      </ul>
     `, en:`
-      <h3>Saturday the 17th: the centre and the fountain</h3>
       <ul>
         <li>Bags at the <b>Continental Palacete</b> and out walking. The hotel is on Rambla de Catalunya, the calm tree lined version of the famous Rambla, with people from Barcelona on it instead of tourists.</li>
         <li>A two block detour to see <b>Casa Batlló</b> and <b>La Pedrera</b> from outside on Passeig de Gràcia, then on to <b>Plaça Catalunya</b>.</li>
@@ -3425,13 +3784,26 @@ const CITIES = [
         <li>At 19:30, metro to <b>Plaça d’Espanya</b> and up on foot towards the National Museum. The <b>Magic Fountain</b> starts once it is properly dark, with plenty of time to settle on the steps. It is free.</li>
         <li>Dinner falls perfectly: down off Montjuïc, ten minutes away, <b>Poble Sec</b> and its street of pinchos. No crossing the city again and no booking.</li>
       </ul>
-      <h3>Sunday the 18th: the Sagrada Familia and the sea</h3>
+    `}},
+
+    {d:'2026-10-18', w:{es:'Dom 18',en:'Sun 18'},
+     t:{es:'Domingo 18: la Sagrada Familia y el mar',en:'Sunday the 18th: the Sagrada Familia and the sea'},
+     html:{es:`
+      <ul>
+        <li>Temprano, la <b>Sagrada Familia</b> por fuera. La fachada del Nacimiento, la del lado este y la única que hizo Gaudí en vida, recibe el sol de la mañana: es la hora para verla y para la foto. La vuelta completa al templo son media hora.</li>
+        <li>Metro a la <b>Barceloneta</b>: calles angostas, paseo marítimo y playa. Un vermut a media mañana en una terraza mirando el mar es el plan de un domingo de octubre.</li>
+        <li>Almuerzo temprano y al aeropuerto, con el margen que pida el vuelo IB 5064 a Sevilla.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>Early, the <b>Sagrada Familia</b> from outside. The Nativity facade, the east side and the only one Gaudí completed in his lifetime, catches the morning sun: that is the hour to see it and to photograph it. A full lap of the building is half an hour.</li>
         <li>Metro to <b>Barceloneta</b>: narrow streets, seafront walk and beach. A vermouth mid morning on a terrace looking at the sea is the plan for an October Sunday.</li>
         <li>Early lunch and off to the airport, with whatever margin flight IB 5064 to Seville demands.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
     {m:'Hotel Continental Palacete, Barcelona',
@@ -3587,6 +3959,7 @@ const CITIES = [
   nav:{es:'Sevilla',en:'Seville'},
   name:{es:'Sevilla',en:'Seville'},
   plate:'Tussam', accent:'#7E22CE', lt:'#D8B4FE', maps:'Sevilla',
+  d1:'2026-10-18', d2:'2026-10-25',
   lede:{es:'Una semana entera y con otra lógica: Vale en la universidad de lunes a viernes, yo trabajando desde el apartamento, y las tardes y el fin de semana para los dos. Es la parte del viaje donde conviene vivir la ciudad en vez de recorrerla.',
         en:'A whole week, and running on a different logic: Vale at the university Monday to Friday, me working from the apartment, and the evenings and weekend for the two of us. This is the part of the trip where it pays to live in the city rather than tour it.'},
   quick:[
@@ -3597,14 +3970,26 @@ const CITIES = [
     [{es:'Volvemos',en:'We fly home'},{es:'Dom 25 de noche, vía Madrid',en:'Sun 25 at night, via Madrid'}]
   ],
   sections:[
-  {s:{es:'El plan de la semana',en:'The week’s plan'}, k:'plan', html:{es:`
-      <h3>Domingo 18: llegada y primera vuelta</h3>
+  {s:{es:'El plan de la semana',en:'The week’s plan'}, k:'plan', dias:[
+    {d:'2026-10-18', w:{es:'Dom 18',en:'Sun 18'},
+     t:{es:'Domingo 18: llegada y primera vuelta',en:'Sunday the 18th: arrival and a first loop'},
+     html:{es:`
       <ul>
         <li>Check in en el apartamento y a caminar sin plan. Lo práctico primero: el supermercado más cercano, cómo funciona la casa con cinco personas adentro, y la compra del desayuno de la semana.</li>
         <li>Primera vuelta por el centro con la última luz, la mejor hora de Sevilla: la <b>Catedral</b> y la <b>Giralda</b> por fuera, el <b>Barrio de Santa Cruz</b> y una cena de tapas temprana, que el domingo muchas cocinas cierran a las once.</li>
         <li>Lo más importante del día: <b>medir el camino a Loyola</b>. Con la dirección exacta, ver en Google Maps cuánto lleva a la hora en que Vale tiene que estar el lunes, más un margen. Si la sede está en el campus de Dos Hermanas, el viaje no es corto y hay que saberlo hoy.</li>
       </ul>
-      <h3>Lunes a viernes: la semana partida</h3>
+    `, en:`
+      <ul>
+        <li>Check in at the apartment and out walking with no plan. The practical things first: the nearest supermarket, how the flat works with five people in it, and the week’s breakfast shopping.</li>
+        <li>A first loop through the centre in the last light, which is Seville’s best hour: the <b>Cathedral</b> and the <b>Giralda</b> from outside, the <b>Santa Cruz quarter</b>, and an early tapas dinner, since on Sunday many kitchens shut at eleven.</li>
+        <li>The most important thing of the day: <b>time the journey to Loyola</b>. With the exact address, check in Google Maps how long it takes at the hour Vale has to be there on Monday, plus a margin. If the venue is the Dos Hermanas campus, the journey is not short and we need to know that today.</li>
+      </ul>
+    `}},
+
+    {d:'2026-10-19', d2:'2026-10-23', w:{es:'Lun a vie',en:'Mon to Fri'},
+     t:{es:'Lunes a viernes: la semana partida',en:'Monday to Friday: the split week'},
+     html:{es:`
       <ul>
         <li>Las mañanas, cada uno con lo suyo: Vale en la universidad, yo trabajando. Uruguay está cinco horas atrás, así que la mañana española es tiempo tranquilo antes de que arranque el día allá.</li>
         <li>Las tardes, una cosa por día sin apurar, aprovechando que a las seis Sevilla recién se despierta y anochece a las 19:35:</li>
@@ -3617,25 +4002,7 @@ const CITIES = [
         <li><b>Viernes:</b> el <b>Real Alcázar</b> a las 16:30 y, saliendo, flamenco.</li>
       </ul>
       <p>Las noches son de tapeo, que acá no es una comida sino un recorrido: algo para tomar y una tapa en un bar, se paga, y al siguiente. Tres o cuatro bares es una cena.</p>
-      <h3>Sábado 24: el día largo</h3>
-      <ul>
-        <li>El único día completo de los dos juntos. Dos opciones, las dos buenas.</li>
-        <li>La ambiciosa: <b>Córdoba</b> en el AVE, cuarenta y cinco minutos, para ver la Mezquita, de las cosas más impresionantes de España. Temprano de ida, de noche de vuelta.</li>
-        <li>La que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</li>
-      </ul>
-      <h3>Domingo 25: el último día</h3>
-      <ul>
-        <li>El cambio de hora de madrugada nos da una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río, valijas a media tarde.</li>
-        <li>Dos avisos: el domingo cierran muchos negocios y varios restaurantes, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</li>
-      </ul>
     `, en:`
-      <h3>Sunday the 18th: arrival and a first loop</h3>
-      <ul>
-        <li>Check in at the apartment and out walking with no plan. The practical things first: the nearest supermarket, how the flat works with five people in it, and the week’s breakfast shopping.</li>
-        <li>A first loop through the centre in the last light, which is Seville’s best hour: the <b>Cathedral</b> and the <b>Giralda</b> from outside, the <b>Santa Cruz quarter</b>, and an early tapas dinner, since on Sunday many kitchens shut at eleven.</li>
-        <li>The most important thing of the day: <b>time the journey to Loyola</b>. With the exact address, check in Google Maps how long it takes at the hour Vale has to be there on Monday, plus a margin. If the venue is the Dos Hermanas campus, the journey is not short and we need to know that today.</li>
-      </ul>
-      <h3>Monday to Friday: the split week</h3>
       <ul>
         <li>Mornings, each to our own: Vale at the university, me working. Uruguay is five hours behind, so the Spanish morning is quiet time before the day starts over there.</li>
         <li>Evenings, one thing a day without rushing, taking advantage of a city that only wakes up at six and goes dark at 19:35:</li>
@@ -3648,18 +4015,40 @@ const CITIES = [
         <li><b>Friday:</b> the <b>Real Alcázar</b> at 16:30 and, on the way out, flamenco.</li>
       </ul>
       <p>Evenings are for tapeo, which here is not a meal but a circuit: something to drink and a tapa in one bar, you pay, and on to the next. Three or four bars is a dinner.</p>
-      <h3>Saturday the 24th: the long day</h3>
+    `}},
+
+    {d:'2026-10-24', w:{es:'Sáb 24',en:'Sat 24'},
+     t:{es:'Sábado 24: el día largo',en:'Saturday the 24th: the long day'},
+     html:{es:`
+      <ul>
+        <li>El único día completo de los dos juntos. Dos opciones, las dos buenas.</li>
+        <li>La ambiciosa: <b>Córdoba</b> en el AVE, cuarenta y cinco minutos, para ver la Mezquita, de las cosas más impresionantes de España. Temprano de ida, de noche de vuelta.</li>
+        <li>La que recomiendo si la semana viene pesada: quedarse. Un paseo en barco por el <b>Guadalquivir</b>, el <b>Parque de María Luisa</b> con calma, la <b>Casa de Pilatos</b>, que casi nadie visita y es preciosa, y una cena larga sin mirar el reloj.</li>
+      </ul>
+    `, en:`
       <ul>
         <li>The only full day the two of us have together. Two options, both good.</li>
         <li>The ambitious one: <b>Córdoba</b> on the AVE, forty five minutes, to see the Mezquita, one of the most striking things in Spain. Out early, back after dark.</li>
         <li>The one I would recommend if the week has been heavy: stay put. A boat trip on the <b>Guadalquivir</b>, the <b>Parque de María Luisa</b> taken slowly, the <b>Casa de Pilatos</b>, which almost nobody visits and is beautiful, and a long dinner without watching the clock.</li>
       </ul>
-      <h3>Sunday the 25th: the last day</h3>
+    `}},
+
+    {d:'2026-10-25', w:{es:'Dom 25',en:'Sun 25'},
+     t:{es:'Domingo 25: el último día',en:'Sunday the 25th: the last day'},
+     html:{es:`
+      <ul>
+        <li>El cambio de hora de madrugada nos da una hora de sueño. El vuelo es de noche, así que el día está entero: el vermut del domingo, un último paseo por el río, valijas a media tarde.</li>
+        <li>Dos avisos: el domingo cierran muchos negocios y varios restaurantes, y el aeropuerto de Sevilla es chico pero el check in de un vuelo con conexión internacional pide margen.</li>
+      </ul>
+    
+    `, en:`
       <ul>
         <li>The clock change before dawn gives us an extra hour of sleep. The flight is at night, so the day is intact: the Sunday vermouth, a last walk by the river, bags mid afternoon.</li>
         <li>Two warnings: on Sunday many shops and several restaurants close, and Seville airport is small but check in for a flight with an international connection wants a margin.</li>
       </ul>
-    `}},
+    
+    `}}
+  ]},
 
   {s:{es:'Cómo moverse y vivir acá',en:'Getting around and living here'}, k:'mover', items:[
     {nota:1,
@@ -4015,6 +4404,7 @@ const ICON = {
   star:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 10l6.1-.9z"/></svg>',
   sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>',
   moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 019.5 4a8.5 8.5 0 106 10.5z"/></svg>',
+  nav:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L3 10.6l7.6 2.8L13.4 21z"/></svg>',
   auto:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17" /><path d="M12 3.5a8.5 8.5 0 010 17z" fill="currentColor" stroke="none"/></svg>'
 };
 
@@ -4055,6 +4445,7 @@ const UI = {
     hoy:'Hoy', badgeSigue:'Sigue',
     marcarTramo:n => 'Marcar ' + n + ' como hecho',
     tramosReset:'Volver al estado por fecha',
+    todosDias:'Todos', verDia:n => 'Ver ' + n, waze:'Waze',
     frIt:'En italiano', frPr:'Se dice', frSig:'Quiere decir',
     sinFiltro:'Nada con esos filtros', sinFiltro2:'Prueben quitando alguno.',
     sinNada:q => 'Sin resultados para “' + q + '”',
@@ -4078,6 +4469,7 @@ const UI = {
     hoy:'Today', badgeSigue:'Next',
     marcarTramo:n => 'Mark ' + n + ' as done',
     tramosReset:'Back to the state set by date',
+    todosDias:'All days', verDia:n => 'See ' + n, waze:'Waze',
     frIt:'In Italian', frPr:'Sounds like', frSig:'Means',
     sinFiltro:'Nothing matches those filters', sinFiltro2:'Try dropping one of them.',
     sinNada:q => 'No results for “' + q + '”',
@@ -4122,7 +4514,18 @@ const hoyISO = () => { const n = new Date(), z = x => String(x).padStart(2, '0')
 const tramoId = l => l.d + '|' + FIJO(l.t);
 const tramoHecho = l => { const k = tramoId(l); return k in tramos ? tramos[k] : l.d < hoyISO(); };
 
-let current = CITIES[0].id;
+/* La guia abre en el capitulo que toca hoy. Cada uno con fechas declara d1 y
+   d2; si hoy cae adentro, abre ahi. Antes del viaje y despues del viaje abre en
+   el primero, que son los preparativos, igual que siempre. En los dias de
+   traslado los rangos se pisan a proposito: gana el primero en orden de
+   contenido, que es el capitulo donde arranca la manana, y el otro queda a un
+   toque en el rail, marcado tambien como de hoy. */
+const enFecha = c => !!c.d1 && !!c.d2 && c.d1 <= hoyISO() && hoyISO() <= c.d2;
+let current = (CITIES.find(enFecha) || CITIES[0]).id;
+/* que dia del plan se muestra. null quiere decir que lo decide la fecha, un
+   numero que lo eligio quien lee, y 'todos' que quiere el capitulo entero. No se
+   guarda en el telefono: al volver a abrir la guia manda la fecha de nuevo. */
+let dia = null;
 let query = '';
 let fPrice = new Set();
 let fType = new Set();
@@ -4216,19 +4619,31 @@ const filtering = () => fPrice.size > 0 || fType.size > 0;
 function paintRail() {
   /* data-opt: destino todavia sin confirmar. Se marca en el rail y en la portada. */
   $('#rail').innerHTML = CITIES.map(c =>
-    `<button role="tab" data-city="${c.id}"${c.opcional ? ' data-opt="1"' : ''} aria-selected="${c.id === current}">${esc(T(c.nav))}</button>`
+    `<button role="tab" data-city="${c.id}"${c.opcional ? ' data-opt="1"' : ''}${enFecha(c) ? ' data-hoy="1"' : ''} aria-selected="${c.id === current}">${esc(T(c.nav))}</button>`
   ).join('');
 }
 $('#rail').addEventListener('click', e => {
   const b = e.target.closest('button[data-city]');
   if (!b) return;
   current = b.dataset.city;
+  dia = null;
   if (query) { query = ''; $('#q').value = ''; $('#clearq').classList.remove('on'); }
   render();
   window.scrollTo(0, 0);
 });
 
 /* ---------- render de una ficha ---------- */
+/* it.m: cuando el nombre de la ficha no sirve como busqueda. Si no esta, el
+   nombre que se busca es el fijo: Maps entiende mejor el nombre local que la
+   traduccion. */
+function mapsQuery(it) {
+  return it.m || ((it.a ? FIJO(it.n) + ', ' + it.a : FIJO(it.n)) + (it._city.maps ? ', ' + it._city.maps : ''));
+}
+/* Waze con la misma consulta que Maps, y arrancando a navegar. Va solo en los
+   capitulos que llevan auto: en una ciudad donde se camina es ruido. */
+function wazeUrl(it) {
+  return 'https://waze.com/ul?q=' + encodeURIComponent(mapsQuery(it)) + '&navigate=yes';
+}
 function mapsUrl(it) {
   /* it.ruta: una caminata. Maps la dibuja de verdad en vez de buscar el titulo. */
   if (it.ruta && it.ruta.length > 1) {
@@ -4237,11 +4652,7 @@ function mapsUrl(it) {
       + '&origin=' + p[0] + '&destination=' + p[p.length - 1]
       + (p.length > 2 ? '&waypoints=' + p.slice(1, -1).join('%7C') : '');
   }
-  /* it.m: cuando el nombre de la ficha no sirve como busqueda. Si no está, el
-     nombre que se busca es el fijo: Maps entiende mejor el nombre local que la
-     traducción. */
-  const q = it.m || ((it.a ? FIJO(it.n) + ', ' + it.a : FIJO(it.n)) + (it._city.maps ? ', ' + it._city.maps : ''));
-  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(q);
+  return 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(mapsQuery(it));
 }
 function revUrl(it) {
   return 'https://www.tripadvisor.com/Search?q=' + encodeURIComponent(FIJO(it.n) + ' ' + (it._city.maps || ''));
@@ -4268,6 +4679,7 @@ function itemHTML(it) {
 
   const done = visited.has(it._id);
   const links = [`<a href="${esc(mapsUrl(it))}" target="_blank" rel="noopener">${ICON.pin}${esc(it.ruta ? ui('ruta') : ui('mapa'))}</a>`];
+  if (it._city.auto && !it.ruta) links.push(`<a href="${esc(wazeUrl(it))}" target="_blank" rel="noopener">${ICON.nav}${esc(ui('waze'))}</a>`);
   if (it.w) links.push(`<a href="${esc(it.w)}" target="_blank" rel="noopener">${ICON.link}${esc(ui('web'))}</a>`);
   if (REVIEWABLE[it.t]) links.push(`<a href="${esc(revUrl(it))}" target="_blank" rel="noopener">${ICON.star}${esc(ui('resenas'))}</a>`);
   return `<div class="item${done ? ' done' : ''}" data-id="${esc(it._id)}">
@@ -4310,6 +4722,39 @@ function legsHTML(list) {
   return `<div class="legs">${cabeza}${filas}<button class="legs-reset" data-legreset="1">${esc(ui('tramosReset'))}</button></div>`;
 }
 
+/* ---------- el plan, un dia por vez ---------- */
+/* La guia se lee parada en la calle, asi que el plan abre en el dia de hoy y no
+   en los cinco juntos. Los chips dejan ir al dia que viene o volver al que quedo
+   a medias, y el ultimo muestra el capitulo entero, como estaba antes. */
+function diasHTML(list) {
+  const hoy = hoyISO();
+  /* un dia puede abarcar varios, como la semana de trabajo de Sevilla: entonces
+     lleva d2 y la fecha de hoy tiene que caer entre las dos. */
+  const esHoy = x => x.d <= hoy && hoy <= (x.d2 || x.d);
+  /* el dia de hoy; si hoy no es ninguno, el primero que todavia no paso, que es
+     el que viene; y si ya pasaron todos, el ultimo. */
+  const porFecha = () => {
+    const i = list.findIndex(esHoy);
+    if (i >= 0) return i;
+    const j = list.findIndex(x => x.d > hoy);
+    return j >= 0 ? j : list.length - 1;
+  };
+  const sel = dia === 'todos' ? 'todos' : (dia == null ? porFecha() : dia);
+
+  const chips = list.map((l, i) =>
+    `<button data-dia="${i}" aria-selected="${sel === i}"${esHoy(l) ? ' data-hoy="1"' : ''}`
+    + ` aria-label="${esc(ui('verDia')(T(l.t)))}">${esc(T(l.w))}</button>`).join('')
+    + `<button data-dia="todos" aria-selected="${sel === 'todos'}">${esc(ui('todosDias'))}</button>`;
+
+  const uno = l => `<h3 class="diatit">${esc(T(l.t))}`
+    + (esHoy(l) ? `<span class="diahoy">${esc(ui('hoy'))}</span>` : '')
+    + `</h3><div class="prose">${T(l.html)}</div>`;
+
+  return `<div class="dias"><div class="diasrail">${chips}</div>`
+    + (sel === 'todos' ? list.map(uno).join('') : uno(list[sel]))
+    + `</div>`;
+}
+
 /* ---------- el cuadro de frases ---------- */
 /* Una fila por frase: como se escribe, como se dice y que quiere decir. La
    columna del medio es la que hace que sirva parado en un mostrador. */
@@ -4348,6 +4793,12 @@ function cityHTML(c) {
   if (items.length) h += `<div class="toolrow pegada"><button data-all="open">${esc(ui('abrir'))}</button><button data-all="close">${esc(ui('cerrar'))}</button></div>`;
 
   c.sections.forEach((sec, i) => {
+    if (sec.dias) {
+      if (filtering()) return;
+      h += `<details class="sec"${i === 0 ? ' open' : ''}><summary>${ICON.caret}<h2>${esc(T(sec.s))}</h2></summary>
+        <div class="body">${diasHTML(sec.dias)}</div></details>`;
+      return;
+    }
     if (sec.legs || sec.frases) {
       if (filtering()) return;
       const cuadro = sec.legs ? legsHTML(sec.legs) : frasesHTML(sec.frases);
@@ -4443,6 +4894,16 @@ $('#view').addEventListener('click', e => {
         cnt.textContent = rows.filter(r => r.classList.contains('done')).length + '/' + rows.length;
       }
     }
+    return;
+  }
+  const chip = e.target.closest('[data-dia]');
+  if (chip) {
+    dia = chip.dataset.dia === 'todos' ? 'todos' : Number(chip.dataset.dia);
+    /* se repinta solo el bloque del plan. Repintar la ciudad entera cerraria las
+       secciones que quien lee dejo abiertas, y es lo que mas molesta. */
+    const caja = chip.closest('.dias');
+    const sec = (CITIES.find(x => x.id === current) || CITIES[0]).sections.find(s => s.dias);
+    if (caja && sec) caja.outerHTML = diasHTML(sec.dias);
     return;
   }
   const legtick = e.target.closest('.legtick');
