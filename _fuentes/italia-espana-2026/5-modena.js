@@ -22,8 +22,8 @@
         <li><b>13:00, San Giovanni in Persiceto.</b> Tres cuartos de hora de colchón antes de sentarse, que es justo lo que el día necesita tener. Se usan caminando el pueblo: es el <b>Borgo Rotondo</b>, de planta concéntrica medieval, y tiene la <b>Piazzetta degli Inganni</b>, un patio pintado en trompe l’oeil por el escenógrafo Gino Pellegrini en 1980. La osteria está en Via Giacomo Matteotti 17/A.</li>
         <li><b>13:45, el almuerzo.</b> Hora y media. Es una osteria de las de verdad, de las que hay que dejar hacer.</li>
         <li><b>15:15</b>, a Módena. Media hora por la SS568, en dirección a Milán y no al revés: el museo queda de paso.</li>
-        <li><b>16:00, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85. Hora y media, y cierra 19:00, así que no hay apuro. Si alcanza con una hora, mejor: cada minuto que salgamos antes es un minuto menos de A4 de noche.</li>
-        <li><b>17:45</b>, a Milán. Dos horas por la A1 y la A4, llegando cerca de las <b>19:45</b>. Esa hora importa y tiene consecuencia: ver el capítulo de Milán, porque a esa hora la oficina de la rentadora ya cerró.</li>
+        <li><b>16:00, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85. Hora y media, y cierra 19:00, así que no hay apuro ninguno: el límite real del día no es el museo sino salir de Módena antes de las 18:45.</li>
+        <li><b>17:45</b>, a Milán. Dos horas por la A1 y la A4, llegando cerca de las <b>19:45</b>. Llegamos bien: la oficina de la rentadora abre hasta las 21:00, así que el auto se entrega esa misma noche. El último límite para salir de Módena es 18:45, o sea que tenemos una hora de colchón.</li>
       </ul>
       <h3>Lo que se pierde poniendo el museo a la tarde</h3>
       <p>La Piazza Grande, el Duomo y la Ghirlandina, que es el casco histórico de Módena y es patrimonio de la humanidad. Están a diez minutos a pie del museo y con el museo a la mañana entraban; ahora, saliendo del museo a las 17:30 y con dos horas de ruta por delante, no. Se puede recortar el museo a una hora y darles cuarenta minutos, pero es elegir entre una cosa y la otra. Dicho de frente: el centro de Módena es muy lindo y no lo vamos a ver.</p>
@@ -44,8 +44,8 @@
         <li><b>13:00, San Giovanni in Persiceto.</b> Three quarters of an hour of cushion before sitting down, which is exactly what this day needs to have. Spend it walking the town: it is the <b>Borgo Rotondo</b>, medieval and concentric in plan, and it has the <b>Piazzetta degli Inganni</b>, a courtyard painted in trompe l’oeil by the set designer Gino Pellegrini in 1980. The osteria is at Via Giacomo Matteotti 17/A.</li>
         <li><b>13:45, lunch.</b> An hour and a half. It is a proper osteria, the kind you let get on with it.</li>
         <li><b>15:15</b>, on to Modena. Half an hour on the SS568, heading towards Milan rather than away from it: the museum is on the way.</li>
-        <li><b>16:00, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85. An hour and a half, and it closes at 19:00, so there is no rush. If an hour does it, better: every minute we leave earlier is a minute less of the A4 after dark.</li>
-        <li><b>17:45</b>, on to Milan. Two hours on the A1 and the A4, arriving around <b>19:45</b>. That hour matters and it has a consequence: see the Milan chapter, because by then the rental office has closed.</li>
+        <li><b>16:00, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85. An hour and a half, and it closes at 19:00, so there is no rush at all: the real limit on the day is not the museum but leaving Modena before 18:45.</li>
+        <li><b>17:45</b>, on to Milan. Two hours on the A1 and the A4, arriving around <b>19:45</b>. We arrive in good time: the rental office is open until 21:00, so the car goes back that same evening. The last possible departure from Modena is 18:45, which gives us an hour of cushion.</li>
       </ul>
       <h3>What moving the museum to the afternoon costs</h3>
       <p>Piazza Grande, the cathedral and the Ghirlandina, which are Modena’s historic centre and world heritage. They are ten minutes on foot from the museum and with the museum in the morning they fitted; now, leaving the museum at 17:30 with two hours of road ahead, they do not. We could cut the museum to an hour and give them forty minutes, but it is one or the other. Said plainly: central Modena is lovely and we are not going to see it.</p>

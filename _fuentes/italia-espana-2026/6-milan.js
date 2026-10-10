@@ -9,7 +9,7 @@
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mié 14 a sáb 17 de octubre',en:'Wed 14 to Sat 17 October'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Meravigli Den, en el centro',en:'Meravigli Den, in the centre'}],
-    [{es:'El auto',en:'The car'},{es:'Duerme en Vittor Pisani, se entrega el jue',en:'Sleeps at Vittor Pisani, handed over Thu'}],
+    [{es:'El auto',en:'The car'},{es:'Se entrega mié 14 al llegar, hasta 21:00',en:'Handed over Wed 14 on arrival, until 21:00'}],
     [{es:'Se cena',en:'Dinner runs'},{es:'20:00 a 22:00, antes que en Roma',en:'20:00 to 22:00, earlier than Rome'}],
     [{es:'Octubre',en:'October'},{es:'19° / 10°, puede llover',en:'19° / 10°, rain possible'}],
     [{es:'Entradas',en:'Tickets'},{es:'Duomo, jue 15 a las 9:00',en:'Duomo, Thu 15 at 9:00'}],
@@ -21,18 +21,18 @@
      t:{es:'Miércoles 14: llegada y el Duomo de noche',en:'Wednesday the 14th: arrival and the Duomo at night'},
      html:{es:`
       <ul>
-        <li><b>El auto duerme en Vittor Pisani y se entrega mañana.</b> Llegamos del museo cerca de las <b>19:45</b> y a esa hora la oficina ya cerró: las dos sucursales de ciudad de Europcar en Milán que pudimos chequear cierran 18:00 y 18:30 de lunes a viernes. Así que hoy el auto se deja estacionado y la entrega es el <b>jueves a la mañana</b>, cuando abren.</li>
-        <li><b>Dónde dejarlo: el mismo lugar donde hay que entregarlo.</b> El <b>Parcheggio Vittor Pisani</b> está enfrente de Milán Centrale, tiene 943 plazas, abre las veinticuatro horas y es automatizado y con cámaras. Hasta 24 horas son <b>36,40 euros</b>, que es lo que cuesta no tener que mover el auto de nuevo. El punto de entrega de Europcar es el <b>19, nivel -2</b>, en esa misma calle.</li>
-        <li><b>Esto nos ahorra el Área C.</b> Es la ZTL del centro y los miércoles rige hasta las 19:30, pero llegamos después, así que ya está apagada: entrar al centro hoy no se paga de todos modos. Igual conviene dejar el auto en Vittor Pisani y no cerca del hotel, porque mañana hay que entregarlo acá y porque el jueves el Área C vuelve a regir de 7:30 a 19:30.</li>
-        <li><b>Al hotel en metro</b>, dos paradas desde Centrale. Check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
+        <li><b>Primero el auto, y hay tiempo.</b> Llegamos del museo cerca de las <b>19:45</b> y la oficina es la de <b>Via Galvani 12</b>, con la entrega en <b>Via Vittor Pisani 19, nivel -2</b>: abre de lunes a sábado de <b>7:30 a 21:00</b>, porque es la de la estación y no una sucursal de barrio. Llegamos con hora y cuarto de margen. El teléfono, si hiciera falta avisar, es +39 02 66987 826.</li>
+        <li><b>La cuenta hacia atrás, por si el día se corre.</b> Para entregar a las 21:00 hay que salir de Módena a las 18:45 como último límite, y el plan sale 17:45. Eso es una hora entera de colchón, que alcanza para un pinchazo o para quedarse de más en el museo, que cierra 19:00.</li>
+        <li><b>El Área C no nos toca.</b> Es la ZTL del centro y los miércoles rige hasta las 19:30: llegamos después y encima Vittor Pisani queda afuera. El auto nunca entra al centro.</li>
+        <li><b>Al hotel en metro</b>, dos paradas desde Centrale, sin el auto y sin pensar más en él. Check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
         <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
       </ul>
     `, en:`
       <ul>
-        <li><b>The car sleeps at Vittor Pisani and is handed over tomorrow.</b> We arrive from the museum around <b>19:45</b> and by then the office has closed: the two Europcar city branches in Milan we could check shut at 18:00 and 18:30 Monday to Friday. So today the car is parked and the handover is <b>Thursday morning</b>, when they open.</li>
-        <li><b>Where to leave it: the same place it has to be handed over.</b> The <b>Parcheggio Vittor Pisani</b> is across from Milano Centrale, has 943 spaces, is open around the clock and is automated with CCTV. Up to 24 hours is <b>36.40 euros</b>, which is what it costs not to have to move the car again. The Europcar drop off is at <b>number 19, level -2</b>, on the same street.</li>
-        <li><b>This saves us Area C.</b> It is the ZTL of the centre and on Wednesdays it runs until 19:30, but we arrive after that, so it is already off: driving into the centre today would not be charged anyway. Still, better to leave the car at Vittor Pisani rather than near the hotel, because tomorrow it has to be handed over here and because on Thursday Area C runs again from 7:30 to 19:30.</li>
-        <li><b>To the hotel by metro</b>, two stops from Centrale. Check in and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
+        <li><b>The car first, and there is time.</b> We arrive from the museum around <b>19:45</b> and the office is the one on <b>Via Galvani 12</b>, with the drop off at <b>Via Vittor Pisani 19, level -2</b>: it opens Monday to Saturday from <b>7:30 to 21:00</b>, because it is the station office rather than a neighbourhood branch. We get there with an hour and a quarter to spare. The number, if we ever need to warn them, is +39 02 66987 826.</li>
+        <li><b>Working backwards, in case the day slips.</b> To hand over by 21:00 we have to leave Modena by 18:45 at the latest, and the plan leaves at 17:45. That is a whole hour of cushion, enough for a puncture or for staying longer at the museum, which closes at 19:00.</li>
+        <li><b>Area C does not touch us.</b> It is the ZTL of the centre and on Wednesdays it runs until 19:30: we arrive after that and Vittor Pisani is outside it anyway. The car never enters the centre.</li>
+        <li><b>To the hotel by metro</b>, two stops from Centrale, without the car and without thinking about it again. Check in and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
         <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
       </ul>
     `}},
@@ -41,15 +41,13 @@
      t:{es:'Jueves 15: el día de Milán',en:'Thursday the 15th: the Milan day'},
      html:{es:`
       <ul>
-        <li><b>Primero el auto.</b> La entrega es en Via Vittor Pisani 19, nivel -2, y las oficinas de ciudad abren 8:30. Yendo a esa hora se resuelve en veinte minutos y el metro deja en el Duomo cerca de las 9:10, adentro de la ventana de entrada, que es de 9:00 a 9:30. Si prefieren el Duomo primero y el auto a las once, cuesta lo mismo: el garage cobra por bloque de veinticuatro horas y entramos anoche a las 19:45. Fotos del auto por los cuatro lados y del tablero antes de dejarlo.</li>
-        <li>El <b>Duomo</b> a primera hora, con entrada de <b>9:00 a 9:30</b> y las <b>terrazas</b> incluidas: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán, y a esa hora la luz de la mañana pega en el mármol. Del hotel son diez minutos a pie y se entra por control de seguridad, así que salir 8:30.</li>
+                <li>El <b>Duomo</b> a primera hora, con entrada de <b>9:00 a 9:30</b> y las <b>terrazas</b> incluidas: se camina el techo entre las agujas y las estatuas, con la ciudad abajo. Es lo mejor de Milán, y a esa hora la luz de la mañana pega en el mármol. Del hotel son diez minutos a pie y se entra por control de seguridad, así que salir 8:30.</li>
         <li>Bajando, la <b>Galleria</b> de día, la <b>Scala</b> por fuera o su museo, y a quince minutos a pie el <b>Castello Sforzesco</b>, con la última Pietà de Miguel Ángel y el Parco Sempione detrás.</li>
         <li>A la tarde, <b>Brera</b> para caminar el barrio, y a las siete el <b>aperitivo</b>, que en Milán reemplaza a la cena. Los <b>Navigli</b>, los canales, son el otro lugar donde hacerlo.</li>
       </ul>
     `, en:`
       <ul>
-        <li><b>The car first.</b> The handover is at Via Vittor Pisani 19, level -2, and city offices open at 8:30. Going then it is done in twenty minutes and the metro puts us at the Duomo around 9:10, inside the entry window, which runs 9:00 to 9:30. If you would rather do the Duomo first and the car at eleven, it costs the same: the garage charges in twenty four hour blocks and we went in at 19:45 last night. Photographs of the car from all four sides and of the dashboard before leaving it.</li>
-        <li>The <b>Duomo</b> first thing, with entry from <b>9:00 to 9:30</b> and the <b>rooftop terraces</b> included: you walk the roof among the spires and the statues with the city below. It is the best thing in Milan, and at that hour the morning light hits the marble. Ten minutes on foot from the hotel, and entry goes through a security check, so leave at 8:30.</li>
+                <li>The <b>Duomo</b> first thing, with entry from <b>9:00 to 9:30</b> and the <b>rooftop terraces</b> included: you walk the roof among the spires and the statues with the city below. It is the best thing in Milan, and at that hour the morning light hits the marble. Ten minutes on foot from the hotel, and entry goes through a security check, so leave at 8:30.</li>
         <li>Coming down, the <b>Galleria</b> by day, <b>La Scala</b> from outside or its museum, and fifteen minutes on foot the <b>Castello Sforzesco</b>, with Michelangelo’s last Pietà and the Parco Sempione behind it.</li>
         <li>In the afternoon, <b>Brera</b> for walking the neighbourhood, and at seven the <b>aperitivo</b>, which in Milan replaces dinner. The <b>Navigli</b>, the canals, are the other place to do it.</li>
       </ul>
@@ -92,8 +90,8 @@
      d:{es:'El punto de entrega de Europcar está en el <b>nivel -2</b> del estacionamiento de Via Vittor Pisani 19, que es el de la oficina de Via Galvani. Es un garaje de interscambio grande, de 943 plazas, a diez minutos a pie de Milán Centrale y a dos paradas de metro del Duomo.',
         en:'The Europcar drop off is on <b>level -2</b> of the car park at Via Vittor Pisani 19, which belongs to the Via Galvani office. It is a large interchange garage, 943 spaces, a ten minute walk from Milano Centrale and two metro stops from the Duomo.'},
      t:'mover',
-     tip:{es:'Las dos sucursales de ciudad de Europcar en Milán que pudimos chequear cierran 18:00 y 18:30 de lunes a viernes, y no abren domingos. Llegando el miércoles a las 19:45 no llegamos, así que el auto duerme en el <b>Parcheggio Vittor Pisani</b>, enfrente de Centrale, 24 horas y con cámaras, 36,40 euros hasta las 24 horas, y se entrega el jueves a las 8:30. Confirmar el horario exacto en el voucher igual. Y fotos del auto por los cuatro lados y del tablero al dejarlo.',
-          en:'The two Europcar city branches in Milan we could check close at 18:00 and 18:30 Monday to Friday, and do not open on Sundays. Arriving at 19:45 on Wednesday we do not make it, so the car sleeps in the <b>Parcheggio Vittor Pisani</b>, across from Centrale, open around the clock with CCTV, 36.40 euros up to 24 hours, and is handed over on Thursday at 8:30. Confirm the exact hours on the voucher anyway. And photographs of the car from all four sides and of the dashboard when leaving it.'}},
+     tip:{es:'Abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00, así que llegando el miércoles 19:45 se entrega esa misma noche y no hay que estacionarlo. Es el horario de una oficina de estación, mucho más largo que el de las sucursales de barrio de Milán, que cierran a las 18:00. Teléfono +39 02 66987 826. Fotos del auto por los cuatro lados y del tablero al dejarlo.',
+          en:'It opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00, so arriving at 19:45 on Wednesday the car goes back that same evening with no need to park it. Those are station office hours, far longer than the Milan neighbourhood branches, which shut at 18:00. Phone +39 02 66987 826. Photographs of the car from all four sides and of the dashboard when leaving it.'}},
     {m:'Milan Meravigli Den Hotels & Suites',
      n:{es:'Dónde dormimos: Meravigli Den',en:'Where we sleep: Meravigli Den'},
      d:{es:'Sobre Via Meravigli, entre el Duomo y el Castello Sforzesco. Es de las mejores zonas para estos tres días: todo el centro se camina y hay metro y tranvía a media cuadra.',

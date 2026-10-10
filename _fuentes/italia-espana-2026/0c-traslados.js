@@ -265,33 +265,49 @@
   ]},
 
   {s:{es:'El auto se queda hasta Milán',en:'The car stays as far as Milan'}, k:'mover', html:{es:`
-      <p>Decidido: el auto no se devuelve en La Spezia el martes 13 como decía el plan original, sino en <b>Milán</b>, en Via Vittor Pisani 19, y la entrega real termina siendo el <b>jueves 15 a la mañana</b>. Es la opción del medio y es la que cierra mejor, porque el día de Módena es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa y seguir a Milán no se hace en tren sin perder medio día en combinaciones.</p>
+      <p>Decidido: el auto no se devuelve en La Spezia el martes 13 como decía el plan original, sino en <b>Milán el miércoles 14 a la noche</b>, en Via Vittor Pisani 19. Es la opción del medio y es la que cierra mejor, porque el día de Módena es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa y seguir a Milán no se hace en tren sin perder medio día en combinaciones.</p>
       <p>Lo que queda afuera de la discusión: el auto <b>no</b> sigue hasta el sábado. El lago de Como se hace en tren el viernes, que es lo correcto, y los días de Milán no lo necesitan. Eso evita dos noches de garage en el hotel y el estacionamiento de Varenna, que es escaso y caro.</p>
       <h3>Lo que hay que tener presente</h3>
       <ul>
-        <li><b>Dos noches de garage.</b> En La Spezia, el Park Centro Stazione enfrente de la estación: 1,50 euros la hora de día y 1 de noche, cubierto y con cámaras, y la ventaja de que el miércoles bajamos del tren y subimos al auto. En Milán, el Parcheggio Vittor Pisani: 36,40 euros hasta las 24 horas, que es caro pero deja el auto en el mismo lugar donde hay que entregarlo. Antes de pagar el de La Spezia, preguntar en el alojamiento si tiene acuerdo con algún garage.</li>
+        <li><b>Una noche de garage, no dos.</b> Solo en La Spezia: el Park Centro Stazione enfrente de la estación, 1,50 euros la hora de día y 1 de noche, cubierto y con cámaras, y la ventaja de que el miércoles bajamos del tren y subimos al auto. En Milán no hace falta, porque el auto se entrega la misma noche que llegamos. Antes de pagar el de La Spezia, preguntar en el alojamiento si tiene acuerdo con algún garage.</li>
         <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles 19:45, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
         <li><b>El Área B</b> cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero conviene confirmarlo al retirarlo.</li>
         <li><b>El cargo por devolver en otra ciudad</b> crece con la distancia y Milán no es Florencia. Ya está en el contrato, pero vale mirar el detalle para no sorprenderse.</li>
-        <li><b>El horario de la oficina es lo que define el día.</b> Las dos sucursales de ciudad de Europcar en Milán que pudimos chequear cierran 18:00 y 18:30 de lunes a viernes. Llegando del museo a las 19:45 no se alcanza, y por eso la entrega pasa al jueves 8:30. Confirmar el horario exacto en el voucher: si la de Vittor Pisani cerrara más tarde, se entrega el miércoles y se ahorran los 36,40 del garage.</li>
+        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Es horario de oficina de estación: las sucursales de barrio de Milán cierran 18:00, pero esta no. Llegando el miércoles 19:45 se entrega esa noche con hora y cuarto de margen.</li>
         <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna en Módena. Sí hace falta la regla de siempre: todo al baúl y nada a la vista.</li>
       </ul>
+      <h3>Qué pasa si no llegamos a horario</h3>
+      <p>Conviene saberlo aunque no haga falta, porque la respuesta no es obvia: <b>no se puede dejar el auto y listo</b>. La entrega existe cuando alguien lo recibe.</p>
+      <ul>
+        <li><b>Tolerancia: 29 minutos.</b> Pasados esos, Europcar cobra un día entero de alquiler más.</li>
+        <li><b>Por cada día de demora</b>, un día de alquiler <b>más 50 euros de penalidad</b>. O sea que entregar a la mañana siguiente no es un detalle administrativo, es plata.</li>
+        <li><b>La entrega fuera de horario</b> es un servicio aparte, que existe solo en algunas oficinas y <b>hay que pedirlo al reservar</b>. Donde está disponible hay buzón de llaves y el control se hace cuando la oficina reabre, con el auto a nuestro nombre hasta ese momento. Donde no está, dejar el auto y las llaves por nuestra cuenta nos deja respondiendo por él.</li>
+        <li>Por eso la hora que figura en el voucher es la que manda, y por eso el sistema no ofrece horarios en los que la oficina no puede recibir. Si alguna vez vamos a llegar tarde, el teléfono de la oficina antes de que cierre vale más que cualquier plan.</li>
+      </ul>
       <h3>Al entregarlo</h3>
-      <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Si la oficina está cerrada y hay buzón de llaves, esas fotos son la única prueba de cómo se dejó. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
+      <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
     `, en:`
-      <p>Settled: the car is not handed back in La Spezia on Tuesday the 13th as the original plan had it, but in <b>Milan</b>, at Via Vittor Pisani 19, and the handover ends up happening on <b>Thursday the 15th in the morning</b>. It is the middle option and the one that fits best, because the Modena day is the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain and then on to Milan cannot be done by train without losing half a day to connections.</p>
+      <p>Settled: the car is not handed back in La Spezia on Tuesday the 13th as the original plan had it, but in <b>Milan on Wednesday the 14th in the evening</b>, at Via Vittor Pisani 19. It is the middle option and the one that fits best, because the Modena day is the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain and then on to Milan cannot be done by train without losing half a day to connections.</p>
       <p>What is off the table: the car does <b>not</b> stay until Saturday. Lake Como is done by train on Friday, which is correct, and the Milan days do not need it. That avoids two nights of hotel garage and parking at Varenna, which is scarce and expensive.</p>
       <h3>What to keep in mind</h3>
       <ul>
-        <li><b>Two nights of garage.</b> In La Spezia, the Park Centro Stazione across from the station: 1.50 euros an hour by day and 1 by night, covered and with cameras, and the advantage that on Wednesday we step off the train and into the car. In Milan, the Parcheggio Vittor Pisani: 36.40 euros up to 24 hours, which is dear but leaves the car in the very place it has to be handed over. Before paying for the La Spezia one, ask the apartment whether they have an arrangement with a garage.</li>
+        <li><b>One night of garage, not two.</b> Only in La Spezia: the Park Centro Stazione across from the station, 1.50 euros an hour by day and 1 by night, covered and with cameras, and the advantage that on Wednesday we step off the train and into the car. In Milan it is not needed, because the car goes back the same evening we arrive. Before paying for the La Spezia one, ask the apartment whether they have an arrangement with a garage.</li>
         <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday at 19:45, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
         <li><b>Area B</b> covers almost the whole city and runs Monday to Friday. A new hire car meets the standard and passes, but it is worth confirming at pick up.</li>
         <li><b>The one way drop charge</b> grows with distance and Milan is not Florence. It is already in the contract, but worth reading the line so it is not a surprise.</li>
-        <li><b>The office hours are what shape the day.</b> The two Europcar city branches in Milan we could check close at 18:00 and 18:30 Monday to Friday. Arriving from the museum at 19:45 does not make it, which is why the handover moves to Thursday at 8:30. Confirm the exact hours on the voucher: if the Vittor Pisani one closed later, hand it over on Wednesday and save the 36.40 of garage.</li>
+        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Those are station office hours: Milan neighbourhood branches shut at 18:00, but this one does not. Arriving at 19:45 on Wednesday it goes back that evening with an hour and a quarter to spare.</li>
         <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena. The usual rule does apply: everything in the boot and nothing in sight.</li>
       </ul>
+      <h3>What happens if we do not make it in time</h3>
+      <p>Worth knowing even if it never comes up, because the answer is not obvious: <b>you cannot just leave the car and walk away</b>. The return happens when somebody receives it.</p>
+      <ul>
+        <li><b>Tolerance: 29 minutes.</b> Past that, Europcar charges a whole extra rental day.</li>
+        <li><b>For each day late</b>, one rental day <b>plus 50 euros of penalty</b>. So handing it over the next morning is not an administrative detail, it is money.</li>
+        <li><b>Out of hours return</b> is a separate service, available only at some offices, and <b>it has to be requested when booking</b>. Where it exists there is a key drop and the check happens when the office reopens, with the car in our name until then. Where it does not, leaving the car and the keys on our own initiative leaves us answering for it.</li>
+        <li>That is why the time on the voucher is the one that counts, and why the system does not offer slots when the office cannot receive the car. If we are ever going to be late, phoning the office before it closes is worth more than any plan.</li>
+      </ul>
       <h3>When handing it over</h3>
-      <p>Photographs of the car from all four sides, of the dashboard with the mileage and the fuel level, and of the interior. If the office is closed and there is a key drop, those photographs are the only record of how it was left. And the card hold is released several days later, not there and then.</p>
+      <p>Photographs of the car from all four sides, of the dashboard with the mileage and the fuel level, and of the interior. And the card hold is released several days later, not there and then.</p>
     `}},
 
   {s:{es:'Del aeropuerto al centro y al revés',en:'Airport to centre and back'}, k:'mover', items:[
