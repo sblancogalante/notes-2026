@@ -5,7 +5,7 @@
   lede:{es:'Una noche y media tarde, así que hay que elegir. Con ese tiempo son dos pueblos bien hechos y no cinco a las corridas: los cinco se parecen bastante entre sí y verlos todos es la manera segura de no disfrutar ninguno.',
         en:'One night and half an afternoon, so we have to choose. With that much time it is two villages done properly rather than five at a run: the five resemble each other closely, and seeing them all is the surest way to enjoy none of them.'},
   quick:[
-    [{es:'Cuándo',en:'When'},{es:'Mar 13 a mié 14 de octubre',en:'Tue 13 to Wed 14 October'}],
+    [{es:'Cuándo',en:'When'},{es:'Mar 13 a mié 14, con la mañana del 14',en:'Tue 13 to Wed 14, including Wed morning'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Alba Rooms, La Spezia',en:'Alba Rooms, La Spezia'}],
     [{es:'El auto',en:'The car'},{es:'Se queda, lo devolvemos en Milán',en:'Stays with us, handed back in Milan'}],
     [{es:'Cómo se mueve uno',en:'Getting about'},{es:'Tren, cada 15 a 30 min',en:'Train, every 15 to 30 min'}],
@@ -34,21 +34,41 @@
     `}},
 
     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
-     t:{es:'Miércoles 14: a Módena y a Milán, en auto',en:'Wednesday the 14th: to Modena and Milan, by car'},
+     t:{es:'Miércoles 14: la mañana en los pueblos, y a Módena',en:'Wednesday the 14th: the morning in the villages, then Modena'},
      html:{es:`
+      <p>La mañana es nuestra y la tarde tiene dueño. El día cuelga de una <b>reserva a las 13:45</b> en San Giovanni in Persiceto, a dos horas y media de acá, y cancelan si llegamos más de veinte minutos tarde sin avisar. Entonces la mañana tiene una hora de cierre que no se negocia: <b>10:30 en el auto y saliendo</b>.</p>
       <ul>
-        <li><b>8:00, salir de La Spezia.</b> En auto y no en tren: son <b>dos horas y cinco hasta Módena</b> por la A15 y la A1, con peaje. Saliendo a esta hora se llega al museo 10:15 y el almuerzo queda con margen de sobra.</li>
-        <li>El día está armado alrededor de una <b>reserva a las 13:45</b> en San Giovanni in Persiceto que no se puede perder: cancelan si uno llega más de veinte minutos tarde sin avisar. Por eso hoy no hay paseo por La Spezia: el mercado de Piazza Cavour y el paseo marítimo quedan para quien se levante a las siete.</li>
-        <li>Cargar nafta antes de la autopista, que en las áreas de servicio de la A1 el litro sale bastante más.</li>
-        <li>El resto del día está en el capítulo de <b>Módena</b>: el museo, dónde dejar el auto con las valijas adentro, y el almuerzo. Y la llegada a Milán, con la devolución del auto, en el de <b>Milán</b>.</li>
+        <li><b>7:00, desayuno y check out.</b> Las valijas van derecho al auto, que ya está en el Park Centro Stazione, enfrente de la estación. Es cubierto y con cámaras, así que es el mejor lugar del viaje para dejarlas tres horas.</li>
+        <li><b>7:45, tren.</b> Con la mochila y nada más, como ayer.</li>
+        <li><b>8:00 a 10:00, el pueblo que falte.</b> Dos horas limpias, que para un pueblo de Cinque Terre a esa hora, sin nadie, es bastante.</li>
+        <li><b>10:20, de vuelta en La Spezia Centrale.</b> La estación y el garage son la misma cuadra: se baja del tren y se sube al auto.</li>
+        <li><b>10:30, salir.</b> Dos horas y veintiséis hasta Persiceto por la A15 y la A1, llegando cerca de las 13:00. Cargar nafta antes de la autopista, que en las áreas de servicio de la A1 el litro sale bastante más.</li>
       </ul>
+      <h3>Cuál pueblo, con dos horas</h3>
+      <ul>
+        <li><b>Riomaggiore es el que conviene</b>: son <b>siete minutos</b> de tren desde La Spezia, el más cerca de los cinco. Una calle en bajada hasta el puerto y el rompeolas de donde sale la foto de las casas apiladas. Con siete minutos de ida y siete de vuelta, las dos horas son dos horas de pueblo y no de tren.</li>
+        <li><b>Monterosso</b> si lo que falta es playa: es el único de los cinco con arena de verdad y el único plano. Pero está a veinticinco minutos, así que se come casi una hora en trenes.</li>
+        <li><b>Corniglia</b> mejor no: es el de arriba del acantilado y desde la estación son trescientos ochenta escalones o esperar la lanzadera. No es un pueblo para ir con reloj.</li>
+        <li>Y si lo que faltó fue tiempo y no pueblos, volver a <b>Vernazza</b> de mañana temprano es mejor plan que estrenar uno nuevo: a las ocho el puerto está vacío y ayer a las dos de la tarde no lo estaba.</li>
+      </ul>
+      <p>El resto del día está en el capítulo de <b>Módena</b>: el almuerzo, el museo a la vuelta y las valijas. Y la llegada a Milán, con el auto, en el de <b>Milán</b>.</p>
     `, en:`
+      <p>The morning is ours and the afternoon belongs to someone else. The day hangs on a <b>13:45 booking</b> in San Giovanni in Persiceto, two and a half hours from here, and they cancel if we turn up more than twenty minutes late without calling. So the morning has a closing time that is not up for discussion: <b>10:30, in the car and moving</b>.</p>
       <ul>
-        <li><b>8:00, leave La Spezia.</b> By car, not by train: it is <b>two hours five to Modena</b> on the A15 and the A1, with tolls. Leaving at this hour puts us at the museum at 10:15 and leaves plenty of slack before lunch.</li>
-        <li>The day is built around a <b>13:45 booking</b> in San Giovanni in Persiceto that cannot be missed: they cancel if you turn up more than twenty minutes late without calling. So there is no walk around La Spezia today: the Piazza Cavour market and the seafront are for whoever gets up at seven.</li>
-        <li>Fill up before the motorway, since at the A1 service areas the litre costs noticeably more.</li>
-        <li>The rest of the day is in the <b>Modena</b> chapter: the museum, where to leave the car with the bags inside, and lunch. And the arrival in Milan, with the car handover, in the <b>Milan</b> one.</li>
+        <li><b>7:00, breakfast and check out.</b> The bags go straight to the car, which is already in the Park Centro Stazione across from the station. It is covered and has cameras, so it is the best place on the whole trip to leave them for three hours.</li>
+        <li><b>7:45, train.</b> With a backpack and nothing else, same as yesterday.</li>
+        <li><b>8:00 to 10:00, whichever village is missing.</b> Two clean hours, which for a Cinque Terre village at that hour with nobody about is a good deal.</li>
+        <li><b>10:20, back at La Spezia Centrale.</b> The station and the garage are the same block: off the train and into the car.</li>
+        <li><b>10:30, leave.</b> Two hours twenty six to Persiceto on the A15 and the A1, arriving around 13:00. Fill up before the motorway, since at the A1 service areas the litre costs noticeably more.</li>
       </ul>
+      <h3>Which village, with two hours</h3>
+      <ul>
+        <li><b>Riomaggiore is the one that works</b>: it is <b>seven minutes</b> by train from La Spezia, the closest of the five. One street running down to the harbour and the breakwater the photograph of stacked houses comes from. With seven minutes out and seven back, the two hours are two hours of village rather than of train.</li>
+        <li><b>Monterosso</b> if what is missing is a beach: it is the only one of the five with real sand and the only flat one. But it is twenty five minutes away, so nearly an hour goes on trains.</li>
+        <li><b>Corniglia</b>, better not: it is the one on top of the cliff and from the station it is three hundred and eighty steps or waiting for the shuttle. Not a village to visit against the clock.</li>
+        <li>And if what ran short was time rather than villages, going back to <b>Vernazza</b> early is a better plan than starting a new one: at eight the harbour is empty, and at two yesterday afternoon it was not.</li>
+      </ul>
+      <p>The rest of the day is in the <b>Modena</b> chapter: lunch, the museum on the way back and the bags. And the arrival in Milan, with the car, in the <b>Milan</b> one.</p>
     `}}
   ]},
 

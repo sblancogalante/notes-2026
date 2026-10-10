@@ -4,58 +4,60 @@
   name:{es:'Módena',en:'Modena'},
   plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena',
   d1:'2026-10-14', d2:'2026-10-14',
-  lede:{es:'Un día de paso entre La Spezia y Milán, en auto y con dos citas fijas: el <b>Museo Enzo Ferrari</b> a la mañana y una mesa reservada a las <b>13:45</b> en San Giovanni in Persiceto. Lo demás se acomoda alrededor de eso.',
-        en:'A day in transit between La Spezia and Milan, by car, with two fixed appointments: the <b>Enzo Ferrari Museum</b> in the morning and a table booked for <b>13:45</b> in San Giovanni in Persiceto. Everything else fits around those.'},
+  lede:{es:'Un día de paso entre La Spezia y Milán, en auto, que cuelga de una sola hora: la mesa reservada a las <b>13:45</b> en San Giovanni in Persiceto. El <b>Museo Enzo Ferrari</b> va después, a la vuelta, que es lo que deja la mañana libre en Cinque Terre.',
+        en:'A day in transit between La Spezia and Milan, by car, hanging on a single hour: the table booked for <b>13:45</b> in San Giovanni in Persiceto. The <b>Enzo Ferrari Museum</b> comes after it, on the way back, which is what leaves the morning free in Cinque Terre.'},
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mié 14 de octubre, de paso',en:'Wed 14 October, passing through'}],
-    [{es:'Llegamos',en:'We arrive'},{es:'En auto desde La Spezia, 2 h 05',en:'By car from La Spezia, 2 h 05'}],
+    [{es:'Llegamos',en:'We arrive'},{es:'A Persiceto 13:00, a Módena 15:45',en:'Persiceto 13:00, Modena 15:45'}],
     [{es:'Seguimos',en:'We continue'},{es:'A Milán, 2 h 25 desde Persiceto',en:'To Milan, 2 h 25 from Persiceto'}],
-    [{es:'El museo',en:'The museum'},{es:'Solo el Enzo Ferrari, hora y media',en:'Just the Enzo Ferrari, an hour and a half'}],
+    [{es:'El museo',en:'The museum'},{es:'Solo el Enzo Ferrari, 16:00, hora y media',en:'Just the Enzo Ferrari, 16:00, an hour and a half'}],
     [{es:'Ojo',en:'Watch out'},{es:'El almuerzo cancela si llegamos tarde',en:'Lunch is cancelled if we are late'}]
   ],
   sections:[
   {s:{es:'El día, hora por hora',en:'The day, hour by hour'}, k:'plan', html:{es:`
-      <h3>Dos citas fijas y el auto</h3>
-      <p>El día tiene dos horarios que no se mueven: el museo, que abre 9:30, y la mesa en la <b>Osteria del Mirasole</b> a las <b>13:45</b>, en San Giovanni in Persiceto. La cocina cierra 14:00 y <b>cancelan la reserva si uno llega más de veinte minutos tarde sin avisar</b>, así que todo el día se arma para llegar con margen y no para llegar justo.</p>
+      <h3>Primero el almuerzo, el museo a la vuelta</h3>
+      <p>El día cuelga de una sola hora: la mesa en la <b>Osteria del Mirasole</b> a las <b>13:45</b>, en San Giovanni in Persiceto. La cocina del mediodía cierra 14:00, así que esa es la última mesa, y <b>cancelan la reserva pasados veinte minutos sin aviso</b>. Todo lo demás se ordena alrededor de eso: la mañana queda en Cinque Terre, y el museo pasa a la tarde, de vuelta hacia Milán.</p>
       <ul>
-        <li><b>8:00</b>, salir de La Spezia. Dos horas y cinco por la A15 y la A1.</li>
-        <li><b>10:15, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85. Hora y media adentro, que es lo que da el museo sin apurarlo.</li>
-        <li><b>11:45, Módena de paso.</b> La Piazza Grande, el Duomo y la Ghirlandina están a diez minutos a pie del museo. Tres cuartos de hora alcanza. <b>Esta es la parte flexible del día</b>: si la A1 vino cargada o el museo nos atrapó, se saca entera y se sale derecho.</li>
-        <li><b>12:45</b>, a Persiceto. Media hora por la SS568.</li>
-        <li><b>13:15, San Giovanni in Persiceto.</b> Media hora caminando el pueblo antes de sentarse: es el <b>Borgo Rotondo</b>, de planta concéntrica medieval, y tiene la <b>Piazzetta degli Inganni</b>, un patio pintado en trompe l’oeil por el escenógrafo Gino Pellegrini en 1980. La osteria está en Via Giacomo Matteotti 17/A, a dos cuadras.</li>
-        <li><b>13:45, el almuerzo.</b> Hora y tres cuartos. Es una osteria de las de verdad, de las que hay que dejar hacer.</li>
-        <li><b>15:30</b>, a Milán. Dos horas y veinticinco por la A1 y la A4, llegando cerca de las <b>18:00</b>. Esa hora importa: ver el capítulo de Milán, porque el auto se devuelve antes de ir al hotel.</li>
+        <li><b>10:30</b>, salir de La Spezia con las valijas ya cargadas. Dos horas y veintiséis por la A15 y la A1.</li>
+        <li><b>13:00, San Giovanni in Persiceto.</b> Tres cuartos de hora de colchón antes de sentarse, que es justo lo que el día necesita tener. Se usan caminando el pueblo: es el <b>Borgo Rotondo</b>, de planta concéntrica medieval, y tiene la <b>Piazzetta degli Inganni</b>, un patio pintado en trompe l’oeil por el escenógrafo Gino Pellegrini en 1980. La osteria está en Via Giacomo Matteotti 17/A.</li>
+        <li><b>13:45, el almuerzo.</b> Hora y media. Es una osteria de las de verdad, de las que hay que dejar hacer.</li>
+        <li><b>15:15</b>, a Módena. Media hora por la SS568, en dirección a Milán y no al revés: el museo queda de paso.</li>
+        <li><b>16:00, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85. Hora y media, y cierra 19:00, así que no hay apuro. Si alcanza con una hora, mejor: cada minuto que salgamos antes es un minuto menos de A4 de noche.</li>
+        <li><b>17:45</b>, a Milán. Dos horas por la A1 y la A4, llegando cerca de las <b>19:45</b>. Esa hora importa y tiene consecuencia: ver el capítulo de Milán, porque a esa hora la oficina de la rentadora ya cerró.</li>
       </ul>
+      <h3>Lo que se pierde poniendo el museo a la tarde</h3>
+      <p>La Piazza Grande, el Duomo y la Ghirlandina, que es el casco histórico de Módena y es patrimonio de la humanidad. Están a diez minutos a pie del museo y con el museo a la mañana entraban; ahora, saliendo del museo a las 17:30 y con dos horas de ruta por delante, no. Se puede recortar el museo a una hora y darles cuarenta minutos, pero es elegir entre una cosa y la otra. Dicho de frente: el centro de Módena es muy lindo y no lo vamos a ver.</p>
       <h3>Las valijas, que viajan con nosotros</h3>
-      <p>Hoy no hace falta consigna: el equipaje se queda en el auto. La pregunta es dónde dejar el auto.</p>
+      <p>Hoy no hace falta consigna en ninguna parte: el equipaje sale de La Spezia en el auto a las 10:30 y no se baja hasta Milán. La única parada donde el auto queda solo un rato largo es el museo.</p>
       <ul>
-        <li><b>El museo tiene estacionamiento propio y gratis</b> atrás, con entrada por <b>Via Giuseppe Soli 101</b>. Es playa a nivel y sin vigilancia. Para una hora y media de día, con todo en el baúl y <b>nada a la vista</b>, es razonable: los autos de alquiler son blanco preferido justamente porque se les ve el equipaje por la ventanilla.</li>
-        <li><b>Si preferimos no jugar</b>, el <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros. Son tres minutos en auto desde el museo y doce a pie de vuelta, y además queda al lado de la Piazza Grande, así que si vamos a hacer el centro conviene por las dos razones.</li>
-        <li>En Persiceto y en los pueblos chicos el problema no existe, pero la regla es la misma todo el viaje: lo que no se ve no se roba. Mochilas, campera y bolsas de compras también van al baúl, no en el asiento de atrás.</li>
+        <li><b>El museo tiene estacionamiento propio y gratis</b> atrás, con entrada por <b>Via Giuseppe Soli 101</b>. Es playa a nivel y sin vigilancia. Para hora y media de tarde, con todo en el baúl y <b>nada a la vista</b>, es razonable: los autos de alquiler son blanco preferido justamente porque se les ve el equipaje por la ventanilla.</li>
+        <li><b>Si preferimos no jugar</b>, el <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros. Son tres minutos en auto desde el museo y doce a pie de vuelta. Con el museo a la tarde esos veinticinco minutos de caminata cuestan más que a la mañana, así que acá la decisión es más pareja que antes.</li>
+        <li>En Persiceto el problema no existe, pero la regla es la misma todo el viaje: lo que no se ve no se roba. Mochilas, campera y bolsas también van al baúl, no en el asiento de atrás.</li>
       </ul>
       <h3>Por qué un museo y no dos</h3>
-      <p>Maranello queda a veinte kilómetros y es el museo de la escudería, con los Fórmula 1. Sumarlo son dos horas más entre traslado y visita, y hoy esas dos horas chocan con la reserva del almuerzo y con la hora de devolver el auto en Milán. Quedó afuera por eso y no por falta de ganas: la ficha sigue acá abajo por si alguna vez se vuelve.</p>
+      <p>Maranello queda a veinte kilómetros y es el museo de la escudería, con los Fórmula 1. Sumarlo son dos horas más entre traslado y visita, y con el museo ya corrido a la tarde eso nos pone en la A4 a las nueve de la noche. Quedó afuera por eso y no por falta de ganas: la ficha sigue acá abajo por si alguna vez se vuelve.</p>
     `, en:`
-      <h3>Two fixed appointments and the car</h3>
-      <p>The day has two times that do not move: the museum, which opens at 9:30, and the table at the <b>Osteria del Mirasole</b> at <b>13:45</b>, in San Giovanni in Persiceto. The kitchen closes at 14:00 and <b>they cancel the booking if you arrive more than twenty minutes late without calling</b>, so the whole day is built to arrive with slack rather than to arrive just in time.</p>
+      <h3>Lunch first, the museum on the way back</h3>
+      <p>The day hangs on a single hour: the table at the <b>Osteria del Mirasole</b> at <b>13:45</b>, in San Giovanni in Persiceto. The midday kitchen closes at 14:00, so that is the last table, and <b>they cancel the booking after twenty minutes with no word</b>. Everything else is arranged around it: the morning stays in Cinque Terre, and the museum moves to the afternoon, on the way back towards Milan.</p>
       <ul>
-        <li><b>8:00</b>, leave La Spezia. Two hours five on the A15 and the A1.</li>
-        <li><b>10:15, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85. An hour and a half inside, which is what the museum gives without rushing it.</li>
-        <li><b>11:45, Modena in passing.</b> Piazza Grande, the cathedral and the Ghirlandina are ten minutes on foot from the museum. Three quarters of an hour is enough. <b>This is the flexible part of the day</b>: if the A1 was heavy or the museum held us, drop it entirely and drive straight on.</li>
-        <li><b>12:45</b>, on to Persiceto. Half an hour on the SS568.</li>
-        <li><b>13:15, San Giovanni in Persiceto.</b> Half an hour walking the town before sitting down: it is the <b>Borgo Rotondo</b>, medieval and concentric in plan, and it has the <b>Piazzetta degli Inganni</b>, a courtyard painted in trompe l’oeil by the set designer Gino Pellegrini in 1980. The osteria is at Via Giacomo Matteotti 17/A, two blocks away.</li>
-        <li><b>13:45, lunch.</b> An hour and three quarters. It is a proper osteria, the kind you let get on with it.</li>
-        <li><b>15:30</b>, on to Milan. Two hours twenty five on the A1 and the A4, arriving around <b>18:00</b>. That hour matters: see the Milan chapter, because the car goes back before we go to the hotel.</li>
+        <li><b>10:30</b>, leave La Spezia with the bags already loaded. Two hours twenty six on the A15 and the A1.</li>
+        <li><b>13:00, San Giovanni in Persiceto.</b> Three quarters of an hour of cushion before sitting down, which is exactly what this day needs to have. Spend it walking the town: it is the <b>Borgo Rotondo</b>, medieval and concentric in plan, and it has the <b>Piazzetta degli Inganni</b>, a courtyard painted in trompe l’oeil by the set designer Gino Pellegrini in 1980. The osteria is at Via Giacomo Matteotti 17/A.</li>
+        <li><b>13:45, lunch.</b> An hour and a half. It is a proper osteria, the kind you let get on with it.</li>
+        <li><b>15:15</b>, on to Modena. Half an hour on the SS568, heading towards Milan rather than away from it: the museum is on the way.</li>
+        <li><b>16:00, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85. An hour and a half, and it closes at 19:00, so there is no rush. If an hour does it, better: every minute we leave earlier is a minute less of the A4 after dark.</li>
+        <li><b>17:45</b>, on to Milan. Two hours on the A1 and the A4, arriving around <b>19:45</b>. That hour matters and it has a consequence: see the Milan chapter, because by then the rental office has closed.</li>
       </ul>
+      <h3>What moving the museum to the afternoon costs</h3>
+      <p>Piazza Grande, the cathedral and the Ghirlandina, which are Modena’s historic centre and world heritage. They are ten minutes on foot from the museum and with the museum in the morning they fitted; now, leaving the museum at 17:30 with two hours of road ahead, they do not. We could cut the museum to an hour and give them forty minutes, but it is one or the other. Said plainly: central Modena is lovely and we are not going to see it.</p>
       <h3>The bags, which travel with us</h3>
-      <p>No left luggage needed today: the bags stay in the car. The question is where to leave the car.</p>
+      <p>No left luggage needed anywhere today: the luggage leaves La Spezia in the car at 10:30 and does not come out until Milan. The only stop where the car is left alone for a long while is the museum.</p>
       <ul>
-        <li><b>The museum has its own free car park</b> at the back, entered from <b>Via Giuseppe Soli 101</b>. It is a surface lot and unattended. For an hour and a half in daylight, with everything in the boot and <b>nothing in sight</b>, it is reasonable: hire cars are a preferred target precisely because the luggage shows through the window.</li>
-        <li><b>If we would rather not gamble</b>, the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit. It is three minutes by car from the museum and twelve on foot back, and it also sits beside Piazza Grande, so if we are doing the centre it wins on both counts.</li>
-        <li>In Persiceto and the small towns the problem does not exist, but the rule is the same for the whole trip: what cannot be seen does not get stolen. Backpacks, jackets and shopping bags go in the boot too, not on the back seat.</li>
+        <li><b>The museum has its own free car park</b> at the back, entered from <b>Via Giuseppe Soli 101</b>. It is a surface lot and unattended. For an hour and a half in the afternoon, with everything in the boot and <b>nothing in sight</b>, it is reasonable: hire cars are a preferred target precisely because the luggage shows through the window.</li>
+        <li><b>If we would rather not gamble</b>, the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit. It is three minutes by car from the museum and twelve on foot back. With the museum in the afternoon those twenty five minutes of walking cost more than they would have in the morning, so the call here is closer than it was.</li>
+        <li>In Persiceto the problem does not exist, but the rule is the same for the whole trip: what cannot be seen does not get stolen. Backpacks, jackets and bags go in the boot too, not on the back seat.</li>
       </ul>
       <h3>Why one museum and not two</h3>
-      <p>Maranello is twenty kilometres away and it is the team museum, with the Formula 1 cars. Adding it is two more hours between the drive and the visit, and today those two hours collide with the lunch booking and with the hour the car has to be back in Milan. That is why it stayed out, not for lack of appetite: the card is still below in case we ever come back.</p>
+      <p>Maranello is twenty kilometres away and it is the team museum, with the Formula 1 cars. Adding it is two more hours between the drive and the visit, and with the museum already pushed to the afternoon that puts us on the A4 at nine at night. That is why it stayed out, not for lack of appetite: the card is still below in case we ever come back.</p>
     `}},
 
   {s:{es:'Los dos museos, y cuál conviene',en:'The two museums, and which one to pick'}, k:'visita', items:[
