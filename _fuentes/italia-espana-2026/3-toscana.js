@@ -54,7 +54,7 @@
       <p>El día grande, y entra todo. La lógica es una sola: <b>el tramo largo se hace al principio</b>, con el auto vacío y las rutas vacías, y después se vuelve hacia casa pasando por todo sin repetir un kilómetro. Saturnia está a unas dos horas, 152 kilómetros, y es el único tramo largo del día: los siete que siguen suman menos de dos horas entre todos. Son unas seis horas de auto en total, de 7:30 a 21:00.</p>
       <ul>
         <li><b>7:30, salida.</b> Por Siena y la Cassia hasta Paganico, y después provincial hasta Saturnia. Si quieren las cascadas casi solas, salir <b>6:30</b>: es domingo, que es el peor día, y la diferencia entre llegar 8:30 y llegar 9:30 es real.</li>
-        <li><b>9:30, Saturnia.</b> Casi dos horas ahí. Las <b>Cascate del Mulino</b>: las piletas de travertino blanco escalonadas, con el agua turquesa a treinta y siete grados cayendo de una a la otra. Es gratis, está abierto siempre y no hay vestuarios. Hay un playón pago a la entrada y otro gratis a cien metros.</li>
+        <li><b>9:30, Saturnia.</b> Casi dos horas ahí. Las <b>Cascate del Mulino</b>: las piletas de travertino blanco escalonadas, con el agua turquesa a treinta y siete grados cayendo de una a la otra. Es gratis y está abierto siempre. A cien metros del agua hay un bar con <b>vestuarios, duchas a 1 euro la ficha, lockers a 5 euros y toallas de alquiler</b>, así que no hay que cargar nada desde el hotel. Un playón pago a la entrada, 4 euros el día, y otro gratis al lado.</li>
         <li><b>11:15, a la Val d’Orcia.</b> Una hora de subida hacia el norte, bordeando el Amiata. Acá se termina el manejo largo del día.</li>
         <li><b>12:15, Bagno Vignoni.</b> Una hora, y es el almuerzo. La plaza que no es plaza sino una pileta termal del siglo XV humeando en el medio de las casas, y abajo el Parco dei Mulini con las pozas sobre la roca.</li>
       </ul>
@@ -69,7 +69,7 @@
       <ul>
         <li><b>16:20, Montepulciano.</b> Veinte minutos, y una hora y veinte ahí. El pueblo sube hasta la Piazza Grande y lo bueno está debajo: las cantinas excavadas en la roca, con galerías que conectan un palacio con el otro. La <b>Contucci</b>, en Via del Teatro 1, cierra 18:00 y bajar entre las barricas es gratis: hay que estar antes de las 17:30.</li>
         <li><b>18:15, Montalcino.</b> Cuarenta minutos, y queda de camino a casa. Un Brunello en la enoteca de la fortaleza con el sol bajando sobre los viñedos, que se pone 18:45. Una hora alcanza y es el cierre del día.</li>
-        <li><b>21:00</b>, de vuelta en el hotel.</li>
+        <li><b>21:00</b>, de vuelta en el hotel. La cena hay que resolverla antes: el <b>Da Pode</b>, el restaurante del hotel, cierra los jueves y el domingo abre, pero a las 21:00 ya es tarde para caer sin reserva. Lo más simple es comer en la enoteca de la fortaleza de Montalcino a las 18:45, que sirve tablas, y llegar cenados.</li>
       </ul>
       <h3>Lo que se movió y por qué</h3>
       <ul>
@@ -82,7 +82,7 @@
       <p>The big day, and it all fits. One logic: <b>the long leg goes first</b>, with an empty car and empty roads, and then you work back home passing everything without repeating a kilometre. Saturnia is about two hours out, 152 kilometres, and it is the only long leg of the day: the seven that follow add up to less than two hours between them. About six hours of driving in all, 7:30 to 21:00.</p>
       <ul>
         <li><b>7:30, leave.</b> By Siena and the Cassia to Paganico, then provincial road to Saturnia. If you want the waterfalls nearly to yourselves, leave at <b>6:30</b>: it is Sunday, the worst day, and the difference between arriving at 8:30 and at 9:30 is real.</li>
-        <li><b>9:30, Saturnia.</b> Nearly two hours there. The <b>Cascate del Mulino</b>: stepped white travertine pools with turquoise water at thirty seven degrees falling from one into the next. It is free, always open and there are no changing rooms. There is a paid lot at the entrance and a free one a hundred metres along.</li>
+        <li><b>9:30, Saturnia.</b> Nearly two hours there. The <b>Cascate del Mulino</b>: stepped white travertine pools with turquoise water at thirty seven degrees falling from one into the next. It is free and always open. A hundred metres from the water there is a bar with <b>changing rooms, showers at 1 euro a token, lockers at 5 euros and towels for hire</b>, so there is nothing to carry from the hotel. A paid lot at the entrance, 4 euros for the day, and a free one beside it.</li>
         <li><b>11:15, up to the Val d’Orcia.</b> An hour climbing north around Monte Amiata. This is where the long driving ends.</li>
         <li><b>12:15, Bagno Vignoni.</b> An hour, and this is lunch. The square that is not a square but a fifteenth century thermal pool steaming among the houses, and below it the Parco dei Mulini with its pools on the rock.</li>
       </ul>
@@ -97,7 +97,7 @@
       <ul>
         <li><b>16:20, Montepulciano.</b> Twenty minutes, and an hour and twenty there. The town climbs to Piazza Grande and the good part is underneath: cellars cut into the rock, with tunnels linking one palace to the next. <b>Contucci</b>, at Via del Teatro 1, closes at 18:00 and walking down among the barrels is free: you need to be there before 17:30.</li>
         <li><b>18:15, Montalcino.</b> Forty minutes, and it is on the way home. A Brunello in the enoteca inside the fortress with the sun going down over the vineyards, which sets at 18:45. An hour is enough and it closes the day.</li>
-        <li><b>21:00</b>, back at the hotel.</li>
+        <li><b>21:00</b>, back at the hotel. Dinner has to be sorted beforehand: <b>Da Pode</b>, the hotel restaurant, closes on Thursdays and opens on Sunday, but 21:00 is late to turn up without a booking. The simplest answer is to eat at the enoteca in the Montalcino fortress at 18:45, which serves boards, and get back already fed.</li>
       </ul>
       <h3>What moved, and why</h3>
       <ul>
@@ -291,8 +291,8 @@
           en:'It fills fast and is the only convenient one, so arriving at sunset on a Sunday there may be nothing. If it is full there are spaces down along via Aurelio Saffi, and it is a five minute walk back up.'}},
     {m:'Cascate del Mulino, Saturnia', a:'Saturnia',
      n:{es:'Saturnia: el playón de las cascadas',en:'Saturnia: the lot at the waterfalls'},
-     d:{es:'Hay dos, uno al lado del otro. El de la entrada cobra 2,50 euros la hora de 8:00 a 20:00. Cien metros más allá hay uno grande y gratis, sin vigilancia, a la misma distancia del agua.',
-        en:'There are two, side by side. The one at the entrance charges 2.50 euros an hour from 8:00 to 20:00. A hundred metres further on there is a big free one, unattended, the same distance from the water.'},
+     d:{es:'Hay dos, uno al lado del otro. El de la entrada cobra 2,50 euros la hora de 8:00 a 20:00, pero tiene tarifa de <b>4 euros el día entero</b>: estando más de dos horas conviene pedir esa. Cien metros más allá hay uno grande y gratis, sin vigilancia, a la misma distancia del agua.',
+        en:'There are two, side by side. The one at the entrance charges 2.50 euros an hour from 8:00 to 20:00, but has a <b>4 euro all day rate</b>: staying more than two hours, ask for that one. A hundred metres further on there is a big free one, unattended, the same distance from the water.'},
      t:'mover',
      tip:{es:'Llegando temprano hay lugar en los dos. El gratis se llena primero y es el que usa todo el mundo: si a las 9:30 de un domingo ya no hay, el pago de la entrada siempre tiene. No dejar nada a la vista en ninguno de los dos, que uno se va al agua y queda lejos.',
           en:'Arriving early there is room in both. The free one fills first and is the one everybody uses: if by 9:30 on a Sunday it is full, the paid one at the entrance always has space. Leave nothing in sight in either, since you walk off to the water and end up far from the car.'}},
@@ -418,8 +418,8 @@
           en:'The aged one survives the journey without refrigeration and reaches Uruguay fine wrapped in paper. The fresh one does not. You can put together a picnic lunch of cheese, bread and a bottle and eat it looking over the valley from the wall.'}},
     {a:'Montalcino',
      n:{es:'Enoteca de la Fortezza de Montalcino',en:'The wine bar in Montalcino fortress'},
-     d:{es:'Adentro de la fortaleza del pueblo, con mesas entre los muros. Es el lugar más directo para probar un Brunello sin sacar turno en una bodega.',
-        en:'Inside the town fortress, with tables set among the walls. The most direct place to try a Brunello without booking a winery slot.'},
+     d:{es:'Adentro de la fortaleza del pueblo, con mesas entre los muros. Es el lugar más directo para probar un Brunello sin sacar turno en una bodega, y también sirven tablas de queso y embutidos. El <b>domingo cierra entre las 20:00 y las 21:00</b> según la fuente: llegando 18:15 sobra tiempo, y para asegurarlo es el +39 0577 849113.',
+        en:'Inside the town fortress, with tables set among the walls. The most direct place to try a Brunello without booking a winery slot, and they also serve cheese and cured meat boards. On <b>Sunday it closes between 20:00 and 21:00</b> depending on the source: arriving at 18:15 leaves plenty of time, and to be sure the number is +39 0577 849113.'},
      t:'comer', p:'€€', serv:'barra', res:'no',
      tip:{es:'El Brunello necesita años en botella y por eso es caro. El Rosso di Montalcino es el mismo viñedo con menos crianza, sale bastante menos y para tomar ahora está mejor.',
           en:'Brunello needs years in the bottle, which is why it costs what it does. Rosso di Montalcino is the same vineyard with less ageing, costs considerably less, and is better for drinking now.'}},
@@ -542,11 +542,11 @@
           en:'It is the first stop on Sunday. About two hours from the hotel, 152 kilometres, and the only long leg of the day: do it early and everything else is on the way back. Thirty seven degree water, no changing rooms, and Sunday is the busiest day, so the earlier the better. The bar next to it opens early and has toilets.'}},
     {nota:1,
      n:{es:'Cómo se va a las termas libres',en:'How to go to the free hot springs'},
-     d:{es:'Ojotas o sandalias que se puedan mojar, porque el fondo es piedra resbalosa. Toalla grande, bolsa para la ropa mojada, y agua para tomar, que el calor deshidrata más de lo que parece.',
-        en:'Flip flops or sandals you can soak, because the bottom is slippery stone. A large towel, a bag for wet clothes, and drinking water, since the heat dehydrates more than you would think.'},
+     d:{es:'En Saturnia no hace falta cargar nada: el bar que está a cien metros del agua tiene <b>vestuarios, duchas a 1 euro la ficha, lockers a 5 euros el día y alquiler de toallas y batas</b>. En San Filippo no hay nada de eso, así que ahí sí hay que llevar toalla, bolsa para la ropa mojada y agua.',
+        en:'At Saturnia there is no need to carry anything: the bar a hundred metres from the water has <b>changing rooms, showers at 1 euro a token, lockers at 5 euros for the day and towels and bathrobes for hire</b>. At San Filippo there is none of that, so there you do need a towel, a bag for wet clothes and water.'},
      t:'aire',
-     tip:{es:'Dos cosas que nadie avisa: el azufre huele a huevo podrido y el olor queda en la malla y en el pelo, así que mejor una malla vieja. Y el azufre ennegrece la plata: los anillos y las cadenas se sacan antes de entrar.',
-          en:'Two things nobody warns you about: the sulphur smells of rotten eggs and the smell stays in your swimsuit and your hair, so bring an old one. And sulphur blackens silver: rings and chains come off before you get in.'}}
+     tip:{es:'Tres cosas que nadie avisa. El azufre huele a huevo podrido y el olor queda en la malla y en el pelo, así que malla vieja y ducha antes de seguir viaje. El azufre oxida el metal y ennegrece la plata: anillos, cadenas y relojes se sacan antes de entrar. Y el fondo de las pozas es piedra chica y resbalosa: ojotas o sandalias que se puedan mojar, puestas hasta el borde del agua.',
+          en:'Three things nobody warns you about. The sulphur smells of rotten eggs and the smell stays in your swimsuit and your hair, so an old swimsuit and a shower before carrying on. Sulphur oxidises metal and blackens silver: rings, chains and watches come off before you get in. And the bottom of the pools is small slippery stone: flip flops or sandals you can soak, kept on to the water’s edge.'}}
   ]},
 
   {s:{es:'La Val d’Orcia, punto por punto',en:'The Val d’Orcia, point by point'}, k:'visita', items:[
