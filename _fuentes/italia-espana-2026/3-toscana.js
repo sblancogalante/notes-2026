@@ -9,7 +9,7 @@
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Vie 9 a mar 13 de octubre',en:'Fri 9 to Tue 13 October'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Hotel Sovestro, San Gimignano',en:'Hotel Sovestro, San Gimignano'}],
-    [{es:'El auto',en:'The car'},{es:'Sigue con nosotros hasta Milán',en:'Stays with us as far as Milan'}],
+    [{es:'El auto',en:'The car'},{es:'Con nosotros hasta Milán',en:'With us as far as Milan'}],
     [{es:'Octubre',en:'October'},{es:'21° / 10°, niebla al amanecer',en:'21° / 10°, fog at dawn'}],
     [{es:'Ojo',en:'Watch out'},{es:'ZTL: cámara y multa en cada pueblo',en:'ZTL: a camera and a fine in every town'}]
   ],
@@ -36,15 +36,15 @@
       <ul>
         <li><b>Siena</b> a la mañana: la Piazza del Campo con forma de concha, el Duomo rayado y el piso de mármol destapado, que solo se ve unas semanas al año.</li>
         <li><b>Monteriggioni</b> volviendo, cuarenta minutos adentro del círculo de murallas, tramo de arriba incluido.</li>
-        <li>Y <b>Volterra</b>, que estaba agendada para el lunes y entró igual: etrusca, de piedra gris, con el teatro romano que se ve entero y gratis desde arriba.</li>
-        <li>Tres pueblos en un día es el ritmo real nuestro, no el de la guía. Haber adelantado Volterra deja el <b>lunes entero libre</b>, que ahora es el día de mar.</li>
+        <li>Y <b>Volterra</b>: etrusca, de piedra gris, con el teatro romano que se ve entero y gratis desde arriba, y los talleres de alabastro donde se puede entrar a mirar.</li>
+        <li>Tres pueblos en un día es nuestro ritmo, y de acá en adelante la agenda está armada así.</li>
       </ul>
     `, en:`
       <ul>
         <li><b>Siena</b> in the morning: the shell shaped Piazza del Campo, the striped Duomo and the marble floor uncovered, which only shows for a few weeks a year.</li>
         <li><b>Monteriggioni</b> on the way back, forty minutes inside the ring of walls, the stretch along the top included.</li>
-        <li>And <b>Volterra</b>, which was down for Monday and went in anyway: Etruscan, built in grey stone, with the Roman theatre you see whole and for free from above.</li>
-        <li>Three towns in a day is our real pace, not the guidebook one. Getting Volterra out of the way leaves <b>Monday completely free</b>, which is now the sea day.</li>
+        <li>And <b>Volterra</b>: Etruscan, built in grey stone, with the Roman theatre you see whole and for free from above, and the alabaster workshops you can walk into and watch.</li>
+        <li>Three towns in a day is our pace, and from here on the agenda is built that way.</li>
       </ul>
     `}},
 
@@ -71,10 +71,10 @@
         <li><b>18:00, Montalcino.</b> Cuarenta minutos, y queda de camino a casa. La enoteca de la fortaleza cierra el domingo entre las 20:00 y las 21:00, así que hay tiempo: un Brunello entre los muros con el sol bajando sobre los viñedos, que se pone 18:45.</li>
         <li><b>19:25, a casa.</b> Hora y media y en el hotel 21:00.</li>
       </ul>
-      <h3>Lo que quedó afuera, y por qué</h3>
+      <h3>Si el día cambia, y la cena</h3>
       <ul>
-        <li><b>Bagno Vignoni.</b> La plaza termal humeando vale la pena pero es la tercera cosa de agua caliente del mismo día, y la hora que ocupaba es justo la que ahora le sobra a Pienza, a Montepulciano y a Montalcino. Queda fichado: está a ocho minutos de San Quirico, así que cualquier día que el plan se caiga por lluvia, se mete.</li>
-        <li><b>Bagni San Filippo.</b> Es lo mismo que Saturnia: arroyo termal gratis sobre formaciones de cal. Hacerlo dos horas después es repetir el baño y perder un pueblo. Es el plan B si Saturnia aparece lloviendo o imposible de gente: está a media hora de San Quirico y el día se arma igual.</li>
+        <li><b>Bagni San Filippo es el plan B de Saturnia.</b> Arroyo termal gratis sobre formaciones de cal, lo mismo pero más chico y mucho más cerca: media hora de San Quirico. Si Saturnia aparece con lluvia o imposible de gente, se cambia una por la otra y el resto del día queda igual.</li>
+        <li><b>Bagno Vignoni, si sobra una hora.</b> La plaza que no es plaza sino una pileta termal del siglo XV humeando entre las casas, a ocho minutos de San Quirico, con el Parco dei Mulini abajo. Es la parada que se agrega cuando el día viene adelantado.</li>
         <li><b>La cena hay que resolverla antes de salir.</b> Volviendo 21:00 es tarde para caer sin reserva. El <b>Da Pode</b>, el restaurante del hotel, cierra los jueves y el domingo abre: conviene reservarlo hoy. La otra opción es comer en la enoteca de Montalcino a las 18:45, que sirve tablas de queso y embutidos, y llegar cenados.</li>
         <li><b>Rapolano, si el baño de la mañana sabe a poco.</b> Las Terme San Giovanni abren los domingos hasta las 22:00 y quedan a cincuenta minutos de Montalcino, sobre el camino de vuelta: 25 euros el día o 22 entrando después de las 16:00, con vestuario, toalla y bar.</li>
       </ul>
@@ -99,10 +99,10 @@
         <li><b>18:00, Montalcino.</b> Forty minutes, and it is on the way home. The enoteca in the fortress closes between 20:00 and 21:00 on a Sunday, so there is time: a Brunello among the walls with the sun going down over the vineyards, which sets at 18:45.</li>
         <li><b>19:25, home.</b> An hour and a half, and at the hotel by 21:00.</li>
       </ul>
-      <h3>What stayed out, and why</h3>
+      <h3>If the day changes, and dinner</h3>
       <ul>
-        <li><b>Bagno Vignoni.</b> The steaming thermal square is worth seeing but it is the third hot water thing in the same day, and the hour it took is exactly the hour Pienza, Montepulciano and Montalcino now have. It stays on file: it is eight minutes from San Quirico, so any day the plan falls apart in the rain, it goes in.</li>
-        <li><b>Bagni San Filippo.</b> It is the same thing as Saturnia: a free hot stream over limestone formations. Doing it two hours later repeats the soak and costs you a town. It is the plan B if Saturnia turns out rained out or impossibly busy: half an hour from San Quirico and the day still works.</li>
+        <li><b>Bagni San Filippo is the plan B for Saturnia.</b> A free hot stream over limestone formations, the same thing but smaller and far closer: half an hour from San Quirico. If Saturnia turns up rained out or impossibly busy, swap one for the other and the rest of the day is unchanged.</li>
+        <li><b>Bagno Vignoni, if an hour is going spare.</b> The square that is not a square but a fifteenth century thermal pool steaming among the houses, eight minutes from San Quirico, with the Parco dei Mulini below. It is the stop to add when the day is running ahead.</li>
         <li><b>Dinner has to be sorted before leaving.</b> Getting back at 21:00 is late to turn up without a booking. <b>Da Pode</b>, the hotel restaurant, closes on Thursdays and opens on Sunday: worth booking today. The other option is to eat at the Montalcino enoteca at 18:45, which serves cheese and cured meat boards, and get back already fed.</li>
         <li><b>Rapolano, if the morning soak was not enough.</b> Terme San Giovanni opens on Sundays until 22:00 and sits fifty minutes from Montalcino, on the way home: 25 euros for the day or 22 going in after 16:00, with changing rooms, towel and bar.</li>
       </ul>
@@ -152,7 +152,7 @@
         <li><b>8:40, Pisa.</b> Estacionar en <b>Via Pietrasantina</b>, que es gratis para autos y queda afuera de la ZTL, y caminar los 900 metros hasta la Piazza dei Miracoli. A esa hora la plaza está casi vacía y la luz entra de costado.</li>
         <li><b>9:30, de vuelta al auto.</b> Cuarenta minutos adentro de la plaza alcanzan de sobra. No subimos a la torre: son turnos reservados y casi trescientos escalones en espiral inclinada.</li>
         <li><b>10:20, Forte dei Marmi.</b> Un café y el <b>pontile</b>, el muelle de madera que entra al mar y es solo peatonal: desde la punta se ve la costa entera de Viareggio a La Spezia, con los Alpes Apuanos de fondo. Es el balneario más caro de Italia y en octubre a esta hora no cobra nada.</li>
-        <li><b>11:55, La Spezia.</b> El auto <b>no</b> se devuelve acá: va al Park Centro Stazione, enfrente de la estación, porque lo necesitamos el miércoles para Módena. Valijas al alojamiento y Cinque Terre con la tarde entera por delante.</li>
+        <li><b>11:55, La Spezia.</b> El auto va al <b>Park Centro Stazione</b>, enfrente de la estación, porque lo necesitamos el miércoles para Módena. Valijas al alojamiento y Cinque Terre con la tarde entera por delante.</li>
       </ul>
     `, en:`
       <p>Both stops are on the same road: the FI-PI-LI as far as Pisa and then the A12, which runs right along the sea to La Spezia. They do not come out of Cinque Terre, they come out of getting up an hour earlier.</p>
@@ -161,7 +161,7 @@
         <li><b>8:40, Pisa.</b> Park on <b>Via Pietrasantina</b>, which is free for cars and sits outside the ZTL, and walk the 900 metres to Piazza dei Miracoli. At that hour the square is nearly empty and the light comes in sideways.</li>
         <li><b>9:30, back at the car.</b> Forty minutes inside the square is more than enough. We are not climbing the tower: timed slots and almost three hundred steps up a leaning spiral.</li>
         <li><b>10:20, Forte dei Marmi.</b> A coffee and the <b>pontile</b>, the wooden pier that runs out into the sea and is pedestrians only: from the end you see the whole coast from Viareggio to La Spezia, with the Apuan Alps behind. It is the most expensive beach resort in Italy and in October at this hour it charges nothing.</li>
-        <li><b>11:55, La Spezia.</b> The car is <b>not</b> handed back here: it goes into the Park Centro Stazione, across from the station, because we need it on Wednesday for Modena. Bags to the apartment and off to Cinque Terre with the whole afternoon ahead.</li>
+        <li><b>11:55, La Spezia.</b> The car goes into the <b>Park Centro Stazione</b>, across from the station, because we need it on Wednesday for Modena. Bags to the apartment and off to Cinque Terre with the whole afternoon ahead.</li>
       </ul>
     `}}
   ]},
@@ -319,8 +319,8 @@
           en:'It is the one stop on Sunday where the car is right at the door, which with wet hair and after dark counts for something.'}},
     {m:'Parcheggio Via Gigli, Castiglioncello', a:'Castiglioncello',
      n:{es:'Castiglioncello: Via Gigli',en:'Castiglioncello: Via Gigli'},
-     d:{es:'El estacionamiento comunal del pueblo, a pocos minutos del castillo y de la bajada a la Baia del Quercetano. La tarifa no la pudimos confirmar: manda el cartel de al lado de la maquina, y en esta costa varios sectores se cobran solo en temporada.',
-        en:'The town’s municipal car park, a few minutes from the castle and from the path down to the Baia del Quercetano. We could not confirm the tariff: the sign beside the machine governs, and along this coast several zones are only charged in season.'},
+     d:{es:'El estacionamiento comunal del pueblo, a pocos minutos del castillo y de la bajada a la Baia del Quercetano. El cartel de al lado de la máquina es el que manda, y en esta costa varios sectores se cobran solo en temporada.',
+        en:'The town’s municipal car park, a few minutes from the castle and from the path down to the Baia del Quercetano. The sign beside the machine is what governs, and along this coast several zones are only charged in season.'},
      t:'mover',
      tip:{es:'En octubre esta costa está vacía y hay lugar en cualquier parte, incluso en la calle de arriba de la bahía, que en verano es imposible. Igual conviene mirar la máquina antes de irse caminando.',
           en:'In October this coast is empty and there is room anywhere, including the street above the bay, which in summer is hopeless. Still worth checking the machine before walking off.'}},
@@ -418,8 +418,8 @@
           en:'The aged one survives the journey without refrigeration and reaches Uruguay fine wrapped in paper. The fresh one does not. You can put together a picnic lunch of cheese, bread and a bottle and eat it looking over the valley from the wall.'}},
     {a:'Montalcino',
      n:{es:'Enoteca de la Fortezza de Montalcino',en:'The wine bar in Montalcino fortress'},
-     d:{es:'Adentro de la fortaleza del pueblo, con mesas entre los muros. Es el lugar más directo para probar un Brunello sin sacar turno en una bodega, y también sirven tablas de queso y embutidos. El <b>domingo cierra entre las 20:00 y las 21:00</b> según la fuente: llegando 18:15 sobra tiempo, y para asegurarlo es el +39 0577 849113.',
-        en:'Inside the town fortress, with tables set among the walls. The most direct place to try a Brunello without booking a winery slot, and they also serve cheese and cured meat boards. On <b>Sunday it closes between 20:00 and 21:00</b> depending on the source: arriving at 18:15 leaves plenty of time, and to be sure the number is +39 0577 849113.'},
+     d:{es:'Adentro de la fortaleza del pueblo, con mesas entre los muros. Es el lugar más directo para probar un Brunello sin sacar turno en una bodega, y también sirven tablas de queso y embutidos. El <b>domingo abre hasta las 20:00</b>, así que llegando 18:15 sobra tiempo. Para confirmarlo, +39 0577 849113.',
+        en:'Inside the town fortress, with tables set among the walls. The most direct place to try a Brunello without booking a winery slot, and they also serve cheese and cured meat boards. On <b>Sunday it is open until 20:00</b>, so arriving at 18:15 leaves plenty of time. To confirm, +39 0577 849113.'},
      t:'comer', p:'€€', serv:'barra', res:'no',
      tip:{es:'El Brunello necesita años en botella y por eso es caro. El Rosso di Montalcino es el mismo viñedo con menos crianza, sale bastante menos y para tomar ahora está mejor.',
           en:'Brunello needs years in the bottle, which is why it costs what it does. Rosso di Montalcino is the same vineyard with less ageing, costs considerably less, and is better for drinking now.'}},
@@ -482,8 +482,8 @@
      d:{es:'Recibe de martes a domingo en tres turnos, 11:00, 13:00 y 15:00, con reserva de un día para el otro. La degustación Essenza son cuatro vinos con sommelier por 30 euros, y la Cammino son seis en hora y media por 50, con la opción de sumar un plato liviano.',
         en:'It receives Tuesday to Sunday in three slots, 11:00, 13:00 and 15:00, booked a day ahead. The Essenza tasting is four wines with a sommelier for 30 euros, and the Cammino is six over an hour and a half for 50, with the option of adding a light plate.'},
      t:'coctel', p:'€€', serv:'mesa', res:'si', w:'https://www.monterosola.com/',
-     tip:{es:'<b>Cierra los lunes</b>, que es el único día que nos queda suelto, así que en la práctica quedó afuera. Es la más linda de las tres y la más seria, pero son cuarenta y cinco minutos de ida y hay que volver manejando.',
-          en:'It <b>closes on Mondays</b>, the one day we have loose, so in practice it has fallen out. It is the loveliest of the three and the most serious, but it is forty five minutes each way and someone has to drive back.'}},
+     tip:{es:'<b>Cierra los lunes.</b> De martes a domingo hay turnos a las 11:00, 13:00 y 15:00, con reserva de un día para el otro. Es la más linda de las tres y la más seria, pero son cuarenta y cinco minutos de ida y hay que volver manejando.',
+          en:'It <b>closes on Mondays.</b> Tuesday to Sunday there are slots at 11:00, 13:00 and 15:00, booked a day ahead. It is the loveliest of the three and the most serious, but it is forty five minutes each way and someone has to drive back.'}},
     {a:'San Gimignano',
      n:{es:'Vernaccia en la Rocca',en:'Vernaccia up at the Rocca'},
      d:{es:'La Vernaccia di San Gimignano fue la primera denominación de origen de Italia, en 1966, y es un blanco seco y mineral que casi no sale del pueblo. Arriba, en la Rocca de Montestaffoli, hay una terraza con vista a las torres y al valle donde se toma por copa.',
@@ -525,8 +525,8 @@
      d:{es:'Un pueblo cuya plaza central no es una plaza sino una pileta termal enorme del siglo XV, humeando en el medio de las casas. No se puede entrar a esa, pero abajo, en el Parco dei Mulini, hay pozas libres sobre la roca con vista al valle.',
         en:'A village whose central square is not a square but an enormous fifteenth century thermal pool, steaming among the houses. You cannot get into that one, but below, in the Parco dei Mulini, there are free pools on the rock looking over the valley.'},
      t:'aire',
-     tip:{es:'Quedó afuera del domingo para que no fueran tres cosas de agua caliente el mismo día, pero está a ocho minutos de San Quirico y entra en cualquier hueco. La plaza con vapor es una de las imágenes más raras de la Toscana, y el Parco dei Mulini de abajo es gratis y casi nadie baja.',
-          en:'It stayed out of Sunday so as not to make three hot water stops in one day, but it is eight minutes from San Quirico and fits into any gap. The steaming square is one of the strangest sights in Tuscany, and the Parco dei Mulini below is free and almost nobody goes down.'}},
+     tip:{es:'Está a ocho minutos de San Quirico, así que entra en cualquier hueco del domingo. La plaza con vapor es una de las imágenes más raras de la Toscana, y el Parco dei Mulini de abajo es gratis y casi nadie baja.',
+          en:'It is eight minutes from San Quirico, so it fits into any gap on Sunday. The steaming square is one of the strangest sights in Tuscany, and the Parco dei Mulini below is free and almost nobody goes down.'}},
     {m:'Terme San Giovanni, Rapolano Terme', n:'Rapolano Terme',
      d:{es:'Termas de verdad, con cinco piletas a distintas temperaturas, vestuarios, toallas y bar. Las Terme San Giovanni abren los <b>domingos de 9:00 a 22:00</b>: 25 euros el día entero, o 22 entrando después de las 16:00.',
         en:'Proper spa baths, with five pools at different temperatures, changing rooms, towels and a bar. Terme San Giovanni opens on <b>Sundays from 9:00 to 22:00</b>: 25 euros for the whole day, or 22 going in after 16:00.'},

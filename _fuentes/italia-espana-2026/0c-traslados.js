@@ -221,19 +221,19 @@
      tip:{es:'Se llega en tranvía T2 desde Santa Maria Novella en veinte minutos con las valijas. Llevar los dos documentos, la licencia uruguaya y el permiso internacional del ACU, que no se reemplazan entre sí. Y la tarjeta de crédito del conductor, con límite disponible para el depósito en garantía.',
           en:'Twenty minutes on the T2 tram from Santa Maria Novella, bags and all. Bring both documents, the Uruguayan licence and the ACU international permit, since neither replaces the other. And the driver’s credit card, with enough limit free for the security deposit.'}},
     {nota:1,
-     n:{es:'Cuándo devolverlo: el martes 13, al llegar a La Spezia',en:'When to return it: Tuesday the 13th, on arrival in La Spezia'},
-     d:{es:'El plan por defecto es devolverlo el <b>martes 13 apenas llegamos a La Spezia</b>, antes de hacer nada más. A Cinque Terre no se entra en auto, y el miércoles nos vamos en tren.',
-        en:'The default plan is to hand it back <b>on Tuesday the 13th the moment we reach La Spezia</b>, before doing anything else. You do not drive into Cinque Terre, and on Wednesday we leave by train.'},
+     n:{es:'Cuándo y dónde se devuelve',en:'When and where it goes back'},
+     d:{es:'El <b>miércoles 14 a la noche en Milán</b>, en Via Vittor Pisani 19, nivel -2, que es el punto de entrega de la oficina de Via Galvani 12. Son seis días de alquiler, del viernes 9 al miércoles 14, con cargo por devolver en otra ciudad.',
+        en:'<b>Wednesday the 14th in the evening, in Milan</b>, at Via Vittor Pisani 19, level -2, the drop off point for the Via Galvani 12 office. Six rental days, Friday the 9th to Wednesday the 14th, with a one way drop charge.'},
      t:'mover',
-     tip:{es:'A partir del martes al mediodía el auto solo sirve para pagar estacionamiento en una ciudad donde estacionar es caro y difícil. Son cuatro días de alquiler, del viernes 9 al martes 13. La otra opción, quedárselo hasta Milán, está en la sección de abajo.',
-          en:'From Tuesday midday onwards the car only serves to rack up parking charges in a city where parking is expensive and awkward. That makes four rental days, Friday the 9th to Tuesday the 13th. The other option, keeping it as far as Milan, is in the section below.'}},
+     tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando del museo de Módena cerca de las 19:45 queda hora y cuarto de margen. El teléfono es +39 02 66987 826.',
+          en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from the Modena museum around 19:45 leaves an hour and a quarter of margin. The number is +39 02 66987 826.'}},
     {nota:1,
      n:{es:'La devolución, paso a paso',en:'The handback, step by step'},
-     d:{es:'Es un alquiler de una punta a la otra, con cargo por devolver en otra ciudad. Hay que tener la dirección exacta de la oficina de La Spezia y su horario, porque muchas cierran al mediodía.',
-        en:'It is a one way rental, with a fee for returning in a different city. We need the exact address of the La Spezia office and its opening hours, because many of them close at midday.'},
+     d:{es:'Entrar por Via Vittor Pisani 19 y bajar al nivel -2. Devolver con el tanque como lo entregaron, cargando nafta antes y no en la última estación de la autopista, que es la más cara.',
+        en:'Go in at Via Vittor Pisani 19 and down to level -2. Hand it back with the tank as they gave it, filling up beforehand rather than at the last motorway station, which is the dearest.'},
      t:'mover',
-     tip:{es:'Llegando cerca de las 11 estamos bien, pero confirmarlo al reservar. Devolver con el tanque como lo entregaron, y antes de dar las llaves sacar fotos de los cuatro lados del auto y del tablero con el nivel de combustible. Es lo único que sirve si después aparece un cargo por un rayón que no hicimos.',
-          en:'Arriving around 11 puts us in the clear, but confirm it when booking. Return it with the tank as they handed it over, and before giving back the keys photograph all four sides of the car and the dashboard with the fuel level. That is the only thing that helps if a charge later appears for a scratch we did not make.'}},
+     tip:{es:'Antes de dar las llaves, fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Pedir el comprobante de devolución firmado y no irse sin él. El bloqueo de la tarjeta se libera varios días después.',
+          en:'Before handing over the keys, photographs of the car from all four sides, of the dashboard with the mileage and fuel level, and of the interior. Ask for the signed return receipt and do not leave without it. The card hold is released several days later.'}},
     {nota:1,
      n:{es:'Qué reservar, y con cuánta anticipación',en:'What to book, and how far ahead'},
      d:{es:'Tres o cuatro meses antes, siempre con tarifa que permita cancelar gratis. El precio sube fuerte cerca de la fecha y prácticamente no baja.',
@@ -257,23 +257,23 @@
           en:'Check that both suitcases fit in the boot, because in the smallest models they do not; if the category says "two large bags", that is enough. And on collection, confirm whether it takes petrol or diesel: getting it wrong wrecks the engine and no insurance covers it.'}},
     {nota:1,
      n:{es:'Los tramos que manejamos',en:'The stretches we drive'},
-     d:{es:'Tres: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a hora y media cada uno; y San Gimignano a La Spezia el martes 13, unas dos horas y cuarto.',
-        en:'Three: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to an hour and a half each; and San Gimignano to La Spezia on Tuesday the 13th, about two and a quarter hours.'},
+     d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el tramo largo, La Spezia a Persiceto y de ahí a Milán pasando por Módena, casi cinco horas de manejo repartidas en el día.',
+        en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the long one, La Spezia to Persiceto and on to Milan by way of Modena, nearly five hours of driving spread across the day.'},
      t:'mover',
-     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera.',
-          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead.'}}
+     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera. El miércoles se maneja el tramo largo del viaje, La Spezia a Persiceto y de ahí a Milán.',
+          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead. Wednesday is the long driving day, La Spezia to Persiceto and on to Milan.'}}
   ]},
 
-  {s:{es:'El auto se queda hasta Milán',en:'The car stays as far as Milan'}, k:'mover', html:{es:`
-      <p>Decidido: el auto no se devuelve en La Spezia el martes 13 como decía el plan original, sino en <b>Milán el miércoles 14 a la noche</b>, en Via Vittor Pisani 19. Es la opción del medio y es la que cierra mejor, porque el día de Módena es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa y seguir a Milán no se hace en tren sin perder medio día en combinaciones.</p>
-      <p>Lo que queda afuera de la discusión: el auto <b>no</b> sigue hasta el sábado. El lago de Como se hace en tren el viernes, que es lo correcto, y los días de Milán no lo necesitan. Eso evita dos noches de garage en el hotel y el estacionamiento de Varenna, que es escaso y caro.</p>
+  {s:{es:'El auto, de Florencia a Milán',en:'The car, Florence to Milan'}, k:'mover', html:{es:`
+      <p>El auto nos acompaña hasta <b>Milán el miércoles 14 a la noche</b>, y ahí termina. La razón es el día de Módena, que es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa y seguir a Milán no se hace en tren sin perder medio día en combinaciones.</p>
+      <p>De Milán en adelante vamos en tren, y es lo que corresponde: el lago de Como se hace en tren el viernes, y los días de la ciudad no necesitan auto. Así no pagamos garage de hotel ni el estacionamiento de Varenna, que es escaso y caro.</p>
       <h3>Lo que hay que tener presente</h3>
       <ul>
         <li><b>Una noche de garage, no dos.</b> Solo en La Spezia: el Park Centro Stazione enfrente de la estación, 1,50 euros la hora de día y 1 de noche, cubierto y con cámaras, y la ventaja de que el miércoles bajamos del tren y subimos al auto. En Milán no hace falta, porque el auto se entrega la misma noche que llegamos. Antes de pagar el de La Spezia, preguntar en el alojamiento si tiene acuerdo con algún garage.</li>
         <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles 19:45, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
         <li><b>El Área B</b> cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero conviene confirmarlo al retirarlo.</li>
         <li><b>El cargo por devolver en otra ciudad</b> crece con la distancia y Milán no es Florencia. Ya está en el contrato, pero vale mirar el detalle para no sorprenderse.</li>
-        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Es horario de oficina de estación: las sucursales de barrio de Milán cierran 18:00, pero esta no. Llegando el miércoles 19:45 se entrega esa noche con hora y cuarto de margen.</li>
+        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Llegando el miércoles 19:45 se entrega esa noche con hora y cuarto de margen.</li>
         <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna en Módena. Sí hace falta la regla de siempre: todo al baúl y nada a la vista.</li>
       </ul>
       <h3>Qué pasa si no llegamos a horario</h3>
@@ -287,15 +287,15 @@
       <h3>Al entregarlo</h3>
       <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
     `, en:`
-      <p>Settled: the car is not handed back in La Spezia on Tuesday the 13th as the original plan had it, but in <b>Milan on Wednesday the 14th in the evening</b>, at Via Vittor Pisani 19. It is the middle option and the one that fits best, because the Modena day is the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain and then on to Milan cannot be done by train without losing half a day to connections.</p>
-      <p>What is off the table: the car does <b>not</b> stay until Saturday. Lake Como is done by train on Friday, which is correct, and the Milan days do not need it. That avoids two nights of hotel garage and parking at Varenna, which is scarce and expensive.</p>
+      <p>The car comes with us as far as <b>Milan on Wednesday the 14th in the evening</b>, and that is where it ends. The reason is the Modena day, the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain and then on to Milan cannot be done by train without losing half a day to connections.</p>
+      <p>From Milan onwards we go by train, which is as it should be: Lake Como is done by train on Friday, and the city days need no car. That way we pay no hotel garage and no Varenna parking, which is scarce and expensive.</p>
       <h3>What to keep in mind</h3>
       <ul>
         <li><b>One night of garage, not two.</b> Only in La Spezia: the Park Centro Stazione across from the station, 1.50 euros an hour by day and 1 by night, covered and with cameras, and the advantage that on Wednesday we step off the train and into the car. In Milan it is not needed, because the car goes back the same evening we arrive. Before paying for the La Spezia one, ask the apartment whether they have an arrangement with a garage.</li>
         <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday at 19:45, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
         <li><b>Area B</b> covers almost the whole city and runs Monday to Friday. A new hire car meets the standard and passes, but it is worth confirming at pick up.</li>
         <li><b>The one way drop charge</b> grows with distance and Milan is not Florence. It is already in the contract, but worth reading the line so it is not a surprise.</li>
-        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Those are station office hours: Milan neighbourhood branches shut at 18:00, but this one does not. Arriving at 19:45 on Wednesday it goes back that evening with an hour and a quarter to spare.</li>
+        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Arriving at 19:45 on Wednesday it goes back that evening with an hour and a quarter to spare.</li>
         <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena. The usual rule does apply: everything in the boot and nothing in sight.</li>
       </ul>
       <h3>What happens if we do not make it in time</h3>

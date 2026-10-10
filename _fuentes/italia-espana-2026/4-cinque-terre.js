@@ -7,7 +7,7 @@
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mar 13 a mié 14, con la mañana del 14',en:'Tue 13 to Wed 14, including Wed morning'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Alba Rooms, La Spezia',en:'Alba Rooms, La Spezia'}],
-    [{es:'El auto',en:'The car'},{es:'Se queda, lo devolvemos en Milán',en:'Stays with us, handed back in Milan'}],
+    [{es:'El auto',en:'The car'},{es:'En el garage de la estación',en:'In the station garage'}],
     [{es:'Cómo se mueve uno',en:'Getting about'},{es:'Tren, cada 15 a 30 min',en:'Train, every 15 to 30 min'}],
     [{es:'Atardece',en:'Sunset'},{es:'18:55, y ahí está la foto',en:'18:55, and that is the photograph'}]
   ],
@@ -17,7 +17,7 @@
      t:{es:'Martes 13: llegar, soltar todo y salir',en:'Tuesday the 13th: arrive, drop everything and get out'},
      html:{es:`
       <ul>
-        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. El auto <b>ya no se devuelve acá</b>: se queda con nosotros hasta Milán, así que lo primero es meterlo en el <b>Park Centro Stazione</b>, enfrente de la estación, y las valijas en el alojamiento. A Cinque Terre se va con la mochila y nada más: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
+        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Lo primero es meter el auto en el <b>Park Centro Stazione</b>, enfrente de la estación, que se queda ahí hasta el miércoles, y las valijas en el alojamiento. A Cinque Terre se va con la mochila y nada más: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
         <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
         <li><b>Primero Vernazza</b>, el más bonito y el del puerto con forma de herradura. Dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, de donde sale la foto clásica.</li>
         <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
@@ -25,7 +25,7 @@
       </ul>
     `, en:`
       <ul>
-        <li>We reach La Spezia around 11 from San Gimignano. The car <b>is no longer handed back here</b>: it stays with us until Milan, so the first thing is to put it in the <b>Park Centro Stazione</b>, across from the station, and the bags at the apartment. You go to Cinque Terre with a backpack and nothing else: short platforms, full trains and villages made entirely of stairs.</li>
+        <li>We reach La Spezia around 11 from San Gimignano. The first thing is to put the car in the <b>Park Centro Stazione</b>, across from the station, where it stays until Wednesday, and the bags at the apartment. You go to Cinque Terre with a backpack and nothing else: short platforms, full trains and villages made entirely of stairs.</li>
         <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five villages in under twenty minutes. The idea is to catch the first one around midday.</li>
         <li><b>Vernazza first</b>, the prettiest and the one with the horseshoe harbour. A good two hours: the harbour square, the church built out on the rocks, and the climb to the Doria castle, where the classic photograph comes from.</li>
         <li><b>Then Manarola</b>, ten minutes on by train, which is where we want to be at sunset. That is where <b>Nessun Dorma</b> is, and a hundred metres on the <b>Punta Bonfiglio</b> viewpoint, free, the source of the postcard of coloured houses on the cliff.</li>

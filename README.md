@@ -100,6 +100,13 @@ python3 -m http.server
 y abrir `http://localhost:8000/italia-espana-2026/` (la portada queda en
 `http://localhost:8000/`).
 
+## Bitacora de cambios
+
+`BITACORA.md` lleva el historial: que cambio en cada commit, que se corrigio y
+que se saco del plan. La pagina publicada muestra solo el plan vigente, asi
+que las correcciones y los descartes se anotan ahi y no en el contenido de la
+guia.
+
 ## Como se reconstruye
 
 ```

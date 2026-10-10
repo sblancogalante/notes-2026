@@ -4,8 +4,8 @@
   name:{es:'Módena',en:'Modena'},
   plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena',
   d1:'2026-10-14', d2:'2026-10-14',
-  lede:{es:'Un día de paso entre La Spezia y Milán, en auto, que cuelga de una sola hora: la mesa reservada a las <b>13:45</b> en San Giovanni in Persiceto. El <b>Museo Enzo Ferrari</b> va después, a la vuelta, que es lo que deja la mañana libre en Cinque Terre.',
-        en:'A day in transit between La Spezia and Milan, by car, hanging on a single hour: the table booked for <b>13:45</b> in San Giovanni in Persiceto. The <b>Enzo Ferrari Museum</b> comes after it, on the way back, which is what leaves the morning free in Cinque Terre.'},
+  lede:{es:'Un día de paso entre La Spezia y Milán, en auto, que cuelga de una sola hora: la mesa reservada a las 13:45 en San Giovanni in Persiceto. El Museo Enzo Ferrari va después, a la vuelta, con la mañana libre en Cinque Terre.',
+        en:'A day in transit between La Spezia and Milan, by car, hanging on a single hour: the table booked for 13:45 in San Giovanni in Persiceto. The Enzo Ferrari Museum comes after it, on the way back, with the morning free in Cinque Terre.'},
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mié 14 de octubre, de paso',en:'Wed 14 October, passing through'}],
     [{es:'Llegamos',en:'We arrive'},{es:'A Persiceto 13:00, a Módena 15:45',en:'Persiceto 13:00, Modena 15:45'}],
@@ -23,19 +23,16 @@
         <li><b>13:45, el almuerzo.</b> Hora y media. Es una osteria de las de verdad, de las que hay que dejar hacer.</li>
         <li><b>15:15</b>, a Módena. Media hora por la SS568, en dirección a Milán y no al revés: el museo queda de paso.</li>
         <li><b>16:00, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85. Hora y media, y cierra 19:00, así que no hay apuro ninguno: el límite real del día no es el museo sino salir de Módena antes de las 18:45.</li>
+        <li><b>Si el museo se hace en una hora</b>, la Piazza Grande, el Duomo y la Ghirlandina quedan a diez minutos a pie y son el casco histórico patrimonio de la humanidad. Cuarenta minutos ahí entran sin tocar el resto del día.</li>
         <li><b>17:45</b>, a Milán. Dos horas por la A1 y la A4, llegando cerca de las <b>19:45</b>. Llegamos bien: la oficina de la rentadora abre hasta las 21:00, así que el auto se entrega esa misma noche. El último límite para salir de Módena es 18:45, o sea que tenemos una hora de colchón.</li>
       </ul>
-      <h3>Lo que se pierde poniendo el museo a la tarde</h3>
-      <p>La Piazza Grande, el Duomo y la Ghirlandina, que es el casco histórico de Módena y es patrimonio de la humanidad. Están a diez minutos a pie del museo y con el museo a la mañana entraban; ahora, saliendo del museo a las 17:30 y con dos horas de ruta por delante, no. Se puede recortar el museo a una hora y darles cuarenta minutos, pero es elegir entre una cosa y la otra. Dicho de frente: el centro de Módena es muy lindo y no lo vamos a ver.</p>
       <h3>Las valijas, que viajan con nosotros</h3>
       <p>Hoy no hace falta consigna en ninguna parte: el equipaje sale de La Spezia en el auto a las 10:30 y no se baja hasta Milán. La única parada donde el auto queda solo un rato largo es el museo.</p>
       <ul>
         <li><b>El museo tiene estacionamiento propio y gratis</b> atrás, con entrada por <b>Via Giuseppe Soli 101</b>. Es playa a nivel y sin vigilancia. Para hora y media de tarde, con todo en el baúl y <b>nada a la vista</b>, es razonable: los autos de alquiler son blanco preferido justamente porque se les ve el equipaje por la ventanilla.</li>
-        <li><b>Si preferimos no jugar</b>, el <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros. Son tres minutos en auto desde el museo y doce a pie de vuelta. Con el museo a la tarde esos veinticinco minutos de caminata cuestan más que a la mañana, así que acá la decisión es más pareja que antes.</li>
+        <li><b>Si preferimos no jugar</b>, el <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros. Son tres minutos en auto desde el museo y doce a pie de vuelta, y queda al lado de la Piazza Grande.</li>
         <li>En Persiceto el problema no existe, pero la regla es la misma todo el viaje: lo que no se ve no se roba. Mochilas, campera y bolsas también van al baúl, no en el asiento de atrás.</li>
       </ul>
-      <h3>Por qué un museo y no dos</h3>
-      <p>Maranello queda a veinte kilómetros y es el museo de la escudería, con los Fórmula 1. Sumarlo son dos horas más entre traslado y visita, y con el museo ya corrido a la tarde eso nos pone en la A4 a las nueve de la noche. Quedó afuera por eso y no por falta de ganas: la ficha sigue acá abajo por si alguna vez se vuelve.</p>
     `, en:`
       <h3>Lunch first, the museum on the way back</h3>
       <p>The day hangs on a single hour: the table at the <b>Osteria del Mirasole</b> at <b>13:45</b>, in San Giovanni in Persiceto. The midday kitchen closes at 14:00, so that is the last table, and <b>they cancel the booking after twenty minutes with no word</b>. Everything else is arranged around it: the morning stays in Cinque Terre, and the museum moves to the afternoon, on the way back towards Milan.</p>
@@ -45,29 +42,19 @@
         <li><b>13:45, lunch.</b> An hour and a half. It is a proper osteria, the kind you let get on with it.</li>
         <li><b>15:15</b>, on to Modena. Half an hour on the SS568, heading towards Milan rather than away from it: the museum is on the way.</li>
         <li><b>16:00, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85. An hour and a half, and it closes at 19:00, so there is no rush at all: the real limit on the day is not the museum but leaving Modena before 18:45.</li>
+        <li><b>If the museum takes an hour</b>, Piazza Grande, the cathedral and the Ghirlandina are ten minutes on foot and they are the world heritage historic centre. Forty minutes there fits without touching the rest of the day.</li>
         <li><b>17:45</b>, on to Milan. Two hours on the A1 and the A4, arriving around <b>19:45</b>. We arrive in good time: the rental office is open until 21:00, so the car goes back that same evening. The last possible departure from Modena is 18:45, which gives us an hour of cushion.</li>
       </ul>
-      <h3>What moving the museum to the afternoon costs</h3>
-      <p>Piazza Grande, the cathedral and the Ghirlandina, which are Modena’s historic centre and world heritage. They are ten minutes on foot from the museum and with the museum in the morning they fitted; now, leaving the museum at 17:30 with two hours of road ahead, they do not. We could cut the museum to an hour and give them forty minutes, but it is one or the other. Said plainly: central Modena is lovely and we are not going to see it.</p>
       <h3>The bags, which travel with us</h3>
       <p>No left luggage needed anywhere today: the luggage leaves La Spezia in the car at 10:30 and does not come out until Milan. The only stop where the car is left alone for a long while is the museum.</p>
       <ul>
         <li><b>The museum has its own free car park</b> at the back, entered from <b>Via Giuseppe Soli 101</b>. It is a surface lot and unattended. For an hour and a half in the afternoon, with everything in the boot and <b>nothing in sight</b>, it is reasonable: hire cars are a preferred target precisely because the luggage shows through the window.</li>
-        <li><b>If we would rather not gamble</b>, the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit. It is three minutes by car from the museum and twelve on foot back. With the museum in the afternoon those twenty five minutes of walking cost more than they would have in the morning, so the call here is closer than it was.</li>
+        <li><b>If we would rather not gamble</b>, the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit. It is three minutes by car from the museum and twelve on foot back, and it sits beside Piazza Grande.</li>
         <li>In Persiceto the problem does not exist, but the rule is the same for the whole trip: what cannot be seen does not get stolen. Backpacks, jackets and bags go in the boot too, not on the back seat.</li>
       </ul>
-      <h3>Why one museum and not two</h3>
-      <p>Maranello is twenty kilometres away and it is the team museum, with the Formula 1 cars. Adding it is two more hours between the drive and the visit, and with the museum already pushed to the afternoon that puts us on the A4 at nine at night. That is why it stayed out, not for lack of appetite: the card is still below in case we ever come back.</p>
     `}},
 
-  {s:{es:'Los dos museos, y cuál conviene',en:'The two museums, and which one to pick'}, k:'visita', items:[
-    {nota:1,
-     n:{es:'La diferencia entre uno y otro',en:'The difference between them'},
-     d:{es:'El <b>Museo Enzo Ferrari</b>, en Módena, es sobre el hombre: está en la casa donde nació, con el taller de su padre restaurado, y al lado una galería moderna con techo amarillo en forma de capó donde exponen autos de calle y de diseño. El <b>Museo Ferrari de Maranello</b> es sobre la marca: la Fórmula 1, los trofeos, los motores y la historia de las carreras.',
-        en:'The <b>Enzo Ferrari Museum</b>, in Modena, is about the man: it sits in the house where he was born, with his father’s workshop restored, and beside it a modern gallery with a yellow roof shaped like a bonnet, showing road and design cars. The <b>Ferrari Museum at Maranello</b> is about the marque: Formula 1, the trophies, the engines and the racing history.'},
-     t:'visita',
-     tip:{es:'Dicho corto: si nos interesa la historia y el personaje, Módena. Si lo que queremos es ver monoplazas de Fórmula 1 y la sala de trofeos, Maranello. El de Módena está a quince minutos a pie de la estación; el de Maranello, a media hora de viaje.',
-          en:'Put briefly: if the history and the man are what interest us, Modena. If what we want is single seaters and the trophy room, Maranello. The Modena one is fifteen minutes on foot from the station; Maranello is half an hour’s travel.'}},
+  {s:{es:'El museo',en:'The museum'}, k:'visita', items:[
     {m:'Museo Enzo Ferrari, Via Paolo Ferrari 85, Modena', a:'Via Paolo Ferrari 85, Módena',
      n:{es:'Museo Enzo Ferrari',en:'Enzo Ferrari Museum'},
      d:{es:'La casa natal de Enzo Ferrari con el taller mecánico de su padre, y pegada una nave con el techo amarillo curvo que imita un capó. Adentro, exposiciones que cambian, autos de calle y una proyección envolvente sobre las paredes.',
@@ -75,20 +62,6 @@
      t:'visita', p:'€€', w:'https://www.ferrari.com/museums',
      tip:{es:'En octubre abre todos los días de 9:30 a 19:00 y la entrada de adulto son 27 euros. Se hace en una hora y media con nuestro ritmo. Conviene comprarla online: ahorra la fila y a veces sale algo menos. Estacionamiento propio y gratis atrás, por Via Giuseppe Soli 101.',
           en:'In October it opens every day 9:30 to 19:00 and the adult ticket is 27 euros. An hour and a half at our pace. Worth buying online: it saves the queue and sometimes costs a little less. Its own free car park at the back, entered from Via Giuseppe Soli 101.'}},
-    {m:'Museo Ferrari Maranello',
-     n:{es:'Museo Ferrari de Maranello',en:'Ferrari Museum at Maranello'},
-     d:{es:'El museo de la escudería, en el pueblo donde está la fábrica. Monoplazas de Fórmula 1 de todas las épocas alineados, la sala de trofeos, motores abiertos y simuladores.',
-        en:'The team museum, in the town where the factory is. Formula 1 single seaters from every era lined up, the trophy room, cut open engines and simulators.'},
-     t:'visita', p:'€€', w:'https://www.ferrari.com/museums',
-     tip:{es:'Hay entrada combinada con el de Módena y una lanzadera entre los dos. La visita a la fábrica no se puede hacer: es solo para propietarios de un Ferrari. Alrededor del museo hay empresas que alquilan vueltas en Ferrari por la ruta, que se contratan aparte y con reserva.',
-          en:'There is a combined ticket with the Modena one and a shuttle between them. The factory tour is not available: it is for Ferrari owners only. Around the museum there are companies renting laps in a Ferrari out on the road, booked separately and in advance.'}},
-    {nota:1,
-     n:{es:'Si vamos a los dos',en:'If we do both'},
-     d:{es:'La entrada combinada vale para los dos museos en días distintos también, pero nosotros los haríamos el mismo día. La lanzadera entre Módena y Maranello tiene pocos horarios, así que hay que mirarlos antes y armar el día alrededor de ellos.',
-        en:'The combined ticket is also valid for the two museums on different days, but we would do them on the same one. The shuttle between Modena and Maranello runs on few departures, so check them beforehand and build the day around them.'},
-     t:'visita',
-     tip:{es:'También hay un bus público de línea que hace el trayecto y sale mucho menos, pero tarda más y para en todos lados. Y la tercera opción, que es la mejor si de verdad queremos los dos: alquilar un auto chico en la estación de Módena por medio día y devolverlo ahí antes del tren a Milán. Resuelve los horarios de la lanzadera y de paso las valijas van en el baúl.',
-          en:'There is also a scheduled public bus on the route costing far less, but slower and stopping everywhere. And the third option, which is the best if we genuinely want both: rent a small car at Modena station for half a day and return it there before the Milan train. It solves the shuttle timetable and puts the bags in the boot while it is at it.'}}
   ]},
 
   {s:{es:'El almuerzo, que es una cita',en:'Lunch, which is an appointment'}, k:'comer', items:[
