@@ -11,6 +11,15 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 Dia de Cinque Terre, con la guia en uso.
 
+**`734c5f1` fix: la cache del service worker cambia para que los telefonos bajen la guia nueva**
+
+Los telefonos seguian mostrando la version de `f8885dd`. La clave de cache
+se habia cambiado solo en ese commit, y `0fecec4`, `8a4f8cb` y `dc885ee`
+publicaron contenido nuevo con el mismo `sw.js`. Como el service worker sirve
+primero la copia guardada y solo la descarta cuando cambia la clave, el
+telefono no tenia como enterarse. La regla: **cada commit que cambia el
+contenido de una guia cambia tambien su `cache` en `guia.json`**.
+
 **`dc885ee` fix: el turno de Julieta a las 16:00 ya esta sacado**
 
 Sacado la noche del 13. Salio la alternativa para un turno de las 16:30, y
