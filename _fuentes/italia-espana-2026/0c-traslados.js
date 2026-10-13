@@ -24,7 +24,7 @@
      {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'San Gimignano a La Spezia',en:'San Gimignano to La Spezia'},  c:{es:'Auto, por Pisa y Forte dei Marmi',en:'Car, by Pisa and Forte dei Marmi'}, dur:'~2h15', e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'La Spezia y Cinque Terre',en:'La Spezia and Cinque Terre'},   c:{es:'Tren regional',en:'Regional train'},                       dur:{es:'5 a 20 min',en:'5 to 20 min'}, e:{es:'Se compra ahí',en:'Bought there'}},
      {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'La Spezia a Módena y Persiceto',en:'La Spezia to Modena and Persiceto'}, c:{es:'Auto, museo y almuerzo',en:'Car, museum and lunch'}, dur:'~2h20', e:{es:'Sacado',en:'Booked'}},
-     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'Persiceto a Verona y Milán',en:'Persiceto to Verona and Milan'}, c:{es:'Auto, se entrega en Milán',en:'Car, handed back in Milan'}, dur:'~3h20', e:{es:'Sacado',en:'Booked'}},
+     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'Persiceto a Verona y Milán',en:'Persiceto to Verona and Milan'}, c:{es:'Auto, se entrega en Milán',en:'Car, handed back in Milan'}, dur:'~3h55', e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-16', w:{es:'Vie 16',en:'Fri 16'}, t:{es:'Milán a Varenna, ida y vuelta',en:'Milan to Varenna and back'}, c:{es:'Tren, 7:20 de Centrale',en:'Train, 7:20 from Centrale'}, dur:{es:'~1h05 ida',en:'~1h05 each way'}, e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-17', w:{es:'Sáb 17',en:'Sat 17'}, t:{es:'Milán a Barcelona',en:'Milan to Barcelona'},                  c:'IB 5543',                                                      dur:'~1h45',      e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-18', w:{es:'Dom 18',en:'Sun 18'}, t:{es:'Barcelona a Sevilla',en:'Barcelona to Seville'},              c:'IB 5064',                                                      dur:'~1h45',      e:{es:'Sacado',en:'Booked'}},
@@ -41,7 +41,7 @@
       </ul>
       <h3>Los dos días para mirar con lupa</h3>
       <ul>
-        <li>El <b>miércoles 14</b> es el frágil: casi seis horas de auto con tres paradas, una mesa a las 12:30 que se cae a los veinte minutos de atraso y una oficina en Milán que cierra a las 21:00. Lo último para salir de Verona es 18:30. El detalle está en el capítulo de Módena.</li>
+        <li>El <b>miércoles 14</b> es el frágil: casi seis horas de auto con tres paradas, una mesa a las 12:30 que se cae a los veinte minutos de atraso y una oficina en Milán que cierra a las 21:00. Lo último para salir de Verona es 18:00, porque a esa hora se entra a Milán en hora pico. El detalle está en el capítulo de Módena.</li>
         <li>El <b>sábado 17</b> depende de un dato que falta: si el IB 5543 sale de Linate o de Malpensa. Son más de una hora de diferencia en el traslado, así que hay que confirmarlo antes de fijar a qué hora salimos del hotel.</li>
       </ul>
     `, en:`
@@ -54,7 +54,7 @@
       </ul>
       <h3>The two days to look at closely</h3>
       <ul>
-        <li><b>Wednesday the 14th</b> is the fragile one: nearly six hours of driving with three stops, a 12:30 table that goes after twenty minutes late, and an office in Milan that closes at 21:00. The latest we can leave Verona is 18:30. The detail is in the Modena chapter.</li>
+        <li><b>Wednesday the 14th</b> is the fragile one: nearly six hours of driving with three stops, a 12:30 table that goes after twenty minutes late, and an office in Milan that closes at 21:00. The latest we can leave Verona is 18:00, since at that hour we reach Milan at rush hour. The detail is in the Modena chapter.</li>
         <li><b>Saturday the 17th</b> hangs on a missing detail: whether IB 5543 leaves from Linate or Malpensa. That is more than an hour of difference in the transfer, so confirm it before fixing what time we leave the hotel.</li>
       </ul>
     `}},
@@ -244,8 +244,8 @@
      d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el más largo, La Spezia a Módena, Persiceto, Verona y Milán, unos quinientos kilómetros y casi seis horas de manejo repartidas en el día.',
         en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the longest, La Spezia to Modena, Persiceto, Verona and Milan, about five hundred kilometres and nearly six hours of driving spread across the day.'},
      t:'mover',
-     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera. El miércoles se maneja el día largo del viaje, con Verona en el medio y 18:30 como lo último para salir de ahí.',
-          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead. Wednesday is the long driving day, with Verona in the middle and 18:30 as the latest we can leave it.'}}
+     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera. El miércoles se maneja el día largo del viaje, con Verona en el medio y 18:00 como lo último para salir de ahí.',
+          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead. Wednesday is the long driving day, with Verona in the middle and 18:00 as the latest we can leave it.'}}
   ]},
 
   {s:{es:'El auto, de Florencia a Milán',en:'The car, Florence to Milan'}, k:'mover', html:{es:`
@@ -345,8 +345,8 @@
      d:{es:'Es el día con dos horas que no esperan: la mesa de las 12:30 en Persiceto, que se cae a los veinte minutos sin aviso, y la oficina de Milán, que cierra a las 21:00. Lo que hay entre las dos se puede achicar; esas dos no.',
         en:'It is the day with two times that will not wait: the 12:30 table in Persiceto, which goes after twenty minutes with no word, and the Milan office, which closes at 21:00. Everything between them can shrink; those two cannot.'},
      t:'mover',
-     tip:{es:'Si el atraso es a la mañana, el aviso a la osteria va por WhatsApp al +39 051 821273 y el museo se acorta. Si es a la tarde, Verona se corta en el orden que dice su capítulo, y a las 18:30 se sale igual. Y si en la autopista se ve que no llegamos a las 21:00, se llama a la oficina, +39 02 66987 826, antes de que cierre: después de esa hora no atiende nadie.',
-          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:30 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}},
+     tip:{es:'Si el atraso es a la mañana, el aviso a la osteria va por WhatsApp al +39 051 821273 y el museo se acorta. Si es a la tarde, Verona se corta en el orden que dice su capítulo, y a las 18:00 se sale igual. Y si en la autopista se ve que no llegamos a las 21:00, se llama a la oficina, +39 02 66987 826, antes de que cierre: después de esa hora no atiende nadie.',
+          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:00 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}},
     {nota:1,
      n:{es:'Los márgenes que conviene dejar',en:'The margins worth leaving'},
      d:{es:'Vuelos internacionales, tres horas antes en el mostrador. Vuelos internos de Iberia, dos. Trenes de alta velocidad, media hora en la estación. Regionales, quince minutos.',
