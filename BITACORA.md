@@ -11,6 +11,18 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 Dia de Cinque Terre, con la guia en uso.
 
+**`8a4f8cb` feat: Verona se camina por fuera, con Julieta y el Ponte Pietra como fijos**
+
+Salio la Arena por dentro, y con ella la entrada de 12 euros: se ve desde
+Piazza Bra. Castel San Pietro dejo de ser una subida y quedo como la foto
+desde el Ponte Pietra. La tarde se volvio una vuelta a pie que pasa por
+fuera de todo y suma Via Sottoriva, Sant'Anastasia, el Duomo, Porta Borsari,
+Corso Cavour y Castelvecchio con el Ponte Scaligero. La nota de que se toma
+en el Veneto salio, porque el plan no tiene paradas para sentarse.
+
+La vuelta termina 17:20, asi que la salida a Milan se adelanto a 17:30 y la
+llegada a cerca de las 20:00. El limite de las 18:00 no cambio.
+
 **`0fecec4` fix: Verona a paso rapido y la salida pensada para la hora pico de Milan**
 
 Correccion de un calculo del commit anterior: el tramo de Verona a Milan se
