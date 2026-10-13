@@ -7,6 +7,32 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 ## italia-espana-2026
 
+### 2026-10-13
+
+Dia de Cinque Terre, con la guia en uso.
+
+**`f8885dd` feat: el miercoles 14 pasa por el Ferrari, Persiceto y Verona**
+
+El martes entraron cuatro pueblos en la tarde, Riomaggiore, Manarola,
+Vernazza y Monterosso, y no dos. Con eso se cayo la manana del miercoles en
+"el pueblo que falte" y el dia se rearmo entero: check out 7:15, salida 7:45,
+museo a las 9:45 y Verona a la tarde, camino a Milan. La mesa del Mirasole se
+movio por telefono de las 13:45 a las 12:30, que es lo que le da a Verona dos
+horas y media en vez de una. La entrega del auto sigue calculada contra el
+cierre de la oficina, 21:00: salida de Verona 18:15, limite 18:30, llegada
+cerca de las 20:15.
+
+Verona entro como capitulo propio. La Casa de Julieta cambio en 2026: desde el
+1 de abril el patio se visita solo con turno reservado, 5 euros el patio y 12
+con la casa, verificado en el sitio del municipio. El centro de Modena, que
+habia vuelto al plan con la mesa de las 13:45, quedo como alternativa si el
+museo se hace en una hora.
+
+Se sacaron la ficha de los dos pueblos salteados, el miercoles de Cinque
+Terre, las dos fichas de los trenes del 14, que seguian ahi desde antes de
+quedarnos con el auto, y la de devolver el auto en La Spezia en la Toscana.
+Cinque Terre ahora termina el 13, asi que el 14 la guia abre en Modena.
+
 ### 2026-10-10
 
 Dia 2 de la Toscana, con la guia ya en uso. Nueve commits en el dia.
