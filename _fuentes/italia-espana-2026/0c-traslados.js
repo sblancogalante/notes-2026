@@ -11,7 +11,7 @@
     [{es:'Trenes',en:'Trains'},{es:'4 tramos, Florencia y Varenna sacados',en:'4 legs, Florence and Varenna booked'}],
     [{es:'Auto',en:'Car'},{es:'Vie 9 a mié 14, sacado',en:'Fri 9 to Wed 14, booked'}],
     [{es:'El día más frágil',en:'The fragile day'},{es:'Mié 14, La Spezia a Milán en auto',en:'Wed 14, La Spezia to Milan by car'}],
-    [{es:'Lo más urgente',en:'Most urgent'},{es:'Entradas de Verona, la noche del 13',en:'Verona tickets, the night of the 13th'}]
+    [{es:'Lo más urgente',en:'Most urgent'},{es:'Turno de Julieta, la noche del 13',en:'Juliet slot, the night of the 13th'}]
   ],
   sections:[
   {s:{es:'Todo de un vistazo',en:'The whole thing at a glance'}, k:'plan',
@@ -36,7 +36,7 @@
       <h3>Lo que falta</h3>
       <ul>
         <li>Los cinco vuelos, el auto y los trenes de Florencia y de Varenna ya están.</li>
-        <li><b>Las entradas de Verona</b>, la Arena y el turno del patio de Julieta, se sacan la noche del martes 13.</li>
+        <li><b>El turno del patio de Julieta</b>, en Verona, se saca la noche del martes 13. Es la única entrada del día.</li>
         <li>El AVE a Córdoba, solo si hacemos la excursión.</li>
       </ul>
       <h3>Los dos días para mirar con lupa</h3>
@@ -49,7 +49,7 @@
       <h3>What is still missing</h3>
       <ul>
         <li>All five flights, the car and the Florence and Varenna trains are done.</li>
-        <li><b>The Verona tickets</b>, the Arena and the slot for Juliet’s courtyard, get bought on the night of Tuesday the 13th.</li>
+        <li><b>The slot for Juliet’s courtyard</b>, in Verona, gets bought on the night of Tuesday the 13th. It is the day’s only ticket.</li>
         <li>The AVE to Córdoba, only if we do the day trip.</li>
       </ul>
       <h3>The two days to look at closely</h3>
@@ -209,8 +209,8 @@
      d:{es:'El <b>miércoles 14 a la noche en Milán</b>, en Via Vittor Pisani 19, nivel -2, que es el punto de entrega de la oficina de Via Galvani 12. Son seis días de alquiler, del viernes 9 al miércoles 14, con cargo por devolver en otra ciudad.',
         en:'<b>Wednesday the 14th in the evening, in Milan</b>, at Via Vittor Pisani 19, level -2, the drop off point for the Via Galvani 12 office. Six rental days, Friday the 9th to Wednesday the 14th, with a one way drop charge.'},
      t:'mover',
-     tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando de Verona cerca de las 20:15 quedan tres cuartos de hora de margen. El teléfono es +39 02 66987 826.',
-          en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from Verona around 20:15 leaves three quarters of an hour of margin. The number is +39 02 66987 826.'}},
+     tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando de Verona cerca de las 20:00 queda una hora de margen. El teléfono es +39 02 66987 826.',
+          en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from Verona around 20:00 leaves an hour of margin. The number is +39 02 66987 826.'}},
     {nota:1,
      n:{es:'La devolución, paso a paso',en:'The handback, step by step'},
      d:{es:'Entrar por Via Vittor Pisani 19 y bajar al nivel -2. Devolver con el tanque como lo entregaron, cargando nafta antes y no en la última estación de la autopista, que es la más cara.',
@@ -254,10 +254,10 @@
       <h3>Lo que hay que tener presente</h3>
       <ul>
         <li><b>Una noche de garage, no dos.</b> Solo en La Spezia: el Park Centro Stazione enfrente de la estación, 1,50 euros la hora de día y 1 de noche, cubierto y con cámaras, y la ventaja de que el miércoles bajamos del tren y subimos al auto. En Milán no hace falta, porque el auto se entrega la misma noche que llegamos. Antes de pagar el de La Spezia, preguntar en el alojamiento si tiene acuerdo con algún garage.</li>
-        <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles cerca de las 20:15, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
+        <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles cerca de las 20:00, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
         <li><b>El Área B</b> cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero conviene confirmarlo al retirarlo.</li>
         <li><b>El cargo por devolver en otra ciudad</b> crece con la distancia y Milán no es Florencia. Ya está en el contrato, pero vale mirar el detalle para no sorprenderse.</li>
-        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Llegando el miércoles cerca de las 20:15 se entrega esa noche con tres cuartos de hora de margen.</li>
+        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Llegando el miércoles cerca de las 20:00 se entrega esa noche con una hora de margen.</li>
         <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna ni en Módena ni en Verona. Sí hace falta la regla de siempre, todo al baúl y nada a la vista, y en Verona el parking cubierto y con personal.</li>
       </ul>
       <h3>Qué pasa si no llegamos a horario</h3>
@@ -276,10 +276,10 @@
       <h3>What to keep in mind</h3>
       <ul>
         <li><b>One night of garage, not two.</b> Only in La Spezia: the Park Centro Stazione across from the station, 1.50 euros an hour by day and 1 by night, covered and with cameras, and the advantage that on Wednesday we step off the train and into the car. In Milan it is not needed, because the car goes back the same evening we arrive. Before paying for the La Spezia one, ask the apartment whether they have an arrangement with a garage.</li>
-        <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday around 20:15, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
+        <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday around 20:00, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
         <li><b>Area B</b> covers almost the whole city and runs Monday to Friday. A new hire car meets the standard and passes, but it is worth confirming at pick up.</li>
         <li><b>The one way drop charge</b> grows with distance and Milan is not Florence. It is already in the contract, but worth reading the line so it is not a surprise.</li>
-        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Arriving around 20:15 on Wednesday it goes back that evening with three quarters of an hour to spare.</li>
+        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Arriving around 20:00 on Wednesday it goes back that evening with an hour to spare.</li>
         <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena or in Verona. The usual rule does apply, everything in the boot and nothing in sight, and in Verona the covered, staffed car park.</li>
       </ul>
       <h3>What happens if we do not make it in time</h3>
