@@ -10,7 +10,7 @@
     [{es:'Cuándo',en:'When'},{es:'Mié 14, de 15:10 a 17:20',en:'Wed 14, 15:10 to 17:20'}],
     [{es:'El auto',en:'The car'},{es:'Parcheggio Arena, Via Bentegodi 8',en:'Parcheggio Arena, Via Bentegodi 8'}],
     [{es:'Imprescindibles',en:'Must do'},{es:'El patio de Julieta y el Ponte Pietra',en:'Juliet’s courtyard and the Ponte Pietra'}],
-    [{es:'Entradas',en:'Tickets'},{es:'Solo Julieta, 5 €, turno 16:00',en:'Only Juliet, 5 €, 16:00 slot'}],
+    [{es:'Entradas',en:'Tickets'},{es:'Solo Julieta, 16:00, sacada',en:'Only Juliet, 16:00, booked'}],
     [{es:'A pie',en:'On foot'},{es:'Unos 4 km, en una vuelta',en:'About 4 km, in a loop'}],
     [{es:'Salimos',en:'We leave'},{es:'17:30, y 18:00 es el límite',en:'17:30, and 18:00 is the limit'}]
   ],
@@ -33,9 +33,8 @@
       </ul>
       <h3>Si algo se atrasa</h3>
       <p>Se corta en este orden: primero el Duomo, después Castelvecchio. Sin los dos, del Ponte Pietra se vuelve derecho por Erbe, Mazzini y Bra, unos veinte minutos. Julieta y el Ponte Pietra no se cortan. A las <b>18:00</b> se sale igual, termine donde termine la vuelta: después de esa hora, con Milán en hora pico, llegar a Vittor Pisani antes de las 21:00 ya depende del tránsito y no de nosotros.</p>
-      <p>Si el turno de Julieta quedó a las 16:30, se da vuelta el medio: de Signori se sigue a Sant’Anastasia y al Ponte Pietra, se vuelve por Via Sottoriva hasta el Teatro Nuovo a las 16:25, y después de Julieta se sale por Corso Porta Borsari hacia Castelvecchio. El Duomo no entra.</p>
-      <h3>Lo que se saca la noche anterior</h3>
-      <p>Solo el <b>turno del patio de Julieta</b>, en <b>verona.coopculture.it</b>, que es el canal oficial del municipio: 5 euros, a las <b>16:00</b>. Desde abril de 2026 la reserva es obligatoria para todos, y los sitios de reventa cobran más del doble y no devuelven. Todo lo demás de la vuelta es calle y no se paga.</p>
+      <h3>La entrada</h3>
+      <p>El <b>turno del patio de Julieta ya está</b>: a las <b>16:00</b>, entrando por el Teatro Nuovo, en Piazzetta Navona. Llegar 15:55 con el voucher bajado al teléfono. Todo lo demás de la vuelta es calle y no se paga.</p>
     `, en:`
       <p>The afternoon is walking, at a brisk pace and without going in anywhere except Juliet’s courtyard. The two must do items are <b>Juliet’s courtyard</b>, on a <b>16:00</b> slot, and the <b>Ponte Pietra</b>; everything else is seen in passing. It is about four kilometres in a loop that leaves the car park and comes back to it, and the walking is already counted.</p>
       <ul>
@@ -54,9 +53,8 @@
       </ul>
       <h3>If anything runs late</h3>
       <p>Cut in this order: the cathedral first, then Castelvecchio. Without both, go straight back from the Ponte Pietra by Erbe, Mazzini and Bra, about twenty minutes. Juliet and the Ponte Pietra are never cut. At <b>18:00</b> we leave regardless, wherever the walk has got to: after that, with Milan at rush hour, reaching Vittor Pisani before 21:00 depends on the traffic rather than on us.</p>
-      <p>If the Juliet slot ended up at 16:30, swap the middle: from Signori carry on to Sant’Anastasia and the Ponte Pietra, come back along Via Sottoriva to the Teatro Nuovo by 16:25, and after Juliet head out along Corso Porta Borsari towards Castelvecchio. The cathedral drops out.</p>
-      <h3>What to buy the night before</h3>
-      <p>Only the <b>slot for Juliet’s courtyard</b>, on <b>verona.coopculture.it</b>, the city’s official channel: 5 euros, at <b>16:00</b>. Since April 2026 booking is compulsory for everyone, and resale sites charge more than double and give no refunds. Everything else on the walk is street and costs nothing.</p>
+      <h3>The ticket</h3>
+      <p>The <b>slot for Juliet’s courtyard is booked</b>: <b>16:00</b>, entering through the Teatro Nuovo on Piazzetta Navona. Be there at 15:55 with the voucher downloaded on the phone. Everything else on the walk is street and costs nothing.</p>
     `}},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
@@ -129,8 +127,8 @@
      d:{es:'Una casa medieval que fue de la familia Dal Cappello, de donde la tradición sacó a los Capuleto. El balcón se le agregó en el siglo XX y la estatua de bronce de Julieta está en el patio. Es leyenda pura, y aun así es de los lugares más visitados de Italia.',
         en:'A medieval house that belonged to the Dal Cappello family, from whom tradition drew the Capulets. The balcony was added in the twentieth century and the bronze statue of Juliet stands in the courtyard. It is pure legend, and still one of the most visited places in Italy.'},
      t:'visita', p:'€', res:'si', w:'https://verona.coopculture.it/',
-     tip:{es:'Desde abril de 2026 se entra solo con turno reservado: 5 euros el recorrido por el Teatro Nuovo y el patio, 12 euros con la casa por dentro, que no hacemos. La entrada es por Piazzetta Navona y la salida por Via Cappello 23. El nuestro es a las 16:00.',
-          en:'Since April 2026 entry is by booked slot only: 5 euros for the route through the Teatro Nuovo and the courtyard, 12 euros with the house interior, which we skip. The way in is from Piazzetta Navona and the way out onto Via Cappello 23. Ours is at 16:00.'}},
+     tip:{es:'Desde abril de 2026 se entra solo con turno reservado: 5 euros el recorrido por el Teatro Nuovo y el patio, 12 euros con la casa por dentro, que no hacemos. La entrada es por Piazzetta Navona y la salida por Via Cappello 23. El nuestro ya está sacado, a las 16:00.',
+          en:'Since April 2026 entry is by booked slot only: 5 euros for the route through the Teatro Nuovo and the courtyard, 12 euros with the house interior, which we skip. The way in is from Piazzetta Navona and the way out onto Via Cappello 23. Ours is booked, at 16:00.'}},
     {m:'Via Sottoriva, Verona',
      n:{es:'Via Sottoriva y Sant’Anastasia',en:'Via Sottoriva and Sant’Anastasia'},
      d:{es:'Via Sottoriva es una calle angosta de soportales y casas bajas pegada al Adige, de cuando el río era el puerto de la ciudad. Termina en Sant’Anastasia, la iglesia gótica más grande de Verona, con la fachada de ladrillo que nunca se terminó de revestir.',

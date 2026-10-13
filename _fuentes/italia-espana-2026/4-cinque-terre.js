@@ -30,8 +30,7 @@
       <p>Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</p>
       <h3>Esta noche</h3>
       <ul>
-        <li><b>El turno de las 16:00 del patio de Julieta</b>, en verona.coopculture.it, 5 euros. Es lo único que se paga en Verona: la Arena y lo demás se ven por fuera. Sin turno no se entra al patio, y los revendedores cobran más del doble y no devuelven. El detalle está en el capítulo de <b>Verona</b>.</li>
-        <li>La entrada del <b>Museo Ferrari</b> ya está, y la mesa de Persiceto pasó a las <b>12:30</b>.</li>
+        <li>Lo de mañana ya está todo sacado: la entrada del <b>Museo Ferrari</b>, la mesa de Persiceto a las <b>12:30</b> y el <b>turno del patio de Julieta a las 16:00</b>. Los vouchers, bajados al teléfono.</li>
         <li><b>Check out a las 7:15.</b> Dejar arreglado con Alba Rooms dónde van las llaves si a esa hora no hay nadie.</li>
         <li>Las valijas armadas esta noche y la mochila del día aparte, porque mañana todo va al baúl. <b>Salimos 7:45</b>, y el día entero está en el capítulo de <b>Módena</b>.</li>
       </ul>
@@ -50,8 +49,7 @@
       <p>Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</p>
       <h3>Tonight</h3>
       <ul>
-        <li><b>The 16:00 slot for Juliet’s courtyard</b>, on verona.coopculture.it, 5 euros. It is the only thing we pay for in Verona: the Arena and the rest are seen from outside. Without a slot there is no getting into the courtyard, and resellers charge more than double and give no refunds. The detail is in the <b>Verona</b> chapter.</li>
-        <li>The <b>Ferrari Museum</b> ticket is done, and the Persiceto table has moved to <b>12:30</b>.</li>
+        <li>Everything for tomorrow is booked: the <b>Ferrari Museum</b> ticket, the Persiceto table at <b>12:30</b> and the <b>16:00 slot for Juliet’s courtyard</b>. Vouchers downloaded to the phone.</li>
         <li><b>Check out at 7:15.</b> Settle with Alba Rooms where the keys go if nobody is there at that hour.</li>
         <li>Bags packed tonight and the day backpack kept apart, because tomorrow everything goes in the boot. <b>We leave at 7:45</b>, and the whole day is in the <b>Modena</b> chapter.</li>
       </ul>

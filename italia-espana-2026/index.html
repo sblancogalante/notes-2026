@@ -623,6 +623,7 @@ const CITIES = [
       <ul>
         <li><b>Duomo de Milán</b>: ya está, <b>jueves 15 de 9:00 a 9:30</b>, con las <b>terrazas</b> incluidas, que son las que de verdad valen. Voucher bajado al teléfono y en la plaza unos minutos antes, que se entra por control de seguridad.</li>
         <li><b>Museo Enzo Ferrari</b>, Módena: ya está, para el <b>miércoles 14</b> a primera hora.</li>
+        <li><b>Patio de Julieta</b>, Verona: ya está, <b>miércoles 14 a las 16:00</b>.</li>
         <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
       </ul>
       <h3>Un lugar donde tener todo junto</h3>
@@ -638,6 +639,7 @@ const CITIES = [
       <ul>
         <li><b>Milan Duomo</b>: booked, <b>Thursday the 15th from 9:00 to 9:30</b>, with the <b>rooftop terraces</b> included, which are the part that is actually worth it. Voucher downloaded, and in the square a few minutes early, since entry goes through a security check.</li>
         <li><b>Enzo Ferrari Museum</b>, Modena: booked, for first thing on <b>Wednesday the 14th</b>.</li>
+        <li><b>Juliet’s courtyard</b>, Verona: booked, <b>Wednesday the 14th at 16:00</b>.</li>
         <li>Seville is done: <b>Cathedral and Giralda</b> on Thursday the 22nd at 17:20, <b>Real Alcázar</b> on Friday the 23rd at 16:30.</li>
       </ul>
       <h3>One place to keep it all</h3>
@@ -1348,7 +1350,7 @@ const CITIES = [
     [{es:'Trenes',en:'Trains'},{es:'4 tramos, Florencia y Varenna sacados',en:'4 legs, Florence and Varenna booked'}],
     [{es:'Auto',en:'Car'},{es:'Vie 9 a mié 14, sacado',en:'Fri 9 to Wed 14, booked'}],
     [{es:'El día más frágil',en:'The fragile day'},{es:'Mié 14, La Spezia a Milán en auto',en:'Wed 14, La Spezia to Milan by car'}],
-    [{es:'Lo más urgente',en:'Most urgent'},{es:'Turno de Julieta, la noche del 13',en:'Juliet slot, the night of the 13th'}]
+    [{es:'Lo más urgente',en:'Most urgent'},{es:'Linate o Malpensa, para el sáb 17',en:'Linate or Malpensa, for Sat 17'}]
   ],
   sections:[
   {s:{es:'Todo de un vistazo',en:'The whole thing at a glance'}, k:'plan',
@@ -1372,8 +1374,7 @@ const CITIES = [
       <p>Antes del viaje está todo pendiente y la lista arranca limpia. Durante el viaje, cada tramo se marca solo cuando pasa la fecha, y el de arriba muestra por cuál vamos. Cualquier fila se puede tocar para corregirla.</p>
       <h3>Lo que falta</h3>
       <ul>
-        <li>Los cinco vuelos, el auto y los trenes de Florencia y de Varenna ya están.</li>
-        <li><b>El turno del patio de Julieta</b>, en Verona, se saca la noche del martes 13. Es la única entrada del día.</li>
+        <li>Los cinco vuelos, el auto, los trenes de Florencia y de Varenna y el turno de Julieta en Verona ya están.</li>
         <li>El AVE a Córdoba, solo si hacemos la excursión.</li>
       </ul>
       <h3>Los dos días para mirar con lupa</h3>
@@ -1385,8 +1386,7 @@ const CITIES = [
       <p>Before the trip everything is pending and the list starts clean. During the trip each leg ticks itself off once its date passes, and the line at the top shows which one we are on. Any row can be tapped to correct it.</p>
       <h3>What is still missing</h3>
       <ul>
-        <li>All five flights, the car and the Florence and Varenna trains are done.</li>
-        <li><b>The slot for Juliet’s courtyard</b>, in Verona, gets bought on the night of Tuesday the 13th. It is the day’s only ticket.</li>
+        <li>All five flights, the car, the Florence and Varenna trains and the Juliet slot in Verona are done.</li>
         <li>The AVE to Córdoba, only if we do the day trip.</li>
       </ul>
       <h3>The two days to look at closely</h3>
@@ -3249,8 +3249,7 @@ const CITIES = [
       <p>Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</p>
       <h3>Esta noche</h3>
       <ul>
-        <li><b>El turno de las 16:00 del patio de Julieta</b>, en verona.coopculture.it, 5 euros. Es lo único que se paga en Verona: la Arena y lo demás se ven por fuera. Sin turno no se entra al patio, y los revendedores cobran más del doble y no devuelven. El detalle está en el capítulo de <b>Verona</b>.</li>
-        <li>La entrada del <b>Museo Ferrari</b> ya está, y la mesa de Persiceto pasó a las <b>12:30</b>.</li>
+        <li>Lo de mañana ya está todo sacado: la entrada del <b>Museo Ferrari</b>, la mesa de Persiceto a las <b>12:30</b> y el <b>turno del patio de Julieta a las 16:00</b>. Los vouchers, bajados al teléfono.</li>
         <li><b>Check out a las 7:15.</b> Dejar arreglado con Alba Rooms dónde van las llaves si a esa hora no hay nadie.</li>
         <li>Las valijas armadas esta noche y la mochila del día aparte, porque mañana todo va al baúl. <b>Salimos 7:45</b>, y el día entero está en el capítulo de <b>Módena</b>.</li>
       </ul>
@@ -3269,8 +3268,7 @@ const CITIES = [
       <p>Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</p>
       <h3>Tonight</h3>
       <ul>
-        <li><b>The 16:00 slot for Juliet’s courtyard</b>, on verona.coopculture.it, 5 euros. It is the only thing we pay for in Verona: the Arena and the rest are seen from outside. Without a slot there is no getting into the courtyard, and resellers charge more than double and give no refunds. The detail is in the <b>Verona</b> chapter.</li>
-        <li>The <b>Ferrari Museum</b> ticket is done, and the Persiceto table has moved to <b>12:30</b>.</li>
+        <li>Everything for tomorrow is booked: the <b>Ferrari Museum</b> ticket, the Persiceto table at <b>12:30</b> and the <b>16:00 slot for Juliet’s courtyard</b>. Vouchers downloaded to the phone.</li>
         <li><b>Check out at 7:15.</b> Settle with Alba Rooms where the keys go if nobody is there at that hour.</li>
         <li>Bags packed tonight and the day backpack kept apart, because tomorrow everything goes in the boot. <b>We leave at 7:45</b>, and the whole day is in the <b>Modena</b> chapter.</li>
       </ul>
@@ -3544,7 +3542,7 @@ const CITIES = [
     [{es:'Cuándo',en:'When'},{es:'Mié 14, de 15:10 a 17:20',en:'Wed 14, 15:10 to 17:20'}],
     [{es:'El auto',en:'The car'},{es:'Parcheggio Arena, Via Bentegodi 8',en:'Parcheggio Arena, Via Bentegodi 8'}],
     [{es:'Imprescindibles',en:'Must do'},{es:'El patio de Julieta y el Ponte Pietra',en:'Juliet’s courtyard and the Ponte Pietra'}],
-    [{es:'Entradas',en:'Tickets'},{es:'Solo Julieta, 5 €, turno 16:00',en:'Only Juliet, 5 €, 16:00 slot'}],
+    [{es:'Entradas',en:'Tickets'},{es:'Solo Julieta, 16:00, sacada',en:'Only Juliet, 16:00, booked'}],
     [{es:'A pie',en:'On foot'},{es:'Unos 4 km, en una vuelta',en:'About 4 km, in a loop'}],
     [{es:'Salimos',en:'We leave'},{es:'17:30, y 18:00 es el límite',en:'17:30, and 18:00 is the limit'}]
   ],
@@ -3567,9 +3565,8 @@ const CITIES = [
       </ul>
       <h3>Si algo se atrasa</h3>
       <p>Se corta en este orden: primero el Duomo, después Castelvecchio. Sin los dos, del Ponte Pietra se vuelve derecho por Erbe, Mazzini y Bra, unos veinte minutos. Julieta y el Ponte Pietra no se cortan. A las <b>18:00</b> se sale igual, termine donde termine la vuelta: después de esa hora, con Milán en hora pico, llegar a Vittor Pisani antes de las 21:00 ya depende del tránsito y no de nosotros.</p>
-      <p>Si el turno de Julieta quedó a las 16:30, se da vuelta el medio: de Signori se sigue a Sant’Anastasia y al Ponte Pietra, se vuelve por Via Sottoriva hasta el Teatro Nuovo a las 16:25, y después de Julieta se sale por Corso Porta Borsari hacia Castelvecchio. El Duomo no entra.</p>
-      <h3>Lo que se saca la noche anterior</h3>
-      <p>Solo el <b>turno del patio de Julieta</b>, en <b>verona.coopculture.it</b>, que es el canal oficial del municipio: 5 euros, a las <b>16:00</b>. Desde abril de 2026 la reserva es obligatoria para todos, y los sitios de reventa cobran más del doble y no devuelven. Todo lo demás de la vuelta es calle y no se paga.</p>
+      <h3>La entrada</h3>
+      <p>El <b>turno del patio de Julieta ya está</b>: a las <b>16:00</b>, entrando por el Teatro Nuovo, en Piazzetta Navona. Llegar 15:55 con el voucher bajado al teléfono. Todo lo demás de la vuelta es calle y no se paga.</p>
     `, en:`
       <p>The afternoon is walking, at a brisk pace and without going in anywhere except Juliet’s courtyard. The two must do items are <b>Juliet’s courtyard</b>, on a <b>16:00</b> slot, and the <b>Ponte Pietra</b>; everything else is seen in passing. It is about four kilometres in a loop that leaves the car park and comes back to it, and the walking is already counted.</p>
       <ul>
@@ -3588,9 +3585,8 @@ const CITIES = [
       </ul>
       <h3>If anything runs late</h3>
       <p>Cut in this order: the cathedral first, then Castelvecchio. Without both, go straight back from the Ponte Pietra by Erbe, Mazzini and Bra, about twenty minutes. Juliet and the Ponte Pietra are never cut. At <b>18:00</b> we leave regardless, wherever the walk has got to: after that, with Milan at rush hour, reaching Vittor Pisani before 21:00 depends on the traffic rather than on us.</p>
-      <p>If the Juliet slot ended up at 16:30, swap the middle: from Signori carry on to Sant’Anastasia and the Ponte Pietra, come back along Via Sottoriva to the Teatro Nuovo by 16:25, and after Juliet head out along Corso Porta Borsari towards Castelvecchio. The cathedral drops out.</p>
-      <h3>What to buy the night before</h3>
-      <p>Only the <b>slot for Juliet’s courtyard</b>, on <b>verona.coopculture.it</b>, the city’s official channel: 5 euros, at <b>16:00</b>. Since April 2026 booking is compulsory for everyone, and resale sites charge more than double and give no refunds. Everything else on the walk is street and costs nothing.</p>
+      <h3>The ticket</h3>
+      <p>The <b>slot for Juliet’s courtyard is booked</b>: <b>16:00</b>, entering through the Teatro Nuovo on Piazzetta Navona. Be there at 15:55 with the voucher downloaded on the phone. Everything else on the walk is street and costs nothing.</p>
     `}},
 
   {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
@@ -3663,8 +3659,8 @@ const CITIES = [
      d:{es:'Una casa medieval que fue de la familia Dal Cappello, de donde la tradición sacó a los Capuleto. El balcón se le agregó en el siglo XX y la estatua de bronce de Julieta está en el patio. Es leyenda pura, y aun así es de los lugares más visitados de Italia.',
         en:'A medieval house that belonged to the Dal Cappello family, from whom tradition drew the Capulets. The balcony was added in the twentieth century and the bronze statue of Juliet stands in the courtyard. It is pure legend, and still one of the most visited places in Italy.'},
      t:'visita', p:'€', res:'si', w:'https://verona.coopculture.it/',
-     tip:{es:'Desde abril de 2026 se entra solo con turno reservado: 5 euros el recorrido por el Teatro Nuovo y el patio, 12 euros con la casa por dentro, que no hacemos. La entrada es por Piazzetta Navona y la salida por Via Cappello 23. El nuestro es a las 16:00.',
-          en:'Since April 2026 entry is by booked slot only: 5 euros for the route through the Teatro Nuovo and the courtyard, 12 euros with the house interior, which we skip. The way in is from Piazzetta Navona and the way out onto Via Cappello 23. Ours is at 16:00.'}},
+     tip:{es:'Desde abril de 2026 se entra solo con turno reservado: 5 euros el recorrido por el Teatro Nuovo y el patio, 12 euros con la casa por dentro, que no hacemos. La entrada es por Piazzetta Navona y la salida por Via Cappello 23. El nuestro ya está sacado, a las 16:00.',
+          en:'Since April 2026 entry is by booked slot only: 5 euros for the route through the Teatro Nuovo and the courtyard, 12 euros with the house interior, which we skip. The way in is from Piazzetta Navona and the way out onto Via Cappello 23. Ours is booked, at 16:00.'}},
     {m:'Via Sottoriva, Verona',
      n:{es:'Via Sottoriva y Sant’Anastasia',en:'Via Sottoriva and Sant’Anastasia'},
      d:{es:'Via Sottoriva es una calle angosta de soportales y casas bajas pegada al Adige, de cuando el río era el puerto de la ciudad. Termina en Sant’Anastasia, la iglesia gótica más grande de Verona, con la fachada de ladrillo que nunca se terminó de revestir.',

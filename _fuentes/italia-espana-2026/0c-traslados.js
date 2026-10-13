@@ -11,7 +11,7 @@
     [{es:'Trenes',en:'Trains'},{es:'4 tramos, Florencia y Varenna sacados',en:'4 legs, Florence and Varenna booked'}],
     [{es:'Auto',en:'Car'},{es:'Vie 9 a mié 14, sacado',en:'Fri 9 to Wed 14, booked'}],
     [{es:'El día más frágil',en:'The fragile day'},{es:'Mié 14, La Spezia a Milán en auto',en:'Wed 14, La Spezia to Milan by car'}],
-    [{es:'Lo más urgente',en:'Most urgent'},{es:'Turno de Julieta, la noche del 13',en:'Juliet slot, the night of the 13th'}]
+    [{es:'Lo más urgente',en:'Most urgent'},{es:'Linate o Malpensa, para el sáb 17',en:'Linate or Malpensa, for Sat 17'}]
   ],
   sections:[
   {s:{es:'Todo de un vistazo',en:'The whole thing at a glance'}, k:'plan',
@@ -35,8 +35,7 @@
       <p>Antes del viaje está todo pendiente y la lista arranca limpia. Durante el viaje, cada tramo se marca solo cuando pasa la fecha, y el de arriba muestra por cuál vamos. Cualquier fila se puede tocar para corregirla.</p>
       <h3>Lo que falta</h3>
       <ul>
-        <li>Los cinco vuelos, el auto y los trenes de Florencia y de Varenna ya están.</li>
-        <li><b>El turno del patio de Julieta</b>, en Verona, se saca la noche del martes 13. Es la única entrada del día.</li>
+        <li>Los cinco vuelos, el auto, los trenes de Florencia y de Varenna y el turno de Julieta en Verona ya están.</li>
         <li>El AVE a Córdoba, solo si hacemos la excursión.</li>
       </ul>
       <h3>Los dos días para mirar con lupa</h3>
@@ -48,8 +47,7 @@
       <p>Before the trip everything is pending and the list starts clean. During the trip each leg ticks itself off once its date passes, and the line at the top shows which one we are on. Any row can be tapped to correct it.</p>
       <h3>What is still missing</h3>
       <ul>
-        <li>All five flights, the car and the Florence and Varenna trains are done.</li>
-        <li><b>The slot for Juliet’s courtyard</b>, in Verona, gets bought on the night of Tuesday the 13th. It is the day’s only ticket.</li>
+        <li>All five flights, the car, the Florence and Varenna trains and the Juliet slot in Verona are done.</li>
         <li>The AVE to Córdoba, only if we do the day trip.</li>
       </ul>
       <h3>The two days to look at closely</h3>

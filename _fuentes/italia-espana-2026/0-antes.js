@@ -25,6 +25,7 @@
       <ul>
         <li><b>Duomo de Milán</b>: ya está, <b>jueves 15 de 9:00 a 9:30</b>, con las <b>terrazas</b> incluidas, que son las que de verdad valen. Voucher bajado al teléfono y en la plaza unos minutos antes, que se entra por control de seguridad.</li>
         <li><b>Museo Enzo Ferrari</b>, Módena: ya está, para el <b>miércoles 14</b> a primera hora.</li>
+        <li><b>Patio de Julieta</b>, Verona: ya está, <b>miércoles 14 a las 16:00</b>.</li>
         <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
       </ul>
       <h3>Un lugar donde tener todo junto</h3>
@@ -40,6 +41,7 @@
       <ul>
         <li><b>Milan Duomo</b>: booked, <b>Thursday the 15th from 9:00 to 9:30</b>, with the <b>rooftop terraces</b> included, which are the part that is actually worth it. Voucher downloaded, and in the square a few minutes early, since entry goes through a security check.</li>
         <li><b>Enzo Ferrari Museum</b>, Modena: booked, for first thing on <b>Wednesday the 14th</b>.</li>
+        <li><b>Juliet’s courtyard</b>, Verona: booked, <b>Wednesday the 14th at 16:00</b>.</li>
         <li>Seville is done: <b>Cathedral and Giralda</b> on Thursday the 22nd at 17:20, <b>Real Alcázar</b> on Friday the 23rd at 16:30.</li>
       </ul>
       <h3>One place to keep it all</h3>
