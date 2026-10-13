@@ -11,6 +11,7 @@ import base64, json, pathlib, re, sys
 RAIZ = pathlib.Path(__file__).resolve().parent.parent
 FUENTES = RAIZ / "_fuentes"
 COMUN = FUENTES / "comun"
+CONSEJOS = FUENTES / "consejos"
 sys.path.insert(0, str(COMUN))
 
 SITIO = json.loads((FUENTES / "sitio.json").read_text(encoding="utf-8"))
@@ -57,6 +58,51 @@ def qr_png(url, destino, color):
                                     dark=color, light="#FFFFFF")
 
 
+def pares(texto):
+    """Cuantos textos en castellano y cuantos en ingles. Contar las dos marcas
+    no reemplaza a leerlo, pero agarra el olvido mas probable, que es agregar
+    una ficha nueva en un solo idioma."""
+    return (len(re.findall(r"[{,]\s*es:", texto)),
+            len(re.findall(r"[{,]\s*en:", texto)))
+
+
+def consejos_js(cfg):
+    """Los consejos compartidos que usa una guia, como `const CONSEJOS`.
+
+    Viven en _fuentes/consejos/, uno por archivo: los generales, los de quien
+    sale de Uruguay y uno por pais. Cada archivo es una expresion JS: una lista
+    de secciones, que un capitulo de la guia suma con `...CONSEJOS.general`, o
+    un capitulo entero, que la guia pone como pestana con "@italia" en
+    `partes`. Se cargan los que la guia pide en `consejos` y los que nombra con
+    @, y nada mas, para no inflar la pagina con paises que no visita.
+
+    Son siempre bilingues, aunque la guia que los usa no lo sea: una guia de
+    un solo idioma lee el castellano y el ingles queda sin uso.
+    """
+    nombres = list(cfg.get("consejos", []))
+    for parte in cfg["partes"]:
+        if parte.startswith("@") and parte[1:] not in nombres:
+            nombres.append(parte[1:])
+    if not nombres:
+        return ""
+    bloques = []
+    for n in nombres:
+        texto = (CONSEJOS / (n + ".js")).read_text(encoding="utf-8").strip()
+        if texto.endswith(","):
+            texto = texto[:-1]
+        es, en = pares(texto)
+        assert es == en and es > 0, f"consejos/{n}.js: {es} textos en castellano y {en} en ingles"
+        bloques.append(f"CONSEJOS[{json.dumps(n)}] = {texto};\n")
+    return "const CONSEJOS = {};\n" + "".join(bloques)
+
+
+def parte_js(src, parte):
+    """Un capitulo propio de la guia, o uno compartido si empieza con @."""
+    if parte.startswith("@"):
+        return f"CONSEJOS[{json.dumps(parte[1:])}],\n"
+    return (src / parte).read_text(encoding="utf-8")
+
+
 # ------------------------------------------------------------------ las guias
 publicadas = []
 for ruta in SITIO["guias"]:
@@ -88,7 +134,8 @@ for ruta in SITIO["guias"]:
                   "__QR__", "__URL__", "__PALETA__", "__EXTRA__"):
         assert marca not in shell, f"quedo sin reemplazar el marcador {marca}"
 
-    ciudades = "".join((src / parte).read_text(encoding="utf-8") for parte in cfg["partes"])
+    ciudades = "".join(parte_js(src, parte) for parte in cfg["partes"])
+    consejos = consejos_js(cfg)
     app = (COMUN / "app.js").read_text(encoding="utf-8").replace("__CLAVE__", cfg["clave"])
     # que idiomas trae la guia. El primero es el que se lee al abrirla por
     # primera vez; con uno solo, el boton de idioma no aparece.
@@ -104,7 +151,7 @@ for ruta in SITIO["guias"]:
                       "window.scrollTo(0, 0);")
 
     js = ("<script>\n" + (COMUN / "tipos.js").read_text(encoding="utf-8")
-          + "\nconst CITIES = [\n" + ciudades + "];\n" + app + "</script>\n")
+          + "\n" + consejos + "const CITIES = [\n" + ciudades + "];\n" + app + "</script>\n")
 
     APP = (f'<meta name="description" content="{cfg["descripcion"]}">\n'
            '<link rel="manifest" href="./manifest.webmanifest">\n'
@@ -138,12 +185,10 @@ for ruta in SITIO["guias"]:
                    cfg.get("icono_fuente"))
     qr_png(url, dst / "qr.png", "#2B2028")
 
-    # En una guia bilingue cada texto es un par {es:...,en:...}. Contar las dos
-    # marcas no reemplaza a leerlo, pero agarra el olvido mas probable, que es
-    # agregar una ficha nueva en un solo idioma.
+    # En una guia bilingue cada texto es un par {es:...,en:...}. Los consejos
+    # compartidos ya se revisaron al cargarlos.
     if len(idiomas) > 1:
-        es = len(re.findall(r"[{,]\s*es:", ciudades))
-        en = len(re.findall(r"[{,]\s*en:", ciudades))
+        es, en = pares(ciudades)
         assert es == en, f"{cfg['ruta']}: {es} textos en castellano y {en} en ingles"
         assert es > 0, f"{cfg['ruta']} dice ser bilingue y no tiene un solo par es/en"
 

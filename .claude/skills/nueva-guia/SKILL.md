@@ -88,8 +88,9 @@ completos, aunque a vos te parezcan turisticos. No los discutas: son de ellas.
 ### Bloque H: lo practico
 
 - Nivel de presupuesto general.
-- Si hace falta la seccion de preparativos (ropa, botiquin, eSIM, equipaje) o
-  si ya viajaron mucho y sobra.
+- Si hace falta la seccion de preparativos o si ya viajaron mucho y sobra. Lo
+  general (documentos, vuelo, valija, eSIM, botiquin, alquilar un auto) ya
+  esta escrito en `_fuentes/consejos/`: no se vuelve a escribir, se usa.
 - Si hay fechas fuertes en la ventana del viaje: Navidad, Black Friday,
   fiestas locales, algo que valga la pena avisar.
 
@@ -111,7 +112,28 @@ darlo por hecho.
 Lee `.claude/skills/nueva-guia/estilo.md` antes de escribir la primera ficha.
 Ahi estan las reglas de voz, que son la mitad del trabajo.
 
-Copia la estructura de `_fuentes/eurotrip-serri-cami/` como referencia.
+Copia la estructura de `_fuentes/italia-espana-2026/` como referencia: es la
+que ya usa los consejos compartidos.
+
+**Antes de escribir nada general, mira `_fuentes/consejos/`.** Lo que sirve
+para cualquier viaje (`general.js`), lo de salir desde Uruguay (`uruguay.js`)
+y lo de cada pais (`italia.js`, `espana.js`) ya esta escrito y se reutiliza:
+
+- En `guia.json`, `"consejos": ["general", "uruguay"]`, y en el capitulo de
+  preparativos `...CONSEJOS.general, ...CONSEJOS.uruguay` despues de las
+  secciones propias del viaje (entradas, vuelos, clima de esas fechas).
+- Cada pais del viaje que ya tenga archivo va como pestana en `partes`, con
+  arroba: `"@italia"`.
+- Si el viaje pasa por un pais que todavia no tiene archivo, se crea
+  `consejos/<pais>.js` con la misma forma que `italia.js` (como se paga y
+  propinas, horarios, transporte, manejar si corresponde, idioma), en los dos
+  idiomas e impersonal, y queda para las guias que vengan.
+- Si aparece un consejo general nuevo o una correccion, va al archivo
+  compartido y no a la guia. Todo lo de `consejos/` se escribe impersonal
+  ("conviene", "se paga") y sin genero, porque lo leen viajeros distintos.
+
+Lo que queda en la guia es solo lo de ese viaje: el plan, las reservas, los
+tramos, el clima de esas fechas y lo de cada ciudad.
 
 **`guia.json`**
 

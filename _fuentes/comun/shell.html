@@ -333,6 +333,31 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
 .frases.apilada .fr-it{font-size:.92rem}
 .frases.apilada .fr-pr{white-space:normal;margin-top:.05rem}
 .frases.apilada td:last-child{color:var(--ink-2);margin-top:.22rem}
+/* La barra flotante. Aparece al bajar y deja volver sin desandar a mano: cerrar
+   la seccion que se esta leyendo, cerrar todo o ir al principio. Va pegada al
+   borde derecho de la columna y no de la pantalla, para que en una pantalla
+   ancha no quede lejos del texto. */
+.flota{position:fixed;z-index:35;display:flex;gap:.4rem;align-items:center;
+  bottom:calc(1rem + env(safe-area-inset-bottom,0px));
+  right:max(1rem,calc((100vw - 44rem) / 2 + 1rem));
+  opacity:0;transform:translateY(.6rem);pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease}
+.flota.on{opacity:1;transform:none;pointer-events:auto}
+.flota button{height:2.5rem;padding:0 .9rem;border-radius:999px;border:1px solid var(--line-2);
+  background:var(--surface);color:var(--ink);box-shadow:var(--shadow);
+  font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.flota button:hover{border-color:var(--muted)}
+.flota button[hidden]{display:none}
+.flota .fl-arriba{width:2.5rem;padding:0;display:grid;place-items:center;
+  color:#fff;background:var(--city,var(--accent));border-color:transparent}
+.flota .fl-arriba svg{width:1.05rem;height:1.05rem}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .flota .fl-arriba{color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+}
+:root[data-theme="dark"] .flota .fl-arriba{color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+/* el pie no queda tapado por la barra cuando se llega al final */
+.foot{padding-bottom:4.5rem}
 __EXTRA__
 </style>
 
@@ -358,6 +383,14 @@ __EXTRA__
   </header>
 
   <main id="view"></main>
+
+  <div class="flota" id="flota">
+    <button type="button" data-flota="sec" hidden></button>
+    <button type="button" data-flota="todo" hidden></button>
+    <button type="button" class="fl-arriba" data-flota="arriba">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+  </div>
 
   <footer class="foot">
     <div class="foot-lang" data-lang="es">

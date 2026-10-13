@@ -4,8 +4,8 @@
   name:{es:'Los traslados',en:'The journeys'},
   plate:{es:'Itinerario',en:'Itinerary'},
   accent:'#C2410C', lt:'#FDBA74', maps:'',
-  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cuatro tramos de tren, seis días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura, cuál ya está sacado y cuándo conviene sacar el resto.',
-        en:'Fourteen moves in twenty three days: five flights, four train legs, six days with a car and the airport transfers. Here is each one, how long it takes, which are already booked and when to book the rest.'},
+  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cuatro tramos de tren, seis días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura y cómo se resuelve. Lo general de trenes, de manejar y de alquilar un auto está en las pestañas de Italia, de España y de Antes de salir.',
+        en:'Fourteen moves in twenty three days: five flights, four train legs, six days with a car and the airport transfers. Here is each one, how long it takes and how it gets done. The general side of trains, driving and renting a car is in the Italy, Spain and Before leaving tabs.'},
   quick:[
     [{es:'Vuelos',en:'Flights'},{es:'5, todos sacados',en:'5, all booked'}],
     [{es:'Trenes',en:'Trains'},{es:'4 tramos, Florencia y Varenna sacados',en:'4 legs, Florence and Varenna booked'}],
@@ -54,46 +54,6 @@
       <ul>
         <li><b>Wednesday the 14th</b> is the fragile one: nearly six hours of driving with three stops, a 12:30 table that goes after twenty minutes late, and an office in Milan that closes at 21:00. The latest we can leave Verona is 18:00, since at that hour we reach Milan at rush hour. The detail is in the Modena chapter.</li>
         <li><b>Saturday the 17th</b> hangs on a missing detail: whether IB 5543 leaves from Linate or Malpensa. That is more than an hour of difference in the transfer, so confirm it before fixing what time we leave the hotel.</li>
-      </ul>
-    `}},
-
-  {s:{es:'Cuándo sacar cada cosa',en:'When to book what'}, k:'plan', html:{es:`
-      <h3>El orden</h3>
-      <p>Comprar de más con demasiada anticipación también cuesta plata. El orden que sirve:</p>
-      <ul>
-        <li><b>Lo que se agota ya no es problema</b>: el Coliseo y el Duomo de Milán están sacados y no queda ninguna entrada con fecha límite. Está todo en el capítulo de preparativos.</li>
-        <li><b>El auto</b>, tres o cuatro meses antes y con tarifa cancelable. El precio de los alquileres sube fuerte cerca de la fecha y después no baja.</li>
-        <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está, y el AVE a Córdoba, si vamos, funciona igual: cuanto antes, más barato.</li>
-        <li><b>El resto, nada.</b> Regionales, tranvía de Florencia, trenes de Cinque Terre y del lago de Como se compran el mismo día o la noche anterior.</li>
-      </ul>
-      <h3>Por qué los regionales no se compran antes</h3>
-      <ul>
-        <li>Tienen <b>precio fijo</b>: cuesta lo mismo hoy que el día del viaje, no hay asiento asignado y muchas veces el boleto vale para cualquier tren de esa jornada. Sacarlo con meses de anticipación no ahorra un centavo y nos ata a un horario.</li>
-        <li>Los de <b>alta velocidad</b> funcionan como un avión: las tarifas baratas se agotan y el precio sube a medida que se llena el tren. Ahí, cuanto antes mejor.</li>
-      </ul>
-      <h3>Trenitalia o Italo</h3>
-      <ul>
-        <li>Compiten en las mismas rutas rápidas, Roma a Florencia entre ellas. Italo suele salir algo más barato y usa las mismas estaciones. Vale mirar las dos apps antes de comprar.</li>
-        <li>Las tarifas más baratas de las dos <b>no se cambian ni se devuelven</b> y el boleto es nominativo. Si hay chance de mover el horario, la tarifa del medio permite cambio pagando poco y suele compensar.</li>
-      </ul>
-    `, en:`
-      <h3>The order</h3>
-      <p>Buying too far ahead costs money too. The order that works:</p>
-      <ul>
-        <li><b>What sells out is no longer a problem</b>: the Colosseum and the Milan Duomo are booked and no ticket has a deadline left. It is all in the preparation chapter.</li>
-        <li><b>The car</b>, three or four months out and on a cancellable rate. Rental prices climb hard near the date and never come back down.</li>
-        <li><b>The long distance trains.</b> Rome to Florence is done, and the AVE to Córdoba, if we go, works the same way: the earlier, the cheaper.</li>
-        <li><b>Everything else, nothing.</b> Regionals, the Florence tram, the Cinque Terre trains and the Lake Como ones get bought the same day or the night before.</li>
-      </ul>
-      <h3>Why regionals are not bought ahead</h3>
-      <ul>
-        <li>They have a <b>fixed price</b>: it costs the same today as on the day, there is no assigned seat, and the ticket is often valid for any train that day. Buying months ahead saves nothing and ties us to a timetable.</li>
-        <li><b>High speed</b> trains work like planes: cheap fares sell out and the price rises as the train fills. There, the earlier the better.</li>
-      </ul>
-      <h3>Trenitalia or Italo</h3>
-      <ul>
-        <li>They compete on the same fast routes, Rome to Florence among them. Italo usually comes out a bit cheaper and uses the same stations. Worth checking both apps before buying.</li>
-        <li>The cheapest fares on both are <b>non changeable and non refundable</b>, and the ticket carries your name. If there is any chance of moving the time, the middle fare allows a change for little and usually pays off.</li>
       </ul>
     `}},
 
@@ -172,13 +132,6 @@
      tip:{es:'Renfe funciona como los aviones: comprando con semanas de anticipación sale bastante menos que en la ventanilla. La decisión de ir o no conviene tomarla unas semanas antes, justo por el precio.',
           en:'Renfe works like an airline: buying weeks ahead costs considerably less than at the counter. Decide whether to go a few weeks out, precisely because of the price.'}},
     {nota:1,
-     n:{es:'Cómo se viaja en tren en Italia',en:'How train travel works in Italy'},
-     d:{es:'Los de alta velocidad tienen asiento asignado y se validan solos con el QR del teléfono. Los regionales no tienen asiento y, si el boleto es de papel, hay que validarlo en la maquinita del andén antes de subir.',
-        en:'High speed trains have assigned seats and validate themselves from the QR code on your phone. Regionals have no seats, and if the ticket is paper it has to be validated in the little machine on the platform before boarding.'},
-     t:'mover',
-     tip:{es:'Subir a un regional con boleto sin validar es multa, y los inspectores existen. Comprado por la app con fecha y hora ya va validado. Las valijas van en los estantes de las puntas del vagón: subir por la puerta cercana al asiento.',
-          en:'Boarding a regional with an unvalidated ticket is a fine, and the inspectors are real. Bought through the app with a date and time, it is already validated. Bags go on the racks at either end of the carriage: board through the door nearest your seat.'}},
-    {nota:1,
      n:{es:'El tranvía de Florencia',en:'The Florence tram'},
      d:{es:'El T2 une Santa Maria Novella con el aeropuerto de Peretola en unos veinte minutos. Es cómo llegamos a buscar el auto el viernes 9.',
         en:'The T2 links Santa Maria Novella with Peretola airport in about twenty minutes. It is how we get to the car on Friday the 9th.'},
@@ -210,34 +163,6 @@
      tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando de Verona cerca de las 20:00 queda una hora de margen. El teléfono es +39 02 66987 826.',
           en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from Verona around 20:00 leaves an hour of margin. The number is +39 02 66987 826.'}},
     {nota:1,
-     n:{es:'La devolución, paso a paso',en:'The handback, step by step'},
-     d:{es:'Entrar por Via Vittor Pisani 19 y bajar al nivel -2. Devolver con el tanque como lo entregaron, cargando nafta antes y no en la última estación de la autopista, que es la más cara.',
-        en:'Go in at Via Vittor Pisani 19 and down to level -2. Hand it back with the tank as they gave it, filling up beforehand rather than at the last motorway station, which is the dearest.'},
-     t:'mover',
-     tip:{es:'Antes de dar las llaves, fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Pedir el comprobante de devolución firmado y no irse sin él. El bloqueo de la tarjeta se libera varios días después.',
-          en:'Before handing over the keys, photographs of the car from all four sides, of the dashboard with the mileage and fuel level, and of the interior. Ask for the signed return receipt and do not leave without it. The card hold is released several days later.'}},
-    {nota:1,
-     n:{es:'Qué reservar, y con cuánta anticipación',en:'What to book, and how far ahead'},
-     d:{es:'Tres o cuatro meses antes, siempre con tarifa que permita cancelar gratis. El precio sube fuerte cerca de la fecha y prácticamente no baja.',
-        en:'Three or four months ahead, always on a rate that allows free cancellation. The price climbs hard near the date and essentially never drops.'},
-     t:'mover',
-     tip:{es:'Como es cancelable, volver a mirar precios un mes antes: si bajó, se reserva de nuevo y se cancela la anterior. Y comparar el cargo por devolver en otra ciudad entre empresas, que es donde más se diferencian.',
-          en:'Since it is cancellable, look at prices again a month out: if they dropped, book again and cancel the first one. And compare the one way fee between companies, which is where they differ most.'}},
-    {nota:1,
-     n:{es:'Caja automática y conductor adicional',en:'Automatic gearbox and second driver'},
-     d:{es:'En Italia lo estándar es la manual. El automático se paga bastante más y hay que pedirlo al reservar, porque hay pocos.',
-        en:'In Italy manual is standard. An automatic costs considerably more and has to be requested when booking, because there are few of them.'},
-     t:'mover',
-     tip:{es:'Si vamos a manejar los dos, hay que declarar al segundo conductor y pagarlo. Si maneja alguien no declarado y pasa cualquier cosa, el seguro no cubre nada. Con las carreteras de la Toscana y cuatro días de auto, poder alternar vale la plata.',
-          en:'If we are both going to drive, the second driver has to be declared and paid for. If someone undeclared is at the wheel and anything happens, the insurance covers nothing. With Tuscan roads and four days of driving, being able to swap is worth the money.'}},
-    {nota:1,
-     n:{es:'El auto que conviene',en:'The car to go for'},
-     d:{es:'Chico. Las calles de los pueblos toscanos son angostas, los estacionamientos también, y un auto grande es un problema en cada maniobra.',
-        en:'Small. The streets in the Tuscan towns are narrow, so are the car parks, and a big car is a problem at every manoeuvre.'},
-     t:'mover',
-     tip:{es:'Verificar que entren las dos valijas en el baúl, porque en los modelos más chicos no entran; si la categoría dice "dos valijas grandes", alcanza. Y al retirarlo, confirmar si carga nafta o gasoil: equivocarse arruina el motor y no lo cubre ningún seguro.',
-          en:'Check that both suitcases fit in the boot, because in the smallest models they do not; if the category says "two large bags", that is enough. And on collection, confirm whether it takes petrol or diesel: getting it wrong wrecks the engine and no insurance covers it.'}},
-    {nota:1,
      n:{es:'Los tramos que manejamos',en:'The stretches we drive'},
      d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el más largo, La Spezia a Módena, Persiceto, Verona y Milán, unos quinientos kilómetros y casi seis horas de manejo repartidas en el día.',
         en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the longest, La Spezia to Modena, Persiceto, Verona and Milan, about five hundred kilometres and nearly six hours of driving spread across the day.'},
@@ -266,8 +191,6 @@
         <li><b>La entrega fuera de horario</b> es un servicio aparte, que existe solo en algunas oficinas y <b>hay que pedirlo al reservar</b>. Donde está disponible hay buzón de llaves y el control se hace cuando la oficina reabre, con el auto a nuestro nombre hasta ese momento. Donde no está, dejar el auto y las llaves por nuestra cuenta nos deja respondiendo por él.</li>
         <li>Por eso la hora que figura en el voucher es la que manda, y por eso el sistema no ofrece horarios en los que la oficina no puede recibir. Si alguna vez vamos a llegar tarde, el teléfono de la oficina antes de que cierre vale más que cualquier plan.</li>
       </ul>
-      <h3>Al entregarlo</h3>
-      <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
     `, en:`
       <p>The car comes with us as far as <b>Milan on Wednesday the 14th in the evening</b>, and that is where it ends. The reason is the Modena day, the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain, the afternoon in Verona and then on to Milan cannot be done by train without losing half a day to connections.</p>
       <p>From Milan onwards we go by train, which is as it should be: Lake Como is done by train on Friday, and the city days need no car. That way we pay no hotel garage and no Varenna parking, which is scarce and expensive.</p>
@@ -288,8 +211,6 @@
         <li><b>Out of hours return</b> is a separate service, available only at some offices, and <b>it has to be requested when booking</b>. Where it exists there is a key drop and the check happens when the office reopens, with the car in our name until then. Where it does not, leaving the car and the keys on our own initiative leaves us answering for it.</li>
         <li>That is why the time on the voucher is the one that counts, and why the system does not offer slots when the office cannot receive the car. If we are ever going to be late, phoning the office before it closes is worth more than any plan.</li>
       </ul>
-      <h3>When handing it over</h3>
-      <p>Photographs of the car from all four sides, of the dashboard with the mileage and the fuel level, and of the interior. And the card hold is released several days later, not there and then.</p>
     `}},
 
   {s:{es:'Del aeropuerto al centro y al revés',en:'Airport to centre and back'}, k:'mover', items:[
@@ -332,33 +253,12 @@
 
   {s:{es:'Cuando algo sale mal',en:'When something goes wrong'}, k:'mover', items:[
     {nota:1,
-     n:{es:'Las huelgas de transporte en Italia',en:'Transport strikes in Italy'},
-     d:{es:'Los <em>scioperi</em> de trenes, buses o aviones son habituales y no son sorpresa: se anuncian con al menos diez días de anticipación, tienen día y horario definidos, y hay franjas con servicio garantizado.',
-        en:'Train, bus and air <em>scioperi</em> are routine and never a surprise: they are announced at least ten days ahead, have a set day and set hours, and there are windows with guaranteed service.'},
-     t:'mover',
-     tip:{es:'Mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del viernes 16, que son los dos días que dependen de un tren. Si cae huelga ese día, se mueve el horario dentro de la franja garantizada. En España pasa lo mismo y también se anuncian con servicios mínimos.',
-          en:'Check the Italian transport ministry’s official strike calendar a week before each important leg, above all before Thursday the 8th and Friday the 16th, the two days that depend on a train. If a strike falls on the day, shift the time into the guaranteed window. The same happens in Spain, also announced with minimum service levels.'}},
-    {nota:1,
      n:{es:'Si el miércoles 14 se atrasa',en:'If Wednesday the 14th runs late'},
      d:{es:'Es el día con dos horas que no esperan: la mesa de las 12:30 en Persiceto, que se cae a los veinte minutos sin aviso, y la oficina de Milán, que cierra a las 21:00. Lo que hay entre las dos se puede achicar; esas dos no.',
         en:'It is the day with two times that will not wait: the 12:30 table in Persiceto, which goes after twenty minutes with no word, and the Milan office, which closes at 21:00. Everything between them can shrink; those two cannot.'},
      t:'mover',
      tip:{es:'Si el atraso es a la mañana, el aviso a la osteria va por WhatsApp al +39 051 821273 y el museo se acorta. Si es a la tarde, Verona se corta en el orden que dice su capítulo, y a las 18:00 se sale igual. Y si en la autopista se ve que no llegamos a las 21:00, se llama a la oficina, +39 02 66987 826, antes de que cierre: después de esa hora no atiende nadie.',
-          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:00 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}},
-    {nota:1,
-     n:{es:'Los márgenes que conviene dejar',en:'The margins worth leaving'},
-     d:{es:'Vuelos internacionales, tres horas antes en el mostrador. Vuelos internos de Iberia, dos. Trenes de alta velocidad, media hora en la estación. Regionales, quince minutos.',
-        en:'International flights, three hours before at the desk. Iberia domestic flights, two. High speed trains, half an hour at the station. Regionals, fifteen minutes.'},
-     t:'mover',
-     tip:{es:'La excepción es Termini el jueves 8, donde mejor estar cuarenta minutos antes: es enorme, confusa, y la vía se anuncia con poca anticipación. Mejor esperar sentados con un café que correr por el andén con las valijas.',
-          en:'The exception is Termini on Thursday the 8th, where forty minutes early is better: it is enormous, confusing, and the platform goes up at short notice. Better to wait sitting down with a coffee than to run along the platform with the bags.'}},
-    {nota:1,
-     n:{es:'Todo junto y sin conexión',en:'Everything together and offline'},
-     d:{es:'Los pasajes, los vouchers de los ocho alojamientos, la reserva del auto y las entradas van bajados al teléfono en una carpeta, más una copia en papel de lo importante.',
-        en:'The tickets, the vouchers for all eight places to stay, the car booking and the entry tickets go downloaded to the phone in one folder, plus a paper copy of whatever matters.'},
-     t:'mover',
-     tip:{es:'En un andén italiano o en la fila de una rentadora la señal suele ser mala, y es justo cuando hay que mostrar algo. Una copia en el teléfono de cada uno, no en uno solo.',
-          en:'On an Italian platform or in a rental queue the signal is usually bad, and that is exactly when you have to show something. A copy on each of our phones, not just one.'}}
+          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:00 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}}
   ]}
   ]
 },

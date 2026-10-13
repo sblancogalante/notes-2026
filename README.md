@@ -23,6 +23,11 @@ _fuentes/
     fuentes.css            las tipografias en base64
     sw.js                  el service worker de cada guia
     iconos.py              genera los iconos con el color de cada guia
+  consejos/                los consejos que comparten todas las guias
+    general.js             cualquier viaje: documentos, vuelo, valija, eSIM...
+    uruguay.js             saliendo de Uruguay: tarjetas, cuotas, permiso del ACU
+    italia.js              una pestana por pais: pagar, manejar, trenes, idioma
+    espana.js
   <guia>/
     guia.json              titulo, color, clave de guardado, idiomas, partes
     0-antes.js             la seccion de preparativos
@@ -31,6 +36,39 @@ _fuentes/
 
 Las carpetas que empiezan con guion bajo no se publican, asi que `_fuentes`
 queda fuera del sitio.
+
+## Consejos compartidos
+
+Lo que sirve para cualquier viaje no se escribe en cada guia: vive una sola vez
+en `_fuentes/consejos/` y cada guia elige que usa. Hay dos formas:
+
+- **Secciones sueltas** (`general.js`, `uruguay.js`). Son una lista de
+  secciones. La guia las declara en su `guia.json` y las suma a su capitulo de
+  preparativos, despues de lo propio del viaje:
+
+  ```json
+  "consejos": ["general", "uruguay"],
+  ```
+  ```js
+  sections:[
+    {s:{es:'Las entradas, que ya estan', ...}},
+    ...CONSEJOS.general,
+    ...CONSEJOS.uruguay
+  ]
+  ```
+
+- **Una pestana por pais** (`italia.js`, `espana.js`). Son un capitulo entero y
+  se ponen en `partes` con una arroba: `"@italia"`. Lo que es de una ciudad
+  sigue en el capitulo de la ciudad.
+
+Los consejos se escriben impersonales ("conviene", "se paga", "hay que") porque
+cada guia le habla a gente distinta, y siempre en los dos idiomas: el build
+corta si un archivo de `consejos/` tiene distinta cantidad de `es:` que de
+`en:`. Una guia de un solo idioma lee el castellano y el ingles queda sin uso.
+
+Al corregir un consejo compartido, se corrige en todas las guias que lo usan la
+proxima vez que se construyen. Hay que cambiar la `cache` de cada una (ver
+abajo) para que los telefonos lo bajen.
 
 ## Guias en dos idiomas
 
@@ -113,6 +151,12 @@ guia.
 python3 -m venv .venv && .venv/bin/pip install segno pillow   # la primera vez
 .venv/bin/python3 _fuentes/construir.py
 ```
+
+**Cada vez que cambia el contenido de una guia, o algo de `comun/` o de
+`consejos/` que esa guia usa, hay que cambiar su `cache` en `guia.json`.** El
+service worker sirve primero la copia guardada en el telefono y solo la
+descarta cuando cambia esa clave: sin el cambio, la pagina se publica pero los
+telefonos siguen mostrando la version vieja.
 
 Hace falta `segno` y `Pillow`. El `.venv` esta ignorado por git. El script vuelve a generar cada guia, la portada,
 los iconos y los QR, y corta si algo no cierra: mojibake, tildes perdidas, rayas

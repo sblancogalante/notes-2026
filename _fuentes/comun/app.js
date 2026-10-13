@@ -49,7 +49,7 @@ const UI = {
     ruta:'Ruta a pie', mapa:'Mapa', web:'Web', resenas:'Reseñas', truco:'Truco',
     tentativa:'Todavía sin confirmar',
     cuenta:(a, b) => a + ' de ' + b, reiniciar:'Reiniciar',
-    abrir:'Abrir todo', cerrar:'Cerrar todo',
+    abrir:'Abrir todo', cerrar:'Cerrar todo', cerrarSec:'Cerrar sección', arriba:'Volver arriba',
     tramo:(i, n) => 'Tramo ' + i + ' de ' + n, sigue:s => 'Sigue: ' + s,
     tramosHechos:n => 'Los ' + n + ' tramos, hechos',
     hoy:'Hoy', badgeSigue:'Sigue',
@@ -73,7 +73,7 @@ const UI = {
     ruta:'Walking route', mapa:'Map', web:'Website', resenas:'Reviews', truco:'Tip',
     tentativa:'Not confirmed yet',
     cuenta:(a, b) => a + ' of ' + b, reiniciar:'Reset',
-    abrir:'Open all', cerrar:'Close all',
+    abrir:'Open all', cerrar:'Close all', cerrarSec:'Close section', arriba:'Back to top',
     tramo:(i, n) => 'Leg ' + i + ' of ' + n, sigue:s => 'Next up: ' + s,
     tramosHechos:n => 'All ' + n + ' legs done',
     hoy:'Today', badgeSigue:'Next',
@@ -178,6 +178,14 @@ function applyLang() {
     lb.textContent = ui('otro');
     lb.title = ui('cambiar');
     lb.setAttribute('aria-label', ui('cambiar'));
+  }
+  const fl = $('#flota');
+  if (fl) {
+    fl.querySelector('[data-flota="sec"]').textContent = ui('cerrarSec');
+    fl.querySelector('[data-flota="todo"]').textContent = ui('cerrar');
+    const fa = fl.querySelector('[data-flota="arriba"]');
+    fa.setAttribute('aria-label', ui('arriba'));
+    fa.title = ui('arriba');
   }
   applyTheme();
 }
@@ -400,7 +408,7 @@ function cityHTML(c) {
   }
   h += `</section>`;
 
-  if (items.length) h += `<div class="toolrow pegada"><button data-all="open">${esc(ui('abrir'))}</button><button data-all="close">${esc(ui('cerrar'))}</button></div>`;
+  if (c.sections.length > 1) h += `<div class="toolrow pegada"><button data-all="open">${esc(ui('abrir'))}</button><button data-all="close">${esc(ui('cerrar'))}</button></div>`;
 
   c.sections.forEach((sec, i) => {
     if (sec.dias) {
@@ -472,12 +480,13 @@ function render() {
   const view = $('#view');
   document.querySelectorAll('#rail button').forEach(b =>
     b.setAttribute('aria-selected', b.dataset.city === current ? 'true' : 'false'));
-  [view, $('#rail'), $('#filters')].forEach(el => {
+  [view, $('#rail'), $('#filters'), $('#flota')].forEach(el => {
     el.style.setProperty('--city', c.accent);
     el.style.setProperty('--city-lt', c.lt);
   });
   view.innerHTML = query ? searchHTML() : cityHTML(c);
   medirFrases();
+  actualizarFlota();
 }
 
 /* ---------- eventos delegados ---------- */
@@ -533,18 +542,70 @@ $('#view').addEventListener('click', e => {
   if (all) {
     const open = all.dataset.all === 'open';
     document.querySelectorAll('#view details.sec').forEach(d => { d.open = open; });
-    /* y volver al comienzo del listado. Al plegar, todo lo que estaba abierto
-       se encoge de golpe y uno queda parado en cualquier lado. */
-    const cabeza = $('#view .cityhead');
-    if (cabeza) {
-      const alto = parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue('--top-h')) || 0;
-      /* .cityhead no es sticky, asi que su posicion es la real */
-      const destino = Math.max(0, cabeza.getBoundingClientRect().bottom + window.scrollY - alto);
-      const modo = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-      window.scrollTo({ top: destino, behavior: modo });
-    }
+    irAlComienzo();
   }
+});
+
+const modoScroll = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+
+/* volver al comienzo del listado. Al plegar, todo lo que estaba abierto se
+   encoge de golpe y uno queda parado en cualquier lado. */
+function irAlComienzo() {
+  const cabeza = $('#view .cityhead');
+  if (!cabeza) return;
+  const alto = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--top-h')) || 0;
+  /* .cityhead no es sticky, asi que su posicion es la real */
+  const destino = Math.max(0, cabeza.getBoundingClientRect().bottom + window.scrollY - alto);
+  window.scrollTo({ top: destino, behavior: modoScroll() });
+}
+
+/* ---------- la barra flotante ---------- */
+/* Aparece al bajar. Cerrar seccion pliega la que se esta leyendo y deja su
+   titulo arriba; cerrar todo pliega todas y vuelve al comienzo del capitulo;
+   la flecha va al principio de la pagina. */
+const flota = $('#flota');
+const altoFijo = () => {
+  const cab = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--top-h')) || 0;
+  const barra = $('#view .toolrow.pegada');
+  return cab + (barra ? barra.offsetHeight : 0);
+};
+/* la seccion que se esta leyendo: la abierta que cruza el borde de arriba */
+function seccionActual() {
+  const borde = altoFijo() + 8;
+  return [...document.querySelectorAll('#view details.sec[open]')].find(d => {
+    const r = d.getBoundingClientRect();
+    return r.top < borde && r.bottom > borde + 40;
+  });
+}
+function actualizarFlota() {
+  const lejos = window.scrollY > Math.max(400, innerHeight * 0.6);
+  flota.querySelector('[data-flota="sec"]').hidden = !(lejos && seccionActual());
+  flota.querySelector('[data-flota="todo"]').hidden = !document.querySelector('#view details.sec[open]');
+  flota.classList.toggle('on', lejos);
+}
+let flotaPendiente = false;
+addEventListener('scroll', () => {
+  if (flotaPendiente) return;
+  flotaPendiente = true;
+  requestAnimationFrame(() => { flotaPendiente = false; actualizarFlota(); });
+}, { passive: true });
+/* el toggle de un details no burbujea, pero si pasa por la captura */
+$('#view').addEventListener('toggle', actualizarFlota, true);
+flota.addEventListener('click', e => {
+  const b = e.target.closest('[data-flota]');
+  if (!b) return;
+  if (b.dataset.flota === 'arriba') { window.scrollTo({ top: 0, behavior: modoScroll() }); return; }
+  if (b.dataset.flota === 'todo') {
+    document.querySelectorAll('#view details.sec').forEach(d => { d.open = false; });
+    irAlComienzo();
+    return;
+  }
+  const d = seccionActual();
+  if (!d) return;
+  d.open = false;
+  const y = d.getBoundingClientRect().top + window.scrollY - altoFijo();
+  window.scrollTo({ top: Math.max(0, y), behavior: modoScroll() });
 });
 
 /* ---------- buscador ---------- */

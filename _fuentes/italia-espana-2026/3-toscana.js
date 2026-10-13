@@ -182,26 +182,12 @@
      tip:{es:'La regla que no falla: se estaciona <em>afuera</em> de las murallas y se entra caminando. En estos pueblos siempre hay playas de estacionamiento pagas justo antes de la puerta, señalizadas con la P. Nunca cruzar un cartel redondo con borde rojo que diga "zona traffico limitato", aunque el GPS lo indique.',
           en:'The rule that never fails: park <em>outside</em> the walls and walk in. These towns always have paid car parks right before the gate, signposted with a P. Never cross a round sign with a red border reading "zona traffico limitato", even if the GPS tells you to.'}},
     {nota:1,
-     n:{es:'Nafta, gasoil y las estaciones',en:'Petrol, diesel and the filling stations'},
-     d:{es:'Al retirar el auto hay que preguntar y anotar qué carga: <em>benzina</em> es nafta y <em>gasolio</em> es gasoil. Equivocarse arruina el motor y no lo cubre ningún seguro.',
-        en:'On collecting the car, ask and write down what it takes: <em>benzina</em> is petrol and <em>gasolio</em> is diesel. Getting it wrong wrecks the engine and no insurance covers it.'},
-     t:'mover',
-     tip:{es:'En las estaciones hay dos surtidores del mismo combustible: <em>fai da te</em>, que es autoservicio y más barato, y <em>servito</em>, donde te atienden y cuesta bastante más. En el campo muchas cierran al mediodía y los domingos, y funcionan con una máquina que solo toma billetes o tarjeta. No conviene andar con menos de un cuarto de tanque.',
-          en:'Stations have two pumps for the same fuel: <em>fai da te</em>, self service and cheaper, and <em>servito</em>, where someone serves you and it costs considerably more. Out in the country many close at midday and on Sundays, running on a machine that only takes notes or cards. Do not drive around on less than a quarter of a tank.'}},
-    {nota:1,
-     n:{es:'Peajes de autopista',en:'Motorway tolls'},
-     d:{es:'En la autopista se saca un ticket al entrar y se paga al salir según los kilómetros. Las cabinas amarillas con la T son solo para Telepass y no hay que meterse: si entramos en una sin el dispositivo, se traba todo.',
-        en:'On the motorway you take a ticket on entry and pay on exit according to the distance. The yellow lanes marked T are for Telepass only and are not to be entered: going into one without the device jams everything up.'},
-     t:'mover',
-     tip:{es:'Las cabinas blancas son de tarjeta y las azules de billetes. Las carreteras secundarias entre pueblos son gratis, más lindas y más lentas: para la Val d’Orcia son las que hay que tomar. La FI-PI-LI, que es la que nos lleva a la costa y a Pisa, es gratis y rápida; la A12 de Pisa a La Spezia tiene peaje.',
-          en:'White lanes take cards and blue ones take cash. The back roads between towns are free, prettier and slower: for the Val d’Orcia they are the ones to take. The FI-PI-LI, which is what carries us to the coast and to Pisa, is free and fast; the A12 from Pisa to La Spezia is tolled.'}},
-    {nota:1,
      n:{es:'Manejar en la Toscana',en:'Driving in Tuscany'},
      d:{es:'Las carreteras son angostas, con curvas cerradas y sin banquina, y los locales manejan rápido. Las rutas de tierra blanca, las <em>strade bianche</em>, son normales y están bien mantenidas, pero se anda despacio.',
         en:'The roads are narrow, with tight bends and no hard shoulder, and the locals drive fast. The white gravel roads, the <em>strade bianche</em>, are perfectly normal and well kept, but you go slowly on them.'},
      t:'mover',
-     tip:{es:'La señal de celular se corta entre colinas, así que los mapas hay que bajarlos antes. Y ojo con la niebla de la mañana en octubre: en el valle a las 8 puede no verse nada y a las 10 estar despejado.',
-          en:'The phone signal drops between hills, so maps have to be downloaded beforehand. And watch for October morning fog: down in the valley at 8 you may see nothing and by 10 it is clear.'}}
+     tip:{es:'Las carreteras secundarias entre pueblos son gratis, más lindas y más lentas: para la Val d’Orcia son las que hay que tomar. La FI-PI-LI, la que va a la costa y a Pisa, es gratis y rápida; la A12 de Pisa a La Spezia tiene peaje. La señal de celular se corta entre colinas, así que los mapas hay que bajarlos antes, y ojo con la niebla de la mañana en octubre: en el valle a las 8 puede no verse nada y a las 10 estar despejado. Lo general de manejar en Italia, con los peajes y la nafta, está en la pestaña de Italia.',
+          en:'The back roads between towns are free, prettier and slower: for the Val d’Orcia they are the ones to take. The FI-PI-LI, the road to the coast and Pisa, is free and fast; the A12 from Pisa to La Spezia is tolled. The phone signal drops between hills, so maps have to be downloaded beforehand, and watch for October morning fog: down in the valley at 8 you may see nothing and by 10 it is clear. The general side of driving in Italy, with tolls and fuel, is in the Italy tab.'}}
   ]},
 
   {s:{es:'Dónde estacionar, pueblo por pueblo',en:'Where to park, town by town'}, k:'mover', items:[

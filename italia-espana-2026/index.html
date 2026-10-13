@@ -403,6 +403,31 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
 .frases.apilada .fr-it{font-size:.92rem}
 .frases.apilada .fr-pr{white-space:normal;margin-top:.05rem}
 .frases.apilada td:last-child{color:var(--ink-2);margin-top:.22rem}
+/* La barra flotante. Aparece al bajar y deja volver sin desandar a mano: cerrar
+   la seccion que se esta leyendo, cerrar todo o ir al principio. Va pegada al
+   borde derecho de la columna y no de la pantalla, para que en una pantalla
+   ancha no quede lejos del texto. */
+.flota{position:fixed;z-index:35;display:flex;gap:.4rem;align-items:center;
+  bottom:calc(1rem + env(safe-area-inset-bottom,0px));
+  right:max(1rem,calc((100vw - 44rem) / 2 + 1rem));
+  opacity:0;transform:translateY(.6rem);pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease}
+.flota.on{opacity:1;transform:none;pointer-events:auto}
+.flota button{height:2.5rem;padding:0 .9rem;border-radius:999px;border:1px solid var(--line-2);
+  background:var(--surface);color:var(--ink);box-shadow:var(--shadow);
+  font-family:var(--body);font-size:.68rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;cursor:pointer;white-space:nowrap}
+.flota button:hover{border-color:var(--muted)}
+.flota button[hidden]{display:none}
+.flota .fl-arriba{width:2.5rem;padding:0;display:grid;place-items:center;
+  color:#fff;background:var(--city,var(--accent));border-color:transparent}
+.flota .fl-arriba svg{width:1.05rem;height:1.05rem}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .flota .fl-arriba{color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+}
+:root[data-theme="dark"] .flota .fl-arriba{color:#1B141B;background:var(--city-lt,var(--accent-lt))}
+/* el pie no queda tapado por la barra cuando se llega al final */
+.foot{padding-bottom:4.5rem}
 /* Ajustes de la guia de Italia y Espana. Van al final de la hoja, asi que
    pisan lo de arriba sin tocar shell.html.
 
@@ -534,6 +559,14 @@ td{font-variant-numeric:tabular-nums;border-top:1px solid var(--line)}
 
   <main id="view"></main>
 
+  <div class="flota" id="flota">
+    <button type="button" data-flota="sec" hidden></button>
+    <button type="button" data-flota="todo" hidden></button>
+    <button type="button" class="fl-arriba" data-flota="arriba">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+    </button>
+  </div>
+
   <footer class="foot">
     <div class="foot-lang" data-lang="es">
       <h2>Tenerla en el celular</h2>
@@ -595,384 +628,448 @@ const RESERVA = {
   cola:{es:'No reservan, hay cola',en:'No bookings, expect a queue'}
 };
 
-const CITIES = [
-{
-  id:'prep',
-  nav:{es:'Antes de salir',en:'Before leaving'},
-  name:{es:'Antes de salir',en:'Before leaving'},
-  plate:{es:'Preparativos',en:'Getting ready'},
-  accent:'#57534E', lt:'#D6D3D1', maps:'',
-  lede:{es:'Todo lo que conviene tener resuelto antes de subirse al avión, ordenado por urgencia. Lo de arriba tiene fecha y no espera.',
-        en:'Everything worth sorting out before boarding the plane, ordered by urgency. The items at the top have a deadline and will not wait.'},
-  quick:[
-    [{es:'Salimos',en:'We leave'},{es:'Sáb 3 de octubre de 2026',en:'Sat 3 October 2026'}],
-    [{es:'Volvemos',en:'We return'},{es:'Dom 25 de octubre de 2026',en:'Sun 25 October 2026'}],
-    [{es:'Somos',en:'Who'},{es:'Santiago y Valentina',en:'Santiago and Valentina'}],
-    [{es:'Días',en:'Days'},{es:'23, con 8 alojamientos',en:'23, across 8 places to stay'}],
-    [{es:'Entradas',en:'Tickets'},{es:'Todas sacadas',en:'All booked'}]
-  ],
-  sections:[
-  {s:{es:'Lo que hay que sacar ya',en:'What to book right now'}, k:'prep', html:{es:`
-      <h3>El Coliseo, que ya está</h3>
+const CONSEJOS = {};
+CONSEJOS["general"] = /* Consejos que sirven en cualquier viaje, sea adonde sea. Es una lista de
+   secciones: el capitulo "Antes de salir" de cada guia la suma con
+   ...CONSEJOS.general, junto con lo propio de ese viaje.
+
+   Van escritos impersonales ("conviene", "se paga", "hay que") porque cada
+   guia le habla a gente distinta: a uno le dice "ustedes", a otro "nosotros".
+   Lo que es de un pais va en el archivo de ese pais, y lo que es de quien
+   sale de Uruguay, en uruguay.js. */
+[
+  {s:{es:'Documentos y copias',en:'Documents and copies'}, k:'prep', html:{es:`
       <ul>
-        <li>Tenemos entrada para el <b>miércoles 7 a las 8:30</b>: visita de grupo reducido con la <b>arena</b>, el <b>Foro</b> y el <b>Palatino</b> en el mismo turno.</li>
-        <li>Por coopculture.it, la web oficial, fue imposible: sale unos treinta días antes y se agota en minutos. La que funcionó fue la visita guiada de cupo reducido, que tiene un cupo aparte del de la entrada común, sale más cara y es la salida real cuando la oficial ya voló. La reventa suelta, no.</li>
-        <li>Voucher bajado al teléfono y en el punto de encuentro 8:15.</li>
+        <li><b>Pasaporte</b> con más de seis meses de validez contados desde la fecha de vuelta.</li>
+        <li><b>Seguro de viaje</b> con cobertura médica. Si lo da la tarjeta con la que se pagó el pasaje, hay que pedirle el certificado al banco: la cobertura sin el papel no sirve en un mostrador. El número de asistencia, en el teléfono y también anotado en papel, por si el teléfono es justo lo que falla.</li>
+        <li><b>Foto de todo</b>, en el teléfono y en el mail: pasaportes, licencias, seguro y tarjetas por los dos lados.</li>
       </ul>
-      <h3>Lo demás, que ya está</h3>
-      <ul>
-        <li><b>Duomo de Milán</b>: ya está, <b>jueves 15 de 9:00 a 9:30</b>, con las <b>terrazas</b> incluidas, que son las que de verdad valen. Voucher bajado al teléfono y en la plaza unos minutos antes, que se entra por control de seguridad.</li>
-        <li><b>Museo Enzo Ferrari</b>, Módena: ya está, para el <b>miércoles 14</b> a primera hora.</li>
-        <li><b>Patio de Julieta</b>, Verona: ya está, <b>miércoles 14 a las 16:00</b>.</li>
-        <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
-      </ul>
-      <h3>Un lugar donde tener todo junto</h3>
-      <p>Una carpeta en el teléfono con los PDF de las entradas, los vouchers de los ocho alojamientos, los pasajes y el seguro, más una copia en papel de lo importante. Las entradas con QR van bajadas, no en un mail: en la puerta del Vaticano a las 8 de la mañana no siempre hay señal.</p>
+      <h3>Un solo lugar, sin señal</h3>
+      <p>Una carpeta en el teléfono con los pasajes, los vouchers de los alojamientos, las reservas y las entradas, todo bajado y no en un mail. En un andén, en la fila de una rentadora o en la puerta de un museo a las ocho de la mañana la señal suele ser mala, y es justo cuando hay que mostrar algo. Una copia en el teléfono de cada uno, no en uno solo, y en papel lo que de verdad importa.</p>
     `, en:`
-      <h3>The Colosseum, already done</h3>
       <ul>
-        <li>We have tickets for <b>Wednesday the 7th at 8:30</b>: a small group tour covering the <b>arena</b>, the <b>Forum</b> and the <b>Palatine</b> in one slot.</li>
-        <li>Through coopculture.it, the official site, it was impossible: tickets go on sale about thirty days ahead and sell out in minutes. What worked was the small group guided tour, which has its own allocation separate from the standard ticket, costs more, and is the real way in once the official one has gone. Loose resale, no.</li>
-        <li>Voucher downloaded to the phone, and at the meeting point by 8:15.</li>
+        <li><b>Passport</b> valid for more than six months beyond the return date.</li>
+        <li><b>Travel insurance</b> with medical cover. If it comes with the card that paid for the flights, ask the bank for the certificate: cover without the paperwork is useless at a desk. The assistance number goes on the phone and on paper too, in case the phone is exactly what fails.</li>
+        <li><b>A photo of everything</b>, on the phone and in the email: passports, licences, insurance and cards front and back.</li>
       </ul>
-      <h3>The rest, also done</h3>
-      <ul>
-        <li><b>Milan Duomo</b>: booked, <b>Thursday the 15th from 9:00 to 9:30</b>, with the <b>rooftop terraces</b> included, which are the part that is actually worth it. Voucher downloaded, and in the square a few minutes early, since entry goes through a security check.</li>
-        <li><b>Enzo Ferrari Museum</b>, Modena: booked, for first thing on <b>Wednesday the 14th</b>.</li>
-        <li><b>Juliet’s courtyard</b>, Verona: booked, <b>Wednesday the 14th at 16:00</b>.</li>
-        <li>Seville is done: <b>Cathedral and Giralda</b> on Thursday the 22nd at 17:20, <b>Real Alcázar</b> on Friday the 23rd at 16:30.</li>
-      </ul>
-      <h3>One place to keep it all</h3>
-      <p>A folder on the phone with the ticket PDFs, the vouchers for all eight places to stay, the flights and the insurance, plus a paper copy of whatever matters. QR tickets go downloaded, not left in an email: outside the Vatican at 8 in the morning there is not always a signal.</p>
+      <h3>One place, no signal needed</h3>
+      <p>A folder on the phone with the tickets, the accommodation vouchers, the bookings and the entry tickets, all downloaded rather than left in an email. On a platform, in a rental queue or at a museum door at eight in the morning the signal is usually poor, and that is exactly when something has to be shown. A copy on each person’s phone, not just one, and a paper copy of whatever really matters.</p>
     `}},
 
-  {s:{es:'Documentos y la libreta internacional',en:'Documents and the international licence'}, k:'prep', html:{es:`
-      <h3>El permiso internacional del ACU</h3>
+  {s:{es:'El vuelo largo',en:'The long flight'}, k:'prep', html:{es:`
+      <p>Si el cruce es de noche, la única meta del vuelo es dormir, porque se llega de mañana y ese día se camina.</p>
       <ul>
-        <li>Para alquilar y manejar en Italia con licencia uruguaya hace falta el <b>permiso internacional de conducir</b>. Lo emite el ACU, sale en el día y vale un año.</li>
-        <li>No reemplaza a la licencia uruguaya, la acompaña. Hay que llevar las dos y mostrar las dos, en el mostrador de la rentadora y si nos para un carabinero.</li>
-        <li>Sacarlo con margen, y revisar que el nombre coincida exacto con el del pasaporte y con el de la tarjeta que va a pagar el alquiler. Una letra distinta alcanza para que en el mostrador se pongan difíciles.</li>
+        <li><b>Lo que ayuda:</b> cenar liviano antes de subir en vez de esperar la bandeja, tapones y antifaz, tomar agua seguido y poner el reloj en la hora del destino apenas se despega. <b>Lo que no ayuda:</b> el vino gratis.</li>
+        <li><b>Los aviones van fríos</b>, y es a propósito. Un abrigo a mano y el cuello tapado, aunque sea con la capucha de un buzo, cambian el vuelo. Y vestirse pensando en el clima del lugar al que se llega: abrir la valija en el piso durante una escala es lo que se quiere evitar.</li>
       </ul>
-      <h3>La tarjeta para el alquiler del auto</h3>
-      <ul>
-        <li>Para retirar un auto piden una <b>tarjeta de crédito a nombre del conductor</b>, no de débito, y bloquean un depósito en garantía que puede ser alto.</li>
-        <li>Ese bloqueo consume límite aunque no sea un gasto real, y se libera varios días después de devolver el auto.</li>
-        <li>Si el día del retiro tenemos el límite comprometido, el mostrador nos deja a pie. Las dos jugadas que dan aire están abajo, en la parte de tarjetas.</li>
-      </ul>
-      <h3>Pasaportes y el resto</h3>
-      <ul>
-        <li>Pasaporte con más de seis meses de validez desde la fecha de vuelta.</li>
-        <li>Uruguay no necesita visa Schengen por estadías cortas, pero en algún momento entra en vigencia el registro previo <b>ETIAS</b>, un trámite online barato y rápido. Mirar si ya se pide para octubre de 2026.</li>
-        <li>Seguro de viaje con cobertura médica, que además es requisito para entrar a Schengen. Muchas tarjetas lo incluyen si el pasaje se pagó con ellas, pero hay que pedir el certificado al banco: la cobertura sin el papel no sirve en un mostrador.</li>
-        <li>Foto de todo en el teléfono y en el mail: pasaportes, licencias, seguro, tarjetas por los dos lados.</li>
-      </ul>
+      <h3>Los asientos</h3>
+      <p>El check in online abre entre veinticuatro y cuarenta y ocho horas antes, según la compañía, y es el momento de elegir dónde sentarse: más tarde queda lo que sobró. Las tarjetas de embarque, a la billetera del teléfono y no en un mail que hay que abrir con señal.</p>
+      <p>Una jugada que poca gente hace: con la puerta de embarque ya asignada, preguntar ahí si queda alguna mejora de asiento. Una vez que el vuelo cerró, esos lugares vacíos son plata perdida para la aerolínea, y bastantes veces los dan por mucho menos de lo que cuestan en la web, o sin cargo. Sirve también para pedir un cambio: lo peor que puede pasar es que digan que no.</p>
+      <h3>Las escalas</h3>
+      <p>El control de pasaportes se hace en el primer aeropuerto del espacio Schengen, no en el destino final. Si la conexión es corta, ir directo al control apenas se baja y dejar el café para después. Y en el primer check in, confirmar si las valijas van despachadas hasta el final o hay que retirarlas en la escala.</p>
     `, en:`
-      <h3>The international permit from the ACU</h3>
+      <p>If the crossing is overnight, the flight has one goal, which is sleep, because you land in the morning and that day is spent walking.</p>
       <ul>
-        <li>To rent and drive in Italy on a Uruguayan licence you need the <b>international driving permit</b>. The ACU issues it same day and it is valid for a year.</li>
-        <li>It does not replace the Uruguayan licence, it goes with it. Carry both and show both, at the rental desk and if a carabiniere pulls you over.</li>
-        <li>Get it with time to spare, and check that the name matches the passport exactly, and the card that will pay for the rental too. One different letter is enough for the desk to turn difficult.</li>
+        <li><b>What helps:</b> a light dinner before boarding instead of waiting for the tray, earplugs and an eye mask, drinking water often, and setting your watch to destination time the moment you take off. <b>What does not help:</b> the free wine.</li>
+        <li><b>Planes are cold</b>, deliberately. A layer to hand and the neck covered, even with a hoodie, change the flight. And dress for the weather where you land: opening the suitcase on the floor during a layover is what you want to avoid.</li>
       </ul>
-      <h3>The card for the car rental</h3>
-      <ul>
-        <li>To pick up a car they ask for a <b>credit card in the driver’s name</b>, not a debit card, and they block a security deposit that can be steep.</li>
-        <li>That block eats into your limit even though it is not a real charge, and it is released several days after the car goes back.</li>
-        <li>If our limit is already committed on pickup day, the desk leaves us on foot. The two moves that buy room are below, in the cards section.</li>
-      </ul>
-      <h3>Passports and the rest</h3>
-      <ul>
-        <li>Passport valid for more than six months beyond the return date.</li>
-        <li>Uruguay needs no Schengen visa for short stays, but at some point the <b>ETIAS</b> pre registration comes into force, a cheap and quick online step. Check whether it is already required for October 2026.</li>
-        <li>Travel insurance with medical cover, which is also a Schengen entry requirement. Many cards include it if the flights were paid with them, but you have to ask the bank for the certificate: cover without the paperwork is useless at a desk.</li>
-        <li>A photo of everything on the phone and in your email: passports, licences, insurance, cards front and back.</li>
-      </ul>
+      <h3>Seats</h3>
+      <p>Online check in opens between twenty four and forty eight hours ahead, depending on the airline, and that is the moment to choose where to sit: later on you get what is left. Boarding passes go into the phone wallet, not an email that needs a signal to open.</p>
+      <p>A move few people make: once the gate is assigned, ask there whether any seat upgrade is left. After the flight closes those empty seats are lost money for the airline, and quite often they go for much less than the website price, or for nothing. It also works for asking to move: the worst that can happen is a no.</p>
+      <h3>Connections</h3>
+      <p>Passport control happens at the first airport inside the Schengen area, not at the final destination. If the connection is short, head straight for control on landing and leave the coffee for later. And at the first check in, confirm whether the bags are checked through to the end or have to be collected at the connection.</p>
     `}},
 
-  {s:{es:'El vuelo largo y las escalas',en:'The long flight and the connections'}, k:'prep', html:{es:`
-      <h3>Montevideo, Madrid, Roma</h3>
-      <p>Salimos el sábado 3 y llegamos a Roma el domingo 4, con escala en Madrid. El cruce del Atlántico es de noche, así que la única meta del vuelo es dormir: llegamos a Roma un domingo de mañana y ese día se camina.</p>
-      <ul>
-        <li>Ayuda: cenar liviano antes de subir en vez de esperar la bandeja, tapones y antifaz, tomar agua seguido, y poner el reloj en hora de Italia apenas se despega, que son cinco horas adelante.</li>
-        <li>No ayuda: el vino gratis.</li>
-      </ul>
-      <h3>La escala en Madrid</h3>
-      <ul>
-        <li>Barajas es grande y el cambio de terminal come tiempo.</li>
-        <li>Al ser vuelos de la misma compañía, las valijas suelen ir facturadas hasta Roma, pero confirmarlo en el check in de Montevideo.</li>
-        <li>El control de pasaportes se hace en Madrid, que es la primera entrada a Schengen. Preguntarlo ahí también.</li>
-      </ul>
-      <h3>Los tres vuelos de adentro</h3>
-      <ul>
-        <li>El 17 volamos <b>IB 5543</b> de Milán a Barcelona, el 18 <b>IB 5064</b> de Barcelona a Sevilla, y el 25 de Sevilla vía Madrid a Montevideo, de noche.</li>
-        <li>Los dos tramos de Iberia son europeos y con equipaje de mano estricto: si la valija de cabina está al límite, despacharla al comprar y no en el mostrador.</li>
-        <li>El domingo 25, además, cambia la hora en Europa: a las 3 de la madrugada los relojes se atrasan una hora. El teléfono lo hace solo, pero los horarios impresos y los de la terminal ya están en la hora nueva.</li>
-      </ul>
-    `, en:`
-      <h3>Montevideo, Madrid, Rome</h3>
-      <p>We leave on Saturday the 3rd and land in Rome on Sunday the 4th, connecting in Madrid. The Atlantic crossing is overnight, so the only goal of the flight is sleep: we reach Rome on a Sunday morning and that day is spent walking.</p>
-      <ul>
-        <li>What helps: a light dinner before boarding instead of waiting for the tray, earplugs and an eye mask, drinking water often, and setting your watch to Italian time the moment you take off, five hours ahead.</li>
-        <li>What does not help: the free wine.</li>
-      </ul>
-      <h3>The Madrid connection</h3>
-      <ul>
-        <li>Barajas is big and changing terminal eats time.</li>
-        <li>Since both flights are with the same airline, bags are usually checked through to Rome, but confirm it at check in in Montevideo.</li>
-        <li>Passport control happens in Madrid, which is the first entry into Schengen. Ask about that there too.</li>
-      </ul>
-      <h3>The three flights inside Europe</h3>
-      <ul>
-        <li>On the 17th we fly <b>IB 5543</b> from Milan to Barcelona, on the 18th <b>IB 5064</b> from Barcelona to Seville, and on the 25th from Seville via Madrid to Montevideo, overnight.</li>
-        <li>Both Iberia legs are European and strict about cabin baggage: if the carry on is at the limit, check it when buying rather than at the desk.</li>
-        <li>On Sunday the 25th the clocks also change across Europe: at 3 in the morning they go back an hour. The phone handles it on its own, but printed and terminal times are already in the new hour.</li>
-      </ul>
-    `}},
-
-  {s:{es:'La valija para tres semanas',en:'Packing for three weeks'}, k:'prep', html:{es:`
+  {s:{es:'La valija',en:'Packing'}, k:'prep', html:{es:`
       <h3>El problema no es el frío, es la mudanza</h3>
       <ul>
-        <li>Ocho alojamientos en veintitrés días, con tren, auto y tres vuelos. Cada valija de más se paga ocho veces: subiendo a un tren en Termini, metiéndola en el baúl de un auto chico en Florencia, bajando escaleras en La Spezia.</li>
-        <li>La regla: una valija mediana cada uno más una mochila, y nada más.</li>
-        <li>Muchas estaciones italianas tienen andenes con escaleras y sin ascensor. Cuatro ruedas duras y un asa que no se trabe valen más que cualquier marca.</li>
+        <li>Cada valija de más se paga en cada cambio de alojamiento: subiéndola a un tren, metiéndola en el baúl de un auto chico, bajándola por una escalera. La regla: <b>una valija mediana por persona más una mochila</b>, y nada más.</li>
+        <li>Muchas estaciones tienen andenes con escaleras y sin ascensor. Cuatro ruedas duras y un asa que no se trabe valen más que cualquier marca.</li>
+        <li><b>Capas</b> antes que un abrigo grande: remeras, una camisa o buzo liviano y una campera fina que corte el viento y aguante una llovizna. El abrigo grande ocupa media valija.</li>
+        <li><b>El calzado</b> es lo único que de verdad hay que pensar: cómodo, ya usado y con suela que agarre, porque los adoquines viejos resbalan. Dos pares para alternar y medias de repuesto en la mochila. Las plantillas de gel y las curitas para ampollas se consiguen en cualquier farmacia, y funcionan mucho mejor puestas apenas se siente el roce.</li>
       </ul>
-      <h3>Ropa</h3>
+      <h3>Dónde se gana o se pierde plata</h3>
       <ul>
-        <li>Octubre en Italia es de días lindos y mañanas frescas; Sevilla en la tercera semana todavía es verano corto. Eso es capas: remeras, una camisa o buzo liviano, una campera fina que corte el viento y aguante una llovizna.</li>
-        <li>Un abrigo grande sobra y ocupa media valija.</li>
-        <li>Para el Vaticano hace falta hombros y rodillas cubiertos, para los dos. Un pañuelo grande en la mochila resuelve si ese día hace calor.</li>
-      </ul>
-      <h3>El calzado</h3>
-      <ul>
-        <li>Zapatos cómodos y ya usados, con suela que agarre. Los adoquines romanos están gastados y resbalan, y en Cinque Terre y San Gimignano se sube y se baja todo el tiempo.</li>
-        <li>Dos pares para alternar, y medias de repuesto en la mochila.</li>
+        <li>En las aerolíneas de bajo costo lo gratis es solo el bolso que va <b>debajo del asiento</b>. Todo lo demás se paga, y en el mostrador o en la puerta de embarque sale bastante más que agregándolo por internet al comprar.</li>
+        <li>Donde hay tren, el tren es mucho más generoso con el equipaje y además deja en el centro.</li>
+        <li>Para volar, ponerse encima lo más pesado. Los cubos de compresión no sacan peso pero sí volumen, que es lo que decide si la mochila entra en el molde. Lavar una vez en el medio del viaje, y llevar una bolsa plegable vacía para la vuelta.</li>
+        <li>El último día, las guarderías de equipaje como Bounce o Radical Storage, o la consigna de la estación, dejan la tarde libre sin arrastrar valijas hasta el vuelo.</li>
       </ul>
       <h3>La mochila del día</h3>
-      <p>Botella recargable, batería portátil, un pañuelo fino, y una bolsa de tela plegada para la compra, el mercado y el día que volvemos con más cosas de las que salimos.</p>
+      <p>Botella recargable, batería portátil, un pañuelo fino y una bolsa de tela plegada. Y algo para picar: en buena parte de Europa las cocinas cierran entre el almuerzo y la cena, y el hambre de media tarde agarra justo en la zona turística, que es donde peor y más caro se come.</p>
     `, en:`
       <h3>The problem is not the cold, it is the moving</h3>
       <ul>
-        <li>Eight places to stay in twenty three days, by train, by car and on three flights. Every extra bag gets paid for eight times: hauling it onto a train at Termini, wedging it into the boot of a small car in Florence, carrying it down stairs in La Spezia.</li>
-        <li>The rule: one medium suitcase each plus a backpack, and nothing more.</li>
-        <li>Plenty of Italian stations have platforms with stairs and no lift. Four hard wheels and a handle that does not jam are worth more than any brand.</li>
+        <li>Every extra bag gets paid for at every change of accommodation: hauling it onto a train, wedging it into the boot of a small car, carrying it down a staircase. The rule: <b>one medium suitcase per person plus a backpack</b>, and nothing more.</li>
+        <li>Plenty of stations have platforms with stairs and no lift. Four hard wheels and a handle that does not jam are worth more than any brand.</li>
+        <li><b>Layers</b> rather than one big coat: t-shirts, a shirt or light sweatshirt, and a thin jacket that cuts the wind and survives drizzle. A heavy coat takes half a suitcase.</li>
+        <li><b>Shoes</b> are the one thing that really needs thought: comfortable, already broken in, with soles that grip, because old cobbles are slippery. Two pairs to alternate and spare socks in the backpack. Gel insoles and blister plasters are in any pharmacy, and they work far better put on the moment you feel rubbing.</li>
       </ul>
-      <h3>Clothes</h3>
+      <h3>Where money is won or lost</h3>
       <ul>
-        <li>October in Italy means good days and cool mornings; Seville in the third week is still a short summer. That means layers: t-shirts, a shirt or light sweatshirt, a thin jacket that cuts the wind and survives drizzle.</li>
-        <li>A heavy coat is dead weight and takes half a suitcase.</li>
-        <li>The Vatican requires covered shoulders and knees, for both of us. A large scarf in the backpack solves it if the day turns hot.</li>
-      </ul>
-      <h3>Shoes</h3>
-      <ul>
-        <li>Comfortable shoes already broken in, with soles that grip. The Roman cobbles are worn smooth and slippery, and in Cinque Terre and San Gimignano you are going up and down all day.</li>
-        <li>Two pairs to alternate, and spare socks in the backpack.</li>
+        <li>On low cost airlines the only free bag is the one that goes <b>under the seat</b>. Everything else is paid for, and at the desk or the gate it costs a good deal more than adding it online when booking.</li>
+        <li>Where there is a train, the train is far more generous with luggage and drops you in the centre too.</li>
+        <li>To fly, wear the heaviest things. Packing cubes do not cut weight but they do cut volume, which is what decides whether the backpack fits the sizer. Do one wash halfway through, and pack an empty foldable bag for the way home.</li>
+        <li>On the last day, luggage storage such as Bounce or Radical Storage, or the station left luggage, frees the afternoon instead of dragging suitcases until the flight.</li>
       </ul>
       <h3>The day bag</h3>
-      <p>Refillable bottle, power bank, a thin scarf, and a folded cloth bag for the shopping, the market and the day we come back with more than we left with.</p>
+      <p>Refillable bottle, power bank, a thin scarf and a folded cloth bag. And something to snack on: across much of Europe kitchens close between lunch and dinner, and mid afternoon hunger strikes right in the tourist zone, where food is worst and dearest.</p>
     `}},
 
-  {s:{es:'Trabajar remoto desde Sevilla',en:'Working remotely from Seville'}, k:'prep', html:{es:`
-      <h3>La semana de Vale</h3>
+  {s:{es:'Electrónica, eSIM y datos',en:'Electronics, eSIM and data'}, k:'prep', html:{es:`
+      <h3>Lo que va en la mochila</h3>
       <ul>
-        <li>Del lunes 19 al viernes 23, Vale está en la semana internacional del MBA en la Universidad Loyola y yo trabajo desde el apartamento, que compartimos con tres compañeras de ella. El día tiene dos ritmos.</li>
-        <li>Lo primero a confirmar es <b>dónde queda la sede</b>. Loyola tiene el campus de Sevilla fuera del centro, hacia el sur, y también actividades en edificios del centro. Preguntarlo en la organización del programa antes de viajar y, con la dirección concreta, medir el trayecto real desde el apartamento en Google Maps a la hora exacta en la que hay que estar.</li>
+        <li>La <b>batería portátil</b> es lo más útil que se puede llevar, y va en el bolso de mano: las de litio no se pueden despachar.</li>
+        <li>Un <b>adaptador universal</b>, un cargador con varias salidas, porque en los alojamientos siempre faltan enchufes, y un cable de repuesto, que es lo que siempre se rompe.</li>
+        <li>Mirar el espacio libre del teléfono antes de salir: con fotos y video se llena antes de lo que parece. Y con frío, el teléfono dura bastante más en el bolsillo interno que en el de afuera.</li>
       </ul>
-      <h3>La conexión</h3>
-      <ul>
-        <li>Confirmar con el anfitrión del Airbnb la velocidad de la wifi, y si hay una mesa de verdad y no solo la barra de la cocina. Cinco días de llamadas en una silla de comedor se sienten.</li>
-        <li>Plan B: la eSIM con datos generosos y el celular como punto de acceso. En España funciona bien.</li>
-        <li>El horario juega a favor: Sevilla está cinco horas adelante de Montevideo, así que la mañana española es tiempo tranquilo y las reuniones caen de tarde. Las mañanas quedan para adelantar y salir a caminar antes de que arranque el día uruguayo.</li>
-      </ul>
-      <h3>Cafés para cortar</h3>
-      <p>Cuando el apartamento se haga chico, Sevilla tiene cafés de especialidad con enchufes y wifi, y coworkings que venden pases por día. Los concretos están en el capítulo de Sevilla. La regla local: ocupar una mesa cuatro horas con un café queda mal en un bar de barrio y bien en un café de especialidad, que es para lo que están.</p>
-    `, en:`
-      <h3>Vale’s week</h3>
-      <ul>
-        <li>From Monday the 19th to Friday the 23rd, Vale is at the MBA international week at Universidad Loyola and I work from the apartment, which we share with three of her classmates. The day runs on two rhythms.</li>
-        <li>The first thing to confirm is <b>where the venue actually is</b>. Loyola has its Seville campus outside the centre, to the south, and also runs sessions in buildings downtown. Ask the programme organisers before travelling and then, with the real address, measure the actual journey from the apartment in Google Maps at the exact hour she needs to be there.</li>
-      </ul>
-      <h3>The connection</h3>
-      <ul>
-        <li>Confirm the wifi speed with the Airbnb host, and whether there is a real table and not just the kitchen counter. Five days of calls from a dining chair make themselves felt.</li>
-        <li>Plan B: the eSIM with a generous data allowance and the phone as a hotspot. In Spain that works well.</li>
-        <li>The time difference is on our side: Seville is five hours ahead of Montevideo, so the Spanish morning is quiet time and the meetings land in the afternoon. That leaves mornings for getting ahead and for a walk before the Uruguayan day starts.</li>
-      </ul>
-      <h3>Cafés to escape to</h3>
-      <p>When the apartment starts to feel small, Seville has specialty coffee shops with plugs and wifi, and coworking spaces that sell day passes. The specific ones are in the Seville chapter. The local rule: holding a table for four hours over one coffee lands badly in a neighbourhood bar and fine in a specialty café, which is what they are for.</p>
-    `}},
-
-  {s:{es:'Las tarjetas y la plata',en:'Cards and money'}, k:'prep', html:{es:`
-      <h3>Cuál conviene usar</h3>
-      <ul>
-        <li>No todas las tarjetas uruguayas cobran lo mismo afuera. Antes de salir, llamar al banco y preguntar dos cosas de cada tarjeta: qué comisión tiene por compra en el exterior y cuál es el límite diario de consumo.</li>
-        <li>En débito, la <b>OCA Blue</b> no tiene recargo por compra en el exterior.</li>
-        <li>En crédito, las Platinum de Itaú y de Santander suman acceso a salas VIP, seguro de viaje y asistencia. Las salas se gestionan con una app propia: instalarla y registrar la tarjeta antes de viajar, no en el aeropuerto.</li>
-      </ul>
-      <h3>Las tres cuotas de OCA</h3>
-      <p>OCA permite pagar compras en el exterior en tres cuotas sin interés, y en épocas especiales seis. Sirve para lo caro y planificado, como un alojamiento o el alquiler del auto. Se activa desde la app, hay que suscribirse al servicio, y eso se hace antes de salir.</p>
-      <h3>El límite diario, que es el que arruina compras</h3>
-      <p>Casi todas las tarjetas tienen un tope por día, muchas veces cerca de los quinientos dólares, y al pasarlo la tarjeta deja de funcionar sin avisar por qué. Un alquiler de auto, una cena y una entrada el mismo día llegan sin darse cuenta. Saber cuál es el número y repartir los gastos grandes en días distintos.</p>
-      <h3>Las dos jugadas que dan aire</h3>
-      <ul>
-        <li><b>Sobregirar la tarjeta de crédito</b>: pagar de más antes de viajar para que el saldo a favor se consuma primero y quede el límite entero disponible.</li>
-        <li><b>Pedir un aumento temporal del límite</b>. Suelen dar hasta un cincuenta por ciento más por unos meses. Es la que más sirve para el depósito del auto.</li>
-        <li>Las dos con tiempo. Las apps de los bancos andan mal desde afuera, entre la wifi del hotel, las claves por SMS a un número apagado y las validaciones que no cargan.</li>
-      </ul>
-      <h3>Efectivo</h3>
-      <ul>
-        <li>Menos del que uno cree, pero no cero. En Italia hay lugares chicos de mostrador donde el posnet "no anda", los baños de las estaciones se pagan en monedas y los mercados de barrio son de efectivo.</li>
-        <li>Con unos pocos cientos de euros para las tres semanas alcanza, y se reponen en cajeros bancarios. Nunca en los cajeros amarillos de las esquinas turísticas, que cobran comisiones absurdas y dan un cambio pésimo.</li>
-        <li>Cuando el posnet pregunte euros o pesos uruguayos, siempre <b>en euros</b>. Elegir la moneda de casa deja que el comercio fije el cambio, y siempre es peor.</li>
-      </ul>
-    `, en:`
-      <h3>Which one to use</h3>
-      <ul>
-        <li>Not every Uruguayan card charges the same abroad. Before leaving, call the bank and ask two things about each card: what the foreign purchase fee is, and what the daily spending limit is.</li>
-        <li>On debit, <b>OCA Blue</b> charges no surcharge on foreign purchases.</li>
-        <li>On credit, the Platinum cards from Itaú and Santander add lounge access, travel insurance and assistance. The lounges are handled through their own app: install it and register the card before travelling, not at the airport.</li>
-      </ul>
-      <h3>OCA’s three instalments</h3>
-      <p>OCA lets you split foreign purchases into three interest free instalments, and six during special promotions. It is for the expensive, planned things: a hotel, the car rental. You activate it from the app, you have to subscribe to the service, and that is done before leaving.</p>
-      <h3>The daily limit, which is what ruins purchases</h3>
-      <p>Almost every card has a daily cap, often around five hundred dollars, and once you cross it the card simply stops working without saying why. A car rental, a dinner and a ticket on the same day get there without you noticing. Know what the number is and spread the big spends across different days.</p>
-      <h3>The two moves that buy room</h3>
-      <ul>
-        <li><b>Overpay the credit card</b>: pay more than you owe before travelling so the credit balance gets used first and the whole limit stays available.</li>
-        <li><b>Ask for a temporary limit increase</b>. They usually grant up to fifty per cent more for a few months. This is the one that matters most for the car deposit.</li>
-        <li>Both with time to spare. Bank apps behave badly from abroad, between hotel wifi, one time codes sent to a phone number that is switched off, and verification screens that never load.</li>
-      </ul>
-      <h3>Cash</h3>
-      <ul>
-        <li>Less than you think, but not none. In Italy there are small counter places where the card machine "is not working", station toilets take coins, and neighbourhood markets are cash only.</li>
-        <li>A few hundred euros covers the three weeks, topped up at bank cash machines. Never at the yellow machines on tourist corners, which charge absurd fees and give a terrible rate.</li>
-        <li>When the card machine asks euros or Uruguayan pesos, always <b>euros</b>. Choosing your home currency lets the shop set the exchange rate, and it is always worse.</li>
-      </ul>
-    `}},
-
-  {s:{es:'eSIM, apps y qué bajarse',en:'eSIM, apps and what to download'}, k:'prep', html:{es:`
       <h3>La eSIM</h3>
+      <p>Es un chip virtual: se compra por internet, llega un código QR, se instala con wifi y convive con la línea de siempre. Conviene comprarla e instalarla en casa y activarla al aterrizar; hacerlo sin datos y sin dormir es justo cuando sale mal.</p>
       <ul>
-        <li>Una eSIM con datos para toda Europa, comprada antes de salir y activada al aterrizar, sale una fracción del roaming y no hay que buscar nada en el aeropuerto. Se compra online, llega un QR, se instala con wifi y se activa al llegar.</li>
-        <li>Da datos, no el número uruguayo. Dejar el chip físico puesto con los datos apagados, para seguir recibiendo los SMS del banco, que son los que después autorizan una compra.</li>
+        <li>Antes de pagar, mirar la <b>lista de países</b> del plan. Los que se venden como de Europa no siempre incluyen todo: el Reino Unido, por ejemplo, quedó afuera de varios.</li>
+        <li><b>Ilimitado casi nunca es ilimitado</b>: pasada cierta cantidad, la velocidad se cae. Alcanza para mapas y mensajes y deja de alcanzar para subir video, así que lo pesado va por wifi.</li>
+        <li>Al revés: <b>el banco nunca por wifi público</b>. Ni la app, ni transferencias, ni pagos desde el wifi del hotel, del aeropuerto o de un café. Para eso, datos.</li>
+        <li>El wifi de los alojamientos en edificios viejos anda bien en la recepción y mal en la habitación. No contar con él para nada que importe.</li>
       </ul>
       <h3>Lo que hay que bajar antes</h3>
       <ul>
-        <li>Mapas sin conexión de Roma, Florencia, Siena, La Spezia, Milán, Barcelona y Sevilla, más la Toscana entera, que es donde vamos a manejar y la señal se corta entre colinas.</li>
-        <li>Las entradas y los vouchers.</li>
-        <li>El traductor con italiano e inglés descargados.</li>
-      </ul>
-      <h3>Las apps que sirven</h3>
-      <ul>
-        <li>Trenes: <b>Trenitalia</b> e <b>Italo</b> en Italia, <b>Renfe</b> en España.</li>
-        <li>Mesa: <b>TheFork</b>, que anda en los dos países y muchas veces tiene descuento.</li>
-        <li>Taxis: <b>FreeNow</b> o <b>itTaxi</b> en Italia; <b>Cabify</b> y <b>Bolt</b> en Barcelona y Sevilla, más baratas que el taxi.</li>
-        <li>Museos del Vaticano: la web oficial y nada más. El Coliseo ya está sacado.</li>
-        <li>Una app de notas compartida entre los dos, que en veintitrés días es donde terminan los horarios, los códigos de las puertas y los nombres que alguien nos recomendó.</li>
+        <li><b>Mapas sin conexión</b> de cada ciudad y de las zonas donde se maneja, que es donde la señal se corta entre colinas. En Google Maps: buscar la ciudad, tocar el nombre abajo y elegir <em>Descargar mapa sin conexión</em>.</li>
+        <li><b>El traductor</b> con los idiomas del viaje bajados: Google Translate traduce cartas y carteles con la cámara sin señal.</li>
+        <li>Series, películas y música para los vuelos y los trenes. Ojo con que lo bajado vence, y una vez que se le da play el plazo se acorta.</li>
       </ul>
     `, en:`
-      <h3>The eSIM</h3>
+      <h3>What goes in the backpack</h3>
       <ul>
-        <li>An eSIM with data for the whole of Europe, bought before leaving and activated on landing, costs a fraction of roaming and means nothing to hunt for at the airport. You buy it online, a QR code arrives, you install it on wifi and switch it on when you get there.</li>
-        <li>It gives you data, not your Uruguayan number. Leave the physical SIM in with its data turned off, so the bank text messages keep arriving, since those are what authorise a purchase later.</li>
+        <li>The <b>power bank</b> is the most useful thing you can carry, and it goes in the cabin bag: lithium batteries cannot be checked in.</li>
+        <li>A <b>universal adaptor</b>, a charger with several outlets, since accommodation is always short of sockets, and a spare cable, which is what always breaks.</li>
+        <li>Check the phone’s free space before leaving: with photos and video it fills faster than you think. And in the cold, the phone lasts much longer in an inside pocket than an outside one.</li>
+      </ul>
+      <h3>The eSIM</h3>
+      <p>It is a virtual SIM: you buy it online, a QR code arrives, you install it on wifi and it lives alongside your usual line. Buy and install it at home and switch it on when you land; doing it with no data and half asleep is exactly when it goes wrong.</p>
+      <ul>
+        <li>Before paying, check the plan’s <b>list of countries</b>. Plans sold as European do not always include everything: the United Kingdom, for one, has dropped out of several.</li>
+        <li><b>Unlimited is almost never unlimited</b>: past a certain amount the speed drops. Enough for maps and messages, not enough to upload video, so the heavy stuff goes over wifi.</li>
+        <li>The other way round: <b>never the bank over public wifi</b>. No app, no transfers, no payments on hotel, airport or café wifi. That is what data is for.</li>
+        <li>Wifi in accommodation in old buildings works at reception and poorly in the room. Do not count on it for anything that matters.</li>
       </ul>
       <h3>What to download beforehand</h3>
       <ul>
-        <li>Offline maps of Rome, Florence, Siena, La Spezia, Milan, Barcelona and Seville, plus the whole of Tuscany, which is where we will be driving and where the signal drops between hills.</li>
-        <li>The tickets and vouchers.</li>
-        <li>The translator with Italian and English downloaded.</li>
-      </ul>
-      <h3>The apps that earn their place</h3>
-      <ul>
-        <li>Trains: <b>Trenitalia</b> and <b>Italo</b> in Italy, <b>Renfe</b> in Spain.</li>
-        <li>Tables: <b>TheFork</b>, which works in both countries and often carries a discount.</li>
-        <li>Taxis: <b>FreeNow</b> or <b>itTaxi</b> in Italy; <b>Cabify</b> and <b>Bolt</b> in Barcelona and Seville, cheaper than a taxi.</li>
-        <li>Vatican Museums: the official site and nothing else. The Colosseum is already booked.</li>
-        <li>A notes app shared between the two of us, which over twenty three days is where the times, the door codes and the names someone recommended all end up.</li>
+        <li><b>Offline maps</b> of each city and of the areas you will drive through, which is where the signal drops between hills. In Google Maps: search the city, tap its name at the bottom and choose <em>Download offline map</em>.</li>
+        <li><b>The translator</b> with the trip’s languages downloaded: Google Translate reads menus and signs through the camera with no signal.</li>
+        <li>Series, films and music for flights and trains. Watch out: downloads expire, and once you press play the window gets shorter.</li>
       </ul>
     `}},
 
-  {s:{es:'Octubre, cómo viene el clima',en:'October, what the weather does'}, k:'prep', html:{es:`
-      <p>Es de los mejores meses para este recorrido: en Italia bajó el calor y bajó la gente, y en Andalucía todavía es verano tibio. Los números son promedios, sirven para armar la valija y no para planificar el día.</p>
-      <div class="tablewrap"><table>
-        <thead><tr><th>Dónde</th><th>Máx / mín</th><th>Cómo se siente</th><th>Amanece</th><th>Anochece</th></tr></thead>
-        <tbody>
-          <tr><td>Roma</td><td>23° / 13°</td><td>Sol, mañanas frescas</td><td>~7:15</td><td>~18:50</td></tr>
-          <tr><td>Florencia</td><td>22° / 11°</td><td>Fresca temprano, linda al mediodía</td><td>~7:25</td><td>~18:55</td></tr>
-          <tr><td>Toscana</td><td>21° / 10°</td><td>Niebla al amanecer en el campo</td><td>~7:25</td><td>~18:55</td></tr>
-          <tr><td>Cinque Terre</td><td>21° / 14°</td><td>Templada, con riesgo de lluvia</td><td>~7:30</td><td>~18:55</td></tr>
-          <tr><td>Milán</td><td>19° / 10°</td><td>Gris y húmeda, puede llover</td><td>~7:35</td><td>~18:45</td></tr>
-          <tr><td>Barcelona</td><td>22° / 15°</td><td>Suave, con humedad de mar</td><td>~8:00</td><td>~19:15</td></tr>
-          <tr><td>Sevilla</td><td>27° / 14°</td><td>Calurosa al mediodía, fresca de noche</td><td>~8:20</td><td>~19:35</td></tr>
-        </tbody>
-      </table></div>
+  {s:{es:'Botiquín',en:'First aid kit'}, k:'prep', html:{es:`
+      <p>La idea es llevar poco y comprar allá lo que se pueda.</p>
       <ul>
-        <li>La diferencia entre máxima y mínima es grande en todos lados, sobre todo en Sevilla, que pasa de veintisiete al mediodía a catorce de madrugada. Salir a las ocho con lo puesto para el mediodía es el error clásico.</li>
-        <li>Oscurece temprano y cada vez más rápido. En Roma, a principios de mes, a las siete ya es de noche. Las fotos con luz linda son antes de las seis y media, y el atardecer del Giardino degli Aranci o de Piazzale Michelangelo hay que agendarlo.</li>
+        <li><b>Los remedios con receta</b>, en su caja original y con la receta a mano: con el nombre a la vista, en cualquier farmacia los entienden.</li>
+        <li><b>Lo que ya se sabe que se usa</b>: algo para el dolor de cabeza, algo para el estómago, el antialérgico si hace falta. No porque allá no se consiga, sino porque a las tres de la mañana no dan ganas de buscar una farmacia de turno.</li>
+        <li><b>Lo de higiene se compra allá</b>: pesa, ocupa y sale poco. Si se viaja solo con equipaje de mano, los líquidos van en envases chicos y juntos en una bolsa transparente.</li>
+        <li>Dos cosas que nunca están en la lista y siempre se agradecen: protector labial y crema de manos.</li>
       </ul>
-      <h3>El cambio de hora</h3>
-      <p>El domingo 25 de octubre, a las 3 de la madrugada, en toda Europa los relojes se atrasan una hora. Es el día que volvemos. El teléfono se ajusta solo, pero conviene mirarlo dos veces con el horario del vuelo.</p>
+      <p>En buena parte de Europa la farmacia es el primer lugar al que se va por algo menor: se entra, se explica el síntoma y se sale con algo.</p>
     `, en:`
-      <p>It is one of the best months for this route: in Italy the heat and the crowds have both dropped, and in Andalusia it is still a mild summer. These numbers are averages, good for packing and not for planning a day.</p>
-      <div class="tablewrap"><table>
-        <thead><tr><th>Where</th><th>High / low</th><th>How it feels</th><th>Sunrise</th><th>Sunset</th></tr></thead>
-        <tbody>
-          <tr><td>Rome</td><td>23° / 13°</td><td>Sunny, cool mornings</td><td>~7:15</td><td>~18:50</td></tr>
-          <tr><td>Florence</td><td>22° / 11°</td><td>Chilly early, lovely at midday</td><td>~7:25</td><td>~18:55</td></tr>
-          <tr><td>Tuscany</td><td>21° / 10°</td><td>Fog at dawn out in the country</td><td>~7:25</td><td>~18:55</td></tr>
-          <tr><td>Cinque Terre</td><td>21° / 14°</td><td>Mild, with a chance of rain</td><td>~7:30</td><td>~18:55</td></tr>
-          <tr><td>Milan</td><td>19° / 10°</td><td>Grey and damp, rain possible</td><td>~7:35</td><td>~18:45</td></tr>
-          <tr><td>Barcelona</td><td>22° / 15°</td><td>Soft, with sea humidity</td><td>~8:00</td><td>~19:15</td></tr>
-          <tr><td>Seville</td><td>27° / 14°</td><td>Hot at midday, cool at night</td><td>~8:20</td><td>~19:35</td></tr>
-        </tbody>
-      </table></div>
+      <p>The idea is to carry little and buy whatever you can there.</p>
       <ul>
-        <li>The gap between high and low is wide everywhere, above all in Seville, which goes from twenty seven at midday to fourteen before dawn. Walking out at eight dressed for noon is the classic mistake.</li>
-        <li>It gets dark early, and earlier every week. In Rome, at the start of the month, it is night by seven. The good light for photographs is before half past six, and the sunsets at the Giardino degli Aranci or Piazzale Michelangelo have to go in the diary.</li>
+        <li><b>Prescription medicines</b>, in their original box with the prescription to hand: with the name visible, any pharmacy will understand.</li>
+        <li><b>Whatever you already know you use</b>: something for a headache, something for the stomach, an antihistamine if needed. Not because it is unavailable there, but because at three in the morning nobody wants to hunt for a duty pharmacy.</li>
+        <li><b>Toiletries get bought there</b>: they weigh, take space and cost little. If you travel cabin bag only, liquids go in small containers together in a clear bag.</li>
+        <li>Two things never on the list and always welcome: lip balm and hand cream.</li>
       </ul>
-      <h3>The clock change</h3>
-      <p>On Sunday 25 October, at 3 in the morning, clocks across Europe go back an hour. That is the day we fly home. The phone adjusts itself, but it is worth checking twice against the flight time.</p>
+      <p>Across much of Europe the pharmacy is the first stop for anything minor: you walk in, describe the symptom and walk out with something.</p>
     `}},
 
-  {s:{es:'Cómo se paga y las propinas',en:'Paying and tipping'}, k:'prep', html:{es:`
-      <h3>Italia</h3>
+  {s:{es:'La plata, allá',en:'Money, out there'}, k:'prep', html:{es:`
       <ul>
-        <li>En la cuenta aparece el <b>coperto</b>, un cargo por persona que cubre el pan y el mantel, de un par de euros. Tiene que estar avisado en la carta y no es la propina.</li>
-        <li>Si además aparece <em>servizio</em>, esa sí es la propina y ya está cobrada.</li>
-        <li>Si no aparece ninguna, dejar unas monedas o redondear para arriba alcanza. Nadie espera un porcentaje. Por ley aceptan tarjeta y dan el ticket fiscal.</li>
+        <li><b>Contactless en casi todos lados.</b> Igual hace falta algo de efectivo, no mucho: lugares chicos de mostrador donde el posnet "no anda", baños de estación que se pagan con monedas y mercados de barrio.</li>
+        <li><b>Dos tarjetas de bancos distintos</b>, en lugares separados. Si una falla o se pierde, no se queda a pie.</li>
+        <li><b>El efectivo, de cajeros de bancos</b>. Nunca de los cajeros independientes de las esquinas turísticas, que cobran comisiones absurdas y dan un cambio pésimo.</li>
+        <li>Cuando el posnet o el cajero preguntan en qué moneda cobrar, <b>siempre en la moneda local</b>. Elegir la de casa deja que el comercio fije el cambio, y siempre es peor.</li>
+        <li><b>Las preautorizaciones.</b> El alquiler de auto, muchos hoteles y algunas estaciones de servicio bloquean un monto en la tarjeta antes de cobrar lo real. Ese bloqueo no es un gasto, pero consume límite hasta que se libera, que a veces son días. Con varios juntos el mismo día, la tarjeta puede rebotar sin aviso.</li>
       </ul>
-      <h3>España</h3>
-      <p>La propina no es obligatoria ni la esperan. Redondear la cuenta o dejar algo suelto donde se comió bien alcanza y sobra. En Andalucía todavía menos: el precio de la carta es el precio.</p>
-      <h3>El detalle que cambia el precio</h3>
-      <p>En los dos países, el mismo café o la misma cerveza cuestan distinto en la barra, en el salón y en la terraza, y es legal siempre que esté publicado. En Italia, un espresso parado en la barra contra sentarse en una plaza turística puede ser varias veces más caro. La lista con los dos precios está siempre a la vista.</p>
     `, en:`
-      <h3>Italy</h3>
       <ul>
-        <li>The bill carries the <b>coperto</b>, a per person charge of a couple of euros covering bread and the table setting. It has to be printed on the menu and it is not the tip.</li>
-        <li>If <em>servizio</em> also shows up, that one is the tip and it is already charged.</li>
-        <li>If neither appears, leaving some coins or rounding up is plenty. Nobody expects a percentage. By law they take cards and issue a fiscal receipt.</li>
+        <li><b>Contactless almost everywhere.</b> You still need some cash, not much: small counter places where the card machine "is not working", station toilets that take coins, and neighbourhood markets.</li>
+        <li><b>Two cards from different banks</b>, kept in different places. If one fails or goes missing, you are not stranded.</li>
+        <li><b>Cash from bank machines</b>. Never from the independent machines on tourist corners, which charge absurd fees and give a terrible rate.</li>
+        <li>When the card machine or ATM asks which currency to charge in, <b>always the local one</b>. Choosing your home currency lets the shop set the rate, and it is always worse.</li>
+        <li><b>Pre authorisations.</b> Car rental, many hotels and some petrol stations block an amount on the card before charging the real figure. The block is not a charge, but it eats into your limit until it is released, which can take days. With several on the same day, the card can be declined without warning.</li>
       </ul>
-      <h3>Spain</h3>
-      <p>Tipping is neither required nor expected. Rounding the bill up, or leaving some change where you ate well, is more than enough. In Andalusia even less so: the price on the menu is the price.</p>
-      <h3>The detail that changes the price</h3>
-      <p>In both countries the same coffee or the same beer costs differently at the bar, at a table inside, and out on the terrace, and that is legal as long as it is posted. In Italy, an espresso standing at the bar against one sitting in a tourist square can be several times cheaper. The list with both prices is always on display.</p>
+    `}},
+
+  {s:{es:'Alquilar un auto',en:'Renting a car'}, k:'prep', html:{es:`
+      <h3>Al reservar</h3>
+      <ul>
+        <li>Tres o cuatro meses antes y <b>con tarifa que se pueda cancelar gratis</b>. El precio sube fuerte cerca de la fecha y prácticamente no baja; con tarifa cancelable, un mes antes se vuelve a mirar y, si bajó, se reserva de nuevo y se cancela la anterior.</li>
+        <li>Lo estándar es la <b>caja manual</b>. El automático sale bastante más y hay pocos: se pide al reservar.</li>
+        <li>Si van a manejar dos, el <b>segundo conductor</b> se declara y se paga. Si maneja alguien no declarado y pasa algo, el seguro no cubre nada.</li>
+        <li><b>Chico</b>, que en los pueblos las calles y los estacionamientos son angostos, pero con baúl para las valijas: si la categoría dice dos valijas grandes, alcanza.</li>
+        <li>Retirarlo el día que se empieza a manejar y no antes, y en un lugar fuera del centro, como el aeropuerto: un día menos de alquiler, nada de garage y ninguna cámara de zona restringida en la salida.</li>
+        <li>Mirar el <b>horario de la oficina de devolución</b> y el cargo por devolver en otra ciudad, que es donde más se diferencian las empresas.</li>
+      </ul>
+      <h3>Al retirarlo</h3>
+      <ul>
+        <li>La licencia, el permiso internacional si hace falta y una <b>tarjeta de crédito a nombre del conductor</b>, con límite libre para el depósito en garantía. De débito no la aceptan casi nunca.</li>
+        <li>Preguntar y anotar qué combustible carga. Equivocarse arruina el motor y no lo cubre ningún seguro.</li>
+        <li>Fotos del auto por los cuatro lados antes de salir del estacionamiento, con los rayones que ya tiene.</li>
+      </ul>
+      <h3>Al devolverlo</h3>
+      <ul>
+        <li>Con el tanque como lo entregaron, cargando antes y no en la última estación de la autopista, que es la más cara.</li>
+        <li>Fotos de los cuatro lados, del tablero con el kilometraje y el combustible, y del interior. Pedir el comprobante de devolución firmado y no irse sin él. El bloqueo de la tarjeta se libera varios días después.</li>
+        <li><b>La hora importa.</b> La tolerancia suele ser corta, de media hora más o menos, y pasada esa se cobra un día entero más. Dejar el auto con la oficina cerrada no es devolverlo: la devolución fuera de horario es un servicio aparte que se pide al reservar, y sin él el auto sigue a nombre de quien lo alquiló. Si se viene tarde, se llama a la oficina antes de que cierre.</li>
+      </ul>
+    `, en:`
+      <h3>When booking</h3>
+      <ul>
+        <li>Three or four months out and <b>on a rate that allows free cancellation</b>. The price climbs hard near the date and practically never drops; with a cancellable rate you look again a month before and, if it fell, book again and cancel the first.</li>
+        <li>The standard is a <b>manual gearbox</b>. Automatics cost considerably more and are scarce: request one when booking.</li>
+        <li>If two people will drive, the <b>second driver</b> is declared and paid for. If someone undeclared is driving and anything happens, the insurance covers nothing.</li>
+        <li><b>Small</b>, since village streets and car parks are narrow, but with a boot for the bags: if the category says two large suitcases, that is enough.</li>
+        <li>Pick it up the day the driving starts and not before, somewhere outside the centre such as the airport: one day less of rental, no garage and no restricted zone camera on the way out.</li>
+        <li>Check the <b>return office hours</b> and the one way fee, which is where companies differ most.</li>
+      </ul>
+      <h3>At pick up</h3>
+      <ul>
+        <li>The licence, the international permit if needed, and a <b>credit card in the driver’s name</b> with enough free limit for the security deposit. Debit cards are almost never accepted.</li>
+        <li>Ask and write down what fuel it takes. Getting it wrong wrecks the engine and no insurance covers it.</li>
+        <li>Photograph all four sides before leaving the car park, with whatever scratches it already has.</li>
+      </ul>
+      <h3>At drop off</h3>
+      <ul>
+        <li>With the tank as they gave it, filling up beforehand rather than at the last motorway station, which is the dearest.</li>
+        <li>Photographs of all four sides, of the dashboard with mileage and fuel, and of the interior. Ask for the signed return receipt and do not leave without it. The card hold is released several days later.</li>
+        <li><b>The time matters.</b> The grace period is usually short, around half an hour, and past it a whole extra day is charged. Leaving the car with the office closed is not returning it: out of hours return is a separate service requested when booking, and without it the car stays in your name. If you are running late, phone the office before it closes.</li>
+      </ul>
+    `}},
+
+  {s:{es:'Los márgenes que conviene dejar',en:'The margins worth leaving'}, k:'prep', html:{es:`
+      <ul>
+        <li><b>Vuelos internacionales</b>: tres horas antes en el mostrador.</li>
+        <li><b>Vuelos dentro de Europa</b>: dos horas.</li>
+        <li><b>Trenes de alta velocidad</b>: media hora en la estación. En las estaciones grandes, cuarenta minutos: la vía se anuncia con poca anticipación y es mejor esperar sentado con un café que correr por el andén con las valijas.</li>
+        <li><b>Trenes regionales</b>: quince minutos, con el boleto ya validado si es de papel.</li>
+        <li><b>Huelgas de transporte</b>: en varios países de Europa se anuncian con días de anticipación y con franjas de servicio garantizado. Una semana antes de cada tramo importante, mirar el calendario oficial del país.</li>
+      </ul>
+    `, en:`
+      <ul>
+        <li><b>International flights</b>: three hours before at the desk.</li>
+        <li><b>Flights within Europe</b>: two hours.</li>
+        <li><b>High speed trains</b>: half an hour at the station. At big stations, forty minutes: the platform goes up at short notice and it is better to wait sitting with a coffee than to run down the platform with the bags.</li>
+        <li><b>Regional trains</b>: fifteen minutes, with the ticket already validated if it is paper.</li>
+        <li><b>Transport strikes</b>: in several European countries they are announced days ahead, with windows of guaranteed service. A week before each important leg, check the country’s official calendar.</li>
+      </ul>
     `}}
-  ]
-},
+];
+CONSEJOS["uruguay"] = /* Lo que es propio de salir desde Uruguay: las tarjetas uruguayas, el permiso
+   del ACU, la entrada a Europa con pasaporte uruguayo y la diferencia de hora.
+   Es una lista de secciones que "Antes de salir" suma con ...CONSEJOS.uruguay. */
+[
+  {s:{es:'Las tarjetas uruguayas, antes de salir',en:'Uruguayan cards, before leaving'}, k:'prep', html:{es:`
+      <p>Casi todo esto se resuelve desde la app o con un llamado, y conviene dejarlo hecho antes de salir. Desde allá, con diferencia horaria, sin la línea uruguaya prendida y con el wifi de un hotel, las apps de los bancos andan mal y las claves por SMS no llegan.</p>
+      <h3>Con cuál conviene pagar</h3>
+      <ul>
+        <li>No todas cobran lo mismo por comprar afuera. La pregunta al banco es corta: <b>cuánto me cobran por comprar en el exterior con cada una de mis tarjetas</b>, y cuál es el tope por día.</li>
+        <li>En débito, la <b>OCA Blue</b> no tiene recargo por compra en el exterior, y las Platinum de débito de los bancos suelen estar igual. Es la que conviene llevar primera en la billetera del teléfono para el día a día.</li>
+        <li>Las <b>Platinum de crédito</b> de Itaú y de Santander cobran menos recargo que una común y suman acceso a salas VIP y seguro de viaje si el pasaje se pagó con ellas. Las salas se manejan con una app propia, como <em>Visa Airport Companion</em>: instalarla y registrar la tarjeta en casa, no en el aeropuerto.</li>
+      </ul>
+      <h3>Las cuotas de OCA</h3>
+      <p>OCA deja pagar en <b>tres cuotas sin interés</b> lo que se compra afuera, en un local o por internet, y en algunas épocas seis. No viene activado: hay que adherirse una vez desde la app, en <em>Más</em> y después <em>3 cuotas en el exterior</em>. Después se compra normal y las cuotas aparecen solas. Sirve para lo grande y planificado, como un alojamiento o el alquiler del auto. Hay un monto mínimo por compra, chico, y la comisión por comprar afuera se cobra igual.</p>
+      <h3>El tope por día</h3>
+      <p>Casi todas tienen un límite de consumo en el exterior por día, muchas veces cerca de los quinientos dólares, y al pasarlo la compra rebota sin que nadie avise por qué. Un alquiler de auto, una cena y una entrada el mismo día llegan sin darse cuenta. Saber cuál es el número, repartir los gastos grandes en días distintos y, si hay algo caro, pedir que lo levanten ese día.</p>
+      <h3>Dos jugadas para tener margen</h3>
+      <ul>
+        <li><b>Pagar la tarjeta de crédito de más</b> antes de salir: ese saldo a favor se consume primero y el límite queda entero para lo que aparezca.</li>
+        <li><b>Pedir un aumento temporal del límite.</b> Suelen dar hasta un cincuenta por ciento más por unos meses, y es lo que más sirve para el depósito de un auto.</li>
+      </ul>
+      <p>Y avisar las fechas del viaje, para que no frenen los consumos por movimientos raros.</p>
+    `, en:`
+      <p>Almost all of this is done from the app or with one phone call, and it is worth having it done before leaving. From abroad, with the time difference, the Uruguayan line switched off and hotel wifi, bank apps behave badly and one time codes by text never arrive.</p>
+      <h3>Which one to pay with</h3>
+      <ul>
+        <li>They do not all charge the same for foreign purchases. The question for the bank is short: <b>what do I pay for buying abroad with each of my cards</b>, and what is the daily cap.</li>
+        <li>On debit, the <b>OCA Blue</b> has no foreign purchase surcharge, and the banks’ Platinum debit cards are usually the same. That is the one to keep first in the phone wallet for everyday spending.</li>
+        <li>The <b>Platinum credit cards</b> from Itaú and Santander charge less than a standard card and add airport lounge access and travel insurance if the flights were paid with them. The lounges run through their own app, such as <em>Visa Airport Companion</em>: install it and register the card at home, not at the airport.</li>
+      </ul>
+      <h3>OCA’s instalments</h3>
+      <p>OCA lets you split foreign purchases, in a shop or online, into <b>three interest free instalments</b>, and six at some times of year. It is not on by default: you sign up once in the app, under <em>Más</em> and then <em>3 cuotas en el exterior</em>. After that you pay normally and the instalments appear on their own. It suits the big planned items, such as accommodation or the car rental. There is a small minimum per purchase, and the foreign purchase fee still applies.</p>
+      <h3>The daily cap</h3>
+      <p>Almost every card has a daily limit on foreign spending, often around five hundred dollars, and past it the purchase is declined with nobody saying why. A car rental, a dinner and a ticket on the same day get there without you noticing. Know the number, spread the big spends across different days and, for something expensive, ask for it to be lifted that day.</p>
+      <h3>Two moves for more room</h3>
+      <ul>
+        <li><b>Overpay the credit card</b> before leaving: the credit balance is used first and the whole limit stays free for whatever comes up.</li>
+        <li><b>Ask for a temporary limit increase.</b> They usually grant up to fifty per cent more for a few months, and it is what helps most with a car deposit.</li>
+      </ul>
+      <p>And tell the bank the travel dates, so spending is not frozen for looking unusual.</p>
+    `}},
+
+  {s:{es:'Entrar a Europa y manejar con licencia uruguaya',en:'Entering Europe and driving on a Uruguayan licence'}, k:'prep', html:{es:`
+      <h3>La entrada</h3>
+      <ul>
+        <li>Con pasaporte uruguayo no hace falta visa para estadías cortas en el espacio Schengen.</li>
+        <li>El registro previo <b>ETIAS</b> es un trámite online, barato y rápido, que la Unión Europea viene anunciando. Antes de cada viaje, mirar si ya se pide para esas fechas.</li>
+        <li>El seguro de viaje con cobertura médica es requisito para entrar, y lo pueden pedir en el control.</li>
+      </ul>
+      <h3>El permiso internacional del ACU</h3>
+      <ul>
+        <li>Para alquilar y manejar con licencia uruguaya hace falta el <b>permiso internacional de conducir</b>. Lo emite el ACU, sale en el día y vale un año.</li>
+        <li>No reemplaza a la licencia: la acompaña. Se llevan y se muestran las dos, en el mostrador de la rentadora y en un control de tránsito.</li>
+        <li>Revisar que el nombre coincida exacto con el del pasaporte y con el de la tarjeta que paga el alquiler. Una letra distinta alcanza para que en el mostrador se pongan difíciles.</li>
+      </ul>
+    `, en:`
+      <h3>Getting in</h3>
+      <ul>
+        <li>A Uruguayan passport needs no visa for short stays in the Schengen area.</li>
+        <li>The <b>ETIAS</b> pre registration is a cheap, quick online step the European Union has been announcing. Before each trip, check whether it is already required for those dates.</li>
+        <li>Travel insurance with medical cover is an entry requirement, and border control can ask for it.</li>
+      </ul>
+      <h3>The international permit from the ACU</h3>
+      <ul>
+        <li>To rent and drive on a Uruguayan licence you need the <b>international driving permit</b>. The ACU issues it the same day and it is valid for a year.</li>
+        <li>It does not replace the licence, it goes with it. Carry and show both, at the rental desk and at any traffic stop.</li>
+        <li>Check that the name matches the passport exactly, and the card paying for the rental too. One different letter is enough for the desk to turn difficult.</li>
+      </ul>
+    `}},
+
+  {s:{es:'El chip uruguayo y la hora',en:'The Uruguayan SIM and the time difference'}, k:'prep', html:{es:`
+      <ul>
+        <li>La eSIM da datos, no el número uruguayo. <b>Dejar el chip físico puesto con los datos apagados</b>, para seguir recibiendo los SMS del banco, que son los que después autorizan una compra.</li>
+        <li>Montevideo está todo el año en la misma hora. Italia, España y Francia están <b>cinco horas adelante</b> en el verano europeo, y <b>cuatro</b> desde el último domingo de octubre, cuando allá se atrasan los relojes, hasta el último domingo de marzo. El Reino Unido, una hora menos que ellos.</li>
+        <li>Para quien trabaja a distancia, juega a favor: la mañana europea es tiempo tranquilo y las reuniones con Uruguay caen de tarde.</li>
+      </ul>
+    `, en:`
+      <ul>
+        <li>The eSIM gives you data, not your Uruguayan number. <b>Leave the physical SIM in with its data switched off</b>, so the bank’s text messages keep arriving, since those are what authorise a purchase later.</li>
+        <li>Montevideo keeps the same time all year. Italy, Spain and France are <b>five hours ahead</b> during the European summer, and <b>four</b> from the last Sunday in October, when the clocks go back there, until the last Sunday in March. The United Kingdom is one hour behind them.</li>
+        <li>For anyone working remotely, it helps: the European morning is quiet time and meetings with Uruguay land in the afternoon.</li>
+      </ul>
+    `}}
+];
+CONSEJOS["italia"] = /* Italia, para cualquier viaje: como se paga, como se maneja, los trenes y el
+   italiano minimo. Es un capitulo entero: una guia lo pone como pestana con
+   "@italia" en `partes`. Lo propio de cada ciudad va en el capitulo de la
+   ciudad, no aca. Escrito impersonal, como todo lo de esta carpeta. */
 {
-  id:'ita',
-  nav:{es:'Italiano',en:'Italian'},
-  name:{es:'Un poco de italiano',en:'A little Italian'},
-  plate:'Qualche parola',
+  id:'italia',
+  nav:{es:'Italia',en:'Italy'},
+  name:{es:'Italia',en:'Italy'},
+  plate:{es:'Cómo funciona',en:'How it works'},
   accent:'#15803D', lt:'#86EFAC', maps:'',
-  lede:{es:'Las dos primeras semanas son en Italia, y con diez palabras alcanza para que el trato cambie por completo. Nadie espera que hablemos italiano: lo que se agradece es que lo intentemos. Cada frase viene con cómo se dice, para poder leerla parado en un mostrador.',
-        en:'The first two weeks are in Italy, and ten words are enough to change how you get treated. Nobody expects you to speak Italian: what counts is that you try. Every phrase comes with how it sounds, so you can read it off the screen standing at a counter.'},
+  lede:{es:'Lo que sirve en cualquier parte de Italia: cómo se paga, cómo se maneja y se viaja en tren, y el italiano mínimo para que el trato cambie. Lo propio de cada ciudad está en su pestaña.',
+        en:'What works anywhere in Italy: how paying works, how to drive and take the train, and the minimum Italian that changes how you are treated. Anything specific to a city is in that city’s tab.'},
   quick:[
-    [{es:'Para',en:'For'},{es:'Las dos primeras semanas',en:'The first two weeks'}],
-    [{es:'Lo mínimo',en:'The minimum'},{es:'Diez palabras, nada más',en:'Ten words, no more'}],
-    [{es:'Lo que más rinde',en:'Best value'},{es:'Buongiorno, grazie, scusi',en:'Buongiorno, grazie, scusi'}],
-    [{es:'Bajar antes',en:'Download first'},{es:'El traductor con italiano',en:'The translator, Italian offline'}],
-    [{es:'Ojo',en:'Watch out'},{es:'La consonante doble cambia la palabra',en:'Double consonants change the word'}]
+    [{es:'Moneda',en:'Currency'},{es:'Euro',en:'Euro'}],
+    [{es:'Propina',en:'Tipping'},{es:'El coperto no es propina',en:'The coperto is not a tip'}],
+    [{es:'Emergencias',en:'Emergencies'},'112'],
+    [{es:'Enchufe',en:'Plugs'},{es:'Tipos C, F y L, 230 V',en:'Types C, F and L, 230 V'}],
+    [{es:'Si el italiano no sale',en:'If Italian fails'},{es:'Inglés antes que castellano',en:'English before Spanish'}],
+    [{es:'Ojo',en:'Watch out'},{es:'El ticket del peaje, lejos del celular',en:'Keep the toll ticket away from phones'}]
   ],
   sections:[
+  {s:{es:'Cómo se paga y las propinas',en:'Paying and tipping'}, k:'compra', html:{es:`
+      <ul>
+        <li>En la cuenta aparece el <b>coperto</b>, un cargo por persona de un par de euros que cubre el pan y la mesa. Tiene que estar avisado en la carta y no es la propina.</li>
+        <li>Si además dice <em>servizio</em>, esa sí es la propina y ya está cobrada. Si no aparece ninguna de las dos, redondear o dejar unas monedas alcanza: nadie espera un porcentaje.</li>
+        <li><b>La cuenta no viene sola.</b> Traerla sin que la pidan se considera echar al cliente, así que hay que pedirla: <em>il conto, per favore</em>.</li>
+        <li><b>Barra, mesa y terraza no cuestan lo mismo</b>, y es legal mientras esté publicado. Un espresso parado en la barra puede costar varias veces menos que sentado en una plaza turística. En muchos bares se paga primero en la caja y después se pide en la barra con el ticket.</li>
+        <li>Por ley aceptan tarjeta y dan el ticket fiscal. Igual, en bares de barrio, mercados y algunas trattorias el efectivo es bienvenido, y los baños de las estaciones se pagan con monedas.</li>
+      </ul>
+    `, en:`
+      <ul>
+        <li>The bill carries the <b>coperto</b>, a per person charge of a couple of euros for bread and the table. It has to be printed on the menu and it is not the tip.</li>
+        <li>If it also says <em>servizio</em>, that one is the tip and it is already charged. If neither appears, rounding up or leaving a few coins is plenty: nobody expects a percentage.</li>
+        <li><b>The bill does not just arrive.</b> Bringing it unasked reads as throwing the customer out, so you have to ask: <em>il conto, per favore</em>.</li>
+        <li><b>Bar, table and terrace do not cost the same</b>, and that is legal as long as it is posted. An espresso standing at the bar can cost several times less than sitting in a tourist square. In many bars you pay first at the till and then order at the counter with the receipt.</li>
+        <li>By law they take cards and issue a fiscal receipt. Even so, in neighbourhood bars, markets and some trattorias cash is welcome, and station toilets take coins.</li>
+      </ul>
+    `}},
+
+  {s:{es:'Manejar en Italia',en:'Driving in Italy'}, k:'mover', items:[
+    {nota:1,
+     n:{es:'La ZTL, en casi todos los centros',en:'The ZTL, in almost every old centre'},
+     d:{es:'Casi todos los centros históricos tienen <em>zona traffico limitato</em>: una zona restringida con cámaras que leen la patente en cada entrada. La multa llega meses después a la rentadora, que la paga, la carga a la tarjeta y suma su propio cargo de gestión.',
+        en:'Almost every historic centre has a <em>zona traffico limitato</em>: a restricted zone with cameras reading plates at every entry. The fine reaches the rental company months later, which pays it, charges it to the card and adds its own handling fee.'},
+     t:'mover',
+     tip:{es:'La regla que no falla: estacionar afuera y entrar caminando. Nunca cruzar el cartel redondo de borde rojo que dice <em>zona traffico limitato</em>, aunque el GPS lo indique: el GPS no sabe qué portón está activo.',
+          en:'The rule that never fails: park outside and walk in. Never pass the round red bordered sign reading <em>zona traffico limitato</em>, even if the GPS says so: the GPS does not know which gate is live.'}},
+    {nota:1,
+     n:{es:'Los peajes, y el ticket que se arruina',en:'Tolls, and the ticket that gets ruined'},
+     d:{es:'En la autopista se saca un ticket al entrar y se paga al salir según los kilómetros, en una máquina que acepta tarjeta sin problema. Las cabinas con cartel <b>azul</b> son de tarjeta, las <b>blancas</b> de efectivo y las <b>amarillas</b>, con la T, solo de Telepass: meterse en una sin el aparato traba todo y no se puede dar marcha atrás.',
+        en:'On the motorway you take a ticket on entry and pay on exit by distance, at a machine that takes cards without fuss. Lanes with a <b>blue</b> sign are for cards, <b>white</b> ones for cash, and <b>yellow</b> ones marked T are Telepass only: entering one without the device jams everything, and reversing is not allowed.'},
+     t:'mover',
+     tip:{es:'El ticket tiene una <b>banda magnética muy sensible</b>, y pasa más de lo que parece que salga ilegible en la máquina de salida por haber viajado debajo o al lado de un celular. Guardarlo lejos de teléfonos, tarjetas y soportes con imán, por ejemplo en la guantera. Si la máquina no lo lee: no bajarse ni dar marcha atrás, apretar el botón de asistencia y decir en qué peaje se entró, porque si no pueden cobrar desde la entrada más lejana. A veces dan un comprobante para pagar después, con quince días de plazo.',
+          en:'The ticket has a <b>very sensitive magnetic strip</b>, and it happens more than you would think that it comes out unreadable at the exit machine after travelling under or next to a phone. Keep it away from phones, cards and magnetic mounts, in the glovebox for instance. If the machine cannot read it: do not get out or reverse, press the assistance button and say which toll gate you entered at, because otherwise they can charge from the furthest entry. Sometimes they hand over a slip to pay later, with fifteen days to do it.'}},
+    {nota:1,
+     n:{es:'La nafta, y las dos formas de pagarla',en:'Fuel, and the two ways to pay for it'},
+     d:{es:'<em>Benzina</em> es nafta y <em>gasolio</em> es gasoil: anotarlo al retirar el auto, porque equivocarse arruina el motor. Hay dos surtidores del mismo combustible, <em>fai da te</em>, que es autoservicio y más barato, y <em>servito</em>, donde atienden y cuesta bastante más.',
+        en:'<em>Benzina</em> is petrol and <em>gasolio</em> is diesel: write it down at pick up, because getting it wrong wrecks the engine. There are two pumps for the same fuel, <em>fai da te</em>, self service and cheaper, and <em>servito</em>, where someone serves you and it costs considerably more.'},
+     t:'mover',
+     tip:{es:'Y no todas cobran igual. En algunas se paga primero en la máquina del surtidor lo que se quiere cargar, y después se carga. En otras, sobre todo las de autoservicio sin gente, la máquina <b>bloquea un monto alto en la tarjeta</b> antes de habilitar el surtidor, se carga lo que se quiere y después se devuelve la diferencia: lo que aparece en la app del banco no es lo que se cargó. Ese bloqueo cuenta para el tope diario de la tarjeta. En el campo muchas cierran al mediodía y los domingos y quedan solo con la máquina, así que no conviene andar con menos de un cuarto de tanque.',
+          en:'And they do not all charge the same way. At some you pay first at the pump machine for the amount you want, then fill up. At others, especially unstaffed self service ones, the machine <b>blocks a large amount on the card</b> before enabling the pump, you fill what you want and the difference is refunded afterwards: what the bank app shows is not what you pumped. That block counts towards the card’s daily cap. Out in the country many close at midday and on Sundays and run on the machine alone, so do not drive on less than a quarter of a tank.'}},
+    {nota:1,
+     n:{es:'Dónde se puede estacionar',en:'Where you can park'},
+     d:{es:'Las líneas pintadas en el piso lo dicen. <b>Azules</b>: pago, con máquina o app. <b>Blancas</b>: libre, a veces con tiempo limitado y disco horario. <b>Amarillas</b>: reservado para residentes, discapacitados o carga, y ahí no.',
+        en:'The painted lines say it. <b>Blue</b>: paid, by machine or app. <b>White</b>: free, sometimes time limited with a parking disc. <b>Yellow</b>: reserved for residents, disabled drivers or loading, and not for you.'},
+     t:'mover',
+     tip:{es:'En los pueblos amurallados, la playa paga justo antes de la puerta, señalizada con la P, es casi siempre la mejor opción.',
+          en:'In walled towns, the paid car park just before the gate, signposted with a P, is almost always the best option.'}},
+    {nota:1,
+     n:{es:'Las velocidades',en:'Speed limits'},
+     d:{es:'En autopista el máximo es 130 km/h, y 110 con lluvia. En rutas, 90, y en ciudad, 50. Además de los radares fijos hay controles de velocidad promedio entre dos puntos, el <em>Tutor</em>.',
+        en:'On the motorway the limit is 130 km/h, and 110 in the rain. On ordinary roads, 90, and in towns, 50. Besides fixed cameras there are average speed checks between two points, the <em>Tutor</em>.'},
+     t:'mover',
+     tip:{es:'Los locales manejan rápido y pegados atrás. No hay que seguirles el ritmo: con dejarlos pasar alcanza.',
+          en:'Locals drive fast and close behind. No need to match them: letting them pass is enough.'}}
+  ]},
+
+  {s:{es:'Trenes, taxis y huelgas',en:'Trains, taxis and strikes'}, k:'mover', items:[
+    {nota:1,
+     n:{es:'Cómo se viaja en tren',en:'How train travel works'},
+     d:{es:'Los de alta velocidad tienen asiento asignado y se validan solos con el QR del teléfono. Los regionales no tienen asiento y, si el boleto es de papel, hay que validarlo en la maquinita del andén antes de subir.',
+        en:'High speed trains have assigned seats and validate themselves from the QR code on the phone. Regionals have no seats, and if the ticket is paper it has to be validated in the little machine on the platform before boarding.'},
+     t:'mover',
+     tip:{es:'Subir a un regional con boleto sin validar es multa, y los inspectores existen. Comprado por la app con fecha y hora, ya va validado. Las valijas van en los estantes de las puntas del vagón.',
+          en:'Boarding a regional with an unvalidated ticket is a fine, and the inspectors are real. Bought on the app with a date and time, it is already validated. Bags go on the racks at either end of the carriage.'}},
+    {nota:1,
+     n:{es:'Trenitalia o Italo, y cuándo comprar',en:'Trenitalia or Italo, and when to buy'},
+     d:{es:'Compiten en las rutas rápidas y usan las mismas estaciones; Italo suele salir algo más barato, así que vale mirar las dos apps. Los rápidos funcionan como un avión: las tarifas baratas se agotan y conviene comprar con tiempo.',
+        en:'They compete on the fast routes and use the same stations; Italo is often a little cheaper, so check both apps. Fast trains work like planes: the cheap fares sell out and it pays to buy early.'},
+     t:'mover',
+     tip:{es:'Los regionales son al revés: precio fijo, sin asiento, y muchas veces el boleto vale para cualquier tren del día. Comprarlos antes no ahorra nada y ata a un horario: se compran el mismo día. Y las tarifas más baratas de los rápidos no se cambian ni se devuelven; si hay chance de mover el horario, la del medio suele compensar.',
+          en:'Regionals are the opposite: fixed price, no seat, and often the ticket is good for any train that day. Buying ahead saves nothing and ties you to a time: buy them on the day. And the cheapest fast fares cannot be changed or refunded; if the time might move, the middle fare usually pays off.'}},
+    {nota:1,
+     n:{es:'Taxis y apps',en:'Taxis and apps'},
+     d:{es:'En Italia Uber funciona solo en su versión cara. Las que sirven son <b>FreeNow</b> e <b>itTaxi</b>, que piden taxis comunes. En la calle y en los aeropuertos, solo los taxis blancos de la fila oficial, nunca alguien que se acerca a ofrecer.',
+        en:'In Italy Uber only runs its expensive tier. The useful ones are <b>FreeNow</b> and <b>itTaxi</b>, which call ordinary cabs. On the street and at airports, only the white cabs from the official rank, never someone who walks up offering a ride.'},
+     t:'mover',
+     tip:{es:'Las otras apps que rinden: <b>Trenitalia</b> e <b>Italo</b> para los trenes, y <b>TheFork</b> para reservar mesa, que muchas veces tiene descuento.',
+          en:'The other apps that earn their place: <b>Trenitalia</b> and <b>Italo</b> for trains, and <b>TheFork</b> for booking tables, often with a discount.'}},
+    {nota:1,
+     n:{es:'Las huelgas',en:'Strikes'},
+     d:{es:'Los <em>scioperi</em> de trenes, buses o aviones son habituales y no son sorpresa: se anuncian con al menos diez días de anticipación, tienen día y horario definidos y hay franjas con servicio garantizado.',
+        en:'Train, bus and air <em>scioperi</em> are routine and never a surprise: they are announced at least ten days ahead, with a set day and hours, and there are windows of guaranteed service.'},
+     t:'mover',
+     tip:{es:'Una semana antes de cada tramo importante, mirar el calendario oficial de huelgas del ministerio de transporte. Si cae una ese día, se mueve el horario a la franja garantizada.',
+          en:'A week before each important leg, check the transport ministry’s official strike calendar. If one falls on the day, shift to the guaranteed window.'}}
+  ]},
+
+  {s:{es:'El idioma: con quién y en qué',en:'Language: with whom, and in what'}, k:'idioma', items:[
+    {nota:1,
+     n:{es:'Inglés antes que castellano',en:'English before Spanish'},
+     d:{es:'El castellano se entiende en las tiendas grandes y en las cadenas, de ropa o de comida. En los lugares chicos, si el castellano no funciona, el inglés suele funcionar mejor: lo prefieren antes que hacer el esfuerzo con un idioma parecido al suyo.',
+        en:'Spanish gets understood in big shops and chains, clothing or food. In small places, if Spanish does not work, English usually works better: people prefer it to straining at a language close to their own.'},
+     t:'idioma',
+     tip:{es:'El orden que funciona: saludar en italiano, que siempre cae bien, y si la charla sigue, preguntar <em>parla inglese?</em> antes de largarse en castellano.',
+          en:'The order that works: greet in Italian, which always goes down well, and if the conversation continues, ask <em>parla inglese?</em> before launching into Spanish.'}},
+    {nota:1,
+     n:{es:'Nadie espera que se hable italiano',en:'Nobody expects you to speak Italian'},
+     d:{es:'Con diez palabras alcanza para que el trato cambie por completo: lo que se agradece es el intento. Cada frase de abajo viene con cómo se dice, para poder leerla parado en un mostrador.',
+        en:'Ten words are enough to change how you are treated: what counts is the attempt. Every phrase below comes with how it sounds, so you can read it off the screen standing at a counter.'},
+     t:'idioma',
+     tip:{es:'Antes de salir, bajar el italiano en el traductor del teléfono: lee cartas y carteles con la cámara sin señal.',
+          en:'Before leaving, download Italian in the phone’s translator: it reads menus and signs through the camera with no signal.'}}
+  ]},
 
   {s:{es:'Las diez que hay que saber',en:'The ten to actually learn'}, k:'idioma', frases:[
     ['Buongiorno',{es:'buon-YÓR-no',en:'bwon-JOR-noh'},
@@ -1012,7 +1109,7 @@ const CITIES = [
      {es:'Hola y chau, las dos cosas. Es informal: con un mozo, un vendedor o alguien mayor, mejor buongiorno.',
       en:'Both hi and bye. It is informal: with a waiter, a shopkeeper or someone older, use buongiorno.'}],
     ['Salve',{es:'SÁL-ve',en:'SAHL-veh'},
-     {es:'Un hola neutro, ni formal ni informal. Sirve cuando no sabemos cuál de los dos usar.',
+     {es:'Un hola neutro, ni formal ni informal. Sirve cuando no se sabe cuál de los dos usar.',
       en:'A neutral hello, neither formal nor informal. Handy when you cannot tell which one to use.'}],
     ['Buonanotte',{es:'buo-na-NÓT-te',en:'bwoh-nah-NOT-teh'},
      {es:'Buenas noches, pero solo para irse a dormir. Para entrar a un restaurante de noche es buonasera.',
@@ -1033,8 +1130,8 @@ const CITIES = [
      {es:'No hablo italiano. Dicho en italiano, abre todas las puertas.',
       en:'I do not speak Italian. Said in Italian, it opens every door.'}],
     ['Parla inglese?',{es:'PÁR-la in-GLÉ-se',en:'PAR-lah een-GLEH-zeh'},
-     {es:'Habla inglés. <b>Parla spagnolo?</b> es habla castellano, y en zona turística pasa seguido que sí.',
-      en:'Do you speak English. <b>Parla spagnolo?</b> is do you speak Spanish, and in tourist areas the answer is often yes.'}],
+     {es:'Habla inglés. Es la pregunta que más rinde: fuera de las tiendas grandes y las cadenas, el inglés funciona más seguido que el castellano. <b>Parla spagnolo?</b> es habla castellano.',
+      en:'Do you speak English. The question that pays off most: outside big shops and chains, English works more often than Spanish. <b>Parla spagnolo?</b> is do you speak Spanish.'}],
     ['Non capisco',{es:'non ca-PÍS-co',en:'non kah-PEE-skoh'},
      {es:'No entiendo.',en:'I do not understand.'}],
     ['Più lentamente, per favore',{es:'piu len-ta-MÉN-te',en:'pyoo len-tah-MEN-teh'},
@@ -1050,7 +1147,7 @@ const CITIES = [
 
   {s:{es:'El baño, que es lo primero que se pregunta',en:'The bathroom, the first thing you ask'}, k:'idioma', frases:[
     ['Dov’è il bagno?',{es:'do-VÉ il BÁ-ño',en:'doh-VEH eel BAH-nyoh'},
-     {es:'Dónde está el baño. La <em>gn</em> italiana es exactamente nuestra <em>ñ</em>.',
+     {es:'Dónde está el baño. La <em>gn</em> italiana es exactamente la <em>ñ</em>.',
       en:'Where is the bathroom. Italian <em>gn</em> is the “ny” in “canyon”.'}],
     ['Il bagno, per favore?',{es:'il BÁ-ño per fa-VÓ-re',en:'eel BAH-nyoh pair fah-VOH-reh'},
      {es:'La versión corta, y funciona igual de bien.',en:'The short version, and it works just as well.'}],
@@ -1071,7 +1168,7 @@ const CITIES = [
     ['Sempre dritto',{es:'SÉM-pre DRÍT-to',en:'SEM-preh DREET-toh'},
      {es:'Todo derecho, siempre de frente.',en:'Straight ahead, keep going.'}],
     ['Mi sono perso',{es:'mi SÓ-no PÉR-so',en:'mee SOH-noh PAIR-soh'},
-     {es:'Me perdí. Si lo dice Vale, <b>mi sono persa</b>.',
+     {es:'Me perdí. Una mujer dice <b>mi sono persa</b>.',
       en:'I am lost. A woman says <b>mi sono persa</b>.'}],
     ['Può mostrarmi sulla mappa?',{es:'puó mos-TRÁR-mi SÚL-la MÁP-pa',en:'pwoh moh-STRAR-mee SOOL-lah MAHP-pah'},
      {es:'Me lo puede mostrar en el mapa. Con el teléfono en la mano, resuelve lo que las palabras no.',
@@ -1085,7 +1182,7 @@ const CITIES = [
      {es:'Tenemos una reserva.',en:'We have a booking.'}],
     ['Il menù, per favore',{es:'il me-NÚ',en:'eel meh-NOO'},
      {es:'La carta, por favor.',en:'The menu, please.'}],
-    ['Che cosa mi consiglia?',{es:'ke CÓ-sa mi con-SÍ-lla',en:'keh KOH-zah mee kon-SEE-lyah'},
+    ['Che cosa mi consiglia?',{es:'ke CÓ-sa mi con-SÍ-lia',en:'keh KOH-zah mee kon-SEE-lyah'},
      {es:'Qué me recomienda. La mejor frase de todas: casi siempre contestan con lo que sale bien ese día.',
       en:'What do you recommend. The best phrase of all: the answer is usually whatever is good that day.'}],
     ['Vorrei...',{es:'vo-RRÉI',en:'vor-RAY'},
@@ -1124,7 +1221,7 @@ const CITIES = [
 
   {s:{es:'El café, que tiene sus reglas',en:'Coffee, which has its own rules'}, k:'idioma', frases:[
     ['Un caffè, per favore',{es:'un caf-FÉ',en:'oon kahf-FEH'},
-     {es:'Un café. En Italia eso es un espresso corto y nada más. Si queremos uno largo, hay que decirlo.',
+     {es:'Un café. En Italia eso es un espresso corto y nada más. Para uno largo, hay que decirlo.',
       en:'A coffee. In Italy that means a short espresso, full stop. For anything longer you have to say so.'}],
     ['Un caffè macchiato',{es:'un caf-FÉ mak-KIÁ-to',en:'oon kahf-FEH mahk-KYAH-toh'},
      {es:'Un espresso con una gota de leche. Lo más cercano a un cortado.',
@@ -1148,7 +1245,7 @@ const CITIES = [
      {es:'Pago primero. En muchos bares se paga en la caja y después se pide con el ticket.',
       en:'Do I pay first. In many bars you pay at the till and then order with the receipt.'}],
     ['Lo scontrino',{es:'lo scon-TRÍ-no',en:'loh skon-TREE-noh'},
-     {es:'El ticket. Es el papel que se apoya en la barra para que nos atiendan.',
+     {es:'El ticket. Es el papel que se apoya en la barra para que atiendan.',
       en:'The receipt. It is the slip you put on the bar counter to get served.'}]
   ]},
 
@@ -1179,8 +1276,8 @@ const CITIES = [
   ]},
 
   {s:{es:'Trenes, boletos y andenes',en:'Trains, tickets and platforms'}, k:'idioma', frases:[
-    ['Un biglietto per..., per favore',{es:'un bi-LLÉT-to per',en:'oon bee-LYET-toh pair'},
-     {es:'Un boleto para. La <em>gli</em> italiana suena como nuestra <em>ll</em>.',
+    ['Un biglietto per..., per favore',{es:'un bi-LIÉT-to per',en:'oon bee-LYET-toh pair'},
+     {es:'Un boleto para. La <em>gli</em> italiana suena como una <em>li</em> rápida.',
       en:'A ticket to. Italian <em>gli</em> sounds like the “lli” in “million”.'}],
     ['Andata e ritorno',{es:'an-DÁ-ta e ri-TÓR-no',en:'ahn-DAH-tah eh ree-TOR-noh'},
      {es:'Ida y vuelta. Solo ida es <b>solo andata</b>.',
@@ -1231,20 +1328,20 @@ const CITIES = [
      {es:'Dónde está la farmacia. La cruz verde de la vereda es la señal, y hay una de turno siempre.',
       en:'Where is the pharmacy. The green cross on the street is the sign, and one is always on duty.'}],
     ['Mi sono chiuso fuori',{es:'mi SÓ-no KIÚ-so FUÓ-ri',en:'mee SOH-noh KYOO-zoh FWOH-ree'},
-     {es:'Me quedé afuera. Con ocho alojamientos en tres semanas, no es una frase tan improbable.',
-      en:'I locked myself out. With eight places to stay in three weeks, not that unlikely a phrase.'}]
+     {es:'Me quedé afuera. Una mujer dice <b>chiusa</b>. Con tanto alojamiento sin recepción, no es una frase tan improbable.',
+      en:'I locked myself out. A woman says <b>chiusa</b>. With so many places that have no front desk, not that unlikely a phrase.'}]
   ]},
 
   {s:{es:'Cómo se pronuncia', en:'How it is pronounced'}, k:'idioma', html:{es:`
-      <p>El italiano se lee casi como se escribe, igual que el castellano, y eso nos deja bastante arriba. Lo que cambia son seis o siete reglas, y con esas alcanza para leer cualquier cartel en voz alta sin quedar en ridículo.</p>
+      <p>El italiano se lee casi como se escribe, igual que el castellano, y eso deja a quien lo habla bastante arriba. Lo que cambia son seis o siete reglas, y con esas alcanza para leer cualquier cartel en voz alta sin quedar en ridículo.</p>
       <h3>Las que hay que saber</h3>
       <ul>
         <li><b>ci, ce</b> suenan <em>chi, che</em>: <em>cinque</em> es <em>chínkue</em>, <em>piacere</em> es <em>piachére</em>.</li>
         <li><b>chi, che</b> suenan <em>qui, que</em>: <em>chianti</em> es <em>quianti</em>, <em>perché</em> es <em>perqué</em>.</li>
-        <li><b>gi, ge</b> suenan como nuestra <em>y</em> rioplatense, un poco más marcada: <em>giorno</em>, <em>gelato</em>.</li>
+        <li><b>gi, ge</b> suenan como la <em>y</em> rioplatense, un poco más marcada: <em>giorno</em>, <em>gelato</em>.</li>
         <li><b>ghi, ghe</b> suenan <em>gui, gue</em>: <em>spaghetti</em> es <em>spaguetti</em>.</li>
-        <li><b>gn</b> es nuestra <em>ñ</em>, sin vueltas: <em>bagno</em> es <em>baño</em>, <em>gnocchi</em> es <em>ñokki</em>.</li>
-        <li><b>gli</b> es nuestra <em>ll</em>: <em>biglietto</em> es <em>billetto</em>, <em>figlio</em> es <em>fillo</em>.</li>
+        <li><b>gn</b> es la <em>ñ</em>, sin vueltas: <em>bagno</em> es <em>baño</em>, <em>gnocchi</em> es <em>ñokki</em>.</li>
+        <li><b>gli</b> suena como una <em>li</em> dicha rápido, sin la <em>sh</em> rioplatense: <em>biglietto</em> es casi <em>bilietto</em>, <em>figlio</em> es casi <em>filio</em>.</li>
         <li><b>sc</b> antes de <em>i</em> o <em>e</em> suena <em>sh</em>: <em>sciopero</em>, <em>prosciutto</em>.</li>
         <li><b>z</b> suena <em>ts</em>: <em>grazie</em> es <em>gratsie</em>, <em>pizza</em> es <em>pitsa</em>.</li>
         <li>La <b>h</b> no suena nunca y la <b>v</b> es labiodental de verdad, no una <em>b</em>.</li>
@@ -1252,7 +1349,7 @@ const CITIES = [
       <h3>La consonante doble, que no es un detalle</h3>
       <p>En italiano una consonante doble se sostiene, y eso cambia la palabra. <em>Nonno</em> es abuelo y <em>nono</em> es noveno. <em>Penne</em> son los fideos y <em>pene</em> es exactamente lo que parece, así que al pedir pasta conviene estirar esa <em>n</em>. Es el error que más risa causa y el más fácil de evitar: si está escrita doble, se dura el doble.</p>
       <h3>El acento</h3>
-      <p>Casi siempre cae en la penúltima sílaba, igual que en castellano, así que la intuición funciona. Las excepciones suelen venir marcadas con tilde, como en <em>perché</em>, <em>caffè</em> o <em>città</em>. En este capítulo la sílaba fuerte va en mayúscula.</p>
+      <p>Casi siempre cae en la penúltima sílaba, igual que en castellano, así que la intuición funciona. Las excepciones suelen venir marcadas con tilde, como en <em>perché</em>, <em>caffè</em> o <em>città</em>. En las frases, la sílaba fuerte va en mayúscula.</p>
     `, en:`
       <p>Italian is read almost exactly as it is written, with no silent endings and no guessing. What you need is six or seven rules, and with those you can read any sign out loud without embarrassing yourself.</p>
       <h3>The ones that matter</h3>
@@ -1270,7 +1367,7 @@ const CITIES = [
       <h3>Double consonants are not decoration</h3>
       <p>A double consonant is held longer, and that changes the word. <em>Nonno</em> is grandfather, <em>nono</em> is ninth. <em>Penne</em> is the pasta and <em>pene</em> is exactly what it looks like, so stretch that <em>n</em> when ordering. It is the mistake that gets the most laughs and the easiest one to avoid: if it is written double, hold it twice as long.</p>
       <h3>Stress</h3>
-      <p>It almost always falls on the second to last syllable, so your first instinct is usually right. The exceptions normally carry a written accent: <em>perché</em>, <em>caffè</em>, <em>città</em>. In this chapter the stressed syllable is in capitals.</p>
+      <p>It almost always falls on the second to last syllable, so your first instinct is usually right. The exceptions normally carry a written accent: <em>perché</em>, <em>caffè</em>, <em>città</em>. In the phrases, the stressed syllable is in capitals.</p>
     `}},
 
   {s:{es:'Las trampas que conviene saber',en:'The traps worth knowing about'}, k:'idioma', items:[
@@ -1278,32 +1375,14 @@ const CITIES = [
      d:{es:'Es de nada, pase usted, adelante, dígame, por favor siéntese y sírvase, según el momento. Se escucha veinte veces por día y casi nunca quiere decir lo mismo.',
         en:'It means you are welcome, after you, go ahead, how can I help, please sit down and help yourself, depending on the moment. You will hear it twenty times a day and it almost never means the same thing twice.'},
      t:'idioma',
-     tip:{es:'La regla práctica: si alguien nos dice <em>prego</em> y no sabemos qué contestar, <em>grazie</em> siempre encaja.',
+     tip:{es:'La regla práctica: si alguien dice <em>prego</em> y no se sabe qué contestar, <em>grazie</em> siempre encaja.',
           en:'The practical rule: if someone says <em>prego</em> and you do not know what to answer, <em>grazie</em> always fits.'}},
     {nota:1, n:{es:'Ciao no se usa con todo el mundo',en:'Ciao is not for everyone'},
      d:{es:'Es informal, de amigos y de gente de la misma edad. Con un mozo, en un negocio, con alguien mayor o en una recepción, lo que corresponde es buongiorno o buonasera, y arrivederci al irse.',
         en:'It is informal, for friends and people your own age. With a waiter, in a shop, with someone older or at a hotel desk, the right call is buongiorno or buonasera, and arrivederci on the way out.'},
      t:'idioma',
-     tip:{es:'Entrar a un negocio sin saludar queda mal, más que en Montevideo. Un buongiorno al cruzar la puerta y un grazie al salir es casi un trámite obligatorio.',
+     tip:{es:'Entrar a un negocio sin saludar queda mal, bastante más que en el Río de la Plata. Un buongiorno al cruzar la puerta y un grazie al salir es casi un trámite obligatorio.',
           en:'Walking into a shop without greeting anyone lands badly. A buongiorno on the way in and a grazie on the way out is close to a formality.'}},
-    {nota:1, n:{es:'La cuenta no viene sola',en:'The bill never just arrives'},
-     d:{es:'En Italia no se trae la cuenta hasta que se pide: traerla antes se considera echar al cliente. Uno puede quedarse sentado una hora de más esperando algo que no va a pasar.',
-        en:'In Italy the bill is not brought until you ask: bringing it early reads as throwing the customer out. You can sit there an extra hour waiting for something that is never going to happen.'},
-     t:'idioma',
-     tip:{es:'<em>Il conto, per favore</em>, o el gesto universal de escribir en el aire. Las dos cosas funcionan igual de bien.',
-          en:'<em>Il conto, per favore</em>, or the universal mime of writing in the air. Both work equally well.'}},
-    {nota:1, n:{es:'En la barra se paga antes',en:'At the bar you pay first'},
-     d:{es:'En muchos bares el orden es al revés del nuestro: primero la caja, donde se pide y se paga, y después la barra, donde se apoya el ticket y se dice qué era. Ponerse en la barra sin el ticket es quedarse esperando.',
-        en:'In many bars the order is the other way round: first the till, where you order and pay, then the counter, where you put the receipt down and say what it was. Standing at the counter without a receipt means waiting forever.'},
-     t:'idioma',
-     tip:{es:'Si no está claro, <em>pago prima?</em> lo resuelve en dos segundos. Y el mismo café parado en la barra cuesta la mitad que sentado en una plaza.',
-          en:'If it is not obvious, <em>pago prima?</em> settles it in two seconds. And the same coffee standing at the bar costs half what it does sitting in a square.'}},
-    {nota:1, n:{es:'El coperto no es la propina',en:'The coperto is not a tip'},
-     d:{es:'Es un cargo fijo por persona, de un par de euros, que cubre el pan y el servicio de mesa. Tiene que estar avisado en la carta y aparece en la cuenta por separado. No es un error ni un abuso.',
-        en:'It is a fixed charge per person, a couple of euros, covering bread and the table setting. It has to be printed on the menu and shows up separately on the bill. It is neither a mistake nor a rip off.'},
-     t:'idioma',
-     tip:{es:'Si además dice <em>servizio</em>, esa sí es la propina y ya está cobrada. Si no dice nada, redondear para arriba alcanza: nadie espera un porcentaje.',
-          en:'If the bill also says <em>servizio</em>, that is the tip and it is already charged. If it says neither, rounding up is plenty: nobody expects a percentage.'}},
     {nota:1, n:{es:'Un etto, no cien gramos',en:'Un etto, not a hundred grams'},
      d:{es:'En la fiambrería, en el mercado y en cualquier mostrador de comida, la unidad es el <em>etto</em>: cien gramos. Se pide <em>un etto di prosciutto</em>, no cien gramos, y al decirlo así el trato cambia.',
         en:'At the deli, at the market and at any food counter, the unit is the <em>etto</em>: a hundred grams. You ask for <em>un etto di prosciutto</em>, not a hundred grams, and saying it that way changes how you are treated.'},
@@ -1314,8 +1393,8 @@ const CITIES = [
      d:{es:'<em>Permesso</em> es para pasar: un vagón lleno, un mercado, una escalera angosta. <em>Scusi</em> es para interrumpir o para disculparse. Usar la que corresponde es la diferencia entre sonar local y sonar a turista.',
         en:'<em>Permesso</em> is for getting through: a packed carriage, a market, a narrow staircase. <em>Scusi</em> is for interrupting or apologising. Using the right one is the difference between sounding local and sounding like a tourist.'},
      t:'idioma',
-     tip:{es:'Al entrar a una casa ajena también se dice <em>permesso</em>, parado en la puerta, antes de pasar. Sirve para los ocho alojamientos.',
-          en:'You also say <em>permesso</em> at the door of someone’s home before stepping in. Useful across the eight places we are staying.'}},
+     tip:{es:'Al entrar a una casa ajena también se dice <em>permesso</em>, parado en la puerta, antes de pasar. Sirve en cualquier alojamiento que lleva su dueño.',
+          en:'You also say <em>permesso</em> at the door of someone’s home before stepping in. Useful in any place run by its owner.'}},
     {nota:1, n:{es:'Buon appetito se dice y se contesta',en:'Buon appetito is said and answered'},
      d:{es:'Lo dice el mozo al traer el plato, lo dice la mesa de al lado y lo dicen los desconocidos en un tren si uno abre un sándwich. Se contesta <em>grazie, altrettanto</em>, que es gracias, igualmente.',
         en:'The waiter says it with the plate, the next table says it, and strangers on a train say it if you open a sandwich. The answer is <em>grazie, altrettanto</em>, which is thanks, same to you.'},
@@ -1323,28 +1402,274 @@ const CITIES = [
      tip:{es:'Si <em>altrettanto</em> no sale, <em>grazie</em> solo también está bien. Lo que queda mal es no contestar nada.',
           en:'If <em>altrettanto</em> does not come out, plain <em>grazie</em> is fine too. What lands badly is not answering at all.'}},
     {nota:1, n:{es:'El castellano ayuda y traiciona',en:'Spanish helps, and betrays'},
-     d:{es:'Entendemos el setenta por ciento sin estudiar nada, y después aparecen las palabras que no quieren decir lo que parecen. <em>Burro</em> es manteca, <em>salire</em> es subir, <em>caldo</em> es caliente, <em>aceto</em> es vinagre y <em>gamba</em> es pierna.',
+     d:{es:'Quien habla castellano entiende el setenta por ciento sin estudiar nada, y después aparecen las palabras que no quieren decir lo que parecen. <em>Burro</em> es manteca, <em>salire</em> es subir, <em>caldo</em> es caliente, <em>aceto</em> es vinagre y <em>gamba</em> es pierna.',
         en:'If you know any Spanish you understand most of it for free, and then come the words that do not mean what they look like. <em>Burro</em> is butter, <em>salire</em> is to go up, <em>caldo</em> is hot, <em>aceto</em> is vinegar and <em>gamba</em> is leg.'},
      t:'idioma',
      tip:{es:'La más útil de todas: <em>prenotazione</em> es la reserva, no una anotación. Y <em>conto</em> es la cuenta, mientras <em>racconto</em> es un relato.',
-          en:'The most useful of the lot: <em>prenotazione</em> is the booking. And <em>conto</em> is the bill, while <em>racconto</em> is a story.'}},
-    {nota:1, n:{es:'En España no hace falta nada de esto',en:'None of this is needed in Spain'},
-     d:{es:'La tercera semana es Barcelona y Sevilla, y ahí se habla castellano. En Barcelona el catalán está en todos los carteles, pero nadie espera que lo hablemos y todo el mundo contesta en castellano.',
-        en:'The third week is Barcelona and Seville, where Spanish is the language. In Barcelona every sign is also in Catalan, but nobody expects you to speak it and everyone answers in Spanish.'},
-     t:'idioma',
-     tip:{es:'Dos palabras catalanas que aparecen todo el tiempo en las cartas: <em>bo</em> es bueno y <em>pa amb tomàquet</em> es pan con tomate, que es lo primero que hay que pedir.',
-          en:'Two Catalan words that turn up on every menu: <em>bo</em> is good, and <em>pa amb tomàquet</em> is bread with tomato, the first thing to order.'}}
+          en:'The most useful of the lot: <em>prenotazione</em> is the booking. And <em>conto</em> is the bill, while <em>racconto</em> is a story.'}}
   ]}
   ]
+};
+CONSEJOS["espana"] = /* España, para cualquier viaje: como se paga, los horarios, los trenes y el
+   idioma. Es un capitulo entero: una guia lo pone como pestana con "@espana"
+   en `partes`. Lo propio de cada ciudad va en el capitulo de la ciudad.
+   Escrito impersonal, como todo lo de esta carpeta. */
+{
+  id:'espana',
+  nav:{es:'España',en:'Spain'},
+  name:{es:'España',en:'Spain'},
+  plate:{es:'Cómo funciona',en:'How it works'},
+  accent:'#9F1239', lt:'#FDA4AF', maps:'',
+  lede:{es:'Lo que sirve en cualquier parte de España: cómo se paga, los horarios, que son los más tarde de Europa, los trenes y el idioma, que es el mismo con otras palabras. Lo propio de cada ciudad está en su pestaña.',
+        en:'What works anywhere in Spain: how paying works, the hours, which are the latest in Europe, the trains, and the language. Anything specific to a city is in that city’s tab.'},
+  quick:[
+    [{es:'Moneda',en:'Currency'},{es:'Euro',en:'Euro'}],
+    [{es:'Propina',en:'Tipping'},{es:'No se espera',en:'Not expected'}],
+    [{es:'Emergencias',en:'Emergencies'},'112'],
+    [{es:'Se almuerza',en:'Lunch'},{es:'14:00 a 16:00',en:'14:00 to 16:00'}],
+    [{es:'Se cena',en:'Dinner'},{es:'21:00 a 23:00',en:'21:00 to 23:00'}],
+    [{es:'Enchufe',en:'Plugs'},{es:'Tipos C y F, 230 V',en:'Types C and F, 230 V'}]
+  ],
+  sections:[
+  {s:{es:'Cómo se paga y las propinas',en:'Paying and tipping'}, k:'compra', html:{es:`
+      <ul>
+        <li><b>La propina no es obligatoria ni la esperan.</b> Redondear o dejar algo suelto donde se comió bien alcanza y sobra. En Andalucía todavía menos: el precio de la carta es el precio.</li>
+        <li><b>Barra, salón y terraza tienen precios distintos</b>, y es legal siempre que esté avisado en la carta. La barra es la más barata, y en un bar de tapas es directamente la mejor mesa.</li>
+        <li>En un restaurante la cuenta se pide y la traen a la mesa. En un bar de barrio, muchas veces se paga en la barra al salir, y quien atendió lleva la cuenta de memoria. Ante la duda, se pregunta al pedir.</li>
+        <li>Contactless en todos lados, salvo en algún mercadillo.</li>
+      </ul>
+    `, en:`
+      <ul>
+        <li><b>Tipping is neither required nor expected.</b> Rounding up, or leaving some change where you ate well, is more than enough. In Andalusia even less so: the menu price is the price.</li>
+        <li><b>Bar, dining room and terrace have different prices</b>, and that is legal as long as it is on the menu. The bar is the cheapest, and in a tapas bar it is simply the best seat.</li>
+        <li>In a restaurant you ask for the bill and it comes to the table. In a neighbourhood bar you often pay at the counter on the way out, and whoever served you keeps the tab in their head. When in doubt, ask when ordering.</li>
+        <li>Contactless everywhere, except at the odd flea market.</li>
+      </ul>
+    `}},
+
+  {s:{es:'Los horarios, que son los más tarde de Europa',en:'The hours, the latest in Europe'}, k:'comer', html:{es:`
+      <ul>
+        <li>Se almuerza de <b>14:00 a 16:00</b> y se cena de <b>21:00 a 23:00</b>. Cenar a las 20:00 es encontrar el lugar vacío, y no porque sea malo.</li>
+        <li>Entre las 16:30 y las 20:30 casi ninguna cocina de restaurante trabaja, pero los bares de tapas sirven todo el tiempo y cubren el hueco.</li>
+        <li><b>Tapear no es cenar en un lugar</b>: se entra a un bar, se toma algo con una o dos tapas, se paga y se sigue al siguiente. Hay tres tamaños, tapa, media ración y ración, así que no conviene pedir de más en el primero.</li>
+        <li>Apenas uno se sienta, preguntan qué se va a tomar. Una respuesta corta, una caña, una copa de vino o agua, da los cinco minutos para leer la carta con calma.</li>
+      </ul>
+    `, en:`
+      <ul>
+        <li>Lunch runs from <b>14:00 to 16:00</b> and dinner from <b>21:00 to 23:00</b>. Dinner at 20:00 means an empty room, and not because the place is bad.</li>
+        <li>Between 16:30 and 20:30 almost no restaurant kitchen is working, but tapas bars serve all along and fill the gap.</li>
+        <li><b>Tapas is not dinner in one place</b>: you go into a bar, have a drink with one or two tapas, pay and move on to the next. There are three sizes, tapa, half portion and portion, so do not over order in the first one.</li>
+        <li>As soon as you sit down they ask what you will drink. A short answer, a small beer, a glass of wine or water, buys the five minutes to read the menu in peace.</li>
+      </ul>
+    `}},
+
+  {s:{es:'Trenes, taxis y huelgas',en:'Trains, taxis and strikes'}, k:'mover', items:[
+    {nota:1,
+     n:{es:'El tren rápido se compra como un avión',en:'Fast trains are bought like flights'},
+     d:{es:'En alta velocidad los precios funcionan como en una aerolínea: comprando con semanas de anticipación sale bastante menos que en la ventanilla. En las rutas grandes compiten Renfe, Iryo y Ouigo, así que vale mirar las tres.',
+        en:'On high speed lines prices work like an airline’s: buying weeks ahead costs considerably less than at the counter. On the main routes Renfe, Iryo and Ouigo compete, so check all three.'},
+     t:'mover',
+     tip:{es:'Si un tramo es opcional, la decisión de ir o no conviene tomarla con semanas de anticipación justamente por el precio.',
+          en:'If a leg is optional, decide whether to go weeks ahead, precisely because of the price.'}},
+    {nota:1,
+     n:{es:'Taxis y apps',en:'Taxis and apps'},
+     d:{es:'<b>Cabify</b> y <b>Bolt</b> funcionan en las ciudades grandes y suelen salir menos que el taxi. Para los trenes, la app de <b>Renfe</b> y las de las otras compañías, con el boleto en el teléfono.',
+        en:'<b>Cabify</b> and <b>Bolt</b> work in the big cities and are usually cheaper than a taxi. For trains, the <b>Renfe</b> app and the other companies’ apps, with the ticket on the phone.'},
+     t:'mover',
+     tip:{es:'Para una salida de madrugada o un aeropuerto un domingo de noche, pedir el auto con anticipación en vez de contar con encontrar uno en el momento.',
+          en:'For a pre dawn departure or an airport run on a Sunday night, book the car ahead rather than counting on finding one on the spot.'}},
+    {nota:1,
+     n:{es:'Las huelgas',en:'Strikes'},
+     d:{es:'Igual que en Italia, se anuncian con anticipación y con servicios mínimos garantizados: algunos trenes salen igual, y la lista se publica antes.',
+        en:'As in Italy, they are announced in advance with guaranteed minimum services: some trains run regardless, and the list is published beforehand.'},
+     t:'mover',
+     tip:{es:'Una semana antes de cada tramo importante, mirar si hay huelga anunciada y, si la hay, cuáles trenes quedan en los servicios mínimos.',
+          en:'A week before each important leg, check whether a strike is announced and, if so, which trains are in the minimum service.'}}
+  ]},
+
+  {s:{es:'El idioma',en:'Language'}, k:'idioma', items:[
+    {nota:1,
+     n:{es:'El mismo idioma, otras palabras',en:'The same language, other words'},
+     d:{es:'Se entiende todo, pero cambian las palabras de todos los días: <em>móvil</em> es el celular, <em>maleta</em> la valija, <em>billete</em> el boleto, <em>zumo</em> el jugo, <em>patata</em> la papa, <em>conducir</em> es manejar y <em>aparcar</em> es estacionar. <em>Vale</em> es el sí de todo, y se tutea casi siempre.',
+        en:'Rioplatense Spanish speakers understand everything, but the everyday words change: <em>móvil</em> for the phone, <em>maleta</em> for the suitcase, <em>billete</em> for the ticket, <em>zumo</em> for juice, <em>patata</em> for potato, <em>conducir</em> to drive and <em>aparcar</em> to park. <em>Vale</em> is the all purpose yes, and people use the informal <em>tú</em> almost always.'},
+     t:'idioma',
+     tip:{es:'Para pedir en una barra, lo normal es <em>¿me pones…?</em>, y para llamar al camarero, un <em>perdona</em> cuando pasa cerca. No tiene nada de maleducado.',
+          en:'To order at a bar, the normal phrase is <em>¿me pones…?</em>, and to call the waiter, a <em>perdona</em> as they pass. Nothing rude about it.'}},
+    {nota:1,
+     n:{es:'El catalán en Barcelona',en:'Catalan in Barcelona'},
+     d:{es:'En Cataluña el catalán está en todos los carteles, pero nadie espera que se hable y todo el mundo contesta en castellano.',
+        en:'In Catalonia every sign is in Catalan, but nobody expects you to speak it and everyone answers in Spanish.'},
+     t:'idioma',
+     tip:{es:'Dos palabras que aparecen todo el tiempo en las cartas: <em>bo</em> es bueno y <em>pa amb tomàquet</em> es pan con tomate, que es lo primero que hay que pedir.',
+          en:'Two words that turn up on every menu: <em>bo</em> is good, and <em>pa amb tomàquet</em> is bread with tomato, the first thing to order.'}}
+  ]}
+  ]
+};
+const CITIES = [
+{
+  id:'prep',
+  nav:{es:'Antes de salir',en:'Before leaving'},
+  name:{es:'Antes de salir',en:'Before leaving'},
+  plate:{es:'Preparativos',en:'Getting ready'},
+  accent:'#57534E', lt:'#D6D3D1', maps:'',
+  lede:{es:'Arriba, lo de este viaje: las entradas, los vuelos, la semana de Vale en Sevilla y el clima de octubre. Abajo, lo que sirve para cualquier viaje y lo de salir desde Uruguay, que es igual en todas las guías.',
+        en:'At the top, what belongs to this trip: the tickets, the flights, Vale’s week in Seville and the October weather. Below, what works for any trip and what comes with leaving from Uruguay, the same in every guide.'},
+  quick:[
+    [{es:'Salimos',en:'We leave'},{es:'Sáb 3 de octubre de 2026',en:'Sat 3 October 2026'}],
+    [{es:'Volvemos',en:'We return'},{es:'Dom 25 de octubre de 2026',en:'Sun 25 October 2026'}],
+    [{es:'Somos',en:'Who'},{es:'Santiago y Valentina',en:'Santiago and Valentina'}],
+    [{es:'Días',en:'Days'},{es:'23, con 8 alojamientos',en:'23, across 8 places to stay'}],
+    [{es:'Entradas',en:'Tickets'},{es:'Todas sacadas',en:'All booked'}]
+  ],
+  sections:[
+  {s:{es:'Las entradas, que ya están',en:'The tickets, all booked'}, k:'prep', html:{es:`
+      <h3>El Coliseo, que ya está</h3>
+      <ul>
+        <li>Tenemos entrada para el <b>miércoles 7 a las 8:30</b>: visita de grupo reducido con la <b>arena</b>, el <b>Foro</b> y el <b>Palatino</b> en el mismo turno.</li>
+        <li>Por coopculture.it, la web oficial, fue imposible: sale unos treinta días antes y se agota en minutos. La que funcionó fue la visita guiada de cupo reducido, que tiene un cupo aparte del de la entrada común, sale más cara y es la salida real cuando la oficial ya voló. La reventa suelta, no.</li>
+        <li>Voucher bajado al teléfono y en el punto de encuentro 8:15.</li>
+      </ul>
+      <h3>Lo demás, que ya está</h3>
+      <ul>
+        <li><b>Duomo de Milán</b>: ya está, <b>jueves 15 de 9:00 a 9:30</b>, con las <b>terrazas</b> incluidas, que son las que de verdad valen. Voucher bajado al teléfono y en la plaza unos minutos antes, que se entra por control de seguridad.</li>
+        <li><b>Museo Enzo Ferrari</b>, Módena: ya está, para el <b>miércoles 14</b> a primera hora.</li>
+        <li><b>Patio de Julieta</b>, Verona: ya está, <b>miércoles 14 a las 16:00</b>.</li>
+        <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
+      </ul>
+    `, en:`
+      <h3>The Colosseum, already done</h3>
+      <ul>
+        <li>We have tickets for <b>Wednesday the 7th at 8:30</b>: a small group tour covering the <b>arena</b>, the <b>Forum</b> and the <b>Palatine</b> in one slot.</li>
+        <li>Through coopculture.it, the official site, it was impossible: tickets go on sale about thirty days ahead and sell out in minutes. What worked was the small group guided tour, which has its own allocation separate from the standard ticket, costs more, and is the real way in once the official one has gone. Loose resale, no.</li>
+        <li>Voucher downloaded to the phone, and at the meeting point by 8:15.</li>
+      </ul>
+      <h3>The rest, also done</h3>
+      <ul>
+        <li><b>Milan Duomo</b>: booked, <b>Thursday the 15th from 9:00 to 9:30</b>, with the <b>rooftop terraces</b> included, which are the part that is actually worth it. Voucher downloaded, and in the square a few minutes early, since entry goes through a security check.</li>
+        <li><b>Enzo Ferrari Museum</b>, Modena: booked, for first thing on <b>Wednesday the 14th</b>.</li>
+        <li><b>Juliet’s courtyard</b>, Verona: booked, <b>Wednesday the 14th at 16:00</b>.</li>
+        <li>Seville is done: <b>Cathedral and Giralda</b> on Thursday the 22nd at 17:20, <b>Real Alcázar</b> on Friday the 23rd at 16:30.</li>
+      </ul>
+    `}},
+
+  {s:{es:'El vuelo largo y las escalas',en:'The long flight and the connections'}, k:'prep', html:{es:`
+      <h3>Montevideo, Madrid, Roma</h3>
+      <p>Salimos el sábado 3 y llegamos a Roma el domingo 4, con escala en Madrid. El cruce del Atlántico es de noche, así que la única meta del vuelo es dormir: llegamos a Roma un domingo de mañana y ese día se camina.</p>
+      <h3>La escala en Madrid</h3>
+      <ul>
+        <li>Barajas es grande y el cambio de terminal come tiempo.</li>
+        <li>Al ser vuelos de la misma compañía, las valijas suelen ir facturadas hasta Roma, pero confirmarlo en el check in de Montevideo.</li>
+        <li>El control de pasaportes se hace en Madrid, que es la primera entrada a Schengen. Preguntarlo ahí también.</li>
+      </ul>
+      <h3>Los tres vuelos de adentro</h3>
+      <ul>
+        <li>El 17 volamos <b>IB 5543</b> de Milán a Barcelona, el 18 <b>IB 5064</b> de Barcelona a Sevilla, y el 25 de Sevilla vía Madrid a Montevideo, de noche.</li>
+        <li>Los dos tramos de Iberia son europeos y con equipaje de mano estricto: si la valija de cabina está al límite, despacharla al comprar y no en el mostrador.</li>
+        <li>El domingo 25, además, cambia la hora en Europa: a las 3 de la madrugada los relojes se atrasan una hora. El teléfono lo hace solo, pero los horarios impresos y los de la terminal ya están en la hora nueva.</li>
+      </ul>
+    `, en:`
+      <h3>Montevideo, Madrid, Rome</h3>
+      <p>We leave on Saturday the 3rd and land in Rome on Sunday the 4th, connecting in Madrid. The Atlantic crossing is overnight, so the only goal of the flight is sleep: we reach Rome on a Sunday morning and that day is spent walking.</p>
+      <h3>The Madrid connection</h3>
+      <ul>
+        <li>Barajas is big and changing terminal eats time.</li>
+        <li>Since both flights are with the same airline, bags are usually checked through to Rome, but confirm it at check in in Montevideo.</li>
+        <li>Passport control happens in Madrid, which is the first entry into Schengen. Ask about that there too.</li>
+      </ul>
+      <h3>The three flights inside Europe</h3>
+      <ul>
+        <li>On the 17th we fly <b>IB 5543</b> from Milan to Barcelona, on the 18th <b>IB 5064</b> from Barcelona to Seville, and on the 25th from Seville via Madrid to Montevideo, overnight.</li>
+        <li>Both Iberia legs are European and strict about cabin baggage: if the carry on is at the limit, check it when buying rather than at the desk.</li>
+        <li>On Sunday the 25th the clocks also change across Europe: at 3 in the morning they go back an hour. The phone handles it on its own, but printed and terminal times are already in the new hour.</li>
+      </ul>
+    `}},
+
+  {s:{es:'Trabajar remoto desde Sevilla',en:'Working remotely from Seville'}, k:'prep', html:{es:`
+      <h3>La semana de Vale</h3>
+      <ul>
+        <li>Del lunes 19 al viernes 23, Vale está en la semana internacional del MBA en la Universidad Loyola y yo trabajo desde el apartamento, que compartimos con tres compañeras de ella. El día tiene dos ritmos.</li>
+        <li>Lo primero a confirmar es <b>dónde queda la sede</b>. Loyola tiene el campus de Sevilla fuera del centro, hacia el sur, y también actividades en edificios del centro. Preguntarlo en la organización del programa antes de viajar y, con la dirección concreta, medir el trayecto real desde el apartamento en Google Maps a la hora exacta en la que hay que estar.</li>
+      </ul>
+      <h3>La conexión</h3>
+      <ul>
+        <li>Confirmar con el anfitrión del Airbnb la velocidad de la wifi, y si hay una mesa de verdad y no solo la barra de la cocina. Cinco días de llamadas en una silla de comedor se sienten.</li>
+        <li>Plan B: la eSIM con datos generosos y el celular como punto de acceso. En España funciona bien.</li>
+        <li>El horario juega a favor: Sevilla está cinco horas adelante de Montevideo, así que la mañana española es tiempo tranquilo y las reuniones caen de tarde. Las mañanas quedan para adelantar y salir a caminar antes de que arranque el día uruguayo.</li>
+      </ul>
+      <h3>Cafés para cortar</h3>
+      <p>Cuando el apartamento se haga chico, Sevilla tiene cafés de especialidad con enchufes y wifi, y coworkings que venden pases por día. Los concretos están en el capítulo de Sevilla. La regla local: ocupar una mesa cuatro horas con un café queda mal en un bar de barrio y bien en un café de especialidad, que es para lo que están.</p>
+    `, en:`
+      <h3>Vale’s week</h3>
+      <ul>
+        <li>From Monday the 19th to Friday the 23rd, Vale is at the MBA international week at Universidad Loyola and I work from the apartment, which we share with three of her classmates. The day runs on two rhythms.</li>
+        <li>The first thing to confirm is <b>where the venue actually is</b>. Loyola has its Seville campus outside the centre, to the south, and also runs sessions in buildings downtown. Ask the programme organisers before travelling and then, with the real address, measure the actual journey from the apartment in Google Maps at the exact hour she needs to be there.</li>
+      </ul>
+      <h3>The connection</h3>
+      <ul>
+        <li>Confirm the wifi speed with the Airbnb host, and whether there is a real table and not just the kitchen counter. Five days of calls from a dining chair make themselves felt.</li>
+        <li>Plan B: the eSIM with a generous data allowance and the phone as a hotspot. In Spain that works well.</li>
+        <li>The time difference is on our side: Seville is five hours ahead of Montevideo, so the Spanish morning is quiet time and the meetings land in the afternoon. That leaves mornings for getting ahead and for a walk before the Uruguayan day starts.</li>
+      </ul>
+      <h3>Cafés to escape to</h3>
+      <p>When the apartment starts to feel small, Seville has specialty coffee shops with plugs and wifi, and coworking spaces that sell day passes. The specific ones are in the Seville chapter. The local rule: holding a table for four hours over one coffee lands badly in a neighbourhood bar and fine in a specialty café, which is what they are for.</p>
+    `}},
+
+  {s:{es:'Octubre, cómo viene el clima',en:'October, what the weather does'}, k:'prep', html:{es:`
+      <p>Es de los mejores meses para este recorrido: en Italia bajó el calor y bajó la gente, y en Andalucía todavía es verano tibio. Los números son promedios, sirven para armar la valija y no para planificar el día.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Dónde</th><th>Máx / mín</th><th>Cómo se siente</th><th>Amanece</th><th>Anochece</th></tr></thead>
+        <tbody>
+          <tr><td>Roma</td><td>23° / 13°</td><td>Sol, mañanas frescas</td><td>~7:15</td><td>~18:50</td></tr>
+          <tr><td>Florencia</td><td>22° / 11°</td><td>Fresca temprano, linda al mediodía</td><td>~7:25</td><td>~18:55</td></tr>
+          <tr><td>Toscana</td><td>21° / 10°</td><td>Niebla al amanecer en el campo</td><td>~7:25</td><td>~18:55</td></tr>
+          <tr><td>Cinque Terre</td><td>21° / 14°</td><td>Templada, con riesgo de lluvia</td><td>~7:30</td><td>~18:55</td></tr>
+          <tr><td>Milán</td><td>19° / 10°</td><td>Gris y húmeda, puede llover</td><td>~7:35</td><td>~18:45</td></tr>
+          <tr><td>Barcelona</td><td>22° / 15°</td><td>Suave, con humedad de mar</td><td>~8:00</td><td>~19:15</td></tr>
+          <tr><td>Sevilla</td><td>27° / 14°</td><td>Calurosa al mediodía, fresca de noche</td><td>~8:20</td><td>~19:35</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>La diferencia entre máxima y mínima es grande en todos lados, sobre todo en Sevilla, que pasa de veintisiete al mediodía a catorce de madrugada. Salir a las ocho con lo puesto para el mediodía es el error clásico.</li>
+        <li>Oscurece temprano y cada vez más rápido. En Roma, a principios de mes, a las siete ya es de noche. Las fotos con luz linda son antes de las seis y media, y el atardecer del Giardino degli Aranci o de Piazzale Michelangelo hay que agendarlo.</li>
+      </ul>
+      <h3>El cambio de hora</h3>
+      <p>El domingo 25 de octubre, a las 3 de la madrugada, en toda Europa los relojes se atrasan una hora. Es el día que volvemos. El teléfono se ajusta solo, pero conviene mirarlo dos veces con el horario del vuelo.</p>
+    `, en:`
+      <p>It is one of the best months for this route: in Italy the heat and the crowds have both dropped, and in Andalusia it is still a mild summer. These numbers are averages, good for packing and not for planning a day.</p>
+      <div class="tablewrap"><table>
+        <thead><tr><th>Where</th><th>High / low</th><th>How it feels</th><th>Sunrise</th><th>Sunset</th></tr></thead>
+        <tbody>
+          <tr><td>Rome</td><td>23° / 13°</td><td>Sunny, cool mornings</td><td>~7:15</td><td>~18:50</td></tr>
+          <tr><td>Florence</td><td>22° / 11°</td><td>Chilly early, lovely at midday</td><td>~7:25</td><td>~18:55</td></tr>
+          <tr><td>Tuscany</td><td>21° / 10°</td><td>Fog at dawn out in the country</td><td>~7:25</td><td>~18:55</td></tr>
+          <tr><td>Cinque Terre</td><td>21° / 14°</td><td>Mild, with a chance of rain</td><td>~7:30</td><td>~18:55</td></tr>
+          <tr><td>Milan</td><td>19° / 10°</td><td>Grey and damp, rain possible</td><td>~7:35</td><td>~18:45</td></tr>
+          <tr><td>Barcelona</td><td>22° / 15°</td><td>Soft, with sea humidity</td><td>~8:00</td><td>~19:15</td></tr>
+          <tr><td>Seville</td><td>27° / 14°</td><td>Hot at midday, cool at night</td><td>~8:20</td><td>~19:35</td></tr>
+        </tbody>
+      </table></div>
+      <ul>
+        <li>The gap between high and low is wide everywhere, above all in Seville, which goes from twenty seven at midday to fourteen before dawn. Walking out at eight dressed for noon is the classic mistake.</li>
+        <li>It gets dark early, and earlier every week. In Rome, at the start of the month, it is night by seven. The good light for photographs is before half past six, and the sunsets at the Giardino degli Aranci or Piazzale Michelangelo have to go in the diary.</li>
+      </ul>
+      <h3>The clock change</h3>
+      <p>On Sunday 25 October, at 3 in the morning, clocks across Europe go back an hour. That is the day we fly home. The phone adjusts itself, but it is worth checking twice against the flight time.</p>
+    `}},
+
+  ...CONSEJOS.general,
+  ...CONSEJOS.uruguay
+  ]
 },
+CONSEJOS["italia"],
+CONSEJOS["espana"],
 {
   id:'via',
   nav:{es:'Traslados',en:'Getting there'},
   name:{es:'Los traslados',en:'The journeys'},
   plate:{es:'Itinerario',en:'Itinerary'},
   accent:'#C2410C', lt:'#FDBA74', maps:'',
-  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cuatro tramos de tren, seis días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura, cuál ya está sacado y cuándo conviene sacar el resto.',
-        en:'Fourteen moves in twenty three days: five flights, four train legs, six days with a car and the airport transfers. Here is each one, how long it takes, which are already booked and when to book the rest.'},
+  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cuatro tramos de tren, seis días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura y cómo se resuelve. Lo general de trenes, de manejar y de alquilar un auto está en las pestañas de Italia, de España y de Antes de salir.',
+        en:'Fourteen moves in twenty three days: five flights, four train legs, six days with a car and the airport transfers. Here is each one, how long it takes and how it gets done. The general side of trains, driving and renting a car is in the Italy, Spain and Before leaving tabs.'},
   quick:[
     [{es:'Vuelos',en:'Flights'},{es:'5, todos sacados',en:'5, all booked'}],
     [{es:'Trenes',en:'Trains'},{es:'4 tramos, Florencia y Varenna sacados',en:'4 legs, Florence and Varenna booked'}],
@@ -1393,46 +1718,6 @@ const CITIES = [
       <ul>
         <li><b>Wednesday the 14th</b> is the fragile one: nearly six hours of driving with three stops, a 12:30 table that goes after twenty minutes late, and an office in Milan that closes at 21:00. The latest we can leave Verona is 18:00, since at that hour we reach Milan at rush hour. The detail is in the Modena chapter.</li>
         <li><b>Saturday the 17th</b> hangs on a missing detail: whether IB 5543 leaves from Linate or Malpensa. That is more than an hour of difference in the transfer, so confirm it before fixing what time we leave the hotel.</li>
-      </ul>
-    `}},
-
-  {s:{es:'Cuándo sacar cada cosa',en:'When to book what'}, k:'plan', html:{es:`
-      <h3>El orden</h3>
-      <p>Comprar de más con demasiada anticipación también cuesta plata. El orden que sirve:</p>
-      <ul>
-        <li><b>Lo que se agota ya no es problema</b>: el Coliseo y el Duomo de Milán están sacados y no queda ninguna entrada con fecha límite. Está todo en el capítulo de preparativos.</li>
-        <li><b>El auto</b>, tres o cuatro meses antes y con tarifa cancelable. El precio de los alquileres sube fuerte cerca de la fecha y después no baja.</li>
-        <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está, y el AVE a Córdoba, si vamos, funciona igual: cuanto antes, más barato.</li>
-        <li><b>El resto, nada.</b> Regionales, tranvía de Florencia, trenes de Cinque Terre y del lago de Como se compran el mismo día o la noche anterior.</li>
-      </ul>
-      <h3>Por qué los regionales no se compran antes</h3>
-      <ul>
-        <li>Tienen <b>precio fijo</b>: cuesta lo mismo hoy que el día del viaje, no hay asiento asignado y muchas veces el boleto vale para cualquier tren de esa jornada. Sacarlo con meses de anticipación no ahorra un centavo y nos ata a un horario.</li>
-        <li>Los de <b>alta velocidad</b> funcionan como un avión: las tarifas baratas se agotan y el precio sube a medida que se llena el tren. Ahí, cuanto antes mejor.</li>
-      </ul>
-      <h3>Trenitalia o Italo</h3>
-      <ul>
-        <li>Compiten en las mismas rutas rápidas, Roma a Florencia entre ellas. Italo suele salir algo más barato y usa las mismas estaciones. Vale mirar las dos apps antes de comprar.</li>
-        <li>Las tarifas más baratas de las dos <b>no se cambian ni se devuelven</b> y el boleto es nominativo. Si hay chance de mover el horario, la tarifa del medio permite cambio pagando poco y suele compensar.</li>
-      </ul>
-    `, en:`
-      <h3>The order</h3>
-      <p>Buying too far ahead costs money too. The order that works:</p>
-      <ul>
-        <li><b>What sells out is no longer a problem</b>: the Colosseum and the Milan Duomo are booked and no ticket has a deadline left. It is all in the preparation chapter.</li>
-        <li><b>The car</b>, three or four months out and on a cancellable rate. Rental prices climb hard near the date and never come back down.</li>
-        <li><b>The long distance trains.</b> Rome to Florence is done, and the AVE to Córdoba, if we go, works the same way: the earlier, the cheaper.</li>
-        <li><b>Everything else, nothing.</b> Regionals, the Florence tram, the Cinque Terre trains and the Lake Como ones get bought the same day or the night before.</li>
-      </ul>
-      <h3>Why regionals are not bought ahead</h3>
-      <ul>
-        <li>They have a <b>fixed price</b>: it costs the same today as on the day, there is no assigned seat, and the ticket is often valid for any train that day. Buying months ahead saves nothing and ties us to a timetable.</li>
-        <li><b>High speed</b> trains work like planes: cheap fares sell out and the price rises as the train fills. There, the earlier the better.</li>
-      </ul>
-      <h3>Trenitalia or Italo</h3>
-      <ul>
-        <li>They compete on the same fast routes, Rome to Florence among them. Italo usually comes out a bit cheaper and uses the same stations. Worth checking both apps before buying.</li>
-        <li>The cheapest fares on both are <b>non changeable and non refundable</b>, and the ticket carries your name. If there is any chance of moving the time, the middle fare allows a change for little and usually pays off.</li>
       </ul>
     `}},
 
@@ -1511,13 +1796,6 @@ const CITIES = [
      tip:{es:'Renfe funciona como los aviones: comprando con semanas de anticipación sale bastante menos que en la ventanilla. La decisión de ir o no conviene tomarla unas semanas antes, justo por el precio.',
           en:'Renfe works like an airline: buying weeks ahead costs considerably less than at the counter. Decide whether to go a few weeks out, precisely because of the price.'}},
     {nota:1,
-     n:{es:'Cómo se viaja en tren en Italia',en:'How train travel works in Italy'},
-     d:{es:'Los de alta velocidad tienen asiento asignado y se validan solos con el QR del teléfono. Los regionales no tienen asiento y, si el boleto es de papel, hay que validarlo en la maquinita del andén antes de subir.',
-        en:'High speed trains have assigned seats and validate themselves from the QR code on your phone. Regionals have no seats, and if the ticket is paper it has to be validated in the little machine on the platform before boarding.'},
-     t:'mover',
-     tip:{es:'Subir a un regional con boleto sin validar es multa, y los inspectores existen. Comprado por la app con fecha y hora ya va validado. Las valijas van en los estantes de las puntas del vagón: subir por la puerta cercana al asiento.',
-          en:'Boarding a regional with an unvalidated ticket is a fine, and the inspectors are real. Bought through the app with a date and time, it is already validated. Bags go on the racks at either end of the carriage: board through the door nearest your seat.'}},
-    {nota:1,
      n:{es:'El tranvía de Florencia',en:'The Florence tram'},
      d:{es:'El T2 une Santa Maria Novella con el aeropuerto de Peretola en unos veinte minutos. Es cómo llegamos a buscar el auto el viernes 9.',
         en:'The T2 links Santa Maria Novella with Peretola airport in about twenty minutes. It is how we get to the car on Friday the 9th.'},
@@ -1549,34 +1827,6 @@ const CITIES = [
      tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando de Verona cerca de las 20:00 queda una hora de margen. El teléfono es +39 02 66987 826.',
           en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from Verona around 20:00 leaves an hour of margin. The number is +39 02 66987 826.'}},
     {nota:1,
-     n:{es:'La devolución, paso a paso',en:'The handback, step by step'},
-     d:{es:'Entrar por Via Vittor Pisani 19 y bajar al nivel -2. Devolver con el tanque como lo entregaron, cargando nafta antes y no en la última estación de la autopista, que es la más cara.',
-        en:'Go in at Via Vittor Pisani 19 and down to level -2. Hand it back with the tank as they gave it, filling up beforehand rather than at the last motorway station, which is the dearest.'},
-     t:'mover',
-     tip:{es:'Antes de dar las llaves, fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Pedir el comprobante de devolución firmado y no irse sin él. El bloqueo de la tarjeta se libera varios días después.',
-          en:'Before handing over the keys, photographs of the car from all four sides, of the dashboard with the mileage and fuel level, and of the interior. Ask for the signed return receipt and do not leave without it. The card hold is released several days later.'}},
-    {nota:1,
-     n:{es:'Qué reservar, y con cuánta anticipación',en:'What to book, and how far ahead'},
-     d:{es:'Tres o cuatro meses antes, siempre con tarifa que permita cancelar gratis. El precio sube fuerte cerca de la fecha y prácticamente no baja.',
-        en:'Three or four months ahead, always on a rate that allows free cancellation. The price climbs hard near the date and essentially never drops.'},
-     t:'mover',
-     tip:{es:'Como es cancelable, volver a mirar precios un mes antes: si bajó, se reserva de nuevo y se cancela la anterior. Y comparar el cargo por devolver en otra ciudad entre empresas, que es donde más se diferencian.',
-          en:'Since it is cancellable, look at prices again a month out: if they dropped, book again and cancel the first one. And compare the one way fee between companies, which is where they differ most.'}},
-    {nota:1,
-     n:{es:'Caja automática y conductor adicional',en:'Automatic gearbox and second driver'},
-     d:{es:'En Italia lo estándar es la manual. El automático se paga bastante más y hay que pedirlo al reservar, porque hay pocos.',
-        en:'In Italy manual is standard. An automatic costs considerably more and has to be requested when booking, because there are few of them.'},
-     t:'mover',
-     tip:{es:'Si vamos a manejar los dos, hay que declarar al segundo conductor y pagarlo. Si maneja alguien no declarado y pasa cualquier cosa, el seguro no cubre nada. Con las carreteras de la Toscana y cuatro días de auto, poder alternar vale la plata.',
-          en:'If we are both going to drive, the second driver has to be declared and paid for. If someone undeclared is at the wheel and anything happens, the insurance covers nothing. With Tuscan roads and four days of driving, being able to swap is worth the money.'}},
-    {nota:1,
-     n:{es:'El auto que conviene',en:'The car to go for'},
-     d:{es:'Chico. Las calles de los pueblos toscanos son angostas, los estacionamientos también, y un auto grande es un problema en cada maniobra.',
-        en:'Small. The streets in the Tuscan towns are narrow, so are the car parks, and a big car is a problem at every manoeuvre.'},
-     t:'mover',
-     tip:{es:'Verificar que entren las dos valijas en el baúl, porque en los modelos más chicos no entran; si la categoría dice "dos valijas grandes", alcanza. Y al retirarlo, confirmar si carga nafta o gasoil: equivocarse arruina el motor y no lo cubre ningún seguro.',
-          en:'Check that both suitcases fit in the boot, because in the smallest models they do not; if the category says "two large bags", that is enough. And on collection, confirm whether it takes petrol or diesel: getting it wrong wrecks the engine and no insurance covers it.'}},
-    {nota:1,
      n:{es:'Los tramos que manejamos',en:'The stretches we drive'},
      d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el más largo, La Spezia a Módena, Persiceto, Verona y Milán, unos quinientos kilómetros y casi seis horas de manejo repartidas en el día.',
         en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the longest, La Spezia to Modena, Persiceto, Verona and Milan, about five hundred kilometres and nearly six hours of driving spread across the day.'},
@@ -1605,8 +1855,6 @@ const CITIES = [
         <li><b>La entrega fuera de horario</b> es un servicio aparte, que existe solo en algunas oficinas y <b>hay que pedirlo al reservar</b>. Donde está disponible hay buzón de llaves y el control se hace cuando la oficina reabre, con el auto a nuestro nombre hasta ese momento. Donde no está, dejar el auto y las llaves por nuestra cuenta nos deja respondiendo por él.</li>
         <li>Por eso la hora que figura en el voucher es la que manda, y por eso el sistema no ofrece horarios en los que la oficina no puede recibir. Si alguna vez vamos a llegar tarde, el teléfono de la oficina antes de que cierre vale más que cualquier plan.</li>
       </ul>
-      <h3>Al entregarlo</h3>
-      <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
     `, en:`
       <p>The car comes with us as far as <b>Milan on Wednesday the 14th in the evening</b>, and that is where it ends. The reason is the Modena day, the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain, the afternoon in Verona and then on to Milan cannot be done by train without losing half a day to connections.</p>
       <p>From Milan onwards we go by train, which is as it should be: Lake Como is done by train on Friday, and the city days need no car. That way we pay no hotel garage and no Varenna parking, which is scarce and expensive.</p>
@@ -1627,8 +1875,6 @@ const CITIES = [
         <li><b>Out of hours return</b> is a separate service, available only at some offices, and <b>it has to be requested when booking</b>. Where it exists there is a key drop and the check happens when the office reopens, with the car in our name until then. Where it does not, leaving the car and the keys on our own initiative leaves us answering for it.</li>
         <li>That is why the time on the voucher is the one that counts, and why the system does not offer slots when the office cannot receive the car. If we are ever going to be late, phoning the office before it closes is worth more than any plan.</li>
       </ul>
-      <h3>When handing it over</h3>
-      <p>Photographs of the car from all four sides, of the dashboard with the mileage and the fuel level, and of the interior. And the card hold is released several days later, not there and then.</p>
     `}},
 
   {s:{es:'Del aeropuerto al centro y al revés',en:'Airport to centre and back'}, k:'mover', items:[
@@ -1671,33 +1917,12 @@ const CITIES = [
 
   {s:{es:'Cuando algo sale mal',en:'When something goes wrong'}, k:'mover', items:[
     {nota:1,
-     n:{es:'Las huelgas de transporte en Italia',en:'Transport strikes in Italy'},
-     d:{es:'Los <em>scioperi</em> de trenes, buses o aviones son habituales y no son sorpresa: se anuncian con al menos diez días de anticipación, tienen día y horario definidos, y hay franjas con servicio garantizado.',
-        en:'Train, bus and air <em>scioperi</em> are routine and never a surprise: they are announced at least ten days ahead, have a set day and set hours, and there are windows with guaranteed service.'},
-     t:'mover',
-     tip:{es:'Mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del viernes 16, que son los dos días que dependen de un tren. Si cae huelga ese día, se mueve el horario dentro de la franja garantizada. En España pasa lo mismo y también se anuncian con servicios mínimos.',
-          en:'Check the Italian transport ministry’s official strike calendar a week before each important leg, above all before Thursday the 8th and Friday the 16th, the two days that depend on a train. If a strike falls on the day, shift the time into the guaranteed window. The same happens in Spain, also announced with minimum service levels.'}},
-    {nota:1,
      n:{es:'Si el miércoles 14 se atrasa',en:'If Wednesday the 14th runs late'},
      d:{es:'Es el día con dos horas que no esperan: la mesa de las 12:30 en Persiceto, que se cae a los veinte minutos sin aviso, y la oficina de Milán, que cierra a las 21:00. Lo que hay entre las dos se puede achicar; esas dos no.',
         en:'It is the day with two times that will not wait: the 12:30 table in Persiceto, which goes after twenty minutes with no word, and the Milan office, which closes at 21:00. Everything between them can shrink; those two cannot.'},
      t:'mover',
      tip:{es:'Si el atraso es a la mañana, el aviso a la osteria va por WhatsApp al +39 051 821273 y el museo se acorta. Si es a la tarde, Verona se corta en el orden que dice su capítulo, y a las 18:00 se sale igual. Y si en la autopista se ve que no llegamos a las 21:00, se llama a la oficina, +39 02 66987 826, antes de que cierre: después de esa hora no atiende nadie.',
-          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:00 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}},
-    {nota:1,
-     n:{es:'Los márgenes que conviene dejar',en:'The margins worth leaving'},
-     d:{es:'Vuelos internacionales, tres horas antes en el mostrador. Vuelos internos de Iberia, dos. Trenes de alta velocidad, media hora en la estación. Regionales, quince minutos.',
-        en:'International flights, three hours before at the desk. Iberia domestic flights, two. High speed trains, half an hour at the station. Regionals, fifteen minutes.'},
-     t:'mover',
-     tip:{es:'La excepción es Termini el jueves 8, donde mejor estar cuarenta minutos antes: es enorme, confusa, y la vía se anuncia con poca anticipación. Mejor esperar sentados con un café que correr por el andén con las valijas.',
-          en:'The exception is Termini on Thursday the 8th, where forty minutes early is better: it is enormous, confusing, and the platform goes up at short notice. Better to wait sitting down with a coffee than to run along the platform with the bags.'}},
-    {nota:1,
-     n:{es:'Todo junto y sin conexión',en:'Everything together and offline'},
-     d:{es:'Los pasajes, los vouchers de los ocho alojamientos, la reserva del auto y las entradas van bajados al teléfono en una carpeta, más una copia en papel de lo importante.',
-        en:'The tickets, the vouchers for all eight places to stay, the car booking and the entry tickets go downloaded to the phone in one folder, plus a paper copy of whatever matters.'},
-     t:'mover',
-     tip:{es:'En un andén italiano o en la fila de una rentadora la señal suele ser mala, y es justo cuando hay que mostrar algo. Una copia en el teléfono de cada uno, no en uno solo.',
-          en:'On an Italian platform or in a rental queue the signal is usually bad, and that is exactly when you have to show something. A copy on each of our phones, not just one.'}}
+          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:00 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}}
   ]}
   ]
 },
@@ -2720,26 +2945,12 @@ const CITIES = [
      tip:{es:'La regla que no falla: se estaciona <em>afuera</em> de las murallas y se entra caminando. En estos pueblos siempre hay playas de estacionamiento pagas justo antes de la puerta, señalizadas con la P. Nunca cruzar un cartel redondo con borde rojo que diga "zona traffico limitato", aunque el GPS lo indique.',
           en:'The rule that never fails: park <em>outside</em> the walls and walk in. These towns always have paid car parks right before the gate, signposted with a P. Never cross a round sign with a red border reading "zona traffico limitato", even if the GPS tells you to.'}},
     {nota:1,
-     n:{es:'Nafta, gasoil y las estaciones',en:'Petrol, diesel and the filling stations'},
-     d:{es:'Al retirar el auto hay que preguntar y anotar qué carga: <em>benzina</em> es nafta y <em>gasolio</em> es gasoil. Equivocarse arruina el motor y no lo cubre ningún seguro.',
-        en:'On collecting the car, ask and write down what it takes: <em>benzina</em> is petrol and <em>gasolio</em> is diesel. Getting it wrong wrecks the engine and no insurance covers it.'},
-     t:'mover',
-     tip:{es:'En las estaciones hay dos surtidores del mismo combustible: <em>fai da te</em>, que es autoservicio y más barato, y <em>servito</em>, donde te atienden y cuesta bastante más. En el campo muchas cierran al mediodía y los domingos, y funcionan con una máquina que solo toma billetes o tarjeta. No conviene andar con menos de un cuarto de tanque.',
-          en:'Stations have two pumps for the same fuel: <em>fai da te</em>, self service and cheaper, and <em>servito</em>, where someone serves you and it costs considerably more. Out in the country many close at midday and on Sundays, running on a machine that only takes notes or cards. Do not drive around on less than a quarter of a tank.'}},
-    {nota:1,
-     n:{es:'Peajes de autopista',en:'Motorway tolls'},
-     d:{es:'En la autopista se saca un ticket al entrar y se paga al salir según los kilómetros. Las cabinas amarillas con la T son solo para Telepass y no hay que meterse: si entramos en una sin el dispositivo, se traba todo.',
-        en:'On the motorway you take a ticket on entry and pay on exit according to the distance. The yellow lanes marked T are for Telepass only and are not to be entered: going into one without the device jams everything up.'},
-     t:'mover',
-     tip:{es:'Las cabinas blancas son de tarjeta y las azules de billetes. Las carreteras secundarias entre pueblos son gratis, más lindas y más lentas: para la Val d’Orcia son las que hay que tomar. La FI-PI-LI, que es la que nos lleva a la costa y a Pisa, es gratis y rápida; la A12 de Pisa a La Spezia tiene peaje.',
-          en:'White lanes take cards and blue ones take cash. The back roads between towns are free, prettier and slower: for the Val d’Orcia they are the ones to take. The FI-PI-LI, which is what carries us to the coast and to Pisa, is free and fast; the A12 from Pisa to La Spezia is tolled.'}},
-    {nota:1,
      n:{es:'Manejar en la Toscana',en:'Driving in Tuscany'},
      d:{es:'Las carreteras son angostas, con curvas cerradas y sin banquina, y los locales manejan rápido. Las rutas de tierra blanca, las <em>strade bianche</em>, son normales y están bien mantenidas, pero se anda despacio.',
         en:'The roads are narrow, with tight bends and no hard shoulder, and the locals drive fast. The white gravel roads, the <em>strade bianche</em>, are perfectly normal and well kept, but you go slowly on them.'},
      t:'mover',
-     tip:{es:'La señal de celular se corta entre colinas, así que los mapas hay que bajarlos antes. Y ojo con la niebla de la mañana en octubre: en el valle a las 8 puede no verse nada y a las 10 estar despejado.',
-          en:'The phone signal drops between hills, so maps have to be downloaded beforehand. And watch for October morning fog: down in the valley at 8 you may see nothing and by 10 it is clear.'}}
+     tip:{es:'Las carreteras secundarias entre pueblos son gratis, más lindas y más lentas: para la Val d’Orcia son las que hay que tomar. La FI-PI-LI, la que va a la costa y a Pisa, es gratis y rápida; la A12 de Pisa a La Spezia tiene peaje. La señal de celular se corta entre colinas, así que los mapas hay que bajarlos antes, y ojo con la niebla de la mañana en octubre: en el valle a las 8 puede no verse nada y a las 10 estar despejado. Lo general de manejar en Italia, con los peajes y la nafta, está en la pestaña de Italia.',
+          en:'The back roads between towns are free, prettier and slower: for the Val d’Orcia they are the ones to take. The FI-PI-LI, the road to the coast and Pisa, is free and fast; the A12 from Pisa to La Spezia is tolled. The phone signal drops between hills, so maps have to be downloaded beforehand, and watch for October morning fog: down in the valley at 8 you may see nothing and by 10 it is clear. The general side of driving in Italy, with tolls and fuel, is in the Italy tab.'}}
   ]},
 
   {s:{es:'Dónde estacionar, pueblo por pueblo',en:'Where to park, town by town'}, k:'mover', items:[
@@ -4707,7 +4918,7 @@ const UI = {
     ruta:'Ruta a pie', mapa:'Mapa', web:'Web', resenas:'Reseñas', truco:'Truco',
     tentativa:'Todavía sin confirmar',
     cuenta:(a, b) => a + ' de ' + b, reiniciar:'Reiniciar',
-    abrir:'Abrir todo', cerrar:'Cerrar todo',
+    abrir:'Abrir todo', cerrar:'Cerrar todo', cerrarSec:'Cerrar sección', arriba:'Volver arriba',
     tramo:(i, n) => 'Tramo ' + i + ' de ' + n, sigue:s => 'Sigue: ' + s,
     tramosHechos:n => 'Los ' + n + ' tramos, hechos',
     hoy:'Hoy', badgeSigue:'Sigue',
@@ -4731,7 +4942,7 @@ const UI = {
     ruta:'Walking route', mapa:'Map', web:'Website', resenas:'Reviews', truco:'Tip',
     tentativa:'Not confirmed yet',
     cuenta:(a, b) => a + ' of ' + b, reiniciar:'Reset',
-    abrir:'Open all', cerrar:'Close all',
+    abrir:'Open all', cerrar:'Close all', cerrarSec:'Close section', arriba:'Back to top',
     tramo:(i, n) => 'Leg ' + i + ' of ' + n, sigue:s => 'Next up: ' + s,
     tramosHechos:n => 'All ' + n + ' legs done',
     hoy:'Today', badgeSigue:'Next',
@@ -4836,6 +5047,14 @@ function applyLang() {
     lb.textContent = ui('otro');
     lb.title = ui('cambiar');
     lb.setAttribute('aria-label', ui('cambiar'));
+  }
+  const fl = $('#flota');
+  if (fl) {
+    fl.querySelector('[data-flota="sec"]').textContent = ui('cerrarSec');
+    fl.querySelector('[data-flota="todo"]').textContent = ui('cerrar');
+    const fa = fl.querySelector('[data-flota="arriba"]');
+    fa.setAttribute('aria-label', ui('arriba'));
+    fa.title = ui('arriba');
   }
   applyTheme();
 }
@@ -5058,7 +5277,7 @@ function cityHTML(c) {
   }
   h += `</section>`;
 
-  if (items.length) h += `<div class="toolrow pegada"><button data-all="open">${esc(ui('abrir'))}</button><button data-all="close">${esc(ui('cerrar'))}</button></div>`;
+  if (c.sections.length > 1) h += `<div class="toolrow pegada"><button data-all="open">${esc(ui('abrir'))}</button><button data-all="close">${esc(ui('cerrar'))}</button></div>`;
 
   c.sections.forEach((sec, i) => {
     if (sec.dias) {
@@ -5130,12 +5349,13 @@ function render() {
   const view = $('#view');
   document.querySelectorAll('#rail button').forEach(b =>
     b.setAttribute('aria-selected', b.dataset.city === current ? 'true' : 'false'));
-  [view, $('#rail'), $('#filters')].forEach(el => {
+  [view, $('#rail'), $('#filters'), $('#flota')].forEach(el => {
     el.style.setProperty('--city', c.accent);
     el.style.setProperty('--city-lt', c.lt);
   });
   view.innerHTML = query ? searchHTML() : cityHTML(c);
   medirFrases();
+  actualizarFlota();
 }
 
 /* ---------- eventos delegados ---------- */
@@ -5191,18 +5411,70 @@ $('#view').addEventListener('click', e => {
   if (all) {
     const open = all.dataset.all === 'open';
     document.querySelectorAll('#view details.sec').forEach(d => { d.open = open; });
-    /* y volver al comienzo del listado. Al plegar, todo lo que estaba abierto
-       se encoge de golpe y uno queda parado en cualquier lado. */
-    const cabeza = $('#view .cityhead');
-    if (cabeza) {
-      const alto = parseFloat(
-        getComputedStyle(document.documentElement).getPropertyValue('--top-h')) || 0;
-      /* .cityhead no es sticky, asi que su posicion es la real */
-      const destino = Math.max(0, cabeza.getBoundingClientRect().bottom + window.scrollY - alto);
-      const modo = matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
-      window.scrollTo({ top: destino, behavior: modo });
-    }
+    irAlComienzo();
   }
+});
+
+const modoScroll = () => matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+
+/* volver al comienzo del listado. Al plegar, todo lo que estaba abierto se
+   encoge de golpe y uno queda parado en cualquier lado. */
+function irAlComienzo() {
+  const cabeza = $('#view .cityhead');
+  if (!cabeza) return;
+  const alto = parseFloat(
+    getComputedStyle(document.documentElement).getPropertyValue('--top-h')) || 0;
+  /* .cityhead no es sticky, asi que su posicion es la real */
+  const destino = Math.max(0, cabeza.getBoundingClientRect().bottom + window.scrollY - alto);
+  window.scrollTo({ top: destino, behavior: modoScroll() });
+}
+
+/* ---------- la barra flotante ---------- */
+/* Aparece al bajar. Cerrar seccion pliega la que se esta leyendo y deja su
+   titulo arriba; cerrar todo pliega todas y vuelve al comienzo del capitulo;
+   la flecha va al principio de la pagina. */
+const flota = $('#flota');
+const altoFijo = () => {
+  const cab = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--top-h')) || 0;
+  const barra = $('#view .toolrow.pegada');
+  return cab + (barra ? barra.offsetHeight : 0);
+};
+/* la seccion que se esta leyendo: la abierta que cruza el borde de arriba */
+function seccionActual() {
+  const borde = altoFijo() + 8;
+  return [...document.querySelectorAll('#view details.sec[open]')].find(d => {
+    const r = d.getBoundingClientRect();
+    return r.top < borde && r.bottom > borde + 40;
+  });
+}
+function actualizarFlota() {
+  const lejos = window.scrollY > Math.max(400, innerHeight * 0.6);
+  flota.querySelector('[data-flota="sec"]').hidden = !(lejos && seccionActual());
+  flota.querySelector('[data-flota="todo"]').hidden = !document.querySelector('#view details.sec[open]');
+  flota.classList.toggle('on', lejos);
+}
+let flotaPendiente = false;
+addEventListener('scroll', () => {
+  if (flotaPendiente) return;
+  flotaPendiente = true;
+  requestAnimationFrame(() => { flotaPendiente = false; actualizarFlota(); });
+}, { passive: true });
+/* el toggle de un details no burbujea, pero si pasa por la captura */
+$('#view').addEventListener('toggle', actualizarFlota, true);
+flota.addEventListener('click', e => {
+  const b = e.target.closest('[data-flota]');
+  if (!b) return;
+  if (b.dataset.flota === 'arriba') { window.scrollTo({ top: 0, behavior: modoScroll() }); return; }
+  if (b.dataset.flota === 'todo') {
+    document.querySelectorAll('#view details.sec').forEach(d => { d.open = false; });
+    irAlComienzo();
+    return;
+  }
+  const d = seccionActual();
+  if (!d) return;
+  d.open = false;
+  const y = d.getBoundingClientRect().top + window.scrollY - altoFijo();
+  window.scrollTo({ top: Math.max(0, y), behavior: modoScroll() });
 });
 
 /* ---------- buscador ---------- */
