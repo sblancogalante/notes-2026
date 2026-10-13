@@ -11,6 +11,20 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 Dia de Cinque Terre, con la guia en uso.
 
+**`0fecec4` fix: Verona a paso rapido y la salida pensada para la hora pico de Milan**
+
+Correccion de un calculo del commit anterior: el tramo de Verona a Milan se
+habia contado en 1h55, que es lo que tarda con la ruta libre, y se salia a las
+18:15. A esa hora se entra a Milan con la hora pico, que en la ciudad anda a
+mas de 38 minutos cada 10 km segun TomTom, y la A4 entre Brescia y Milan va
+cargada. Ahora se cuentan dos horas y media: salida 17:45, limite 18:00,
+llegada cerca de las 20:15. Salir antes no ayuda, porque se entraria a Milan
+en lo peor de la hora pico.
+
+El almuerzo bajo de hora y media a una hora y diez. Verona quedo de 15:10 a
+17:40 a paso rapido, con el turno de Julieta a las 16:00 en vez de 16:30 y
+Castel San Pietro adentro del plan.
+
 **`f8885dd` feat: el miercoles 14 pasa por el Ferrari, Persiceto y Verona**
 
 El martes entraron cuatro pueblos en la tarde, Riomaggiore, Manarola,
