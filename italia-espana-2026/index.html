@@ -622,7 +622,7 @@ const CITIES = [
       <h3>Lo demás, que ya está</h3>
       <ul>
         <li><b>Duomo de Milán</b>: ya está, <b>jueves 15 de 9:00 a 9:30</b>, con las <b>terrazas</b> incluidas, que son las que de verdad valen. Voucher bajado al teléfono y en la plaza unos minutos antes, que se entra por control de seguridad.</li>
-        <li><b>Museo Ferrari</b>, Módena: no suele agotarse, pero comprarlo online ahorra la fila.</li>
+        <li><b>Museo Enzo Ferrari</b>, Módena: ya está, para el <b>miércoles 14</b> a primera hora.</li>
         <li>Sevilla ya está: <b>Catedral y Giralda</b> el jueves 22 a las 17:20, <b>Real Alcázar</b> el viernes 23 a las 16:30.</li>
       </ul>
       <h3>Un lugar donde tener todo junto</h3>
@@ -637,7 +637,7 @@ const CITIES = [
       <h3>The rest, also done</h3>
       <ul>
         <li><b>Milan Duomo</b>: booked, <b>Thursday the 15th from 9:00 to 9:30</b>, with the <b>rooftop terraces</b> included, which are the part that is actually worth it. Voucher downloaded, and in the square a few minutes early, since entry goes through a security check.</li>
-        <li><b>Ferrari Museum</b>, Modena: it rarely sells out, but buying online saves the queue.</li>
+        <li><b>Enzo Ferrari Museum</b>, Modena: booked, for first thing on <b>Wednesday the 14th</b>.</li>
         <li>Seville is done: <b>Cathedral and Giralda</b> on Thursday the 22nd at 17:20, <b>Real Alcázar</b> on Friday the 23rd at 16:30.</li>
       </ul>
       <h3>One place to keep it all</h3>
@@ -1341,14 +1341,14 @@ const CITIES = [
   name:{es:'Los traslados',en:'The journeys'},
   plate:{es:'Itinerario',en:'Itinerary'},
   accent:'#C2410C', lt:'#FDBA74', maps:'',
-  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cinco tramos de tren, cuatro días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura, cuál ya está sacado y cuándo conviene sacar el resto.',
-        en:'Fourteen moves in twenty three days: five flights, five train legs, four days with a car and the airport transfers. Here is each one, how long it takes, which are already booked and when to book the rest.'},
+  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cuatro tramos de tren, seis días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura, cuál ya está sacado y cuándo conviene sacar el resto.',
+        en:'Fourteen moves in twenty three days: five flights, four train legs, six days with a car and the airport transfers. Here is each one, how long it takes, which are already booked and when to book the rest.'},
   quick:[
     [{es:'Vuelos',en:'Flights'},{es:'5, todos sacados',en:'5, all booked'}],
-    [{es:'Trenes',en:'Trains'},{es:'5 tramos, el de Florencia sacado',en:'5 legs, the Florence one booked'}],
-    [{es:'Auto',en:'Car'},{es:'Vie 9 a mar 13, sin reservar',en:'Fri 9 to Tue 13, not booked'}],
-    [{es:'El día más frágil',en:'The fragile day'},{es:'Mié 14, La Spezia a Milán',en:'Wed 14, La Spezia to Milan'}],
-    [{es:'Lo más urgente',en:'Most urgent'},{es:'Reservar el auto',en:'Book the car'}]
+    [{es:'Trenes',en:'Trains'},{es:'4 tramos, Florencia y Varenna sacados',en:'4 legs, Florence and Varenna booked'}],
+    [{es:'Auto',en:'Car'},{es:'Vie 9 a mié 14, sacado',en:'Fri 9 to Wed 14, booked'}],
+    [{es:'El día más frágil',en:'The fragile day'},{es:'Mié 14, La Spezia a Milán en auto',en:'Wed 14, La Spezia to Milan by car'}],
+    [{es:'Lo más urgente',en:'Most urgent'},{es:'Entradas de Verona, la noche del 13',en:'Verona tickets, the night of the 13th'}]
   ],
   sections:[
   {s:{es:'Todo de un vistazo',en:'The whole thing at a glance'}, k:'plan',
@@ -1357,12 +1357,12 @@ const CITIES = [
      {d:'2026-10-04', w:{es:'Dom 4',en:'Sun 4'},   t:{es:'Madrid a Roma',en:'Madrid to Rome'},                          c:'Air Europa',                                                   dur:'~2h30',      e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-04', w:{es:'Dom 4',en:'Sun 4'},   t:{es:'Fiumicino a Navona',en:'Fiumicino to Navona'},                c:{es:'Taxi o Leonardo Express',en:'Taxi or Leonardo Express'},   dur:{es:'~40 min',en:'~40 min'}, e:{es:'Se resuelve ahí',en:'Sorted out there'}},
      {d:'2026-10-08', w:{es:'Jue 8',en:'Thu 8'},   t:{es:'Roma a Florencia',en:'Rome to Florence'},                     c:{es:'Tren, 9:20 de Termini',en:'Train, 9:20 from Termini'},      dur:'1h30',       e:{es:'Sacado',en:'Booked'}},
-     {d:'2026-10-09', w:{es:'Vie 9',en:'Fri 9'},   t:{es:'Florencia a San Gimignano',en:'Florence to San Gimignano'},   c:{es:'Auto, retiro en Peretola',en:'Car, pickup at Peretola'},   dur:'~1h15',      e:{es:'Falta',en:'Not booked'}},
-     {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'San Gimignano a La Spezia',en:'San Gimignano to La Spezia'},  c:{es:'Auto, y se devuelve',en:'Car, and it goes back'},           dur:'~2h15',      e:{es:'Falta',en:'Not booked'}},
+     {d:'2026-10-09', w:{es:'Vie 9',en:'Fri 9'},   t:{es:'Florencia a San Gimignano',en:'Florence to San Gimignano'},   c:{es:'Auto, retiro en Peretola',en:'Car, pickup at Peretola'},   dur:'~1h15',      e:{es:'Sacado',en:'Booked'}},
+     {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'San Gimignano a La Spezia',en:'San Gimignano to La Spezia'},  c:{es:'Auto, por Pisa y Forte dei Marmi',en:'Car, by Pisa and Forte dei Marmi'}, dur:'~2h15', e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'La Spezia y Cinque Terre',en:'La Spezia and Cinque Terre'},   c:{es:'Tren regional',en:'Regional train'},                       dur:{es:'5 a 20 min',en:'5 to 20 min'}, e:{es:'Se compra ahí',en:'Bought there'}},
-     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'La Spezia a Módena',en:'La Spezia to Modena'},                c:{es:'Tren, cambio en Parma',en:'Train, change at Parma'},        dur:'~3 h',       e:{es:'Falta',en:'Not booked'}},
-     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'Módena a Milán',en:'Modena to Milan'},                        c:{es:'Tren directo',en:'Direct train'},                          dur:'~1h45',      e:{es:'Falta',en:'Not booked'}},
-     {d:'2026-10-16', w:{es:'Vie 16',en:'Fri 16'}, t:{es:'Milán a Varenna, ida y vuelta',en:'Milan to Varenna and back'}, c:{es:'Tren regional',en:'Regional train'},                     dur:{es:'~1h05 ida',en:'~1h05 each way'}, e:{es:'Se compra ahí',en:'Bought there'}},
+     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'La Spezia a Módena y Persiceto',en:'La Spezia to Modena and Persiceto'}, c:{es:'Auto, museo y almuerzo',en:'Car, museum and lunch'}, dur:'~2h20', e:{es:'Sacado',en:'Booked'}},
+     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'Persiceto a Verona y Milán',en:'Persiceto to Verona and Milan'}, c:{es:'Auto, se entrega en Milán',en:'Car, handed back in Milan'}, dur:'~3h20', e:{es:'Sacado',en:'Booked'}},
+     {d:'2026-10-16', w:{es:'Vie 16',en:'Fri 16'}, t:{es:'Milán a Varenna, ida y vuelta',en:'Milan to Varenna and back'}, c:{es:'Tren, 7:20 de Centrale',en:'Train, 7:20 from Centrale'}, dur:{es:'~1h05 ida',en:'~1h05 each way'}, e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-17', w:{es:'Sáb 17',en:'Sat 17'}, t:{es:'Milán a Barcelona',en:'Milan to Barcelona'},                  c:'IB 5543',                                                      dur:'~1h45',      e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-18', w:{es:'Dom 18',en:'Sun 18'}, t:{es:'Barcelona a Sevilla',en:'Barcelona to Seville'},              c:'IB 5064',                                                      dur:'~1h45',      e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-24', w:{es:'Sáb 24',en:'Sat 24'}, t:{es:'Sevilla a Córdoba, si vamos',en:'Seville to Córdoba, if we go'}, c:{es:'AVE, ida y vuelta',en:'AVE, return'},                   dur:'0h45',       e:{es:'Falta, opcional',en:'Not booked, optional'}},
@@ -1372,28 +1372,26 @@ const CITIES = [
       <p>Antes del viaje está todo pendiente y la lista arranca limpia. Durante el viaje, cada tramo se marca solo cuando pasa la fecha, y el de arriba muestra por cuál vamos. Cualquier fila se puede tocar para corregirla.</p>
       <h3>Lo que falta</h3>
       <ul>
-        <li>Los cinco vuelos y el tren a Florencia ya están.</li>
-        <li>El <b>auto</b> es lo único pendiente de verdad, y lo que más sube de precio con el tiempo.</li>
-        <li>Los dos trenes del miércoles 14 se compran casi sobre la fecha.</li>
+        <li>Los cinco vuelos, el auto y los trenes de Florencia y de Varenna ya están.</li>
+        <li><b>Las entradas de Verona</b>, la Arena y el turno del patio de Julieta, se sacan la noche del martes 13.</li>
         <li>El AVE a Córdoba, solo si hacemos la excursión.</li>
       </ul>
       <h3>Los dos días para mirar con lupa</h3>
       <ul>
-        <li>El <b>miércoles 14</b> es el frágil: tres horas de tren con un cambio, un museo en el medio y dos horas más de tren, con las valijas encima. Si se cae el primer tramo, se cae el día. Hay que dejar margen entre combinaciones y no tomar la conexión más ajustada de la app.</li>
+        <li>El <b>miércoles 14</b> es el frágil: casi seis horas de auto con tres paradas, una mesa a las 12:30 que se cae a los veinte minutos de atraso y una oficina en Milán que cierra a las 21:00. Lo último para salir de Verona es 18:30. El detalle está en el capítulo de Módena.</li>
         <li>El <b>sábado 17</b> depende de un dato que falta: si el IB 5543 sale de Linate o de Malpensa. Son más de una hora de diferencia en el traslado, así que hay que confirmarlo antes de fijar a qué hora salimos del hotel.</li>
       </ul>
     `, en:`
       <p>Before the trip everything is pending and the list starts clean. During the trip each leg ticks itself off once its date passes, and the line at the top shows which one we are on. Any row can be tapped to correct it.</p>
       <h3>What is still missing</h3>
       <ul>
-        <li>All five flights and the train to Florence are done.</li>
-        <li>The <b>car</b> is the only real outstanding item, and the one whose price climbs fastest.</li>
-        <li>The two trains on Wednesday the 14th get bought close to the date.</li>
+        <li>All five flights, the car and the Florence and Varenna trains are done.</li>
+        <li><b>The Verona tickets</b>, the Arena and the slot for Juliet’s courtyard, get bought on the night of Tuesday the 13th.</li>
         <li>The AVE to Córdoba, only if we do the day trip.</li>
       </ul>
       <h3>The two days to look at closely</h3>
       <ul>
-        <li><b>Wednesday the 14th</b> is the fragile one: three hours of train with a change, a museum in the middle and two more hours of train, with the bags along for all of it. If the first leg falls over, the day falls over. Leave slack between connections and do not take the tightest one the app offers.</li>
+        <li><b>Wednesday the 14th</b> is the fragile one: nearly six hours of driving with three stops, a 12:30 table that goes after twenty minutes late, and an office in Milan that closes at 21:00. The latest we can leave Verona is 18:30. The detail is in the Modena chapter.</li>
         <li><b>Saturday the 17th</b> hangs on a missing detail: whether IB 5543 leaves from Linate or Malpensa. That is more than an hour of difference in the transfer, so confirm it before fixing what time we leave the hotel.</li>
       </ul>
     `}},
@@ -1404,7 +1402,7 @@ const CITIES = [
       <ul>
         <li><b>Lo que se agota ya no es problema</b>: el Coliseo y el Duomo de Milán están sacados y no queda ninguna entrada con fecha límite. Está todo en el capítulo de preparativos.</li>
         <li><b>El auto</b>, tres o cuatro meses antes y con tarifa cancelable. El precio de los alquileres sube fuerte cerca de la fecha y después no baja.</li>
-        <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está. Para los tramos del miércoles 14, mirar si aparece un tren rápido en vez de regional: si aparece, sacarlo con tiempo, porque es de tarifa dinámica.</li>
+        <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está, y el AVE a Córdoba, si vamos, funciona igual: cuanto antes, más barato.</li>
         <li><b>El resto, nada.</b> Regionales, tranvía de Florencia, trenes de Cinque Terre y del lago de Como se compran el mismo día o la noche anterior.</li>
       </ul>
       <h3>Por qué los regionales no se compran antes</h3>
@@ -1423,7 +1421,7 @@ const CITIES = [
       <ul>
         <li><b>What sells out is no longer a problem</b>: the Colosseum and the Milan Duomo are booked and no ticket has a deadline left. It is all in the preparation chapter.</li>
         <li><b>The car</b>, three or four months out and on a cancellable rate. Rental prices climb hard near the date and never come back down.</li>
-        <li><b>The long distance trains.</b> Rome to Florence is done. For the two legs on Wednesday the 14th, check whether a fast train shows up instead of a regional: if it does, book early, because the fare is dynamic.</li>
+        <li><b>The long distance trains.</b> Rome to Florence is done, and the AVE to Córdoba, if we go, works the same way: the earlier, the cheaper.</li>
         <li><b>Everything else, nothing.</b> Regionals, the Florence tram, the Cinque Terre trains and the Lake Como ones get bought the same day or the night before.</li>
       </ul>
       <h3>Why regionals are not bought ahead</h3>
@@ -1498,20 +1496,6 @@ const CITIES = [
      t:'mover', res:'no',
      tip:{es:'Se saca en la máquina de la estación el mismo día, o la tarjeta de un día si vamos a hacer tres o cuatro viajes. Si el boleto es de papel, validarlo en la maquinita del andén antes de subir.',
           en:'Buy it from the station machine on the day, or the one day card if we are making three or four trips. If the ticket is paper, validate it in the little machine on the platform before boarding.'}},
-    {nota:1, m:'La Spezia Centrale',
-     n:{es:'Mié 14: La Spezia a Módena',en:'Wed 14: La Spezia to Modena'},
-     d:{es:'Unas tres horas con un cambio, casi siempre en Parma. No hay tren directo, así que es la combinación más delicada del viaje.',
-        en:'About three hours with one change, almost always at Parma. There is no direct train, which makes it the most delicate connection of the trip.'},
-     t:'mover', res:'conviene',
-     tip:{es:'Elegir en la app una combinación con margen entre tren y tren, no la más ajustada. Si el segundo tramo lo hace un tren rápido, comprarlo antes; si son los dos regionales, se compran ese mismo día. Salir temprano, 7:30 u 8:00.',
-          en:'Pick a connection in the app with slack between trains, not the tightest one. If the second leg is a fast train, buy it in advance; if both are regionals, buy them on the day. Leave early, 7:30 or 8:00.'}},
-    {nota:1, m:'Stazione di Modena',
-     n:{es:'Mié 14: Módena a Milán',en:'Wed 14: Modena to Milan'},
-     d:{es:'Poco menos de dos horas, con servicios directos a Milano Centrale. Último tramo de un día largo.',
-        en:'A little under two hours, with direct services to Milano Centrale. The last leg of a long day.'},
-     t:'mover', res:'no',
-     tip:{es:'Si es regional, se compra en Módena el mismo día. Mirar antes a qué hora es el último servicio cómodo, para saber hasta cuándo estirar el museo.',
-          en:'If it is a regional, buy it in Modena on the day. Check beforehand when the last comfortable service runs, so we know how long we can stretch the museum.'}},
     {nota:1, m:'Milano Centrale',
      n:{es:'Vie 16: Milán a Varenna, ida y vuelta',en:'Fri 16: Milan to Varenna and back'},
      d:{es:'Poco más de una hora en tren regional hasta Varenna-Esino, por la orilla del lago. La estación queda a diez minutos a pie del puerto.',
@@ -1562,8 +1546,8 @@ const CITIES = [
      d:{es:'El <b>miércoles 14 a la noche en Milán</b>, en Via Vittor Pisani 19, nivel -2, que es el punto de entrega de la oficina de Via Galvani 12. Son seis días de alquiler, del viernes 9 al miércoles 14, con cargo por devolver en otra ciudad.',
         en:'<b>Wednesday the 14th in the evening, in Milan</b>, at Via Vittor Pisani 19, level -2, the drop off point for the Via Galvani 12 office. Six rental days, Friday the 9th to Wednesday the 14th, with a one way drop charge.'},
      t:'mover',
-     tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando del museo de Módena cerca de las 19:45 queda hora y cuarto de margen. El teléfono es +39 02 66987 826.',
-          en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from the Modena museum around 19:45 leaves an hour and a quarter of margin. The number is +39 02 66987 826.'}},
+     tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando de Verona cerca de las 20:15 quedan tres cuartos de hora de margen. El teléfono es +39 02 66987 826.',
+          en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from Verona around 20:15 leaves three quarters of an hour of margin. The number is +39 02 66987 826.'}},
     {nota:1,
      n:{es:'La devolución, paso a paso',en:'The handback, step by step'},
      d:{es:'Entrar por Via Vittor Pisani 19 y bajar al nivel -2. Devolver con el tanque como lo entregaron, cargando nafta antes y no en la última estación de la autopista, que es la más cara.',
@@ -1594,24 +1578,24 @@ const CITIES = [
           en:'Check that both suitcases fit in the boot, because in the smallest models they do not; if the category says "two large bags", that is enough. And on collection, confirm whether it takes petrol or diesel: getting it wrong wrecks the engine and no insurance covers it.'}},
     {nota:1,
      n:{es:'Los tramos que manejamos',en:'The stretches we drive'},
-     d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el tramo largo, La Spezia a Persiceto y de ahí a Milán pasando por Módena, casi cinco horas de manejo repartidas en el día.',
-        en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the long one, La Spezia to Persiceto and on to Milan by way of Modena, nearly five hours of driving spread across the day.'},
+     d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el más largo, La Spezia a Módena, Persiceto, Verona y Milán, unos quinientos kilómetros y casi seis horas de manejo repartidas en el día.',
+        en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the longest, La Spezia to Modena, Persiceto, Verona and Milan, about five hundred kilometres and nearly six hours of driving spread across the day.'},
      t:'mover',
-     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera. El miércoles se maneja el tramo largo del viaje, La Spezia a Persiceto y de ahí a Milán.',
-          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead. Wednesday is the long driving day, La Spezia to Persiceto and on to Milan.'}}
+     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera. El miércoles se maneja el día largo del viaje, con Verona en el medio y 18:30 como lo último para salir de ahí.',
+          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead. Wednesday is the long driving day, with Verona in the middle and 18:30 as the latest we can leave it.'}}
   ]},
 
   {s:{es:'El auto, de Florencia a Milán',en:'The car, Florence to Milan'}, k:'mover', html:{es:`
-      <p>El auto nos acompaña hasta <b>Milán el miércoles 14 a la noche</b>, y ahí termina. La razón es el día de Módena, que es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa y seguir a Milán no se hace en tren sin perder medio día en combinaciones.</p>
+      <p>El auto nos acompaña hasta <b>Milán el miércoles 14 a la noche</b>, y ahí termina. La razón es el día de Módena, que es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa, la tarde en Verona y seguir a Milán no se hacen en tren sin perder medio día en combinaciones.</p>
       <p>De Milán en adelante vamos en tren, y es lo que corresponde: el lago de Como se hace en tren el viernes, y los días de la ciudad no necesitan auto. Así no pagamos garage de hotel ni el estacionamiento de Varenna, que es escaso y caro.</p>
       <h3>Lo que hay que tener presente</h3>
       <ul>
         <li><b>Una noche de garage, no dos.</b> Solo en La Spezia: el Park Centro Stazione enfrente de la estación, 1,50 euros la hora de día y 1 de noche, cubierto y con cámaras, y la ventaja de que el miércoles bajamos del tren y subimos al auto. En Milán no hace falta, porque el auto se entrega la misma noche que llegamos. Antes de pagar el de La Spezia, preguntar en el alojamiento si tiene acuerdo con algún garage.</li>
-        <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles 19:45, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
+        <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles cerca de las 20:15, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
         <li><b>El Área B</b> cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero conviene confirmarlo al retirarlo.</li>
         <li><b>El cargo por devolver en otra ciudad</b> crece con la distancia y Milán no es Florencia. Ya está en el contrato, pero vale mirar el detalle para no sorprenderse.</li>
-        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Llegando el miércoles 19:45 se entrega esa noche con hora y cuarto de margen.</li>
-        <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna en Módena. Sí hace falta la regla de siempre: todo al baúl y nada a la vista.</li>
+        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Llegando el miércoles cerca de las 20:15 se entrega esa noche con tres cuartos de hora de margen.</li>
+        <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna ni en Módena ni en Verona. Sí hace falta la regla de siempre, todo al baúl y nada a la vista, y en Verona el parking cubierto y con personal.</li>
       </ul>
       <h3>Qué pasa si no llegamos a horario</h3>
       <p>Conviene saberlo aunque no haga falta, porque la respuesta no es obvia: <b>no se puede dejar el auto y listo</b>. La entrega existe cuando alguien lo recibe.</p>
@@ -1624,16 +1608,16 @@ const CITIES = [
       <h3>Al entregarlo</h3>
       <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
     `, en:`
-      <p>The car comes with us as far as <b>Milan on Wednesday the 14th in the evening</b>, and that is where it ends. The reason is the Modena day, the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain and then on to Milan cannot be done by train without losing half a day to connections.</p>
+      <p>The car comes with us as far as <b>Milan on Wednesday the 14th in the evening</b>, and that is where it ends. The reason is the Modena day, the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain, the afternoon in Verona and then on to Milan cannot be done by train without losing half a day to connections.</p>
       <p>From Milan onwards we go by train, which is as it should be: Lake Como is done by train on Friday, and the city days need no car. That way we pay no hotel garage and no Varenna parking, which is scarce and expensive.</p>
       <h3>What to keep in mind</h3>
       <ul>
         <li><b>One night of garage, not two.</b> Only in La Spezia: the Park Centro Stazione across from the station, 1.50 euros an hour by day and 1 by night, covered and with cameras, and the advantage that on Wednesday we step off the train and into the car. In Milan it is not needed, because the car goes back the same evening we arrive. Before paying for the La Spezia one, ask the apartment whether they have an arrangement with a garage.</li>
-        <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday at 19:45, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
+        <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday around 20:15, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
         <li><b>Area B</b> covers almost the whole city and runs Monday to Friday. A new hire car meets the standard and passes, but it is worth confirming at pick up.</li>
         <li><b>The one way drop charge</b> grows with distance and Milan is not Florence. It is already in the contract, but worth reading the line so it is not a surprise.</li>
-        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Arriving at 19:45 on Wednesday it goes back that evening with an hour and a quarter to spare.</li>
-        <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena. The usual rule does apply: everything in the boot and nothing in sight.</li>
+        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Arriving around 20:15 on Wednesday it goes back that evening with three quarters of an hour to spare.</li>
+        <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena or in Verona. The usual rule does apply, everything in the boot and nothing in sight, and in Verona the covered, staffed car park.</li>
       </ul>
       <h3>What happens if we do not make it in time</h3>
       <p>Worth knowing even if it never comes up, because the answer is not obvious: <b>you cannot just leave the car and walk away</b>. The return happens when somebody receives it.</p>
@@ -1678,8 +1662,8 @@ const CITIES = [
           en:'With three weeks of luggage and an apartment to reach, the taxi is the sensible call. Confirm the fixed fare on getting in, since it changes by day and hour. For the Sunday night return on the 25th, book it ahead or use Cabify.'}},
     {nota:1,
      n:{es:'Florencia y La Spezia',en:'Florence and La Spezia'},
-     d:{es:'A Florencia llegamos en tren y salimos en auto; a La Spezia llegamos en auto y salimos en tren. En ninguna hace falta un traslado de aeropuerto.',
-        en:'We arrive in Florence by train and leave by car; we arrive in La Spezia by car and leave by train. Neither needs an airport transfer.'},
+     d:{es:'A Florencia llegamos en tren y salimos en auto; a La Spezia llegamos y salimos en auto. En ninguna hace falta un traslado de aeropuerto.',
+        en:'We arrive in Florence by train and leave by car; we arrive in La Spezia by car and leave by car. Neither needs an airport transfer.'},
      t:'mover',
      tip:{es:'En las dos, del alojamiento a la estación se va caminando o con un taxi corto. En Florencia son diez minutos a pie hasta Santa Maria Novella.',
           en:'In both, it is a walk or a short taxi from where we are staying to the station. In Florence it is ten minutes on foot to Santa Maria Novella.'}}
@@ -1691,15 +1675,15 @@ const CITIES = [
      d:{es:'Los <em>scioperi</em> de trenes, buses o aviones son habituales y no son sorpresa: se anuncian con al menos diez días de anticipación, tienen día y horario definidos, y hay franjas con servicio garantizado.',
         en:'Train, bus and air <em>scioperi</em> are routine and never a surprise: they are announced at least ten days ahead, have a set day and set hours, and there are windows with guaranteed service.'},
      t:'mover',
-     tip:{es:'Mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del miércoles 14. Si cae huelga ese día, se mueve el horario dentro de la franja garantizada. En España pasa lo mismo y también se anuncian con servicios mínimos.',
-          en:'Check the Italian transport ministry’s official strike calendar a week before each important leg, above all before Thursday the 8th and Wednesday the 14th. If a strike falls on the day, shift the time into the guaranteed window. The same happens in Spain, also announced with minimum service levels.'}},
+     tip:{es:'Mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del viernes 16, que son los dos días que dependen de un tren. Si cae huelga ese día, se mueve el horario dentro de la franja garantizada. En España pasa lo mismo y también se anuncian con servicios mínimos.',
+          en:'Check the Italian transport ministry’s official strike calendar a week before each important leg, above all before Thursday the 8th and Friday the 16th, the two days that depend on a train. If a strike falls on the day, shift the time into the guaranteed window. The same happens in Spain, also announced with minimum service levels.'}},
     {nota:1,
-     n:{es:'Si se cae el tren del miércoles 14',en:'If the Wednesday train falls over'},
-     d:{es:'Es el día sin colchón: si el primer tramo llega tarde y perdemos la combinación de Parma, se atrasa todo y el museo puede quedar afuera.',
-        en:'It is the day with no cushion: if the first leg runs late and we miss the Parma connection, everything slides and the museum may drop off.'},
+     n:{es:'Si el miércoles 14 se atrasa',en:'If Wednesday the 14th runs late'},
+     d:{es:'Es el día con dos horas que no esperan: la mesa de las 12:30 en Persiceto, que se cae a los veinte minutos sin aviso, y la oficina de Milán, que cierra a las 21:00. Lo que hay entre las dos se puede achicar; esas dos no.',
+        en:'It is the day with two times that will not wait: the 12:30 table in Persiceto, which goes after twenty minutes with no word, and the Milan office, which closes at 21:00. Everything between them can shrink; those two cannot.'},
      t:'mover',
-     tip:{es:'El plan B es simple y hay que tenerlo pensado: si llegamos a Módena pasado el mediodía, se saltea el almuerzo tranquilo y se va directo al museo, que es lo único que no se puede hacer otro día. Y si se complica de verdad, Módena se saltea entero y seguimos a Milán, que es donde dormimos.',
-          en:'Plan B is simple and worth deciding in advance: if we reach Modena after midday, skip the leisurely lunch and go straight to the museum, which is the one thing that cannot be done another day. And if it really unravels, skip Modena entirely and carry on to Milan, which is where we sleep.'}},
+     tip:{es:'Si el atraso es a la mañana, el aviso a la osteria va por WhatsApp al +39 051 821273 y el museo se acorta. Si es a la tarde, Verona se corta en el orden que dice su capítulo, y a las 18:30 se sale igual. Y si en la autopista se ve que no llegamos a las 21:00, se llama a la oficina, +39 02 66987 826, antes de que cierre: después de esa hora no atiende nadie.',
+          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:30 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}},
     {nota:1,
      n:{es:'Los márgenes que conviene dejar',en:'The margins worth leaving'},
      d:{es:'Vuelos internacionales, tres horas antes en el mostrador. Vuelos internos de Iberia, dos. Trenes de alta velocidad, media hora en la estación. Regionales, quince minutos.',
@@ -2750,13 +2734,6 @@ const CITIES = [
      tip:{es:'Las cabinas blancas son de tarjeta y las azules de billetes. Las carreteras secundarias entre pueblos son gratis, más lindas y más lentas: para la Val d’Orcia son las que hay que tomar. La FI-PI-LI, que es la que nos lleva a la costa y a Pisa, es gratis y rápida; la A12 de Pisa a La Spezia tiene peaje.',
           en:'White lanes take cards and blue ones take cash. The back roads between towns are free, prettier and slower: for the Val d’Orcia they are the ones to take. The FI-PI-LI, which is what carries us to the coast and to Pisa, is free and fast; the A12 from Pisa to La Spezia is tolled.'}},
     {nota:1,
-     n:{es:'Devolver el auto en La Spezia',en:'Returning the car in La Spezia'},
-     d:{es:'Es un alquiler de una punta a la otra, así que tiene cargo por devolución en otra ciudad. Conviene tener claro de antemano la dirección exacta de la oficina, el horario y si cierran al mediodía, que muchas lo hacen.',
-        en:'It is a one way rental, so there is a fee for returning in another city. Have the exact office address, the opening hours and whether they close at midday clear in advance, since many of them do.'},
-     t:'mover',
-     tip:{es:'Devolverlo con el tanque como lo entregaron y sacar fotos del auto por los cuatro lados y del tablero con el nivel de combustible antes de entregar las llaves. Es lo único que sirve si después aparece un cargo por un rayón que no hicimos.',
-          en:'Return it with the tank as they handed it over, and photograph all four sides of the car and the dashboard with the fuel level before giving back the keys. It is the only thing that helps if a charge later appears for a scratch we did not make.'}},
-    {nota:1,
      n:{es:'Manejar en la Toscana',en:'Driving in Tuscany'},
      d:{es:'Las carreteras son angostas, con curvas cerradas y sin banquina, y los locales manejan rápido. Las rutas de tierra blanca, las <em>strade bianche</em>, son normales y están bien mantenidas, pero se anda despacio.',
         en:'The roads are narrow, with tight bends and no hard shoulder, and the locals drive fast. The white gravel roads, the <em>strade bianche</em>, are perfectly normal and well kept, but you go slowly on them.'},
@@ -3243,74 +3220,60 @@ const CITIES = [
 {
   id:'cin', nav:'Cinque Terre', name:'Cinque Terre', plate:'La Spezia',
   accent:'#0E7490', lt:'#67E8F9', maps:'La Spezia',
-  d1:'2026-10-13', d2:'2026-10-14',
-  lede:{es:'Una noche y media tarde, así que hay que elegir. Con ese tiempo son dos pueblos bien hechos y no cinco a las corridas: los cinco se parecen bastante entre sí y verlos todos es la manera segura de no disfrutar ninguno.',
-        en:'One night and half an afternoon, so we have to choose. With that much time it is two villages done properly rather than five at a run: the five resemble each other closely, and seeing them all is the surest way to enjoy none of them.'},
+  d1:'2026-10-13', d2:'2026-10-13',
+  lede:{es:'Una tarde y una noche. Con un tren cada quince o treinta minutos entran cuatro de los cinco pueblos en el día: Riomaggiore, Manarola, Vernazza y Monterosso, con la mochila y nada más. El miércoles se sale temprano, así que acá todo termina con la cena en La Spezia.',
+        en:'One afternoon and one night. With a train every fifteen or thirty minutes, four of the five villages fit into the day: Riomaggiore, Manarola, Vernazza and Monterosso, with a backpack and nothing else. On Wednesday we leave early, so everything here ends with dinner in La Spezia.'},
   quick:[
-    [{es:'Cuándo',en:'When'},{es:'Mar 13 a mié 14, con la mañana del 14',en:'Tue 13 to Wed 14, including Wed morning'}],
+    [{es:'Cuándo',en:'When'},{es:'Mar 13, y el 14 se sale 7:45',en:'Tue 13, leaving at 7:45 on the 14th'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Alba Rooms, La Spezia',en:'Alba Rooms, La Spezia'}],
     [{es:'El auto',en:'The car'},{es:'En el garage de la estación',en:'In the station garage'}],
     [{es:'Cómo se mueve uno',en:'Getting about'},{es:'Tren, cada 15 a 30 min',en:'Train, every 15 to 30 min'}],
     [{es:'Atardece',en:'Sunset'},{es:'18:55, y ahí está la foto',en:'18:55, and that is the photograph'}]
   ],
   sections:[
-  {s:{es:'El plan de la media tarde',en:'The half afternoon plan'}, k:'plan', dias:[
+  {s:{es:'El plan del día',en:'The plan for the day'}, k:'plan', dias:[
     {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'},
-     t:{es:'Martes 13: llegar, soltar todo y salir',en:'Tuesday the 13th: arrive, drop everything and get out'},
+     t:{es:'Martes 13: cuatro pueblos en una tarde',en:'Tuesday the 13th: four villages in one afternoon'},
      html:{es:`
       <ul>
-        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Lo primero es meter el auto en el <b>Park Centro Stazione</b>, enfrente de la estación, que se queda ahí hasta el miércoles, y las valijas en el alojamiento. A Cinque Terre se va con la mochila y nada más: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
-        <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
-        <li><b>Primero Vernazza</b>, el más bonito y el del puerto con forma de herradura. Dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, de donde sale la foto clásica.</li>
-        <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
-        <li>El sol se pone 18:55: estar en Manarola desde las 17 para subir, tomar algo y esperar la luz. Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</li>
+        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. El auto va al <b>Park Centro Stazione</b>, enfrente de la estación, y se queda ahí hasta el miércoles; las valijas, al alojamiento. A los pueblos se va con la mochila y nada más: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
+        <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco. Como pasa seguido, entre pueblo y pueblo se pierde poco.</li>
+      </ul>
+      <p>Entran cuatro de los cinco. Acá van en el orden de la vía, de La Spezia hacia el norte, y cada uno tiene su ficha más abajo:</p>
+      <ul>
+        <li><b>Riomaggiore</b>, el más cerca, a siete minutos de tren: una calle en bajada hasta el puerto y el rompeolas de donde sale la foto de las casas apiladas.</li>
+        <li><b>Manarola</b>, el de la postal. El mirador de <b>Punta Bonfiglio</b> es gratis y a cien metros está <b>Nessun Dorma</b>. El sol se pone 18:55.</li>
+        <li><b>Vernazza</b>, el del puerto con forma de herradura: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria.</li>
+        <li><b>Monterosso al Mare</b>, el más grande, el único plano y el único con playa de arena de verdad.</li>
+      </ul>
+      <p>Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</p>
+      <h3>Esta noche</h3>
+      <ul>
+        <li><b>Las dos entradas de Verona</b>, las dos en verona.coopculture.it: la <b>Arena</b>, 12 euros, y el <b>turno de las 16:30 del patio de Julieta</b>, 5 euros. Sin turno no se entra al patio, y los revendedores cobran más del doble y no devuelven. El detalle está en el capítulo de <b>Verona</b>.</li>
+        <li>La entrada del <b>Museo Ferrari</b> ya está, y la mesa de Persiceto pasó a las <b>12:30</b>.</li>
+        <li><b>Check out a las 7:15.</b> Dejar arreglado con Alba Rooms dónde van las llaves si a esa hora no hay nadie.</li>
+        <li>Las valijas armadas esta noche y la mochila del día aparte, porque mañana todo va al baúl. <b>Salimos 7:45</b>, y el día entero está en el capítulo de <b>Módena</b>.</li>
       </ul>
     `, en:`
       <ul>
-        <li>We reach La Spezia around 11 from San Gimignano. The first thing is to put the car in the <b>Park Centro Stazione</b>, across from the station, where it stays until Wednesday, and the bags at the apartment. You go to Cinque Terre with a backpack and nothing else: short platforms, full trains and villages made entirely of stairs.</li>
-        <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five villages in under twenty minutes. The idea is to catch the first one around midday.</li>
-        <li><b>Vernazza first</b>, the prettiest and the one with the horseshoe harbour. A good two hours: the harbour square, the church built out on the rocks, and the climb to the Doria castle, where the classic photograph comes from.</li>
-        <li><b>Then Manarola</b>, ten minutes on by train, which is where we want to be at sunset. That is where <b>Nessun Dorma</b> is, and a hundred metres on the <b>Punta Bonfiglio</b> viewpoint, free, the source of the postcard of coloured houses on the cliff.</li>
-        <li>The sun sets at 18:55: be in Manarola from 17:00 to climb up, have a drink and wait for the light. Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</li>
+        <li>We reach La Spezia around 11 from San Gimignano. The car goes into the <b>Park Centro Stazione</b>, across from the station, and stays there until Wednesday; the bags go to the apartment. You go to the villages with a backpack and nothing else: short platforms, full trains and villages made entirely of stairs.</li>
+        <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five in under twenty minutes. Since it runs often, little is lost between one village and the next.</li>
       </ul>
-    `}},
-
-    {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
-     t:{es:'Miércoles 14: la mañana en los pueblos, y a Módena',en:'Wednesday the 14th: the morning in the villages, then Modena'},
-     html:{es:`
-      <p>La mañana es nuestra y la tarde tiene dueño. El día cuelga de una <b>reserva a las 13:45</b> en San Giovanni in Persiceto, a dos horas y media de acá, y cancelan si llegamos más de veinte minutos tarde sin avisar. Entonces la mañana tiene una hora de cierre que no se negocia: <b>10:30 en el auto y saliendo</b>.</p>
+      <p>Four of the five fit. Here they are in the order of the line, from La Spezia heading north, and each has its own card further down:</p>
       <ul>
-        <li><b>7:00, desayuno y check out.</b> Las valijas van derecho al auto, que ya está en el Park Centro Stazione, enfrente de la estación. Es cubierto y con cámaras, así que es el mejor lugar del viaje para dejarlas tres horas.</li>
-        <li><b>7:45, tren.</b> Con la mochila y nada más, como ayer.</li>
-        <li><b>8:00 a 10:00, el pueblo que falte.</b> Dos horas limpias, que para un pueblo de Cinque Terre a esa hora, sin nadie, es bastante.</li>
-        <li><b>10:20, de vuelta en La Spezia Centrale.</b> La estación y el garage son la misma cuadra: se baja del tren y se sube al auto.</li>
-        <li><b>10:30, salir.</b> Dos horas y veintiséis hasta Persiceto por la A15 y la A1, llegando cerca de las 13:00. Cargar nafta antes de la autopista, que en las áreas de servicio de la A1 el litro sale bastante más.</li>
+        <li><b>Riomaggiore</b>, the closest, seven minutes by train: one street running down to the harbour and the breakwater the photograph of stacked houses comes from.</li>
+        <li><b>Manarola</b>, the postcard one. The <b>Punta Bonfiglio</b> viewpoint is free and <b>Nessun Dorma</b> is a hundred metres away. The sun sets at 18:55.</li>
+        <li><b>Vernazza</b>, the one with the horseshoe harbour: the harbour square, the church built out on the rocks, and the climb to the Doria castle.</li>
+        <li><b>Monterosso al Mare</b>, the largest, the only flat one and the only one with a real sandy beach.</li>
       </ul>
-      <h3>Cuál pueblo, con dos horas</h3>
+      <p>Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</p>
+      <h3>Tonight</h3>
       <ul>
-        <li><b>Riomaggiore es el que conviene</b>: son <b>siete minutos</b> de tren desde La Spezia, el más cerca de los cinco. Una calle en bajada hasta el puerto y el rompeolas de donde sale la foto de las casas apiladas. Con siete minutos de ida y siete de vuelta, las dos horas son dos horas de pueblo y no de tren.</li>
-        <li><b>Monterosso</b> si lo que falta es playa: es el único de los cinco con arena de verdad y el único plano. Pero está a veinticinco minutos, así que se come casi una hora en trenes.</li>
-        <li><b>Corniglia</b> mejor no: es el de arriba del acantilado y desde la estación son trescientos ochenta escalones o esperar la lanzadera. No es un pueblo para ir con reloj.</li>
-        <li>Y si lo que faltó fue tiempo y no pueblos, volver a <b>Vernazza</b> de mañana temprano es mejor plan que estrenar uno nuevo: a las ocho el puerto está vacío y ayer a las dos de la tarde no lo estaba.</li>
+        <li><b>The two Verona tickets</b>, both on verona.coopculture.it: the <b>Arena</b>, 12 euros, and the <b>16:30 slot for Juliet’s courtyard</b>, 5 euros. Without a slot there is no getting into the courtyard, and resellers charge more than double and give no refunds. The detail is in the <b>Verona</b> chapter.</li>
+        <li>The <b>Ferrari Museum</b> ticket is done, and the Persiceto table has moved to <b>12:30</b>.</li>
+        <li><b>Check out at 7:15.</b> Settle with Alba Rooms where the keys go if nobody is there at that hour.</li>
+        <li>Bags packed tonight and the day backpack kept apart, because tomorrow everything goes in the boot. <b>We leave at 7:45</b>, and the whole day is in the <b>Modena</b> chapter.</li>
       </ul>
-      <p>El resto del día está en el capítulo de <b>Módena</b>: el almuerzo, el museo a la vuelta y las valijas. Y la llegada a Milán, con el auto, en el de <b>Milán</b>.</p>
-    `, en:`
-      <p>The morning is ours and the afternoon belongs to someone else. The day hangs on a <b>13:45 booking</b> in San Giovanni in Persiceto, two and a half hours from here, and they cancel if we turn up more than twenty minutes late without calling. So the morning has a closing time that is not up for discussion: <b>10:30, in the car and moving</b>.</p>
-      <ul>
-        <li><b>7:00, breakfast and check out.</b> The bags go straight to the car, which is already in the Park Centro Stazione across from the station. It is covered and has cameras, so it is the best place on the whole trip to leave them for three hours.</li>
-        <li><b>7:45, train.</b> With a backpack and nothing else, same as yesterday.</li>
-        <li><b>8:00 to 10:00, whichever village is missing.</b> Two clean hours, which for a Cinque Terre village at that hour with nobody about is a good deal.</li>
-        <li><b>10:20, back at La Spezia Centrale.</b> The station and the garage are the same block: off the train and into the car.</li>
-        <li><b>10:30, leave.</b> Two hours twenty six to Persiceto on the A15 and the A1, arriving around 13:00. Fill up before the motorway, since at the A1 service areas the litre costs noticeably more.</li>
-      </ul>
-      <h3>Which village, with two hours</h3>
-      <ul>
-        <li><b>Riomaggiore is the one that works</b>: it is <b>seven minutes</b> by train from La Spezia, the closest of the five. One street running down to the harbour and the breakwater the photograph of stacked houses comes from. With seven minutes out and seven back, the two hours are two hours of village rather than of train.</li>
-        <li><b>Monterosso</b> if what is missing is a beach: it is the only one of the five with real sand and the only flat one. But it is twenty five minutes away, so nearly an hour goes on trains.</li>
-        <li><b>Corniglia</b>, better not: it is the one on top of the cliff and from the station it is three hundred and eighty steps or waiting for the shuttle. Not a village to visit against the clock.</li>
-        <li>And if what ran short was time rather than villages, going back to <b>Vernazza</b> early is a better plan than starting a new one: at eight the harbour is empty, and at two yesterday afternoon it was not.</li>
-      </ul>
-      <p>The rest of the day is in the <b>Modena</b> chapter: lunch, the museum on the way back and the bags. And the arrival in Milan, with the car, in the <b>Milan</b> one.</p>
     `}}
   ]},
 
@@ -3320,8 +3283,8 @@ const CITIES = [
      d:{es:'En Piazzale delle Medaglie d’Oro, enfrente de la entrada de la estación. Dos niveles bajo tierra, cubierto, 218 plazas, 64 cámaras y abierto las veinticuatro horas todos los días. 1,50 euros la hora de 8:00 a 20:00 y 1 euro de 20:00 a 8:00.',
         en:'On Piazzale delle Medaglie d’Oro, across from the station entrance. Two underground levels, covered, 218 spaces, 64 cameras and open around the clock every day. 1.50 euros an hour from 8:00 to 20:00 and 1 euro from 20:00 to 8:00.'},
      t:'mover', p:'€€',
-     tip:{es:'Primero preguntar en Alba Rooms: muchos alojamientos de La Spezia tienen acuerdo con un garaje o permiso de zona, y eso sale menos que las veintitrés horas de reloj que vamos a estar. Si no, este es el que conviene igual, porque todos los trenes a los pueblos salen de esa estación y volvemos de noche. Más barato pero a diez minutos a pie está el de Piazza d’Armi.',
-          en:'Ask at Alba Rooms first: plenty of La Spezia places have an arrangement with a garage or a zone permit, and that comes to less than the twenty three hours we will actually be there. Otherwise this is the one anyway, because every village train leaves from that station and we come back after dark. Cheaper but a ten minute walk away is the Piazza d’Armi one.'}},
+     tip:{es:'Primero preguntar en Alba Rooms: muchos alojamientos de La Spezia tienen acuerdo con un garaje o permiso de zona, y eso sale menos que las veinte horas de reloj que vamos a estar. Si no, este es el que conviene igual, porque todos los trenes a los pueblos salen de esa estación y volvemos de noche. Más barato pero a diez minutos a pie está el de Piazza d’Armi.',
+          en:'Ask at Alba Rooms first: plenty of La Spezia places have an arrangement with a garage or a zone permit, and that comes to less than the twenty hours we will actually be there. Otherwise this is the one anyway, because every village train leaves from that station and we come back after dark. Cheaper but a ten minute walk away is the Piazza d’Armi one.'}},
     {m:'Alba Rooms, La Spezia',
      n:{es:'Dónde dormimos: Alba Rooms',en:'Where we sleep: Alba Rooms'},
      d:{es:'En La Spezia, que es la base lógica: es una ciudad de verdad, con supermercados, restaurantes a precio normal y la estación desde donde salen todos los trenes a los pueblos.',
@@ -3340,38 +3303,31 @@ const CITIES = [
      d:{es:'La tarjeta de un día incluye trenes ilimitados entre La Spezia y Levanto más el acceso a los senderos pagos. Sale a cuenta a partir de tres o cuatro viajes en el día.',
         en:'The one day card covers unlimited trains between La Spezia and Levanto plus access to the paid trails. It pays off from three or four journeys in the day.'},
      t:'mover',
-     tip:{es:'Con nuestro plan de dos pueblos son tres viajes justos, así que queda al límite. Si además pensamos caminar algún tramo del Sentiero Azzurro, ahí sí conviene sin dudarlo. Se compra en la ventanilla de la estación de La Spezia.',
-          en:'With our two village plan it is exactly three journeys, so it sits right on the line. If we also plan to walk a stretch of the Sentiero Azzurro, then it is worth it without question. Buy it at the ticket office in La Spezia station.'}},
+     tip:{es:'Con cuatro pueblos en el día son cinco viajes, así que sale a cuenta, y más todavía si además se camina algún tramo del Sentiero Azzurro. Se compra en la ventanilla de la estación de La Spezia.',
+          en:'With four villages in the day it comes to five journeys, so it pays off, and all the more if we also walk a stretch of the Sentiero Azzurro. Buy it at the ticket office in La Spezia station.'}},
     {nota:1,
      n:{es:'Los senderos, y cuál está abierto',en:'The trails, and which one is open'},
      d:{es:'La <em>Via dell’Amore</em>, el tramo llano entre Riomaggiore y Manarola, estuvo cerrada más de diez años por derrumbes y volvió a abrir con entrada y turno horario. Otros tramos siguen cerrados y cambian de una temporada a otra.',
         en:'The <em>Via dell’Amore</em>, the level stretch between Riomaggiore and Manarola, was shut for over ten years after landslides and has reopened with a ticket and timed entry. Other sections are still closed and change from season to season.'},
      t:'mover',
-     tip:{es:'Antes de contar con cualquier caminata hay que mirar el estado de los senderos en la web del Parque Nacional, ese mismo día. Cuando llueve los cierran, y en octubre llueve. El tramo Vernazza a Monterosso es el más lindo pero son casi dos horas de subir y bajar: no entra en nuestra media tarde.',
-          en:'Before counting on any walk, check the trail status on the National Park site that same day. When it rains they close them, and in October it rains. The Vernazza to Monterosso stretch is the loveliest but it is nearly two hours of up and down: it does not fit in our half afternoon.'}},
+     tip:{es:'Antes de contar con cualquier caminata hay que mirar el estado de los senderos en la web del Parque Nacional, ese mismo día. Cuando llueve los cierran, y en octubre llueve. El tramo Vernazza a Monterosso es el más lindo pero son casi dos horas de subir y bajar: no entra en un día de cuatro pueblos.',
+          en:'Before counting on any walk, check the trail status on the National Park site that same day. When it rains they close them, and in October it rains. The Vernazza to Monterosso stretch is the loveliest but it is nearly two hours of up and down: it does not fit into a four village day.'}},
     {nota:1,
      n:{es:'Nada de valijas',en:'No suitcases'},
      d:{es:'Los trenes vienen llenos, los andenes son angostos y los pueblos son escaleras por todos lados. Manarola y Vernazza no tienen una calle plana.',
         en:'The trains come in full, the platforms are narrow and the villages are stairs in every direction. Manarola and Vernazza do not have a single flat street.'},
      t:'mover',
      tip:{es:'Todo queda en el alojamiento de La Spezia. Si por algo hubiera que cargarlas, la estación de La Spezia Centrale tiene consigna, pero conviene confirmar el horario porque cierra temprano.',
-          en:'Everything stays at the La Spezia apartment. If for some reason we had to carry them, La Spezia Centrale station has left luggage, but confirm the hours because it closes early.'}},
-    {nota:1,
-     n:{es:'El tren del miércoles a Módena',en:'Wednesday’s train to Modena'},
-     d:{es:'Son unas tres horas con un cambio, generalmente en Parma. No hay tren directo, así que hay que mirar bien la combinación y dejarse margen entre uno y otro.',
-        en:'About three hours with one change, generally at Parma. There is no direct train, so look carefully at the connection and leave slack between the two.'},
-     t:'mover',
-     tip:{es:'Comprarlo con anticipación en la app de Trenitalia sale más barato. Si el cambio es en Parma y tenemos una hora de espera, la plaza del Duomo de Parma está a diez minutos de la estación y se ve en ese rato.',
-          en:'Buying ahead on the Trenitalia app costs less. If the change is at Parma and we have an hour to wait, Parma’s cathedral square is ten minutes from the station and fits into that gap.'}}
+          en:'Everything stays at the La Spezia apartment. If for some reason we had to carry them, La Spezia Centrale station has left luggage, but confirm the hours because it closes early.'}}
   ]},
 
-  {s:{es:'Los dos pueblos que elegimos',en:'The two villages we picked'}, k:'visita', items:[
-    {a:'Vernazza', n:'Vernazza',
-     d:{es:'El más bonito de los cinco, y el único con un puerto natural. Las casas de colores bajan hasta el agua rodeando una placita que es el centro de todo, con la iglesia de Santa Margherita construida sobre la roca del mar.',
-        en:'The prettiest of the five, and the only one with a natural harbour. Coloured houses run down to the water around a small square that is the centre of everything, with the church of Santa Margherita built out on the sea rock.'},
+  {s:{es:'Los cuatro pueblos',en:'The four villages'}, k:'visita', items:[
+    {a:'Riomaggiore', n:'Riomaggiore',
+     d:{es:'El más cerca de La Spezia, a siete minutos de tren. Una calle principal que baja entre casas altas y angostas hasta un puerto chico, donde los botes se guardan arriba, sobre la misma calle.',
+        en:'The closest to La Spezia, seven minutes by train. One main street running down between tall narrow houses to a small harbour, where the boats are kept up on the street itself.'},
      t:'visita',
-     tip:{es:'La foto famosa se saca subiendo hacia el castillo Doria, o unos metros por el sendero que sale hacia Monterosso, donde hay un mirador antes del molinete de acceso. Es cuesta arriba y son cinco minutos de escalones.',
-          en:'The famous photograph is taken climbing towards the Doria castle, or a few metres up the trail heading for Monterosso, where there is a viewpoint before the ticket gate. It is uphill and five minutes of steps.'}},
+     tip:{es:'La foto de las casas apiladas sale desde las rocas del rompeolas, al costado del puerto. De la estación al pueblo se pasa por un túnel peatonal que desemboca en la calle principal.',
+          en:'The photograph of the stacked houses is taken from the rocks of the breakwater, beside the harbour. From the station you reach the village through a pedestrian tunnel that comes out on the main street.'}},
     {a:'Manarola', n:'Manarola',
      d:{es:'El de la postal: casas apiladas sobre una roca que cae al mar, sin playa y sin puerto, con una rampa de cemento donde los botes se sacan del agua con grúa. Es el más fotogénico de los cinco al atardecer.',
         en:'The postcard one: houses stacked on a rock falling into the sea, with no beach and no harbour, just a concrete ramp where the boats are craned out of the water. The most photogenic of the five at sunset.'},
@@ -3391,20 +3347,25 @@ const CITIES = [
      t:'coctel', p:'€€', serv:'mesa', res:'cola',
      tip:{es:'No toman reserva de mesa: se anota uno en una lista al llegar y esperan un rato, sobre todo al atardecer, que es cuando quiere ir todo el mundo. Conviene llegar temprano y confirmar cómo funciona el día que vamos, porque cambian el sistema seguido. Si la espera es larga, el mirador de al lado tiene la misma vista y es gratis.',
           en:'They take no table bookings: you put your name on a list when you arrive and wait a while, above all at sunset, which is when everyone wants to be there. Arrive early and check how it works the day we go, because they change the system often. If the wait is long, the viewpoint next door has the same view and is free.'}},
-    {nota:1,
-     n:{es:'Los otros tres, y por qué los salteamos',en:'The other three, and why we skip them'},
-     d:{es:'Riomaggiore es lindo pero se parece mucho a Manarola. Corniglia es el único que no está sobre el mar y se llega subiendo casi cuatrocientos escalones desde la estación, o esperando un bus. Monterosso es el más grande y el que tiene playa, y es el que menos cara de Cinque Terre tiene.',
-        en:'Riomaggiore is lovely but very like Manarola. Corniglia is the only one not on the sea and is reached by climbing nearly four hundred steps from the station, or waiting for a bus. Monterosso is the largest and the one with a beach, and the one that looks least like Cinque Terre.'},
+    {a:'Vernazza', n:'Vernazza',
+     d:{es:'El más bonito de los cinco, y el único con un puerto natural. Las casas de colores bajan hasta el agua rodeando una placita que es el centro de todo, con la iglesia de Santa Margherita construida sobre la roca del mar.',
+        en:'The prettiest of the five, and the only one with a natural harbour. Coloured houses run down to the water around a small square that is the centre of everything, with the church of Santa Margherita built out on the sea rock.'},
      t:'visita',
-     tip:{es:'Con media tarde, dos pueblos bien hechos valen mucho más que cinco corriendo entre trenes. Si sobrara tiempo, el que agregaría es Riomaggiore, que está a cinco minutos de Manarola y tiene una bajada al puerto muy linda.',
-          en:'With half an afternoon, two villages done properly are worth far more than five at a run between trains. If time were left over, the one I would add is Riomaggiore, five minutes from Manarola, with a very pretty descent to the harbour.'}},
+     tip:{es:'La foto famosa se saca subiendo hacia el castillo Doria, o unos metros por el sendero que sale hacia Monterosso, donde hay un mirador antes del molinete de acceso. Es cuesta arriba y son cinco minutos de escalones.',
+          en:'The famous photograph is taken climbing towards the Doria castle, or a few metres up the trail heading for Monterosso, where there is a viewpoint before the ticket gate. It is uphill and five minutes of steps.'}},
+    {a:'Monterosso al Mare', n:'Monterosso al Mare',
+     d:{es:'El más grande de los cinco, el único plano y el único con playa de arena de verdad. Son dos partes, el pueblo viejo y Fegina, que es la de la estación, unidas por un túnel junto al mar.',
+        en:'The largest of the five, the only flat one and the only one with a real sandy beach. It comes in two parts, the old village and Fegina, where the station is, joined by a tunnel beside the sea.'},
+     t:'visita',
+     tip:{es:'Las anchoas de Monterosso son las de acá: fritas, marinadas en limón o arriba de la focaccia. En el pueblo viejo está la iglesia de San Giovanni Battista, con la fachada a rayas blancas y negras.',
+          en:'Monterosso anchovies are the local thing: fried, marinated in lemon or on top of the focaccia. In the old village is the church of San Giovanni Battista, with its black and white striped facade.'}},
     {a:'La Spezia',
      n:{es:'El paseo marítimo de La Spezia',en:'The La Spezia seafront'},
      d:{es:'La ciudad no es turística y eso se agradece: un golfo con veleros, una rambla arbolada larga y una calle peatonal con negocios de todos los días.',
         en:'The city is not a tourist town and that is a relief: a gulf full of sailing boats, a long tree lined promenade and a pedestrian street with everyday shops.'},
      t:'aire',
-     tip:{es:'Es el paseo del miércoles temprano si nos sobra una hora antes del tren, o la caminata de la noche del martes después de cenar.',
-          en:'It is the Wednesday morning walk if we have a spare hour before the train, or Tuesday night’s stroll after dinner.'}}
+     tip:{es:'Es la caminata de la noche del martes, después de cenar.',
+          en:'It is Tuesday night’s stroll, after dinner.'}}
   ]},
 
   {s:{es:'Comer',en:'Eating'}, k:'comer', items:[
@@ -3443,54 +3404,65 @@ const CITIES = [
   id:'mod',
   nav:{es:'Módena',en:'Modena'},
   name:{es:'Módena',en:'Modena'},
-  plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena',
+  plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena', auto:1,
   d1:'2026-10-14', d2:'2026-10-14',
-  lede:{es:'Un día de paso entre La Spezia y Milán, en auto, que cuelga de una sola hora: la mesa reservada a las 13:45 en San Giovanni in Persiceto. El Museo Enzo Ferrari va después, a la vuelta, con la mañana libre en Cinque Terre.',
-        en:'A day in transit between La Spezia and Milan, by car, hanging on a single hour: the table booked for 13:45 in San Giovanni in Persiceto. The Enzo Ferrari Museum comes after it, on the way back, with the morning free in Cinque Terre.'},
+  lede:{es:'El día de más manejo del viaje, de La Spezia a Milán con tres paradas: el Museo Enzo Ferrari a primera hora, la mesa de las 12:30 en San Giovanni in Persiceto y la tarde en Verona. Todo cuelga de dos horas que no se mueven: la de la mesa y las 18:30, que es lo último para salir de Verona.',
+        en:'The longest driving day of the trip, La Spezia to Milan with three stops: the Enzo Ferrari Museum first thing, the 12:30 table in San Giovanni in Persiceto and the afternoon in Verona. It all hangs on two times that do not move: the table, and 18:30, the latest we can leave Verona.'},
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mié 14 de octubre, de paso',en:'Wed 14 October, passing through'}],
-    [{es:'Llegamos',en:'We arrive'},{es:'A Persiceto 13:00, a Módena 15:45',en:'Persiceto 13:00, Modena 15:45'}],
-    [{es:'Seguimos',en:'We continue'},{es:'A Milán, 2 h 25 desde Persiceto',en:'To Milan, 2 h 25 from Persiceto'}],
-    [{es:'El museo',en:'The museum'},{es:'Solo el Enzo Ferrari, 16:00, hora y media',en:'Just the Enzo Ferrari, 16:00, an hour and a half'}],
-    [{es:'Ojo',en:'Watch out'},{es:'El almuerzo cancela si llegamos tarde',en:'Lunch is cancelled if we are late'}]
+    [{es:'Salimos',en:'We leave'},{es:'La Spezia 7:45, check out 7:15',en:'La Spezia 7:45, check out 7:15'}],
+    [{es:'El museo',en:'The museum'},{es:'Enzo Ferrari, 9:45, entrada sacada',en:'Enzo Ferrari, 9:45, ticket booked'}],
+    [{es:'El almuerzo',en:'Lunch'},{es:'Persiceto, 12:30',en:'Persiceto, 12:30'}],
+    [{es:'Seguimos',en:'We continue'},{es:'Verona 15:25, Milán 20:15',en:'Verona 15:25, Milan 20:15'}],
+    [{es:'Ojo',en:'Watch out'},{es:'La mesa se cae a los 20 min de atraso',en:'The table goes after 20 min late'}]
   ],
   sections:[
   {s:{es:'El día, hora por hora',en:'The day, hour by hour'}, k:'plan', html:{es:`
-      <h3>Primero el almuerzo, el museo a la vuelta</h3>
-      <p>El día cuelga de una sola hora: la mesa en la <b>Osteria del Mirasole</b> a las <b>13:45</b>, en San Giovanni in Persiceto. La cocina del mediodía cierra 14:00, así que esa es la última mesa, y <b>cancelan la reserva pasados veinte minutos sin aviso</b>. Todo lo demás se ordena alrededor de eso: la mañana queda en Cinque Terre, y el museo pasa a la tarde, de vuelta hacia Milán.</p>
+      <h3>Un día de auto con dos horas fijas</h3>
+      <p>Son unos quinientos kilómetros y casi seis horas de manejo repartidas en el día. Dos horas no se mueven: la mesa en la <b>Antica Osteria del Mirasole</b> a las <b>12:30</b>, en San Giovanni in Persiceto, que <b>cancela pasados veinte minutos sin aviso</b>, y las <b>18:30</b>, lo último para salir de Verona y llegar a Milán antes de que cierre la oficina del auto, a las 21:00.</p>
       <ul>
-        <li><b>10:30</b>, salir de La Spezia con las valijas ya cargadas. Dos horas y veintiséis por la A15 y la A1.</li>
-        <li><b>13:00, San Giovanni in Persiceto.</b> Tres cuartos de hora de colchón antes de sentarse, que es justo lo que el día necesita tener. Se usan caminando el pueblo: es el <b>Borgo Rotondo</b>, de planta concéntrica medieval, y tiene la <b>Piazzetta degli Inganni</b>, un patio pintado en trompe l’oeil por el escenógrafo Gino Pellegrini en 1980. La osteria está en Via Giacomo Matteotti 17/A.</li>
-        <li><b>13:45, el almuerzo.</b> Hora y media. Es una osteria de las de verdad, de las que hay que dejar hacer.</li>
-        <li><b>15:15</b>, a Módena. Media hora por la SS568, en dirección a Milán y no al revés: el museo queda de paso.</li>
-        <li><b>16:00, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85. Hora y media, y cierra 19:00, así que no hay apuro ninguno: el límite real del día no es el museo sino salir de Módena antes de las 18:45.</li>
-        <li><b>Si el museo se hace en una hora</b>, la Piazza Grande, el Duomo y la Ghirlandina quedan a diez minutos a pie y son el casco histórico patrimonio de la humanidad. Cuarenta minutos ahí entran sin tocar el resto del día.</li>
-        <li><b>17:45</b>, a Milán. Dos horas por la A1 y la A4, llegando cerca de las <b>19:45</b>. Llegamos bien: la oficina de la rentadora abre hasta las 21:00, así que el auto se entrega esa misma noche. El último límite para salir de Módena es 18:45, o sea que tenemos una hora de colchón.</li>
+        <li><b>7:15, desayuno y check out</b> en Alba Rooms. Las valijas van al auto, que está en el Park Centro Stazione, enfrente de la estación.</li>
+        <li><b>7:45, salir.</b> A15 y A1 hasta la salida Modena Nord, unos 170 kilómetros y una hora cincuenta. Hoy son quinientos kilómetros: si el tanque no está por la mitad, cargar antes de la autopista, que en las áreas de servicio el litro sale bastante más.</li>
+        <li><b>9:40, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85, con estacionamiento propio y gratis atrás, entrando por Via Giuseppe Soli 101. Abre 9:30 y la entrada ya está. Hora y media.</li>
+        <li><b>11:20, a Persiceto.</b> Media hora por la SS568.</li>
+        <li><b>11:50, San Giovanni in Persiceto.</b> Media hora larga antes de la mesa, que se usa caminando el <b>Borgo Rotondo</b>, de planta concéntrica medieval, con un café en la Piazza del Popolo y la <b>Piazzetta degli Inganni</b>, el patio pintado en trompe l’oeil por Gino Pellegrini en 1980. A la mesa 12:25: la osteria está en Via Giacomo Matteotti 17/A.</li>
+        <li><b>12:30, el almuerzo.</b> Hora y media. Es una osteria de las de verdad, de las que hay que dejar hacer, así que la cuenta se pide a las 13:45 y no al final.</li>
+        <li><b>14:00, a Verona.</b> Una hora y veinticinco por la A1 y la A22, unos 135 kilómetros. En el GPS va el <b>Parcheggio Arena, Via Bentegodi 8</b>, y no Piazza Bra: la plaza está adentro de la ZTL y el parking queda justo afuera.</li>
+        <li><b>15:25 a 18:05, Verona a pie</b>: la Arena, el patio de Julieta a las 16:30, las plazas y el Ponte Pietra. El detalle está en el capítulo de <b>Verona</b>.</li>
+        <li><b>18:15, a Milán, y el límite es 18:30.</b> Una hora cincuenta y cinco por la A4 hasta Via Vittor Pisani 19, llegando cerca de las <b>20:15</b>. La oficina recibe hasta las 21:00, así que quedan tres cuartos de hora para un atasco. El resto está en el capítulo de <b>Milán</b>.</li>
       </ul>
+      <h3>Si el museo se hace en una hora</h3>
+      <p>Entonces entra el centro de Módena antes del almuerzo. Salir del museo 10:45 y llevar el auto al <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, que son tres minutos. De ahí son diez a pie hasta la <b>Piazza Grande</b>, el <b>Duomo</b> y la Ghirlandina, con el <b>Mercato Albinelli</b> a dos cuadras. A las <b>11:55 hay que estar de vuelta en el auto</b>: hasta Persiceto es media hora y la mesa no espera.</p>
       <h3>Las valijas, que viajan con nosotros</h3>
-      <p>Hoy no hace falta consigna en ninguna parte: el equipaje sale de La Spezia en el auto a las 10:30 y no se baja hasta Milán. La única parada donde el auto queda solo un rato largo es el museo.</p>
+      <p>Hoy no hace falta consigna en ninguna parte: el equipaje sale de La Spezia en el auto y no se baja hasta Milán. Lo que importa es dónde queda el auto solo.</p>
       <ul>
-        <li><b>El museo tiene estacionamiento propio y gratis</b> atrás, con entrada por <b>Via Giuseppe Soli 101</b>. Es playa a nivel y sin vigilancia. Para hora y media de tarde, con todo en el baúl y <b>nada a la vista</b>, es razonable: los autos de alquiler son blanco preferido justamente porque se les ve el equipaje por la ventanilla.</li>
-        <li><b>Si preferimos no jugar</b>, el <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros. Son tres minutos en auto desde el museo y doce a pie de vuelta, y queda al lado de la Piazza Grande.</li>
+        <li><b>En el museo</b> el estacionamiento es playa a nivel y sin vigilancia. Para hora y media de mañana, con todo en el baúl y <b>nada a la vista</b>, es razonable: los autos de alquiler son blanco preferido justamente porque se les ve el equipaje por la ventanilla.</li>
+        <li><b>En el centro de Módena</b>, si se hace, el <b>Parcheggio del Centro</b> es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros.</li>
+        <li><b>En Verona</b>, que es la parada más larga, el <b>Parcheggio Arena</b> es subterráneo, de cuatro pisos y con personal las veinticuatro horas. Por eso ese y no uno de calle.</li>
         <li>En Persiceto el problema no existe, pero la regla es la misma todo el viaje: lo que no se ve no se roba. Mochilas, campera y bolsas también van al baúl, no en el asiento de atrás.</li>
       </ul>
     `, en:`
-      <h3>Lunch first, the museum on the way back</h3>
-      <p>The day hangs on a single hour: the table at the <b>Osteria del Mirasole</b> at <b>13:45</b>, in San Giovanni in Persiceto. The midday kitchen closes at 14:00, so that is the last table, and <b>they cancel the booking after twenty minutes with no word</b>. Everything else is arranged around it: the morning stays in Cinque Terre, and the museum moves to the afternoon, on the way back towards Milan.</p>
+      <h3>A driving day with two fixed times</h3>
+      <p>It is about five hundred kilometres and nearly six hours at the wheel spread across the day. Two times do not move: the table at the <b>Antica Osteria del Mirasole</b> at <b>12:30</b>, in San Giovanni in Persiceto, which <b>cancels after twenty minutes with no word</b>, and <b>18:30</b>, the latest we can leave Verona and still reach Milan before the car office closes at 21:00.</p>
       <ul>
-        <li><b>10:30</b>, leave La Spezia with the bags already loaded. Two hours twenty six on the A15 and the A1.</li>
-        <li><b>13:00, San Giovanni in Persiceto.</b> Three quarters of an hour of cushion before sitting down, which is exactly what this day needs to have. Spend it walking the town: it is the <b>Borgo Rotondo</b>, medieval and concentric in plan, and it has the <b>Piazzetta degli Inganni</b>, a courtyard painted in trompe l’oeil by the set designer Gino Pellegrini in 1980. The osteria is at Via Giacomo Matteotti 17/A.</li>
-        <li><b>13:45, lunch.</b> An hour and a half. It is a proper osteria, the kind you let get on with it.</li>
-        <li><b>15:15</b>, on to Modena. Half an hour on the SS568, heading towards Milan rather than away from it: the museum is on the way.</li>
-        <li><b>16:00, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85. An hour and a half, and it closes at 19:00, so there is no rush at all: the real limit on the day is not the museum but leaving Modena before 18:45.</li>
-        <li><b>If the museum takes an hour</b>, Piazza Grande, the cathedral and the Ghirlandina are ten minutes on foot and they are the world heritage historic centre. Forty minutes there fits without touching the rest of the day.</li>
-        <li><b>17:45</b>, on to Milan. Two hours on the A1 and the A4, arriving around <b>19:45</b>. We arrive in good time: the rental office is open until 21:00, so the car goes back that same evening. The last possible departure from Modena is 18:45, which gives us an hour of cushion.</li>
+        <li><b>7:15, breakfast and check out</b> at Alba Rooms. The bags go into the car, which is in the Park Centro Stazione across from the station.</li>
+        <li><b>7:45, leave.</b> A15 and A1 to the Modena Nord exit, about 170 kilometres and an hour fifty. Today is five hundred kilometres: if the tank is not around half, fill up before the motorway, since at the service areas the litre costs noticeably more.</li>
+        <li><b>9:40, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85, with its own free car park at the back, entered from Via Giuseppe Soli 101. It opens at 9:30 and the ticket is done. An hour and a half.</li>
+        <li><b>11:20, on to Persiceto.</b> Half an hour on the SS568.</li>
+        <li><b>11:50, San Giovanni in Persiceto.</b> A good half hour before the table, spent walking the <b>Borgo Rotondo</b>, medieval and concentric in plan, with a coffee on Piazza del Popolo and the <b>Piazzetta degli Inganni</b>, the courtyard painted in trompe l’oeil by Gino Pellegrini in 1980. At the table by 12:25: the osteria is at Via Giacomo Matteotti 17/A.</li>
+        <li><b>12:30, lunch.</b> An hour and a half. It is a proper osteria, the kind you let get on with it, so ask for the bill at 13:45 rather than at the end.</li>
+        <li><b>14:00, on to Verona.</b> An hour twenty five on the A1 and the A22, about 135 kilometres. Put the <b>Parcheggio Arena, Via Bentegodi 8</b> into the GPS, not Piazza Bra: the square is inside the ZTL and the car park sits just outside it.</li>
+        <li><b>15:25 to 18:05, Verona on foot</b>: the Arena, Juliet’s courtyard at 16:30, the squares and the Ponte Pietra. The detail is in the <b>Verona</b> chapter.</li>
+        <li><b>18:15, on to Milan, and the limit is 18:30.</b> An hour fifty five on the A4 to Via Vittor Pisani 19, arriving around <b>20:15</b>. The office takes cars until 21:00, which leaves three quarters of an hour for a jam. The rest is in the <b>Milan</b> chapter.</li>
       </ul>
+      <h3>If the museum takes an hour</h3>
+      <p>Then the centre of Modena fits before lunch. Leave the museum at 10:45 and take the car to the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, three minutes away. From there it is ten on foot to <b>Piazza Grande</b>, the <b>cathedral</b> and the Ghirlandina, with the <b>Mercato Albinelli</b> two blocks off. By <b>11:55 we have to be back in the car</b>: Persiceto is half an hour away and the table does not wait.</p>
       <h3>The bags, which travel with us</h3>
-      <p>No left luggage needed anywhere today: the luggage leaves La Spezia in the car at 10:30 and does not come out until Milan. The only stop where the car is left alone for a long while is the museum.</p>
+      <p>No left luggage needed anywhere today: the luggage leaves La Spezia in the car and does not come out until Milan. What matters is where the car is left alone.</p>
       <ul>
-        <li><b>The museum has its own free car park</b> at the back, entered from <b>Via Giuseppe Soli 101</b>. It is a surface lot and unattended. For an hour and a half in the afternoon, with everything in the boot and <b>nothing in sight</b>, it is reasonable: hire cars are a preferred target precisely because the luggage shows through the window.</li>
-        <li><b>If we would rather not gamble</b>, the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit. It is three minutes by car from the museum and twelve on foot back, and it sits beside Piazza Grande.</li>
+        <li><b>At the museum</b> the car park is a surface lot and unattended. For an hour and a half in the morning, with everything in the boot and <b>nothing in sight</b>, it is reasonable: hire cars are a preferred target precisely because the luggage shows through the window.</li>
+        <li><b>In central Modena</b>, if we go, the <b>Parcheggio del Centro</b> is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit.</li>
+        <li><b>In Verona</b>, which is the longest stop, the <b>Parcheggio Arena</b> is underground, four floors deep and staffed around the clock. That is why we use it rather than a street spot.</li>
         <li>In Persiceto the problem does not exist, but the rule is the same for the whole trip: what cannot be seen does not get stolen. Backpacks, jackets and bags go in the boot too, not on the back seat.</li>
       </ul>
     `}},
@@ -3501,19 +3473,19 @@ const CITIES = [
      d:{es:'La casa natal de Enzo Ferrari con el taller mecánico de su padre, y pegada una nave con el techo amarillo curvo que imita un capó. Adentro, exposiciones que cambian, autos de calle y una proyección envolvente sobre las paredes.',
         en:'Enzo Ferrari’s birthplace with his father’s machine shop, and attached to it a hall with a curved yellow roof imitating a bonnet. Inside, changing exhibitions, road cars and a wraparound projection across the walls.'},
      t:'visita', p:'€€', w:'https://www.ferrari.com/museums',
-     tip:{es:'En octubre abre todos los días de 9:30 a 19:00 y la entrada de adulto son 27 euros. Se hace en una hora y media con nuestro ritmo. Conviene comprarla online: ahorra la fila y a veces sale algo menos. Estacionamiento propio y gratis atrás, por Via Giuseppe Soli 101.',
-          en:'In October it opens every day 9:30 to 19:00 and the adult ticket is 27 euros. An hour and a half at our pace. Worth buying online: it saves the queue and sometimes costs a little less. Its own free car park at the back, entered from Via Giuseppe Soli 101.'}},
+     tip:{es:'En octubre abre todos los días de 9:30 a 19:00 y la entrada de adulto son 27 euros. Se hace en una hora y media con nuestro ritmo. La nuestra ya está sacada. Estacionamiento propio y gratis atrás, por Via Giuseppe Soli 101.',
+          en:'In October it opens every day 9:30 to 19:00 and the adult ticket is 27 euros. An hour and a half at our pace. Ours is already booked. Its own free car park at the back, entered from Via Giuseppe Soli 101.'}},
   ]},
 
   {s:{es:'El almuerzo, que es una cita',en:'Lunch, which is an appointment'}, k:'comer', items:[
     {m:'Antica Osteria del Mirasole, Via Giacomo Matteotti 17, San Giovanni in Persiceto',
      a:'Via Giacomo Matteotti 17/A, San Giovanni in Persiceto',
      n:{es:'Antica Osteria del Mirasole',en:'Antica Osteria del Mirasole'},
-     d:{es:'Reservado para las <b>13:45 del miércoles 14</b>. La llevan Franco Cimini y Anna Caretti desde 1989 y es cocina emiliana de la vieja escuela: el bollito, los tortellini en caldo, la carne a la parrilla en la chimenea del salón.',
-        en:'Booked for <b>13:45 on Wednesday the 14th</b>. Franco Cimini and Anna Caretti have run it since 1989 and it is old school Emilian cooking: the bollito, tortellini in broth, meat grilled on the fireplace in the dining room.'},
+     d:{es:'Reservado para las <b>12:30 del miércoles 14</b>. La llevan Franco Cimini y Anna Caretti desde 1989 y es cocina emiliana de la vieja escuela: el bollito, los tortellini en caldo, la carne a la parrilla en la chimenea del salón.',
+        en:'Booked for <b>12:30 on Wednesday the 14th</b>. Franco Cimini and Anna Caretti have run it since 1989 and it is old school Emilian cooking: the bollito, tortellini in broth, meat grilled on the fireplace in the dining room.'},
      t:'comer', p:'€€€', res:'hecha',
-     tip:{es:'Dos cosas de la letra chica. La cocina del mediodía es de 12:00 a 14:00, así que 13:45 es la última mesa y llegar tarde es quedarse afuera: <b>cancelan la reserva pasados veinte minutos sin aviso</b>. Y el teléfono, +39 051 821273, lo atienden solo de 18:00 a 19:00 de martes a sábado, así que avisar desde la ruta probablemente no funcione. Conclusión: salir de La Spezia 8:00 y no 9:00.',
-          en:'Two things in the small print. The midday kitchen runs 12:00 to 14:00, so 13:45 is the last table and arriving late means missing out: <b>they cancel the booking after twenty minutes with no word</b>. And the phone, +39 051 821273, is only answered 18:00 to 19:00 Tuesday to Saturday, so calling from the road probably will not work. Conclusion: leave La Spezia at 8:00, not 9:00.'}},
+     tip:{es:'Dos cosas de la letra chica. <b>Cancelan la reserva pasados veinte minutos sin aviso</b>, así que a las 12:50 la mesa ya no es nuestra. Y el teléfono, +39 051 821273, lo atienden solo de 18:00 a 19:00 de martes a sábado: si algo se atrasa en la ruta, el aviso va por WhatsApp a ese mismo número. La cocina del mediodía es de 12:00 a 14:00.',
+          en:'Two things in the small print. <b>They cancel the booking after twenty minutes with no word</b>, so by 12:50 the table is no longer ours. And the phone, +39 051 821273, is only answered 18:00 to 19:00 Tuesday to Saturday: if anything runs late on the road, the warning goes by WhatsApp to that same number. The midday kitchen runs 12:00 to 14:00.'}},
     {a:'San Giovanni in Persiceto',
      n:{es:'Qué es Persiceto, de paso',en:'What Persiceto is, in passing'},
      d:{es:'Un pueblo de la llanura boloñesa al que le dicen el Borgo Rotondo: conserva entera la planta concéntrica medieval, que en el valle del Po casi no quedó en ningún lado. La Piazza del Popolo tiene la Collegiata y el teatro de 1790 bajo el pórtico.',
@@ -3528,14 +3500,14 @@ const CITIES = [
      d:{es:'La plaza medieval con la catedral románica de mármol blanco y la torre Ghirlandina al lado, inclinada apenas. Todo el conjunto es patrimonio de la humanidad y se ve en media hora.',
         en:'The medieval square with the white marble Romanesque cathedral and the Ghirlandina tower beside it, leaning very slightly. The whole ensemble is a world heritage site and takes half an hour.'},
      t:'visita',
-     tip:{es:'Está a diez minutos caminando de la estación, en el camino natural entre el museo y el almuerzo. Adentro del Duomo, los relieves de piedra de las fachadas cuentan historias del Génesis y son del siglo XII.',
-          en:'It is ten minutes on foot from the station, on the natural route between the museum and lunch. On the cathedral facades, the stone reliefs tell stories from Genesis and date from the twelfth century.'}},
+     tip:{es:'Entra si el museo se hace en una hora: desde el Parcheggio del Centro son diez minutos a pie, y a las 11:55 hay que estar de vuelta en el auto. En la fachada del Duomo, los relieves de Wiligelmo cuentan el Génesis y son de principios del siglo XII.',
+          en:'It fits if the museum takes an hour: from the Parcheggio del Centro it is ten minutes on foot, and by 11:55 we have to be back in the car. On the cathedral facade, Wiligelmo’s reliefs tell the story of Genesis and date from the early twelfth century.'}},
     {n:'Mercato Albinelli',
      d:{es:'El mercado cubierto de 1931, con hierro, vidrio y una fuente en el medio. Puestos de pasta fresca, quesos, embutidos y varios lugares donde se come ahí mismo, de pie o en una banqueta.',
         en:'The covered market from 1931, in iron and glass with a fountain in the middle. Stalls of fresh pasta, cheeses and cured meats, and several places to eat on the spot, standing or on a stool.'},
      t:'comer', p:'€', serv:'puesto', res:'no',
-     tip:{es:'Es el mejor almuerzo posible del día: barato, rápido y de lo mejor que se come en Italia. Cierra a media tarde y los domingos, pero el miércoles está abierto de mañana.',
-          en:'The best possible lunch of the day: cheap, quick and among the best food in Italy. It closes mid afternoon and on Sundays, but on Wednesday it is open in the morning.'}},
+     tip:{es:'Hoy el almuerzo es en Persiceto, así que acá se mira y se prueba: un pedazo de parmesano, algo de gnocco o una botella chica de balsámico para llevar. Abre de lunes a sábado desde temprano y cierra a media tarde.',
+          en:'Today lunch is in Persiceto, so here we look and taste: a piece of parmesan, some gnocco or a small bottle of balsamic to take away. It opens Monday to Saturday from early and closes mid afternoon.'}},
     {nota:1,
      n:{es:'El vinagre balsámico de verdad',en:'Real balsamic vinegar'},
      d:{es:'El <em>aceto balsamico tradizionale di Modena</em> no tiene nada que ver con el que compramos en el supermercado: se hace solo con mosto de uva cocido, envejece doce o veinticinco años en una batería de barricas de maderas distintas y es espeso, dulce y carísimo.',
@@ -3557,6 +3529,143 @@ const CITIES = [
      t:'comer',
      tip:{es:'La versión accesible es Franceschetta 58, del mismo cocinero, que sí se reserva y está a unos minutos del centro. Pero para eso hay que quedarse a cenar, y esa noche dormimos en Milán.',
           en:'The accessible version is Franceschetta 58, from the same cook, which can be booked and is a few minutes from the centre. But that means staying for dinner, and that night we sleep in Milan.'}}
+  ]}
+  ]
+},
+{
+  id:'ver',
+  nav:'Verona',
+  name:'Verona',
+  plate:'Arena', accent:'#0F766E', lt:'#5EEAD4', maps:'Verona', auto:1,
+  d1:'2026-10-14', d2:'2026-10-14',
+  lede:{es:'Dos horas y media entre el almuerzo y la autopista a Milán. No alcanza para conocer Verona, pero sí para verla bien: la Arena por dentro, el patio de Julieta con turno, las dos plazas de la ciudad vieja y el puente romano sobre el Adige. Todo queda a un kilómetro y se hace a pie desde el estacionamiento.',
+        en:'Two and a half hours between lunch and the motorway to Milan. Not enough to get to know Verona, but enough to see it properly: the Arena from inside, Juliet’s courtyard on a timed slot, the two squares of the old town and the Roman bridge over the Adige. It all sits within a kilometre and is done on foot from the car park.'},
+  quick:[
+    [{es:'Cuándo',en:'When'},{es:'Mié 14, de 15:25 a 18:05',en:'Wed 14, 15:25 to 18:05'}],
+    [{es:'El auto',en:'The car'},{es:'Parcheggio Arena, Via Bentegodi 8',en:'Parcheggio Arena, Via Bentegodi 8'}],
+    [{es:'Entradas',en:'Tickets'},{es:'Arena 12 €, patio de Julieta 5 € a las 16:30',en:'Arena 12 €, Juliet’s courtyard 5 € at 16:30'}],
+    [{es:'Salimos',en:'We leave'},{es:'18:15, y 18:30 es el límite',en:'18:15, and 18:30 is the limit'}],
+    [{es:'Atardece',en:'Sunset'},{es:'18:33, ya en la autopista',en:'18:33, already on the motorway'}]
+  ],
+  sections:[
+  {s:{es:'La tarde, a pie',en:'The afternoon, on foot'}, k:'plan', html:{es:`
+      <p>La tarde tiene dos horas fijas: el <b>turno de las 16:30</b> en el patio de Julieta y las <b>18:15</b>, cuando el auto sale del parking hacia Milán. Lo demás se acomoda alrededor. Las distancias son cortas, pero entre ida y vuelta se camina casi una hora, y eso ya está contado.</p>
+      <ul>
+        <li><b>15:25, Parcheggio Arena</b>, en Via Bentegodi 8. Es subterráneo, de cuatro pisos y con personal las veinticuatro horas, así que las valijas quedan bien. Se saca el ticket en la barrera y se paga al volver.</li>
+        <li><b>15:35, la Arena por dentro</b>, a cinco minutos a pie, en Piazza Bra. Cuarenta minutos: se entra por las galerías y se sube a las gradas de arriba, de donde se ven la plaza entera y los techos.</li>
+        <li><b>16:15, Via Mazzini</b>, la calle peatonal que va de Piazza Bra a la ciudad vieja. Diez minutos sin apuro.</li>
+        <li><b>16:30, el patio de Julieta.</b> Se entra por el <b>Teatro Nuovo, en Piazzetta Navona</b>, y no por Via Cappello, que es la salida. Estar cinco minutos antes. Son unos veinte minutos adentro.</li>
+        <li><b>16:50, Piazza delle Erbe</b>, a dos minutos: el antiguo foro romano, con el mercado y la Torre dei Lamberti. Al lado, pasando el arco, <b>Piazza dei Signori</b>, con la estatua de Dante, y a la vuelta las <b>Arche Scaligere</b>, las tumbas góticas de los señores de la ciudad.</li>
+        <li><b>17:20, el Ponte Pietra</b>, a siete minutos: el puente romano sobre el Adige, con el teatro romano y la colina de San Pietro enfrente.</li>
+        <li><b>17:40, de vuelta al parking</b>, unos veinticinco minutos a pie. <b>18:05 en el auto</b>, pagar en la caja y salir a las <b>18:15</b>.</li>
+      </ul>
+      <h3>Si el almuerzo se estira</h3>
+      <p>Se corta en este orden: primero el Ponte Pietra, después Piazza dei Signori. El turno de Julieta y la salida no se mueven. Y si a las 18:30 no estamos saliendo, se sale igual: después de esa hora, llegar a Vittor Pisani antes de las 21:00 depende del tránsito y no de nosotros.</p>
+      <h3>Lo que se saca la noche anterior</h3>
+      <ul>
+        <li>Las dos entradas se compran en <b>verona.coopculture.it</b>, que es el canal oficial del municipio para la Arena y para la Casa de Julieta.</li>
+        <li><b>La Arena</b>: 12 euros. Desde el 1 de octubre de 2026 cambió la venta de entradas, así que comprarla online y con los nombres de los dos, por si la piden nominal.</li>
+        <li><b>El patio de Julieta</b>: 5 euros, turno de las <b>16:30</b>. Desde abril de 2026 la reserva es obligatoria para todos, incluso para los que entran gratis. Los sitios de reventa cobran más del doble y no devuelven.</li>
+      </ul>
+    `, en:`
+      <p>The afternoon has two fixed times: the <b>16:30 slot</b> at Juliet’s courtyard and <b>18:15</b>, when the car leaves the car park for Milan. Everything else fits around them. The distances are short, but there and back adds up to nearly an hour of walking, and that is already counted.</p>
+      <ul>
+        <li><b>15:25, Parcheggio Arena</b>, at Via Bentegodi 8. It is underground, four floors deep and staffed around the clock, so the bags are fine there. Take the ticket at the barrier and pay on the way back.</li>
+        <li><b>15:35, the Arena from inside</b>, five minutes on foot, on Piazza Bra. Forty minutes: you go in through the galleries and climb to the top tiers, where the whole square and the rooftops come into view.</li>
+        <li><b>16:15, Via Mazzini</b>, the pedestrian street running from Piazza Bra into the old town. Ten unhurried minutes.</li>
+        <li><b>16:30, Juliet’s courtyard.</b> The way in is through the <b>Teatro Nuovo, on Piazzetta Navona</b>, not Via Cappello, which is the exit. Be there five minutes early. About twenty minutes inside.</li>
+        <li><b>16:50, Piazza delle Erbe</b>, two minutes on: the old Roman forum, with the market and the Torre dei Lamberti. Next door, through the arch, <b>Piazza dei Signori</b>, with the statue of Dante, and round the corner the <b>Arche Scaligere</b>, the Gothic tombs of the city’s lords.</li>
+        <li><b>17:20, the Ponte Pietra</b>, seven minutes away: the Roman bridge over the Adige, with the Roman theatre and the hill of San Pietro across the water.</li>
+        <li><b>17:40, back to the car park</b>, about twenty five minutes on foot. <b>In the car by 18:05</b>, pay at the machine and leave at <b>18:15</b>.</li>
+      </ul>
+      <h3>If lunch runs long</h3>
+      <p>Cut in this order: the Ponte Pietra first, then Piazza dei Signori. The Juliet slot and the departure do not move. And if we are not leaving by 18:30, we leave anyway: after that, reaching Vittor Pisani before 21:00 depends on the traffic rather than on us.</p>
+      <h3>What to buy the night before</h3>
+      <ul>
+        <li>Both tickets are bought on <b>verona.coopculture.it</b>, the city’s official channel for the Arena and for Juliet’s House.</li>
+        <li><b>The Arena</b>: 12 euros. Ticket sales changed hands on 1 October 2026, so buy it online and with both our names, in case it has to be named.</li>
+        <li><b>Juliet’s courtyard</b>: 5 euros, the <b>16:30</b> slot. Since April 2026 booking is compulsory for everyone, even those who get in free. Resale sites charge more than double and give no refunds.</li>
+      </ul>
+    `}},
+
+  {s:{es:'Cómo moverse',en:'Getting around'}, k:'mover', items:[
+    {m:'Parcheggio Arena, Via Bentegodi 8, Verona', a:'Via Bentegodi 8, Verona',
+     n:{es:'Dónde dejar el auto: Parcheggio Arena',en:'Where to leave the car: Parcheggio Arena'},
+     d:{es:'En Via Bentegodi 8, a cinco minutos a pie de la Arena. Subterráneo, de cuatro pisos y 880 plazas, cubierto y con personal las veinticuatro horas. Unos 2,50 euros la hora, así que la tarde entera sale menos de diez.',
+        en:'At Via Bentegodi 8, five minutes on foot from the Arena. Underground, four floors and 880 spaces, covered and staffed around the clock. About 2.50 euros an hour, so the whole afternoon comes to under ten.'},
+     t:'mover', p:'€€',
+     tip:{es:'Queda justo afuera de los portones de la ZTL, así que se llega sin entrar al centro. Ojo con el GPS: algunas apps mandan a la entrada peatonal y no a la de autos, así que en los últimos metros seguir los carteles de P Arena. Si está lleno, el Parcheggio Cittadella queda a dos cuadras y funciona igual.',
+          en:'It sits just outside the ZTL gates, so you reach it without entering the centre. Watch the GPS: some apps send you to the pedestrian entrance rather than the car one, so follow the P Arena signs for the last stretch. If it is full, the Parcheggio Cittadella is two blocks away and works the same way.'}},
+    {ruta:['Parcheggio Arena, Via Bentegodi 8, Verona','Arena di Verona','Via Mazzini, Verona','Casa di Giulietta, Verona','Piazza delle Erbe, Verona','Piazza dei Signori, Verona','Ponte Pietra, Verona'],
+     n:{es:'La caminata de la tarde',en:'The afternoon walk'},
+     d:{es:'El recorrido entero: Arena, Via Mazzini, el patio de Julieta, las dos plazas y el puente. Poco más de un kilómetro de ida, y todo plano.',
+        en:'The whole route: the Arena, Via Mazzini, Juliet’s courtyard, the two squares and the bridge. A little over a kilometre out, and all of it flat.'},
+     t:'mover',
+     tip:{es:'La vuelta al parking desde el puente son unos veinticinco minutos. Es el tramo que más fácil se olvida de contar.',
+          en:'The walk back to the car park from the bridge is about twenty five minutes. It is the stretch most easily left out of the count.'}},
+    {nota:1,
+     n:{es:'La ZTL, que no se cruza',en:'The ZTL, which we do not cross'},
+     d:{es:'El centro histórico entero, Piazza Bra incluida, es zona de tránsito limitado, con portones de cámara en cada entrada. Entre semana, sin permiso, se entra solo con reserva previa.',
+        en:'The whole historic centre, Piazza Bra included, is a limited traffic zone, with camera gates at every entry. On weekdays, without a permit, entry is by prior booking only.'},
+     t:'mover',
+     tip:{es:'La multa no nos llega a nosotros sino a la rentadora, que la paga, la carga a la tarjeta y suma su propio cargo de gestión, meses después. El parking está afuera, y el auto no tiene nada que hacer adentro.',
+          en:'The fine does not reach us but the rental company, which pays it, charges it to the card and adds its own handling fee, months later. The car park is outside, and the car has no business going in.'}},
+    {nota:1,
+     n:{es:'El tramo a Milán',en:'The leg to Milan'},
+     d:{es:'Unos 160 kilómetros por la A4, una hora cincuenta y cinco hasta Via Vittor Pisani 19 sin tránsito. Saliendo 18:15 se llega cerca de las 20:15, con tres cuartos de hora antes de que la oficina cierre a las 21:00.',
+        en:'About 160 kilometres on the A4, an hour fifty five to Via Vittor Pisani 19 on clear roads. Leaving at 18:15 gets us there around 20:15, three quarters of an hour before the office closes at 21:00.'},
+     t:'mover',
+     tip:{es:'El tramo de Brescia a Milán es el que se carga a la tarde: mirar el tránsito en el teléfono antes de salir. Llenar el tanque antes de entrar a la ciudad y no en la última área de servicio. Y el que maneja, ni un spritz: quedan dos horas de autopista.',
+          en:'The Brescia to Milan stretch is the one that clogs in the evening: check the traffic on the phone before setting off. Fill the tank before entering the city rather than at the last service area. And whoever drives, not even a spritz: two hours of motorway are still ahead.'}}
+  ]},
+
+  {s:{es:'Lo que se ve',en:'What to see'}, k:'visita', items:[
+    {m:'Arena di Verona', a:'Piazza Bra, Verona',
+     n:{es:'La Arena',en:'The Arena'},
+     d:{es:'El anfiteatro romano del siglo I, en el medio de Piazza Bra. Las gradas siguen enteras y en verano es el escenario del festival de ópera. Del anillo de afuera quedan solo cuatro arcos, a los que acá llaman el ala.',
+        en:'The first century Roman amphitheatre, in the middle of Piazza Bra. The tiers are still whole, and in summer it is the stage for the opera festival. Of the outer ring only four arches remain, which locals call the wing.'},
+     t:'visita', p:'€', w:'https://verona.coopculture.it/',
+     tip:{es:'Abre de martes a domingo de 9:00 a 19:00, con último ingreso 18:30, y cierra antes los días que hay espectáculo. La entrada son 12 euros. Arriba de todo, en las últimas gradas, está la vista de la plaza y de los techos, y es para eso que se entra.',
+          en:'It opens Tuesday to Sunday from 9:00 to 19:00, last entry 18:30, and closes early on show days. The ticket is 12 euros. Right at the top, on the last tiers, is the view of the square and the rooftops, and that is what you go in for.'}},
+    {m:'Casa di Giulietta, Verona', a:'Via Cappello 23, Verona',
+     n:{es:'El patio de Julieta',en:'Juliet’s courtyard'},
+     d:{es:'Una casa medieval que fue de la familia Dal Cappello, de donde la tradición sacó a los Capuleto. El balcón se le agregó en el siglo XX y la estatua de bronce de Julieta está en el patio. Es leyenda pura, y aun así es de los lugares más visitados de Italia.',
+        en:'A medieval house that belonged to the Dal Cappello family, from whom tradition drew the Capulets. The balcony was added in the twentieth century and the bronze statue of Juliet stands in the courtyard. It is pure legend, and still one of the most visited places in Italy.'},
+     t:'visita', p:'€', res:'si', w:'https://verona.coopculture.it/',
+     tip:{es:'Desde abril de 2026 se entra solo con turno reservado: 5 euros el recorrido por el Teatro Nuovo y el patio, 12 euros con la casa por dentro. La entrada es por Piazzetta Navona y la salida por Via Cappello 23. El nuestro es a las 16:30.',
+          en:'Since April 2026 entry is by booked slot only: 5 euros for the route through the Teatro Nuovo and the courtyard, 12 euros with the house interior. The way in is from Piazzetta Navona and the way out onto Via Cappello 23. Ours is at 16:30.'}},
+    {n:'Piazza delle Erbe',
+     d:{es:'Fue el foro de la ciudad romana y sigue siendo el centro: puestos de mercado en el medio, palacios con las fachadas pintadas alrededor, la fuente de la Madonna Verona, con una estatua romana arriba, y la Torre dei Lamberti, de 84 metros.',
+        en:'It was the forum of the Roman city and it is still the centre: market stalls in the middle, palaces with painted facades all round, the Madonna Verona fountain with a Roman statue on top, and the 84 metre Torre dei Lamberti.'},
+     t:'visita',
+     tip:{es:'Caffè Filippini, sobre la plaza, es de 1901 y tiene su propia versión del spritz. En la barra sale bastante menos que en la terraza. Para el que no maneja.',
+          en:'Caffè Filippini, on the square, dates from 1901 and has its own version of the spritz. At the bar it costs considerably less than on the terrace. For whoever is not driving.'}},
+    {n:'Piazza dei Signori',
+     d:{es:'A un arco de Piazza delle Erbe y mucho más tranquila: la plaza del poder de los Scaligeri, con los palacios del gobierno, la Loggia del Consiglio y la estatua de Dante, que pasó acá parte de su exilio.',
+        en:'One arch away from Piazza delle Erbe and far calmer: the square of Scaliger power, with the government palaces, the Loggia del Consiglio and the statue of Dante, who spent part of his exile here.'},
+     t:'visita',
+     tip:{es:'Saliendo por la esquina del fondo están las Arche Scaligere, las tumbas góticas de los señores de la ciudad, al aire libre detrás de una reja de hierro. Se ven desde la calle y son dos minutos.',
+          en:'Out through the far corner are the Arche Scaligere, the Gothic tombs of the city’s lords, in the open air behind a wrought iron fence. You see them from the street and they take two minutes.'}},
+    {n:'Ponte Pietra',
+     d:{es:'El único puente romano que le queda a Verona, sobre la curva del Adige. Lo volaron en 1945 y se reconstruyó con las mismas piedras, sacadas del río.',
+        en:'The only Roman bridge Verona has left, over the bend of the Adige. It was blown up in 1945 and rebuilt with the same stones, hauled out of the river.'},
+     t:'aire',
+     tip:{es:'Desde el puente se ven, enfrente, el teatro romano y la colina de Castel San Pietro. La luz de las cinco y media sobre el río es la mejor de la tarde.',
+          en:'From the bridge you see the Roman theatre and the hill of Castel San Pietro across the water. The half past five light on the river is the best of the afternoon.'}},
+    {m:'Castel San Pietro, Verona',
+     n:{es:'Castel San Pietro, el mirador',en:'Castel San Pietro, the viewpoint'},
+     d:{es:'La colina del otro lado del Ponte Pietra, con la mejor vista de Verona: el río, los techos y los campanarios. Se sube por una escalinata de diez minutos desde el puente, o en el funicular cuando está andando.',
+        en:'The hill across the Ponte Pietra, with the best view of Verona: the river, the rooftops and the bell towers. You climb a ten minute stairway from the bridge, or take the funicular when it is running.'},
+     t:'aire',
+     tip:{es:'Hoy entra solo a cambio de otra cosa: subir, mirar y bajar son treinta y cinco minutos. Si se prefiere la vista a la Arena por dentro, es el cambio que conviene, y va justo después del Ponte Pietra.',
+          en:'Today it only fits in exchange for something else: up, a look and back down is thirty five minutes. If the view appeals more than the inside of the Arena, that is the swap to make, and it goes straight after the Ponte Pietra.'}},
+    {nota:1,
+     n:{es:'Qué se toma acá',en:'What people drink here'},
+     d:{es:'Estamos en el Véneto, que es la tierra del spritz, y Verona es la puerta de la Valpolicella: Amarone, Ripasso y el Valpolicella de todos los días, servidos por copa en cualquier osteria del centro. Y el pandoro, el pan dulce de Navidad, es de acá.',
+        en:'We are in the Veneto, home of the spritz, and Verona is the gateway to the Valpolicella: Amarone, Ripasso and everyday Valpolicella, poured by the glass in any osteria in the centre. And pandoro, the Christmas sweet bread, comes from here.'},
+     t:'coctel',
+     tip:{es:'Para el que no maneja, una copa de pie en la barra son diez minutos y entran en Piazza delle Erbe. El que maneja, un café: después vienen dos horas de autopista.',
+          en:'For whoever is not driving, a glass standing at the bar takes ten minutes and fits into Piazza delle Erbe. Whoever drives has a coffee: two hours of motorway come next.'}}
   ]}
   ]
 },
@@ -3583,19 +3692,19 @@ const CITIES = [
      t:{es:'Miércoles 14: llegada y el Duomo de noche',en:'Wednesday the 14th: arrival and the Duomo at night'},
      html:{es:`
       <ul>
-        <li><b>Primero el auto.</b> Llegamos del museo cerca de las <b>19:45</b> y la entrega es en <b>Via Vittor Pisani 19, nivel -2</b>, el punto de la oficina de Via Galvani 12, que abre de lunes a sábado de <b>7:30 a 21:00</b>. Llegamos con hora y cuarto de margen. El teléfono, si hiciera falta avisar, es +39 02 66987 826.</li>
-        <li><b>La cuenta hacia atrás, por si el día se corre.</b> Para entregar a las 21:00 hay que salir de Módena a las 18:45 como último límite, y el plan sale 17:45. Eso es una hora entera de colchón, que alcanza para un pinchazo o para quedarse de más en el museo, que cierra 19:00.</li>
+        <li><b>Primero el auto.</b> Llegamos de Verona cerca de las <b>20:15</b> y la entrega es en <b>Via Vittor Pisani 19, nivel -2</b>, el punto de la oficina de Via Galvani 12, que abre de lunes a sábado de <b>7:30 a 21:00</b>. Llegamos con tres cuartos de hora de margen. El teléfono, si hiciera falta avisar, es +39 02 66987 826.</li>
+        <li><b>La cuenta hacia atrás, por si el día se corre.</b> De Verona a Vittor Pisani son una hora cincuenta y cinco sin tránsito. El plan sale 18:15 y el último límite es 18:30, que deja media hora para un atasco en la A4. Si se ve venir que no llegamos, se llama a la oficina antes de las 21:00, no después.</li>
         <li><b>El Área C no nos toca.</b> Es la ZTL del centro y los miércoles rige hasta las 19:30: llegamos después y encima Vittor Pisani queda afuera. El auto nunca entra al centro.</li>
-        <li><b>Al hotel en metro</b>, dos paradas desde Centrale, sin el auto y sin pensar más en él. Check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
-        <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
+        <li><b>La cena, en el camino.</b> De Vittor Pisani a Centrale son diez minutos a pie, y adentro de la estación está el <b>Mercato Centrale</b>, abierto hasta tarde. Después del almuerzo de Persiceto alcanza con algo liviano, y a esa hora es más fácil que buscar mesa: en Milán las cocinas cierran temprano.</li>
+        <li><b>Al hotel en metro</b>, dos paradas desde Centrale, sin el auto y sin pensar más en él. Check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie, y la <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía.</li>
       </ul>
     `, en:`
       <ul>
-        <li><b>The car first.</b> We arrive from the museum around <b>19:45</b> and the drop off is at <b>Via Vittor Pisani 19, level -2</b>, the point for the Via Galvani 12 office, which opens Monday to Saturday from <b>7:30 to 21:00</b>. We get there with an hour and a quarter to spare. The number, if we ever need to warn them, is +39 02 66987 826.</li>
-        <li><b>Working backwards, in case the day slips.</b> To hand over by 21:00 we have to leave Modena by 18:45 at the latest, and the plan leaves at 17:45. That is a whole hour of cushion, enough for a puncture or for staying longer at the museum, which closes at 19:00.</li>
+        <li><b>The car first.</b> We arrive from Verona around <b>20:15</b> and the drop off is at <b>Via Vittor Pisani 19, level -2</b>, the point for the Via Galvani 12 office, which opens Monday to Saturday from <b>7:30 to 21:00</b>. We get there with three quarters of an hour to spare. The number, if we ever need to warn them, is +39 02 66987 826.</li>
+        <li><b>Working backwards, in case the day slips.</b> Verona to Vittor Pisani is an hour fifty five on clear roads. The plan leaves at 18:15 and the latest is 18:30, which leaves half an hour for a jam on the A4. If it becomes clear we will not make it, phone the office before 21:00, not after.</li>
         <li><b>Area C does not touch us.</b> It is the ZTL of the centre and on Wednesdays it runs until 19:30: we arrive after that and Vittor Pisani is outside it anyway. The car never enters the centre.</li>
-        <li><b>To the hotel by metro</b>, two stops from Centrale, without the car and without thinking about it again. Check in and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
-        <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
+        <li><b>Dinner, on the way.</b> Vittor Pisani to Centrale is ten minutes on foot, and inside the station is the <b>Mercato Centrale</b>, open late. After the Persiceto lunch something light is enough, and at that hour it is easier than hunting for a table: in Milan the kitchens close early.</li>
+        <li><b>To the hotel by metro</b>, two stops from Centrale, without the car and without thinking about it again. Check in and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there, and the <b>Galleria Vittorio Emanuele</b>, open around the clock and empty.</li>
       </ul>
     `}},
 
@@ -3652,8 +3761,8 @@ const CITIES = [
      d:{es:'El punto de entrega de Europcar está en el <b>nivel -2</b> del estacionamiento de Via Vittor Pisani 19, que es el de la oficina de Via Galvani. Es un garaje de interscambio grande, de 943 plazas, a diez minutos a pie de Milán Centrale y a dos paradas de metro del Duomo.',
         en:'The Europcar drop off is on <b>level -2</b> of the car park at Via Vittor Pisani 19, which belongs to the Via Galvani office. It is a large interchange garage, 943 spaces, a ten minute walk from Milano Centrale and two metro stops from the Duomo.'},
      t:'mover',
-     tip:{es:'Abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00, así que llegando el miércoles 19:45 se entrega esa misma noche. Teléfono +39 02 66987 826. Antes de dar las llaves, fotos del auto por los cuatro lados y del tablero, y pedir el comprobante de devolución firmado.',
-          en:'It opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00, so arriving at 19:45 on Wednesday the car goes back that same evening. Phone +39 02 66987 826. Before handing over the keys, photographs of the car from all four sides and of the dashboard, and ask for the signed return receipt.'}},
+     tip:{es:'Abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00, así que llegando el miércoles cerca de las 20:15 se entrega esa misma noche. Teléfono +39 02 66987 826. Antes de dar las llaves, fotos del auto por los cuatro lados y del tablero, y pedir el comprobante de devolución firmado.',
+          en:'It opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00, so arriving around 20:15 on Wednesday the car goes back that same evening. Phone +39 02 66987 826. Before handing over the keys, photographs of the car from all four sides and of the dashboard, and ask for the signed return receipt.'}},
     {m:'Milan Meravigli Den Hotels & Suites',
      n:{es:'Dónde dormimos: Meravigli Den',en:'Where we sleep: Meravigli Den'},
      d:{es:'Sobre Via Meravigli, entre el Duomo y el Castello Sforzesco. Es de las mejores zonas para estos tres días: todo el centro se camina y hay metro y tranvía a media cuadra.',
@@ -3745,8 +3854,8 @@ const CITIES = [
      d:{es:'Dentro de la estación Centrale. Puestos de artesanos italianos: pasta fresca, pizza napolitana, carne, helado y vinos. Abierto hasta tarde.',
         en:'Inside Centrale station. Stalls from Italian artisans: fresh pasta, Neapolitan pizza, meat, ice cream and wine. Open late.'},
      t:'comer', p:'€', serv:'puesto', res:'no',
-     tip:{es:'Sirve para el día del lago: se pasa por ahí antes de tomar el tren de la mañana o al volver, cuando ya no hay ganas de buscar nada.',
-          en:'Useful on the lake day: you pass through before the morning train or on the way back, when there is no appetite left for hunting anything down.'}},
+     tip:{es:'Es la cena del miércoles, a diez minutos de Vittor Pisani y camino al metro. Y sirve para el día del lago: se pasa por ahí antes de tomar el tren de la mañana o al volver, cuando ya no hay ganas de buscar nada.',
+          en:'It is Wednesday’s dinner, ten minutes from Vittor Pisani and on the way to the metro. And it is useful on the lake day: you pass through before the morning train or on the way back, when there is no appetite left for hunting anything down.'}},
     {n:'Pizzeria Spontini',
      d:{es:'Un solo producto desde 1953: el trancio, una porción gruesa de pizza margarita con mucho queso. Nada más.',
         en:'One product since 1953: the trancio, a thick slice of margherita with a lot of cheese. Nothing else.'},
@@ -3808,8 +3917,8 @@ const CITIES = [
      d:{es:'En la Piazza del Duomo, con la catedral enmarcada en el ventanal. Turístico, sí, pero la vista al atardecer es difícil de superar.',
         en:'On Piazza del Duomo, with the cathedral framed in the window. Touristy, yes, but the sunset view is hard to beat.'},
      t:'coctel', p:'€€', serv:'mesa', res:'conviene',
-     tip:{es:'Está a diez minutos del hotel. Para una copa al atardecer del miércoles, recién llegados y sin ganas de organizar nada, funciona perfecto.',
-          en:'Ten minutes from the hotel. For a sunset drink on Wednesday, just arrived and with no appetite for organising anything, it works perfectly.'}}
+     tip:{es:'Está a diez minutos del hotel. Para una copa al atardecer del jueves, bajando del día de ciudad y sin ganas de organizar nada, funciona perfecto.',
+          en:'Ten minutes from the hotel. For a sunset drink on Thursday, coming down from the city day with no appetite for organising anything, it works perfectly.'}}
   ]},
 
   {s:{es:'Lo que hay que ver',en:'What to see'}, k:'visita', items:[

@@ -1,74 +1,60 @@
 {
   id:'cin', nav:'Cinque Terre', name:'Cinque Terre', plate:'La Spezia',
   accent:'#0E7490', lt:'#67E8F9', maps:'La Spezia',
-  d1:'2026-10-13', d2:'2026-10-14',
-  lede:{es:'Una noche y media tarde, así que hay que elegir. Con ese tiempo son dos pueblos bien hechos y no cinco a las corridas: los cinco se parecen bastante entre sí y verlos todos es la manera segura de no disfrutar ninguno.',
-        en:'One night and half an afternoon, so we have to choose. With that much time it is two villages done properly rather than five at a run: the five resemble each other closely, and seeing them all is the surest way to enjoy none of them.'},
+  d1:'2026-10-13', d2:'2026-10-13',
+  lede:{es:'Una tarde y una noche. Con un tren cada quince o treinta minutos entran cuatro de los cinco pueblos en el día: Riomaggiore, Manarola, Vernazza y Monterosso, con la mochila y nada más. El miércoles se sale temprano, así que acá todo termina con la cena en La Spezia.',
+        en:'One afternoon and one night. With a train every fifteen or thirty minutes, four of the five villages fit into the day: Riomaggiore, Manarola, Vernazza and Monterosso, with a backpack and nothing else. On Wednesday we leave early, so everything here ends with dinner in La Spezia.'},
   quick:[
-    [{es:'Cuándo',en:'When'},{es:'Mar 13 a mié 14, con la mañana del 14',en:'Tue 13 to Wed 14, including Wed morning'}],
+    [{es:'Cuándo',en:'When'},{es:'Mar 13, y el 14 se sale 7:45',en:'Tue 13, leaving at 7:45 on the 14th'}],
     [{es:'Dormimos',en:'We sleep'},{es:'Alba Rooms, La Spezia',en:'Alba Rooms, La Spezia'}],
     [{es:'El auto',en:'The car'},{es:'En el garage de la estación',en:'In the station garage'}],
     [{es:'Cómo se mueve uno',en:'Getting about'},{es:'Tren, cada 15 a 30 min',en:'Train, every 15 to 30 min'}],
     [{es:'Atardece',en:'Sunset'},{es:'18:55, y ahí está la foto',en:'18:55, and that is the photograph'}]
   ],
   sections:[
-  {s:{es:'El plan de la media tarde',en:'The half afternoon plan'}, k:'plan', dias:[
+  {s:{es:'El plan del día',en:'The plan for the day'}, k:'plan', dias:[
     {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'},
-     t:{es:'Martes 13: llegar, soltar todo y salir',en:'Tuesday the 13th: arrive, drop everything and get out'},
+     t:{es:'Martes 13: cuatro pueblos en una tarde',en:'Tuesday the 13th: four villages in one afternoon'},
      html:{es:`
       <ul>
-        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. Lo primero es meter el auto en el <b>Park Centro Stazione</b>, enfrente de la estación, que se queda ahí hasta el miércoles, y las valijas en el alojamiento. A Cinque Terre se va con la mochila y nada más: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
-        <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco pueblos. La idea es tomar el primero cerca del mediodía.</li>
-        <li><b>Primero Vernazza</b>, el más bonito y el del puerto con forma de herradura. Dos horas largas: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria, de donde sale la foto clásica.</li>
-        <li><b>Después Manarola</b>, a diez minutos de tren, que es donde queremos estar al atardecer. Ahí está <b>Nessun Dorma</b>, y a cien metros el mirador de <b>Punta Bonfiglio</b>, gratis, de donde sale la postal de las casas de colores sobre el acantilado.</li>
-        <li>El sol se pone 18:55: estar en Manarola desde las 17 para subir, tomar algo y esperar la luz. Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</li>
+        <li>Llegamos a La Spezia cerca de las 11 desde San Gimignano. El auto va al <b>Park Centro Stazione</b>, enfrente de la estación, y se queda ahí hasta el miércoles; las valijas, al alojamiento. A los pueblos se va con la mochila y nada más: andenes cortos, trenes llenos y pueblos que son todo escaleras.</li>
+        <li>El tren sale de <b>La Spezia Centrale</b> y en menos de veinte minutos llega a cualquiera de los cinco. Como pasa seguido, entre pueblo y pueblo se pierde poco.</li>
+      </ul>
+      <p>Entran cuatro de los cinco. Acá van en el orden de la vía, de La Spezia hacia el norte, y cada uno tiene su ficha más abajo:</p>
+      <ul>
+        <li><b>Riomaggiore</b>, el más cerca, a siete minutos de tren: una calle en bajada hasta el puerto y el rompeolas de donde sale la foto de las casas apiladas.</li>
+        <li><b>Manarola</b>, el de la postal. El mirador de <b>Punta Bonfiglio</b> es gratis y a cien metros está <b>Nessun Dorma</b>. El sol se pone 18:55.</li>
+        <li><b>Vernazza</b>, el del puerto con forma de herradura: la plaza del puerto, la iglesia sobre las rocas y la subida al castillo Doria.</li>
+        <li><b>Monterosso al Mare</b>, el más grande, el único plano y el único con playa de arena de verdad.</li>
+      </ul>
+      <p>Después, tren de vuelta y cena en La Spezia, más barata y más tranquila que en los pueblos.</p>
+      <h3>Esta noche</h3>
+      <ul>
+        <li><b>Las dos entradas de Verona</b>, las dos en verona.coopculture.it: la <b>Arena</b>, 12 euros, y el <b>turno de las 16:30 del patio de Julieta</b>, 5 euros. Sin turno no se entra al patio, y los revendedores cobran más del doble y no devuelven. El detalle está en el capítulo de <b>Verona</b>.</li>
+        <li>La entrada del <b>Museo Ferrari</b> ya está, y la mesa de Persiceto pasó a las <b>12:30</b>.</li>
+        <li><b>Check out a las 7:15.</b> Dejar arreglado con Alba Rooms dónde van las llaves si a esa hora no hay nadie.</li>
+        <li>Las valijas armadas esta noche y la mochila del día aparte, porque mañana todo va al baúl. <b>Salimos 7:45</b>, y el día entero está en el capítulo de <b>Módena</b>.</li>
       </ul>
     `, en:`
       <ul>
-        <li>We reach La Spezia around 11 from San Gimignano. The first thing is to put the car in the <b>Park Centro Stazione</b>, across from the station, where it stays until Wednesday, and the bags at the apartment. You go to Cinque Terre with a backpack and nothing else: short platforms, full trains and villages made entirely of stairs.</li>
-        <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five villages in under twenty minutes. The idea is to catch the first one around midday.</li>
-        <li><b>Vernazza first</b>, the prettiest and the one with the horseshoe harbour. A good two hours: the harbour square, the church built out on the rocks, and the climb to the Doria castle, where the classic photograph comes from.</li>
-        <li><b>Then Manarola</b>, ten minutes on by train, which is where we want to be at sunset. That is where <b>Nessun Dorma</b> is, and a hundred metres on the <b>Punta Bonfiglio</b> viewpoint, free, the source of the postcard of coloured houses on the cliff.</li>
-        <li>The sun sets at 18:55: be in Manarola from 17:00 to climb up, have a drink and wait for the light. Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</li>
+        <li>We reach La Spezia around 11 from San Gimignano. The car goes into the <b>Park Centro Stazione</b>, across from the station, and stays there until Wednesday; the bags go to the apartment. You go to the villages with a backpack and nothing else: short platforms, full trains and villages made entirely of stairs.</li>
+        <li>The train leaves from <b>La Spezia Centrale</b> and reaches any of the five in under twenty minutes. Since it runs often, little is lost between one village and the next.</li>
       </ul>
-    `}},
-
-    {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'},
-     t:{es:'Miércoles 14: la mañana en los pueblos, y a Módena',en:'Wednesday the 14th: the morning in the villages, then Modena'},
-     html:{es:`
-      <p>La mañana es nuestra y la tarde tiene dueño. El día cuelga de una <b>reserva a las 13:45</b> en San Giovanni in Persiceto, a dos horas y media de acá, y cancelan si llegamos más de veinte minutos tarde sin avisar. Entonces la mañana tiene una hora de cierre que no se negocia: <b>10:30 en el auto y saliendo</b>.</p>
+      <p>Four of the five fit. Here they are in the order of the line, from La Spezia heading north, and each has its own card further down:</p>
       <ul>
-        <li><b>7:00, desayuno y check out.</b> Las valijas van derecho al auto, que ya está en el Park Centro Stazione, enfrente de la estación. Es cubierto y con cámaras, así que es el mejor lugar del viaje para dejarlas tres horas.</li>
-        <li><b>7:45, tren.</b> Con la mochila y nada más, como ayer.</li>
-        <li><b>8:00 a 10:00, el pueblo que falte.</b> Dos horas limpias, que para un pueblo de Cinque Terre a esa hora, sin nadie, es bastante.</li>
-        <li><b>10:20, de vuelta en La Spezia Centrale.</b> La estación y el garage son la misma cuadra: se baja del tren y se sube al auto.</li>
-        <li><b>10:30, salir.</b> Dos horas y veintiséis hasta Persiceto por la A15 y la A1, llegando cerca de las 13:00. Cargar nafta antes de la autopista, que en las áreas de servicio de la A1 el litro sale bastante más.</li>
+        <li><b>Riomaggiore</b>, the closest, seven minutes by train: one street running down to the harbour and the breakwater the photograph of stacked houses comes from.</li>
+        <li><b>Manarola</b>, the postcard one. The <b>Punta Bonfiglio</b> viewpoint is free and <b>Nessun Dorma</b> is a hundred metres away. The sun sets at 18:55.</li>
+        <li><b>Vernazza</b>, the one with the horseshoe harbour: the harbour square, the church built out on the rocks, and the climb to the Doria castle.</li>
+        <li><b>Monterosso al Mare</b>, the largest, the only flat one and the only one with a real sandy beach.</li>
       </ul>
-      <h3>Cuál pueblo, con dos horas</h3>
+      <p>Then the train back and dinner in La Spezia, cheaper and calmer than in the villages.</p>
+      <h3>Tonight</h3>
       <ul>
-        <li><b>Riomaggiore es el que conviene</b>: son <b>siete minutos</b> de tren desde La Spezia, el más cerca de los cinco. Una calle en bajada hasta el puerto y el rompeolas de donde sale la foto de las casas apiladas. Con siete minutos de ida y siete de vuelta, las dos horas son dos horas de pueblo y no de tren.</li>
-        <li><b>Monterosso</b> si lo que falta es playa: es el único de los cinco con arena de verdad y el único plano. Pero está a veinticinco minutos, así que se come casi una hora en trenes.</li>
-        <li><b>Corniglia</b> mejor no: es el de arriba del acantilado y desde la estación son trescientos ochenta escalones o esperar la lanzadera. No es un pueblo para ir con reloj.</li>
-        <li>Y si lo que faltó fue tiempo y no pueblos, volver a <b>Vernazza</b> de mañana temprano es mejor plan que estrenar uno nuevo: a las ocho el puerto está vacío y ayer a las dos de la tarde no lo estaba.</li>
+        <li><b>The two Verona tickets</b>, both on verona.coopculture.it: the <b>Arena</b>, 12 euros, and the <b>16:30 slot for Juliet’s courtyard</b>, 5 euros. Without a slot there is no getting into the courtyard, and resellers charge more than double and give no refunds. The detail is in the <b>Verona</b> chapter.</li>
+        <li>The <b>Ferrari Museum</b> ticket is done, and the Persiceto table has moved to <b>12:30</b>.</li>
+        <li><b>Check out at 7:15.</b> Settle with Alba Rooms where the keys go if nobody is there at that hour.</li>
+        <li>Bags packed tonight and the day backpack kept apart, because tomorrow everything goes in the boot. <b>We leave at 7:45</b>, and the whole day is in the <b>Modena</b> chapter.</li>
       </ul>
-      <p>El resto del día está en el capítulo de <b>Módena</b>: el almuerzo, el museo a la vuelta y las valijas. Y la llegada a Milán, con el auto, en el de <b>Milán</b>.</p>
-    `, en:`
-      <p>The morning is ours and the afternoon belongs to someone else. The day hangs on a <b>13:45 booking</b> in San Giovanni in Persiceto, two and a half hours from here, and they cancel if we turn up more than twenty minutes late without calling. So the morning has a closing time that is not up for discussion: <b>10:30, in the car and moving</b>.</p>
-      <ul>
-        <li><b>7:00, breakfast and check out.</b> The bags go straight to the car, which is already in the Park Centro Stazione across from the station. It is covered and has cameras, so it is the best place on the whole trip to leave them for three hours.</li>
-        <li><b>7:45, train.</b> With a backpack and nothing else, same as yesterday.</li>
-        <li><b>8:00 to 10:00, whichever village is missing.</b> Two clean hours, which for a Cinque Terre village at that hour with nobody about is a good deal.</li>
-        <li><b>10:20, back at La Spezia Centrale.</b> The station and the garage are the same block: off the train and into the car.</li>
-        <li><b>10:30, leave.</b> Two hours twenty six to Persiceto on the A15 and the A1, arriving around 13:00. Fill up before the motorway, since at the A1 service areas the litre costs noticeably more.</li>
-      </ul>
-      <h3>Which village, with two hours</h3>
-      <ul>
-        <li><b>Riomaggiore is the one that works</b>: it is <b>seven minutes</b> by train from La Spezia, the closest of the five. One street running down to the harbour and the breakwater the photograph of stacked houses comes from. With seven minutes out and seven back, the two hours are two hours of village rather than of train.</li>
-        <li><b>Monterosso</b> if what is missing is a beach: it is the only one of the five with real sand and the only flat one. But it is twenty five minutes away, so nearly an hour goes on trains.</li>
-        <li><b>Corniglia</b>, better not: it is the one on top of the cliff and from the station it is three hundred and eighty steps or waiting for the shuttle. Not a village to visit against the clock.</li>
-        <li>And if what ran short was time rather than villages, going back to <b>Vernazza</b> early is a better plan than starting a new one: at eight the harbour is empty, and at two yesterday afternoon it was not.</li>
-      </ul>
-      <p>The rest of the day is in the <b>Modena</b> chapter: lunch, the museum on the way back and the bags. And the arrival in Milan, with the car, in the <b>Milan</b> one.</p>
     `}}
   ]},
 
@@ -78,8 +64,8 @@
      d:{es:'En Piazzale delle Medaglie d’Oro, enfrente de la entrada de la estación. Dos niveles bajo tierra, cubierto, 218 plazas, 64 cámaras y abierto las veinticuatro horas todos los días. 1,50 euros la hora de 8:00 a 20:00 y 1 euro de 20:00 a 8:00.',
         en:'On Piazzale delle Medaglie d’Oro, across from the station entrance. Two underground levels, covered, 218 spaces, 64 cameras and open around the clock every day. 1.50 euros an hour from 8:00 to 20:00 and 1 euro from 20:00 to 8:00.'},
      t:'mover', p:'€€',
-     tip:{es:'Primero preguntar en Alba Rooms: muchos alojamientos de La Spezia tienen acuerdo con un garaje o permiso de zona, y eso sale menos que las veintitrés horas de reloj que vamos a estar. Si no, este es el que conviene igual, porque todos los trenes a los pueblos salen de esa estación y volvemos de noche. Más barato pero a diez minutos a pie está el de Piazza d’Armi.',
-          en:'Ask at Alba Rooms first: plenty of La Spezia places have an arrangement with a garage or a zone permit, and that comes to less than the twenty three hours we will actually be there. Otherwise this is the one anyway, because every village train leaves from that station and we come back after dark. Cheaper but a ten minute walk away is the Piazza d’Armi one.'}},
+     tip:{es:'Primero preguntar en Alba Rooms: muchos alojamientos de La Spezia tienen acuerdo con un garaje o permiso de zona, y eso sale menos que las veinte horas de reloj que vamos a estar. Si no, este es el que conviene igual, porque todos los trenes a los pueblos salen de esa estación y volvemos de noche. Más barato pero a diez minutos a pie está el de Piazza d’Armi.',
+          en:'Ask at Alba Rooms first: plenty of La Spezia places have an arrangement with a garage or a zone permit, and that comes to less than the twenty hours we will actually be there. Otherwise this is the one anyway, because every village train leaves from that station and we come back after dark. Cheaper but a ten minute walk away is the Piazza d’Armi one.'}},
     {m:'Alba Rooms, La Spezia',
      n:{es:'Dónde dormimos: Alba Rooms',en:'Where we sleep: Alba Rooms'},
      d:{es:'En La Spezia, que es la base lógica: es una ciudad de verdad, con supermercados, restaurantes a precio normal y la estación desde donde salen todos los trenes a los pueblos.',
@@ -98,38 +84,31 @@
      d:{es:'La tarjeta de un día incluye trenes ilimitados entre La Spezia y Levanto más el acceso a los senderos pagos. Sale a cuenta a partir de tres o cuatro viajes en el día.',
         en:'The one day card covers unlimited trains between La Spezia and Levanto plus access to the paid trails. It pays off from three or four journeys in the day.'},
      t:'mover',
-     tip:{es:'Con nuestro plan de dos pueblos son tres viajes justos, así que queda al límite. Si además pensamos caminar algún tramo del Sentiero Azzurro, ahí sí conviene sin dudarlo. Se compra en la ventanilla de la estación de La Spezia.',
-          en:'With our two village plan it is exactly three journeys, so it sits right on the line. If we also plan to walk a stretch of the Sentiero Azzurro, then it is worth it without question. Buy it at the ticket office in La Spezia station.'}},
+     tip:{es:'Con cuatro pueblos en el día son cinco viajes, así que sale a cuenta, y más todavía si además se camina algún tramo del Sentiero Azzurro. Se compra en la ventanilla de la estación de La Spezia.',
+          en:'With four villages in the day it comes to five journeys, so it pays off, and all the more if we also walk a stretch of the Sentiero Azzurro. Buy it at the ticket office in La Spezia station.'}},
     {nota:1,
      n:{es:'Los senderos, y cuál está abierto',en:'The trails, and which one is open'},
      d:{es:'La <em>Via dell’Amore</em>, el tramo llano entre Riomaggiore y Manarola, estuvo cerrada más de diez años por derrumbes y volvió a abrir con entrada y turno horario. Otros tramos siguen cerrados y cambian de una temporada a otra.',
         en:'The <em>Via dell’Amore</em>, the level stretch between Riomaggiore and Manarola, was shut for over ten years after landslides and has reopened with a ticket and timed entry. Other sections are still closed and change from season to season.'},
      t:'mover',
-     tip:{es:'Antes de contar con cualquier caminata hay que mirar el estado de los senderos en la web del Parque Nacional, ese mismo día. Cuando llueve los cierran, y en octubre llueve. El tramo Vernazza a Monterosso es el más lindo pero son casi dos horas de subir y bajar: no entra en nuestra media tarde.',
-          en:'Before counting on any walk, check the trail status on the National Park site that same day. When it rains they close them, and in October it rains. The Vernazza to Monterosso stretch is the loveliest but it is nearly two hours of up and down: it does not fit in our half afternoon.'}},
+     tip:{es:'Antes de contar con cualquier caminata hay que mirar el estado de los senderos en la web del Parque Nacional, ese mismo día. Cuando llueve los cierran, y en octubre llueve. El tramo Vernazza a Monterosso es el más lindo pero son casi dos horas de subir y bajar: no entra en un día de cuatro pueblos.',
+          en:'Before counting on any walk, check the trail status on the National Park site that same day. When it rains they close them, and in October it rains. The Vernazza to Monterosso stretch is the loveliest but it is nearly two hours of up and down: it does not fit into a four village day.'}},
     {nota:1,
      n:{es:'Nada de valijas',en:'No suitcases'},
      d:{es:'Los trenes vienen llenos, los andenes son angostos y los pueblos son escaleras por todos lados. Manarola y Vernazza no tienen una calle plana.',
         en:'The trains come in full, the platforms are narrow and the villages are stairs in every direction. Manarola and Vernazza do not have a single flat street.'},
      t:'mover',
      tip:{es:'Todo queda en el alojamiento de La Spezia. Si por algo hubiera que cargarlas, la estación de La Spezia Centrale tiene consigna, pero conviene confirmar el horario porque cierra temprano.',
-          en:'Everything stays at the La Spezia apartment. If for some reason we had to carry them, La Spezia Centrale station has left luggage, but confirm the hours because it closes early.'}},
-    {nota:1,
-     n:{es:'El tren del miércoles a Módena',en:'Wednesday’s train to Modena'},
-     d:{es:'Son unas tres horas con un cambio, generalmente en Parma. No hay tren directo, así que hay que mirar bien la combinación y dejarse margen entre uno y otro.',
-        en:'About three hours with one change, generally at Parma. There is no direct train, so look carefully at the connection and leave slack between the two.'},
-     t:'mover',
-     tip:{es:'Comprarlo con anticipación en la app de Trenitalia sale más barato. Si el cambio es en Parma y tenemos una hora de espera, la plaza del Duomo de Parma está a diez minutos de la estación y se ve en ese rato.',
-          en:'Buying ahead on the Trenitalia app costs less. If the change is at Parma and we have an hour to wait, Parma’s cathedral square is ten minutes from the station and fits into that gap.'}}
+          en:'Everything stays at the La Spezia apartment. If for some reason we had to carry them, La Spezia Centrale station has left luggage, but confirm the hours because it closes early.'}}
   ]},
 
-  {s:{es:'Los dos pueblos que elegimos',en:'The two villages we picked'}, k:'visita', items:[
-    {a:'Vernazza', n:'Vernazza',
-     d:{es:'El más bonito de los cinco, y el único con un puerto natural. Las casas de colores bajan hasta el agua rodeando una placita que es el centro de todo, con la iglesia de Santa Margherita construida sobre la roca del mar.',
-        en:'The prettiest of the five, and the only one with a natural harbour. Coloured houses run down to the water around a small square that is the centre of everything, with the church of Santa Margherita built out on the sea rock.'},
+  {s:{es:'Los cuatro pueblos',en:'The four villages'}, k:'visita', items:[
+    {a:'Riomaggiore', n:'Riomaggiore',
+     d:{es:'El más cerca de La Spezia, a siete minutos de tren. Una calle principal que baja entre casas altas y angostas hasta un puerto chico, donde los botes se guardan arriba, sobre la misma calle.',
+        en:'The closest to La Spezia, seven minutes by train. One main street running down between tall narrow houses to a small harbour, where the boats are kept up on the street itself.'},
      t:'visita',
-     tip:{es:'La foto famosa se saca subiendo hacia el castillo Doria, o unos metros por el sendero que sale hacia Monterosso, donde hay un mirador antes del molinete de acceso. Es cuesta arriba y son cinco minutos de escalones.',
-          en:'The famous photograph is taken climbing towards the Doria castle, or a few metres up the trail heading for Monterosso, where there is a viewpoint before the ticket gate. It is uphill and five minutes of steps.'}},
+     tip:{es:'La foto de las casas apiladas sale desde las rocas del rompeolas, al costado del puerto. De la estación al pueblo se pasa por un túnel peatonal que desemboca en la calle principal.',
+          en:'The photograph of the stacked houses is taken from the rocks of the breakwater, beside the harbour. From the station you reach the village through a pedestrian tunnel that comes out on the main street.'}},
     {a:'Manarola', n:'Manarola',
      d:{es:'El de la postal: casas apiladas sobre una roca que cae al mar, sin playa y sin puerto, con una rampa de cemento donde los botes se sacan del agua con grúa. Es el más fotogénico de los cinco al atardecer.',
         en:'The postcard one: houses stacked on a rock falling into the sea, with no beach and no harbour, just a concrete ramp where the boats are craned out of the water. The most photogenic of the five at sunset.'},
@@ -149,20 +128,25 @@
      t:'coctel', p:'€€', serv:'mesa', res:'cola',
      tip:{es:'No toman reserva de mesa: se anota uno en una lista al llegar y esperan un rato, sobre todo al atardecer, que es cuando quiere ir todo el mundo. Conviene llegar temprano y confirmar cómo funciona el día que vamos, porque cambian el sistema seguido. Si la espera es larga, el mirador de al lado tiene la misma vista y es gratis.',
           en:'They take no table bookings: you put your name on a list when you arrive and wait a while, above all at sunset, which is when everyone wants to be there. Arrive early and check how it works the day we go, because they change the system often. If the wait is long, the viewpoint next door has the same view and is free.'}},
-    {nota:1,
-     n:{es:'Los otros tres, y por qué los salteamos',en:'The other three, and why we skip them'},
-     d:{es:'Riomaggiore es lindo pero se parece mucho a Manarola. Corniglia es el único que no está sobre el mar y se llega subiendo casi cuatrocientos escalones desde la estación, o esperando un bus. Monterosso es el más grande y el que tiene playa, y es el que menos cara de Cinque Terre tiene.',
-        en:'Riomaggiore is lovely but very like Manarola. Corniglia is the only one not on the sea and is reached by climbing nearly four hundred steps from the station, or waiting for a bus. Monterosso is the largest and the one with a beach, and the one that looks least like Cinque Terre.'},
+    {a:'Vernazza', n:'Vernazza',
+     d:{es:'El más bonito de los cinco, y el único con un puerto natural. Las casas de colores bajan hasta el agua rodeando una placita que es el centro de todo, con la iglesia de Santa Margherita construida sobre la roca del mar.',
+        en:'The prettiest of the five, and the only one with a natural harbour. Coloured houses run down to the water around a small square that is the centre of everything, with the church of Santa Margherita built out on the sea rock.'},
      t:'visita',
-     tip:{es:'Con media tarde, dos pueblos bien hechos valen mucho más que cinco corriendo entre trenes. Si sobrara tiempo, el que agregaría es Riomaggiore, que está a cinco minutos de Manarola y tiene una bajada al puerto muy linda.',
-          en:'With half an afternoon, two villages done properly are worth far more than five at a run between trains. If time were left over, the one I would add is Riomaggiore, five minutes from Manarola, with a very pretty descent to the harbour.'}},
+     tip:{es:'La foto famosa se saca subiendo hacia el castillo Doria, o unos metros por el sendero que sale hacia Monterosso, donde hay un mirador antes del molinete de acceso. Es cuesta arriba y son cinco minutos de escalones.',
+          en:'The famous photograph is taken climbing towards the Doria castle, or a few metres up the trail heading for Monterosso, where there is a viewpoint before the ticket gate. It is uphill and five minutes of steps.'}},
+    {a:'Monterosso al Mare', n:'Monterosso al Mare',
+     d:{es:'El más grande de los cinco, el único plano y el único con playa de arena de verdad. Son dos partes, el pueblo viejo y Fegina, que es la de la estación, unidas por un túnel junto al mar.',
+        en:'The largest of the five, the only flat one and the only one with a real sandy beach. It comes in two parts, the old village and Fegina, where the station is, joined by a tunnel beside the sea.'},
+     t:'visita',
+     tip:{es:'Las anchoas de Monterosso son las de acá: fritas, marinadas en limón o arriba de la focaccia. En el pueblo viejo está la iglesia de San Giovanni Battista, con la fachada a rayas blancas y negras.',
+          en:'Monterosso anchovies are the local thing: fried, marinated in lemon or on top of the focaccia. In the old village is the church of San Giovanni Battista, with its black and white striped facade.'}},
     {a:'La Spezia',
      n:{es:'El paseo marítimo de La Spezia',en:'The La Spezia seafront'},
      d:{es:'La ciudad no es turística y eso se agradece: un golfo con veleros, una rambla arbolada larga y una calle peatonal con negocios de todos los días.',
         en:'The city is not a tourist town and that is a relief: a gulf full of sailing boats, a long tree lined promenade and a pedestrian street with everyday shops.'},
      t:'aire',
-     tip:{es:'Es el paseo del miércoles temprano si nos sobra una hora antes del tren, o la caminata de la noche del martes después de cenar.',
-          en:'It is the Wednesday morning walk if we have a spare hour before the train, or Tuesday night’s stroll after dinner.'}}
+     tip:{es:'Es la caminata de la noche del martes, después de cenar.',
+          en:'It is Tuesday night’s stroll, after dinner.'}}
   ]},
 
   {s:{es:'Comer',en:'Eating'}, k:'comer', items:[

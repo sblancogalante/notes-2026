@@ -21,19 +21,19 @@
      t:{es:'Miércoles 14: llegada y el Duomo de noche',en:'Wednesday the 14th: arrival and the Duomo at night'},
      html:{es:`
       <ul>
-        <li><b>Primero el auto.</b> Llegamos del museo cerca de las <b>19:45</b> y la entrega es en <b>Via Vittor Pisani 19, nivel -2</b>, el punto de la oficina de Via Galvani 12, que abre de lunes a sábado de <b>7:30 a 21:00</b>. Llegamos con hora y cuarto de margen. El teléfono, si hiciera falta avisar, es +39 02 66987 826.</li>
-        <li><b>La cuenta hacia atrás, por si el día se corre.</b> Para entregar a las 21:00 hay que salir de Módena a las 18:45 como último límite, y el plan sale 17:45. Eso es una hora entera de colchón, que alcanza para un pinchazo o para quedarse de más en el museo, que cierra 19:00.</li>
+        <li><b>Primero el auto.</b> Llegamos de Verona cerca de las <b>20:15</b> y la entrega es en <b>Via Vittor Pisani 19, nivel -2</b>, el punto de la oficina de Via Galvani 12, que abre de lunes a sábado de <b>7:30 a 21:00</b>. Llegamos con tres cuartos de hora de margen. El teléfono, si hiciera falta avisar, es +39 02 66987 826.</li>
+        <li><b>La cuenta hacia atrás, por si el día se corre.</b> De Verona a Vittor Pisani son una hora cincuenta y cinco sin tránsito. El plan sale 18:15 y el último límite es 18:30, que deja media hora para un atasco en la A4. Si se ve venir que no llegamos, se llama a la oficina antes de las 21:00, no después.</li>
         <li><b>El Área C no nos toca.</b> Es la ZTL del centro y los miércoles rige hasta las 19:30: llegamos después y encima Vittor Pisani queda afuera. El auto nunca entra al centro.</li>
-        <li><b>Al hotel en metro</b>, dos paradas desde Centrale, sin el auto y sin pensar más en él. Check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie.</li>
-        <li>La <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía de noche, y cena cerca. Con hambre y antes de las nueve, un aperitivo en Brera resuelve la noche.</li>
+        <li><b>La cena, en el camino.</b> De Vittor Pisani a Centrale son diez minutos a pie, y adentro de la estación está el <b>Mercato Centrale</b>, abierto hasta tarde. Después del almuerzo de Persiceto alcanza con algo liviano, y a esa hora es más fácil que buscar mesa: en Milán las cocinas cierran temprano.</li>
+        <li><b>Al hotel en metro</b>, dos paradas desde Centrale, sin el auto y sin pensar más en él. Check in y a caminar sin ambiciones. El hotel está a pocas cuadras del Duomo: la primera imagen es la plaza iluminada, que de noche es mejor que de día porque no hay nadie, y la <b>Galleria Vittorio Emanuele</b>, abierta las veinticuatro horas y vacía.</li>
       </ul>
     `, en:`
       <ul>
-        <li><b>The car first.</b> We arrive from the museum around <b>19:45</b> and the drop off is at <b>Via Vittor Pisani 19, level -2</b>, the point for the Via Galvani 12 office, which opens Monday to Saturday from <b>7:30 to 21:00</b>. We get there with an hour and a quarter to spare. The number, if we ever need to warn them, is +39 02 66987 826.</li>
-        <li><b>Working backwards, in case the day slips.</b> To hand over by 21:00 we have to leave Modena by 18:45 at the latest, and the plan leaves at 17:45. That is a whole hour of cushion, enough for a puncture or for staying longer at the museum, which closes at 19:00.</li>
+        <li><b>The car first.</b> We arrive from Verona around <b>20:15</b> and the drop off is at <b>Via Vittor Pisani 19, level -2</b>, the point for the Via Galvani 12 office, which opens Monday to Saturday from <b>7:30 to 21:00</b>. We get there with three quarters of an hour to spare. The number, if we ever need to warn them, is +39 02 66987 826.</li>
+        <li><b>Working backwards, in case the day slips.</b> Verona to Vittor Pisani is an hour fifty five on clear roads. The plan leaves at 18:15 and the latest is 18:30, which leaves half an hour for a jam on the A4. If it becomes clear we will not make it, phone the office before 21:00, not after.</li>
         <li><b>Area C does not touch us.</b> It is the ZTL of the centre and on Wednesdays it runs until 19:30: we arrive after that and Vittor Pisani is outside it anyway. The car never enters the centre.</li>
-        <li><b>To the hotel by metro</b>, two stops from Centrale, without the car and without thinking about it again. Check in and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there.</li>
-        <li>The <b>Galleria Vittorio Emanuele</b>, open around the clock and empty at night, and dinner nearby. Hungry and before nine, an aperitivo in Brera settles the evening.</li>
+        <li><b>Dinner, on the way.</b> Vittor Pisani to Centrale is ten minutes on foot, and inside the station is the <b>Mercato Centrale</b>, open late. After the Persiceto lunch something light is enough, and at that hour it is easier than hunting for a table: in Milan the kitchens close early.</li>
+        <li><b>To the hotel by metro</b>, two stops from Centrale, without the car and without thinking about it again. Check in and walk with no ambitions. The hotel is a few blocks from the Duomo: the first sight is the lit square, which at night beats the daytime version because there is nobody there, and the <b>Galleria Vittorio Emanuele</b>, open around the clock and empty.</li>
       </ul>
     `}},
 
@@ -90,8 +90,8 @@
      d:{es:'El punto de entrega de Europcar está en el <b>nivel -2</b> del estacionamiento de Via Vittor Pisani 19, que es el de la oficina de Via Galvani. Es un garaje de interscambio grande, de 943 plazas, a diez minutos a pie de Milán Centrale y a dos paradas de metro del Duomo.',
         en:'The Europcar drop off is on <b>level -2</b> of the car park at Via Vittor Pisani 19, which belongs to the Via Galvani office. It is a large interchange garage, 943 spaces, a ten minute walk from Milano Centrale and two metro stops from the Duomo.'},
      t:'mover',
-     tip:{es:'Abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00, así que llegando el miércoles 19:45 se entrega esa misma noche. Teléfono +39 02 66987 826. Antes de dar las llaves, fotos del auto por los cuatro lados y del tablero, y pedir el comprobante de devolución firmado.',
-          en:'It opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00, so arriving at 19:45 on Wednesday the car goes back that same evening. Phone +39 02 66987 826. Before handing over the keys, photographs of the car from all four sides and of the dashboard, and ask for the signed return receipt.'}},
+     tip:{es:'Abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00, así que llegando el miércoles cerca de las 20:15 se entrega esa misma noche. Teléfono +39 02 66987 826. Antes de dar las llaves, fotos del auto por los cuatro lados y del tablero, y pedir el comprobante de devolución firmado.',
+          en:'It opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00, so arriving around 20:15 on Wednesday the car goes back that same evening. Phone +39 02 66987 826. Before handing over the keys, photographs of the car from all four sides and of the dashboard, and ask for the signed return receipt.'}},
     {m:'Milan Meravigli Den Hotels & Suites',
      n:{es:'Dónde dormimos: Meravigli Den',en:'Where we sleep: Meravigli Den'},
      d:{es:'Sobre Via Meravigli, entre el Duomo y el Castello Sforzesco. Es de las mejores zonas para estos tres días: todo el centro se camina y hay metro y tranvía a media cuadra.',
@@ -183,8 +183,8 @@
      d:{es:'Dentro de la estación Centrale. Puestos de artesanos italianos: pasta fresca, pizza napolitana, carne, helado y vinos. Abierto hasta tarde.',
         en:'Inside Centrale station. Stalls from Italian artisans: fresh pasta, Neapolitan pizza, meat, ice cream and wine. Open late.'},
      t:'comer', p:'€', serv:'puesto', res:'no',
-     tip:{es:'Sirve para el día del lago: se pasa por ahí antes de tomar el tren de la mañana o al volver, cuando ya no hay ganas de buscar nada.',
-          en:'Useful on the lake day: you pass through before the morning train or on the way back, when there is no appetite left for hunting anything down.'}},
+     tip:{es:'Es la cena del miércoles, a diez minutos de Vittor Pisani y camino al metro. Y sirve para el día del lago: se pasa por ahí antes de tomar el tren de la mañana o al volver, cuando ya no hay ganas de buscar nada.',
+          en:'It is Wednesday’s dinner, ten minutes from Vittor Pisani and on the way to the metro. And it is useful on the lake day: you pass through before the morning train or on the way back, when there is no appetite left for hunting anything down.'}},
     {n:'Pizzeria Spontini',
      d:{es:'Un solo producto desde 1953: el trancio, una porción gruesa de pizza margarita con mucho queso. Nada más.',
         en:'One product since 1953: the trancio, a thick slice of margherita with a lot of cheese. Nothing else.'},
@@ -246,8 +246,8 @@
      d:{es:'En la Piazza del Duomo, con la catedral enmarcada en el ventanal. Turístico, sí, pero la vista al atardecer es difícil de superar.',
         en:'On Piazza del Duomo, with the cathedral framed in the window. Touristy, yes, but the sunset view is hard to beat.'},
      t:'coctel', p:'€€', serv:'mesa', res:'conviene',
-     tip:{es:'Está a diez minutos del hotel. Para una copa al atardecer del miércoles, recién llegados y sin ganas de organizar nada, funciona perfecto.',
-          en:'Ten minutes from the hotel. For a sunset drink on Wednesday, just arrived and with no appetite for organising anything, it works perfectly.'}}
+     tip:{es:'Está a diez minutos del hotel. Para una copa al atardecer del jueves, bajando del día de ciudad y sin ganas de organizar nada, funciona perfecto.',
+          en:'Ten minutes from the hotel. For a sunset drink on Thursday, coming down from the city day with no appetite for organising anything, it works perfectly.'}}
   ]},
 
   {s:{es:'Lo que hay que ver',en:'What to see'}, k:'visita', items:[

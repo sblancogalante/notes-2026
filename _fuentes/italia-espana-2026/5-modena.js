@@ -2,54 +2,65 @@
   id:'mod',
   nav:{es:'Módena',en:'Modena'},
   name:{es:'Módena',en:'Modena'},
-  plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena',
+  plate:'Ferrari', accent:'#B91C1C', lt:'#FCA5A5', maps:'Modena', auto:1,
   d1:'2026-10-14', d2:'2026-10-14',
-  lede:{es:'Un día de paso entre La Spezia y Milán, en auto, que cuelga de una sola hora: la mesa reservada a las 13:45 en San Giovanni in Persiceto. El Museo Enzo Ferrari va después, a la vuelta, con la mañana libre en Cinque Terre.',
-        en:'A day in transit between La Spezia and Milan, by car, hanging on a single hour: the table booked for 13:45 in San Giovanni in Persiceto. The Enzo Ferrari Museum comes after it, on the way back, with the morning free in Cinque Terre.'},
+  lede:{es:'El día de más manejo del viaje, de La Spezia a Milán con tres paradas: el Museo Enzo Ferrari a primera hora, la mesa de las 12:30 en San Giovanni in Persiceto y la tarde en Verona. Todo cuelga de dos horas que no se mueven: la de la mesa y las 18:30, que es lo último para salir de Verona.',
+        en:'The longest driving day of the trip, La Spezia to Milan with three stops: the Enzo Ferrari Museum first thing, the 12:30 table in San Giovanni in Persiceto and the afternoon in Verona. It all hangs on two times that do not move: the table, and 18:30, the latest we can leave Verona.'},
   quick:[
     [{es:'Cuándo',en:'When'},{es:'Mié 14 de octubre, de paso',en:'Wed 14 October, passing through'}],
-    [{es:'Llegamos',en:'We arrive'},{es:'A Persiceto 13:00, a Módena 15:45',en:'Persiceto 13:00, Modena 15:45'}],
-    [{es:'Seguimos',en:'We continue'},{es:'A Milán, 2 h 25 desde Persiceto',en:'To Milan, 2 h 25 from Persiceto'}],
-    [{es:'El museo',en:'The museum'},{es:'Solo el Enzo Ferrari, 16:00, hora y media',en:'Just the Enzo Ferrari, 16:00, an hour and a half'}],
-    [{es:'Ojo',en:'Watch out'},{es:'El almuerzo cancela si llegamos tarde',en:'Lunch is cancelled if we are late'}]
+    [{es:'Salimos',en:'We leave'},{es:'La Spezia 7:45, check out 7:15',en:'La Spezia 7:45, check out 7:15'}],
+    [{es:'El museo',en:'The museum'},{es:'Enzo Ferrari, 9:45, entrada sacada',en:'Enzo Ferrari, 9:45, ticket booked'}],
+    [{es:'El almuerzo',en:'Lunch'},{es:'Persiceto, 12:30',en:'Persiceto, 12:30'}],
+    [{es:'Seguimos',en:'We continue'},{es:'Verona 15:25, Milán 20:15',en:'Verona 15:25, Milan 20:15'}],
+    [{es:'Ojo',en:'Watch out'},{es:'La mesa se cae a los 20 min de atraso',en:'The table goes after 20 min late'}]
   ],
   sections:[
   {s:{es:'El día, hora por hora',en:'The day, hour by hour'}, k:'plan', html:{es:`
-      <h3>Primero el almuerzo, el museo a la vuelta</h3>
-      <p>El día cuelga de una sola hora: la mesa en la <b>Osteria del Mirasole</b> a las <b>13:45</b>, en San Giovanni in Persiceto. La cocina del mediodía cierra 14:00, así que esa es la última mesa, y <b>cancelan la reserva pasados veinte minutos sin aviso</b>. Todo lo demás se ordena alrededor de eso: la mañana queda en Cinque Terre, y el museo pasa a la tarde, de vuelta hacia Milán.</p>
+      <h3>Un día de auto con dos horas fijas</h3>
+      <p>Son unos quinientos kilómetros y casi seis horas de manejo repartidas en el día. Dos horas no se mueven: la mesa en la <b>Antica Osteria del Mirasole</b> a las <b>12:30</b>, en San Giovanni in Persiceto, que <b>cancela pasados veinte minutos sin aviso</b>, y las <b>18:30</b>, lo último para salir de Verona y llegar a Milán antes de que cierre la oficina del auto, a las 21:00.</p>
       <ul>
-        <li><b>10:30</b>, salir de La Spezia con las valijas ya cargadas. Dos horas y veintiséis por la A15 y la A1.</li>
-        <li><b>13:00, San Giovanni in Persiceto.</b> Tres cuartos de hora de colchón antes de sentarse, que es justo lo que el día necesita tener. Se usan caminando el pueblo: es el <b>Borgo Rotondo</b>, de planta concéntrica medieval, y tiene la <b>Piazzetta degli Inganni</b>, un patio pintado en trompe l’oeil por el escenógrafo Gino Pellegrini en 1980. La osteria está en Via Giacomo Matteotti 17/A.</li>
-        <li><b>13:45, el almuerzo.</b> Hora y media. Es una osteria de las de verdad, de las que hay que dejar hacer.</li>
-        <li><b>15:15</b>, a Módena. Media hora por la SS568, en dirección a Milán y no al revés: el museo queda de paso.</li>
-        <li><b>16:00, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85. Hora y media, y cierra 19:00, así que no hay apuro ninguno: el límite real del día no es el museo sino salir de Módena antes de las 18:45.</li>
-        <li><b>Si el museo se hace en una hora</b>, la Piazza Grande, el Duomo y la Ghirlandina quedan a diez minutos a pie y son el casco histórico patrimonio de la humanidad. Cuarenta minutos ahí entran sin tocar el resto del día.</li>
-        <li><b>17:45</b>, a Milán. Dos horas por la A1 y la A4, llegando cerca de las <b>19:45</b>. Llegamos bien: la oficina de la rentadora abre hasta las 21:00, así que el auto se entrega esa misma noche. El último límite para salir de Módena es 18:45, o sea que tenemos una hora de colchón.</li>
+        <li><b>7:15, desayuno y check out</b> en Alba Rooms. Las valijas van al auto, que está en el Park Centro Stazione, enfrente de la estación.</li>
+        <li><b>7:45, salir.</b> A15 y A1 hasta la salida Modena Nord, unos 170 kilómetros y una hora cincuenta. Hoy son quinientos kilómetros: si el tanque no está por la mitad, cargar antes de la autopista, que en las áreas de servicio el litro sale bastante más.</li>
+        <li><b>9:40, Museo Enzo Ferrari</b>, Via Paolo Ferrari 85, con estacionamiento propio y gratis atrás, entrando por Via Giuseppe Soli 101. Abre 9:30 y la entrada ya está. Hora y media.</li>
+        <li><b>11:20, a Persiceto.</b> Media hora por la SS568.</li>
+        <li><b>11:50, San Giovanni in Persiceto.</b> Media hora larga antes de la mesa, que se usa caminando el <b>Borgo Rotondo</b>, de planta concéntrica medieval, con un café en la Piazza del Popolo y la <b>Piazzetta degli Inganni</b>, el patio pintado en trompe l’oeil por Gino Pellegrini en 1980. A la mesa 12:25: la osteria está en Via Giacomo Matteotti 17/A.</li>
+        <li><b>12:30, el almuerzo.</b> Hora y media. Es una osteria de las de verdad, de las que hay que dejar hacer, así que la cuenta se pide a las 13:45 y no al final.</li>
+        <li><b>14:00, a Verona.</b> Una hora y veinticinco por la A1 y la A22, unos 135 kilómetros. En el GPS va el <b>Parcheggio Arena, Via Bentegodi 8</b>, y no Piazza Bra: la plaza está adentro de la ZTL y el parking queda justo afuera.</li>
+        <li><b>15:25 a 18:05, Verona a pie</b>: la Arena, el patio de Julieta a las 16:30, las plazas y el Ponte Pietra. El detalle está en el capítulo de <b>Verona</b>.</li>
+        <li><b>18:15, a Milán, y el límite es 18:30.</b> Una hora cincuenta y cinco por la A4 hasta Via Vittor Pisani 19, llegando cerca de las <b>20:15</b>. La oficina recibe hasta las 21:00, así que quedan tres cuartos de hora para un atasco. El resto está en el capítulo de <b>Milán</b>.</li>
       </ul>
+      <h3>Si el museo se hace en una hora</h3>
+      <p>Entonces entra el centro de Módena antes del almuerzo. Salir del museo 10:45 y llevar el auto al <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, que son tres minutos. De ahí son diez a pie hasta la <b>Piazza Grande</b>, el <b>Duomo</b> y la Ghirlandina, con el <b>Mercato Albinelli</b> a dos cuadras. A las <b>11:55 hay que estar de vuelta en el auto</b>: hasta Persiceto es media hora y la mesa no espera.</p>
       <h3>Las valijas, que viajan con nosotros</h3>
-      <p>Hoy no hace falta consigna en ninguna parte: el equipaje sale de La Spezia en el auto a las 10:30 y no se baja hasta Milán. La única parada donde el auto queda solo un rato largo es el museo.</p>
+      <p>Hoy no hace falta consigna en ninguna parte: el equipaje sale de La Spezia en el auto y no se baja hasta Milán. Lo que importa es dónde queda el auto solo.</p>
       <ul>
-        <li><b>El museo tiene estacionamiento propio y gratis</b> atrás, con entrada por <b>Via Giuseppe Soli 101</b>. Es playa a nivel y sin vigilancia. Para hora y media de tarde, con todo en el baúl y <b>nada a la vista</b>, es razonable: los autos de alquiler son blanco preferido justamente porque se les ve el equipaje por la ventanilla.</li>
-        <li><b>Si preferimos no jugar</b>, el <b>Parcheggio del Centro</b>, bajo el Parco Novi Sad, es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros. Son tres minutos en auto desde el museo y doce a pie de vuelta, y queda al lado de la Piazza Grande.</li>
+        <li><b>En el museo</b> el estacionamiento es playa a nivel y sin vigilancia. Para hora y media de mañana, con todo en el baúl y <b>nada a la vista</b>, es razonable: los autos de alquiler son blanco preferido justamente porque se les ve el equipaje por la ventanilla.</li>
+        <li><b>En el centro de Módena</b>, si se hace, el <b>Parcheggio del Centro</b> es subterráneo, <b>vigilado y abierto las veinticuatro horas</b>, con 1.720 plazas en dos niveles y altura máxima 2,10 metros.</li>
+        <li><b>En Verona</b>, que es la parada más larga, el <b>Parcheggio Arena</b> es subterráneo, de cuatro pisos y con personal las veinticuatro horas. Por eso ese y no uno de calle.</li>
         <li>En Persiceto el problema no existe, pero la regla es la misma todo el viaje: lo que no se ve no se roba. Mochilas, campera y bolsas también van al baúl, no en el asiento de atrás.</li>
       </ul>
     `, en:`
-      <h3>Lunch first, the museum on the way back</h3>
-      <p>The day hangs on a single hour: the table at the <b>Osteria del Mirasole</b> at <b>13:45</b>, in San Giovanni in Persiceto. The midday kitchen closes at 14:00, so that is the last table, and <b>they cancel the booking after twenty minutes with no word</b>. Everything else is arranged around it: the morning stays in Cinque Terre, and the museum moves to the afternoon, on the way back towards Milan.</p>
+      <h3>A driving day with two fixed times</h3>
+      <p>It is about five hundred kilometres and nearly six hours at the wheel spread across the day. Two times do not move: the table at the <b>Antica Osteria del Mirasole</b> at <b>12:30</b>, in San Giovanni in Persiceto, which <b>cancels after twenty minutes with no word</b>, and <b>18:30</b>, the latest we can leave Verona and still reach Milan before the car office closes at 21:00.</p>
       <ul>
-        <li><b>10:30</b>, leave La Spezia with the bags already loaded. Two hours twenty six on the A15 and the A1.</li>
-        <li><b>13:00, San Giovanni in Persiceto.</b> Three quarters of an hour of cushion before sitting down, which is exactly what this day needs to have. Spend it walking the town: it is the <b>Borgo Rotondo</b>, medieval and concentric in plan, and it has the <b>Piazzetta degli Inganni</b>, a courtyard painted in trompe l’oeil by the set designer Gino Pellegrini in 1980. The osteria is at Via Giacomo Matteotti 17/A.</li>
-        <li><b>13:45, lunch.</b> An hour and a half. It is a proper osteria, the kind you let get on with it.</li>
-        <li><b>15:15</b>, on to Modena. Half an hour on the SS568, heading towards Milan rather than away from it: the museum is on the way.</li>
-        <li><b>16:00, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85. An hour and a half, and it closes at 19:00, so there is no rush at all: the real limit on the day is not the museum but leaving Modena before 18:45.</li>
-        <li><b>If the museum takes an hour</b>, Piazza Grande, the cathedral and the Ghirlandina are ten minutes on foot and they are the world heritage historic centre. Forty minutes there fits without touching the rest of the day.</li>
-        <li><b>17:45</b>, on to Milan. Two hours on the A1 and the A4, arriving around <b>19:45</b>. We arrive in good time: the rental office is open until 21:00, so the car goes back that same evening. The last possible departure from Modena is 18:45, which gives us an hour of cushion.</li>
+        <li><b>7:15, breakfast and check out</b> at Alba Rooms. The bags go into the car, which is in the Park Centro Stazione across from the station.</li>
+        <li><b>7:45, leave.</b> A15 and A1 to the Modena Nord exit, about 170 kilometres and an hour fifty. Today is five hundred kilometres: if the tank is not around half, fill up before the motorway, since at the service areas the litre costs noticeably more.</li>
+        <li><b>9:40, Enzo Ferrari Museum</b>, Via Paolo Ferrari 85, with its own free car park at the back, entered from Via Giuseppe Soli 101. It opens at 9:30 and the ticket is done. An hour and a half.</li>
+        <li><b>11:20, on to Persiceto.</b> Half an hour on the SS568.</li>
+        <li><b>11:50, San Giovanni in Persiceto.</b> A good half hour before the table, spent walking the <b>Borgo Rotondo</b>, medieval and concentric in plan, with a coffee on Piazza del Popolo and the <b>Piazzetta degli Inganni</b>, the courtyard painted in trompe l’oeil by Gino Pellegrini in 1980. At the table by 12:25: the osteria is at Via Giacomo Matteotti 17/A.</li>
+        <li><b>12:30, lunch.</b> An hour and a half. It is a proper osteria, the kind you let get on with it, so ask for the bill at 13:45 rather than at the end.</li>
+        <li><b>14:00, on to Verona.</b> An hour twenty five on the A1 and the A22, about 135 kilometres. Put the <b>Parcheggio Arena, Via Bentegodi 8</b> into the GPS, not Piazza Bra: the square is inside the ZTL and the car park sits just outside it.</li>
+        <li><b>15:25 to 18:05, Verona on foot</b>: the Arena, Juliet’s courtyard at 16:30, the squares and the Ponte Pietra. The detail is in the <b>Verona</b> chapter.</li>
+        <li><b>18:15, on to Milan, and the limit is 18:30.</b> An hour fifty five on the A4 to Via Vittor Pisani 19, arriving around <b>20:15</b>. The office takes cars until 21:00, which leaves three quarters of an hour for a jam. The rest is in the <b>Milan</b> chapter.</li>
       </ul>
+      <h3>If the museum takes an hour</h3>
+      <p>Then the centre of Modena fits before lunch. Leave the museum at 10:45 and take the car to the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, three minutes away. From there it is ten on foot to <b>Piazza Grande</b>, the <b>cathedral</b> and the Ghirlandina, with the <b>Mercato Albinelli</b> two blocks off. By <b>11:55 we have to be back in the car</b>: Persiceto is half an hour away and the table does not wait.</p>
       <h3>The bags, which travel with us</h3>
-      <p>No left luggage needed anywhere today: the luggage leaves La Spezia in the car at 10:30 and does not come out until Milan. The only stop where the car is left alone for a long while is the museum.</p>
+      <p>No left luggage needed anywhere today: the luggage leaves La Spezia in the car and does not come out until Milan. What matters is where the car is left alone.</p>
       <ul>
-        <li><b>The museum has its own free car park</b> at the back, entered from <b>Via Giuseppe Soli 101</b>. It is a surface lot and unattended. For an hour and a half in the afternoon, with everything in the boot and <b>nothing in sight</b>, it is reasonable: hire cars are a preferred target precisely because the luggage shows through the window.</li>
-        <li><b>If we would rather not gamble</b>, the <b>Parcheggio del Centro</b>, under the Parco Novi Sad, is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit. It is three minutes by car from the museum and twelve on foot back, and it sits beside Piazza Grande.</li>
+        <li><b>At the museum</b> the car park is a surface lot and unattended. For an hour and a half in the morning, with everything in the boot and <b>nothing in sight</b>, it is reasonable: hire cars are a preferred target precisely because the luggage shows through the window.</li>
+        <li><b>In central Modena</b>, if we go, the <b>Parcheggio del Centro</b> is underground, <b>guarded and open around the clock</b>, with 1,720 spaces on two levels and a 2.10 metre height limit.</li>
+        <li><b>In Verona</b>, which is the longest stop, the <b>Parcheggio Arena</b> is underground, four floors deep and staffed around the clock. That is why we use it rather than a street spot.</li>
         <li>In Persiceto the problem does not exist, but the rule is the same for the whole trip: what cannot be seen does not get stolen. Backpacks, jackets and bags go in the boot too, not on the back seat.</li>
       </ul>
     `}},
@@ -60,19 +71,19 @@
      d:{es:'La casa natal de Enzo Ferrari con el taller mecánico de su padre, y pegada una nave con el techo amarillo curvo que imita un capó. Adentro, exposiciones que cambian, autos de calle y una proyección envolvente sobre las paredes.',
         en:'Enzo Ferrari’s birthplace with his father’s machine shop, and attached to it a hall with a curved yellow roof imitating a bonnet. Inside, changing exhibitions, road cars and a wraparound projection across the walls.'},
      t:'visita', p:'€€', w:'https://www.ferrari.com/museums',
-     tip:{es:'En octubre abre todos los días de 9:30 a 19:00 y la entrada de adulto son 27 euros. Se hace en una hora y media con nuestro ritmo. Conviene comprarla online: ahorra la fila y a veces sale algo menos. Estacionamiento propio y gratis atrás, por Via Giuseppe Soli 101.',
-          en:'In October it opens every day 9:30 to 19:00 and the adult ticket is 27 euros. An hour and a half at our pace. Worth buying online: it saves the queue and sometimes costs a little less. Its own free car park at the back, entered from Via Giuseppe Soli 101.'}},
+     tip:{es:'En octubre abre todos los días de 9:30 a 19:00 y la entrada de adulto son 27 euros. Se hace en una hora y media con nuestro ritmo. La nuestra ya está sacada. Estacionamiento propio y gratis atrás, por Via Giuseppe Soli 101.',
+          en:'In October it opens every day 9:30 to 19:00 and the adult ticket is 27 euros. An hour and a half at our pace. Ours is already booked. Its own free car park at the back, entered from Via Giuseppe Soli 101.'}},
   ]},
 
   {s:{es:'El almuerzo, que es una cita',en:'Lunch, which is an appointment'}, k:'comer', items:[
     {m:'Antica Osteria del Mirasole, Via Giacomo Matteotti 17, San Giovanni in Persiceto',
      a:'Via Giacomo Matteotti 17/A, San Giovanni in Persiceto',
      n:{es:'Antica Osteria del Mirasole',en:'Antica Osteria del Mirasole'},
-     d:{es:'Reservado para las <b>13:45 del miércoles 14</b>. La llevan Franco Cimini y Anna Caretti desde 1989 y es cocina emiliana de la vieja escuela: el bollito, los tortellini en caldo, la carne a la parrilla en la chimenea del salón.',
-        en:'Booked for <b>13:45 on Wednesday the 14th</b>. Franco Cimini and Anna Caretti have run it since 1989 and it is old school Emilian cooking: the bollito, tortellini in broth, meat grilled on the fireplace in the dining room.'},
+     d:{es:'Reservado para las <b>12:30 del miércoles 14</b>. La llevan Franco Cimini y Anna Caretti desde 1989 y es cocina emiliana de la vieja escuela: el bollito, los tortellini en caldo, la carne a la parrilla en la chimenea del salón.',
+        en:'Booked for <b>12:30 on Wednesday the 14th</b>. Franco Cimini and Anna Caretti have run it since 1989 and it is old school Emilian cooking: the bollito, tortellini in broth, meat grilled on the fireplace in the dining room.'},
      t:'comer', p:'€€€', res:'hecha',
-     tip:{es:'Dos cosas de la letra chica. La cocina del mediodía es de 12:00 a 14:00, así que 13:45 es la última mesa y llegar tarde es quedarse afuera: <b>cancelan la reserva pasados veinte minutos sin aviso</b>. Y el teléfono, +39 051 821273, lo atienden solo de 18:00 a 19:00 de martes a sábado, así que avisar desde la ruta probablemente no funcione. Conclusión: salir de La Spezia 8:00 y no 9:00.',
-          en:'Two things in the small print. The midday kitchen runs 12:00 to 14:00, so 13:45 is the last table and arriving late means missing out: <b>they cancel the booking after twenty minutes with no word</b>. And the phone, +39 051 821273, is only answered 18:00 to 19:00 Tuesday to Saturday, so calling from the road probably will not work. Conclusion: leave La Spezia at 8:00, not 9:00.'}},
+     tip:{es:'Dos cosas de la letra chica. <b>Cancelan la reserva pasados veinte minutos sin aviso</b>, así que a las 12:50 la mesa ya no es nuestra. Y el teléfono, +39 051 821273, lo atienden solo de 18:00 a 19:00 de martes a sábado: si algo se atrasa en la ruta, el aviso va por WhatsApp a ese mismo número. La cocina del mediodía es de 12:00 a 14:00.',
+          en:'Two things in the small print. <b>They cancel the booking after twenty minutes with no word</b>, so by 12:50 the table is no longer ours. And the phone, +39 051 821273, is only answered 18:00 to 19:00 Tuesday to Saturday: if anything runs late on the road, the warning goes by WhatsApp to that same number. The midday kitchen runs 12:00 to 14:00.'}},
     {a:'San Giovanni in Persiceto',
      n:{es:'Qué es Persiceto, de paso',en:'What Persiceto is, in passing'},
      d:{es:'Un pueblo de la llanura boloñesa al que le dicen el Borgo Rotondo: conserva entera la planta concéntrica medieval, que en el valle del Po casi no quedó en ningún lado. La Piazza del Popolo tiene la Collegiata y el teatro de 1790 bajo el pórtico.',
@@ -87,14 +98,14 @@
      d:{es:'La plaza medieval con la catedral románica de mármol blanco y la torre Ghirlandina al lado, inclinada apenas. Todo el conjunto es patrimonio de la humanidad y se ve en media hora.',
         en:'The medieval square with the white marble Romanesque cathedral and the Ghirlandina tower beside it, leaning very slightly. The whole ensemble is a world heritage site and takes half an hour.'},
      t:'visita',
-     tip:{es:'Está a diez minutos caminando de la estación, en el camino natural entre el museo y el almuerzo. Adentro del Duomo, los relieves de piedra de las fachadas cuentan historias del Génesis y son del siglo XII.',
-          en:'It is ten minutes on foot from the station, on the natural route between the museum and lunch. On the cathedral facades, the stone reliefs tell stories from Genesis and date from the twelfth century.'}},
+     tip:{es:'Entra si el museo se hace en una hora: desde el Parcheggio del Centro son diez minutos a pie, y a las 11:55 hay que estar de vuelta en el auto. En la fachada del Duomo, los relieves de Wiligelmo cuentan el Génesis y son de principios del siglo XII.',
+          en:'It fits if the museum takes an hour: from the Parcheggio del Centro it is ten minutes on foot, and by 11:55 we have to be back in the car. On the cathedral facade, Wiligelmo’s reliefs tell the story of Genesis and date from the early twelfth century.'}},
     {n:'Mercato Albinelli',
      d:{es:'El mercado cubierto de 1931, con hierro, vidrio y una fuente en el medio. Puestos de pasta fresca, quesos, embutidos y varios lugares donde se come ahí mismo, de pie o en una banqueta.',
         en:'The covered market from 1931, in iron and glass with a fountain in the middle. Stalls of fresh pasta, cheeses and cured meats, and several places to eat on the spot, standing or on a stool.'},
      t:'comer', p:'€', serv:'puesto', res:'no',
-     tip:{es:'Es el mejor almuerzo posible del día: barato, rápido y de lo mejor que se come en Italia. Cierra a media tarde y los domingos, pero el miércoles está abierto de mañana.',
-          en:'The best possible lunch of the day: cheap, quick and among the best food in Italy. It closes mid afternoon and on Sundays, but on Wednesday it is open in the morning.'}},
+     tip:{es:'Hoy el almuerzo es en Persiceto, así que acá se mira y se prueba: un pedazo de parmesano, algo de gnocco o una botella chica de balsámico para llevar. Abre de lunes a sábado desde temprano y cierra a media tarde.',
+          en:'Today lunch is in Persiceto, so here we look and taste: a piece of parmesan, some gnocco or a small bottle of balsamic to take away. It opens Monday to Saturday from early and closes mid afternoon.'}},
     {nota:1,
      n:{es:'El vinagre balsámico de verdad',en:'Real balsamic vinegar'},
      d:{es:'El <em>aceto balsamico tradizionale di Modena</em> no tiene nada que ver con el que compramos en el supermercado: se hace solo con mosto de uva cocido, envejece doce o veinticinco años en una batería de barricas de maderas distintas y es espeso, dulce y carísimo.',

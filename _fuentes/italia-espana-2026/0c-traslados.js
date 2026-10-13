@@ -4,14 +4,14 @@
   name:{es:'Los traslados',en:'The journeys'},
   plate:{es:'Itinerario',en:'Itinerary'},
   accent:'#C2410C', lt:'#FDBA74', maps:'',
-  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cinco tramos de tren, cuatro días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura, cuál ya está sacado y cuándo conviene sacar el resto.',
-        en:'Fourteen moves in twenty three days: five flights, five train legs, four days with a car and the airport transfers. Here is each one, how long it takes, which are already booked and when to book the rest.'},
+  lede:{es:'Catorce movimientos en veintitrés días: cinco vuelos, cuatro tramos de tren, seis días de auto y los traslados de aeropuerto. Acá está cada uno, cuánto dura, cuál ya está sacado y cuándo conviene sacar el resto.',
+        en:'Fourteen moves in twenty three days: five flights, four train legs, six days with a car and the airport transfers. Here is each one, how long it takes, which are already booked and when to book the rest.'},
   quick:[
     [{es:'Vuelos',en:'Flights'},{es:'5, todos sacados',en:'5, all booked'}],
-    [{es:'Trenes',en:'Trains'},{es:'5 tramos, el de Florencia sacado',en:'5 legs, the Florence one booked'}],
-    [{es:'Auto',en:'Car'},{es:'Vie 9 a mar 13, sin reservar',en:'Fri 9 to Tue 13, not booked'}],
-    [{es:'El día más frágil',en:'The fragile day'},{es:'Mié 14, La Spezia a Milán',en:'Wed 14, La Spezia to Milan'}],
-    [{es:'Lo más urgente',en:'Most urgent'},{es:'Reservar el auto',en:'Book the car'}]
+    [{es:'Trenes',en:'Trains'},{es:'4 tramos, Florencia y Varenna sacados',en:'4 legs, Florence and Varenna booked'}],
+    [{es:'Auto',en:'Car'},{es:'Vie 9 a mié 14, sacado',en:'Fri 9 to Wed 14, booked'}],
+    [{es:'El día más frágil',en:'The fragile day'},{es:'Mié 14, La Spezia a Milán en auto',en:'Wed 14, La Spezia to Milan by car'}],
+    [{es:'Lo más urgente',en:'Most urgent'},{es:'Entradas de Verona, la noche del 13',en:'Verona tickets, the night of the 13th'}]
   ],
   sections:[
   {s:{es:'Todo de un vistazo',en:'The whole thing at a glance'}, k:'plan',
@@ -20,12 +20,12 @@
      {d:'2026-10-04', w:{es:'Dom 4',en:'Sun 4'},   t:{es:'Madrid a Roma',en:'Madrid to Rome'},                          c:'Air Europa',                                                   dur:'~2h30',      e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-04', w:{es:'Dom 4',en:'Sun 4'},   t:{es:'Fiumicino a Navona',en:'Fiumicino to Navona'},                c:{es:'Taxi o Leonardo Express',en:'Taxi or Leonardo Express'},   dur:{es:'~40 min',en:'~40 min'}, e:{es:'Se resuelve ahí',en:'Sorted out there'}},
      {d:'2026-10-08', w:{es:'Jue 8',en:'Thu 8'},   t:{es:'Roma a Florencia',en:'Rome to Florence'},                     c:{es:'Tren, 9:20 de Termini',en:'Train, 9:20 from Termini'},      dur:'1h30',       e:{es:'Sacado',en:'Booked'}},
-     {d:'2026-10-09', w:{es:'Vie 9',en:'Fri 9'},   t:{es:'Florencia a San Gimignano',en:'Florence to San Gimignano'},   c:{es:'Auto, retiro en Peretola',en:'Car, pickup at Peretola'},   dur:'~1h15',      e:{es:'Falta',en:'Not booked'}},
-     {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'San Gimignano a La Spezia',en:'San Gimignano to La Spezia'},  c:{es:'Auto, y se devuelve',en:'Car, and it goes back'},           dur:'~2h15',      e:{es:'Falta',en:'Not booked'}},
+     {d:'2026-10-09', w:{es:'Vie 9',en:'Fri 9'},   t:{es:'Florencia a San Gimignano',en:'Florence to San Gimignano'},   c:{es:'Auto, retiro en Peretola',en:'Car, pickup at Peretola'},   dur:'~1h15',      e:{es:'Sacado',en:'Booked'}},
+     {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'San Gimignano a La Spezia',en:'San Gimignano to La Spezia'},  c:{es:'Auto, por Pisa y Forte dei Marmi',en:'Car, by Pisa and Forte dei Marmi'}, dur:'~2h15', e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-13', w:{es:'Mar 13',en:'Tue 13'}, t:{es:'La Spezia y Cinque Terre',en:'La Spezia and Cinque Terre'},   c:{es:'Tren regional',en:'Regional train'},                       dur:{es:'5 a 20 min',en:'5 to 20 min'}, e:{es:'Se compra ahí',en:'Bought there'}},
-     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'La Spezia a Módena',en:'La Spezia to Modena'},                c:{es:'Tren, cambio en Parma',en:'Train, change at Parma'},        dur:'~3 h',       e:{es:'Falta',en:'Not booked'}},
-     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'Módena a Milán',en:'Modena to Milan'},                        c:{es:'Tren directo',en:'Direct train'},                          dur:'~1h45',      e:{es:'Falta',en:'Not booked'}},
-     {d:'2026-10-16', w:{es:'Vie 16',en:'Fri 16'}, t:{es:'Milán a Varenna, ida y vuelta',en:'Milan to Varenna and back'}, c:{es:'Tren regional',en:'Regional train'},                     dur:{es:'~1h05 ida',en:'~1h05 each way'}, e:{es:'Se compra ahí',en:'Bought there'}},
+     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'La Spezia a Módena y Persiceto',en:'La Spezia to Modena and Persiceto'}, c:{es:'Auto, museo y almuerzo',en:'Car, museum and lunch'}, dur:'~2h20', e:{es:'Sacado',en:'Booked'}},
+     {d:'2026-10-14', w:{es:'Mié 14',en:'Wed 14'}, t:{es:'Persiceto a Verona y Milán',en:'Persiceto to Verona and Milan'}, c:{es:'Auto, se entrega en Milán',en:'Car, handed back in Milan'}, dur:'~3h20', e:{es:'Sacado',en:'Booked'}},
+     {d:'2026-10-16', w:{es:'Vie 16',en:'Fri 16'}, t:{es:'Milán a Varenna, ida y vuelta',en:'Milan to Varenna and back'}, c:{es:'Tren, 7:20 de Centrale',en:'Train, 7:20 from Centrale'}, dur:{es:'~1h05 ida',en:'~1h05 each way'}, e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-17', w:{es:'Sáb 17',en:'Sat 17'}, t:{es:'Milán a Barcelona',en:'Milan to Barcelona'},                  c:'IB 5543',                                                      dur:'~1h45',      e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-18', w:{es:'Dom 18',en:'Sun 18'}, t:{es:'Barcelona a Sevilla',en:'Barcelona to Seville'},              c:'IB 5064',                                                      dur:'~1h45',      e:{es:'Sacado',en:'Booked'}},
      {d:'2026-10-24', w:{es:'Sáb 24',en:'Sat 24'}, t:{es:'Sevilla a Córdoba, si vamos',en:'Seville to Córdoba, if we go'}, c:{es:'AVE, ida y vuelta',en:'AVE, return'},                   dur:'0h45',       e:{es:'Falta, opcional',en:'Not booked, optional'}},
@@ -35,28 +35,26 @@
       <p>Antes del viaje está todo pendiente y la lista arranca limpia. Durante el viaje, cada tramo se marca solo cuando pasa la fecha, y el de arriba muestra por cuál vamos. Cualquier fila se puede tocar para corregirla.</p>
       <h3>Lo que falta</h3>
       <ul>
-        <li>Los cinco vuelos y el tren a Florencia ya están.</li>
-        <li>El <b>auto</b> es lo único pendiente de verdad, y lo que más sube de precio con el tiempo.</li>
-        <li>Los dos trenes del miércoles 14 se compran casi sobre la fecha.</li>
+        <li>Los cinco vuelos, el auto y los trenes de Florencia y de Varenna ya están.</li>
+        <li><b>Las entradas de Verona</b>, la Arena y el turno del patio de Julieta, se sacan la noche del martes 13.</li>
         <li>El AVE a Córdoba, solo si hacemos la excursión.</li>
       </ul>
       <h3>Los dos días para mirar con lupa</h3>
       <ul>
-        <li>El <b>miércoles 14</b> es el frágil: tres horas de tren con un cambio, un museo en el medio y dos horas más de tren, con las valijas encima. Si se cae el primer tramo, se cae el día. Hay que dejar margen entre combinaciones y no tomar la conexión más ajustada de la app.</li>
+        <li>El <b>miércoles 14</b> es el frágil: casi seis horas de auto con tres paradas, una mesa a las 12:30 que se cae a los veinte minutos de atraso y una oficina en Milán que cierra a las 21:00. Lo último para salir de Verona es 18:30. El detalle está en el capítulo de Módena.</li>
         <li>El <b>sábado 17</b> depende de un dato que falta: si el IB 5543 sale de Linate o de Malpensa. Son más de una hora de diferencia en el traslado, así que hay que confirmarlo antes de fijar a qué hora salimos del hotel.</li>
       </ul>
     `, en:`
       <p>Before the trip everything is pending and the list starts clean. During the trip each leg ticks itself off once its date passes, and the line at the top shows which one we are on. Any row can be tapped to correct it.</p>
       <h3>What is still missing</h3>
       <ul>
-        <li>All five flights and the train to Florence are done.</li>
-        <li>The <b>car</b> is the only real outstanding item, and the one whose price climbs fastest.</li>
-        <li>The two trains on Wednesday the 14th get bought close to the date.</li>
+        <li>All five flights, the car and the Florence and Varenna trains are done.</li>
+        <li><b>The Verona tickets</b>, the Arena and the slot for Juliet’s courtyard, get bought on the night of Tuesday the 13th.</li>
         <li>The AVE to Córdoba, only if we do the day trip.</li>
       </ul>
       <h3>The two days to look at closely</h3>
       <ul>
-        <li><b>Wednesday the 14th</b> is the fragile one: three hours of train with a change, a museum in the middle and two more hours of train, with the bags along for all of it. If the first leg falls over, the day falls over. Leave slack between connections and do not take the tightest one the app offers.</li>
+        <li><b>Wednesday the 14th</b> is the fragile one: nearly six hours of driving with three stops, a 12:30 table that goes after twenty minutes late, and an office in Milan that closes at 21:00. The latest we can leave Verona is 18:30. The detail is in the Modena chapter.</li>
         <li><b>Saturday the 17th</b> hangs on a missing detail: whether IB 5543 leaves from Linate or Malpensa. That is more than an hour of difference in the transfer, so confirm it before fixing what time we leave the hotel.</li>
       </ul>
     `}},
@@ -67,7 +65,7 @@
       <ul>
         <li><b>Lo que se agota ya no es problema</b>: el Coliseo y el Duomo de Milán están sacados y no queda ninguna entrada con fecha límite. Está todo en el capítulo de preparativos.</li>
         <li><b>El auto</b>, tres o cuatro meses antes y con tarifa cancelable. El precio de los alquileres sube fuerte cerca de la fecha y después no baja.</li>
-        <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está. Para los tramos del miércoles 14, mirar si aparece un tren rápido en vez de regional: si aparece, sacarlo con tiempo, porque es de tarifa dinámica.</li>
+        <li><b>Los trenes de larga distancia.</b> El de Roma a Florencia ya está, y el AVE a Córdoba, si vamos, funciona igual: cuanto antes, más barato.</li>
         <li><b>El resto, nada.</b> Regionales, tranvía de Florencia, trenes de Cinque Terre y del lago de Como se compran el mismo día o la noche anterior.</li>
       </ul>
       <h3>Por qué los regionales no se compran antes</h3>
@@ -86,7 +84,7 @@
       <ul>
         <li><b>What sells out is no longer a problem</b>: the Colosseum and the Milan Duomo are booked and no ticket has a deadline left. It is all in the preparation chapter.</li>
         <li><b>The car</b>, three or four months out and on a cancellable rate. Rental prices climb hard near the date and never come back down.</li>
-        <li><b>The long distance trains.</b> Rome to Florence is done. For the two legs on Wednesday the 14th, check whether a fast train shows up instead of a regional: if it does, book early, because the fare is dynamic.</li>
+        <li><b>The long distance trains.</b> Rome to Florence is done, and the AVE to Córdoba, if we go, works the same way: the earlier, the cheaper.</li>
         <li><b>Everything else, nothing.</b> Regionals, the Florence tram, the Cinque Terre trains and the Lake Como ones get bought the same day or the night before.</li>
       </ul>
       <h3>Why regionals are not bought ahead</h3>
@@ -161,20 +159,6 @@
      t:'mover', res:'no',
      tip:{es:'Se saca en la máquina de la estación el mismo día, o la tarjeta de un día si vamos a hacer tres o cuatro viajes. Si el boleto es de papel, validarlo en la maquinita del andén antes de subir.',
           en:'Buy it from the station machine on the day, or the one day card if we are making three or four trips. If the ticket is paper, validate it in the little machine on the platform before boarding.'}},
-    {nota:1, m:'La Spezia Centrale',
-     n:{es:'Mié 14: La Spezia a Módena',en:'Wed 14: La Spezia to Modena'},
-     d:{es:'Unas tres horas con un cambio, casi siempre en Parma. No hay tren directo, así que es la combinación más delicada del viaje.',
-        en:'About three hours with one change, almost always at Parma. There is no direct train, which makes it the most delicate connection of the trip.'},
-     t:'mover', res:'conviene',
-     tip:{es:'Elegir en la app una combinación con margen entre tren y tren, no la más ajustada. Si el segundo tramo lo hace un tren rápido, comprarlo antes; si son los dos regionales, se compran ese mismo día. Salir temprano, 7:30 u 8:00.',
-          en:'Pick a connection in the app with slack between trains, not the tightest one. If the second leg is a fast train, buy it in advance; if both are regionals, buy them on the day. Leave early, 7:30 or 8:00.'}},
-    {nota:1, m:'Stazione di Modena',
-     n:{es:'Mié 14: Módena a Milán',en:'Wed 14: Modena to Milan'},
-     d:{es:'Poco menos de dos horas, con servicios directos a Milano Centrale. Último tramo de un día largo.',
-        en:'A little under two hours, with direct services to Milano Centrale. The last leg of a long day.'},
-     t:'mover', res:'no',
-     tip:{es:'Si es regional, se compra en Módena el mismo día. Mirar antes a qué hora es el último servicio cómodo, para saber hasta cuándo estirar el museo.',
-          en:'If it is a regional, buy it in Modena on the day. Check beforehand when the last comfortable service runs, so we know how long we can stretch the museum.'}},
     {nota:1, m:'Milano Centrale',
      n:{es:'Vie 16: Milán a Varenna, ida y vuelta',en:'Fri 16: Milan to Varenna and back'},
      d:{es:'Poco más de una hora en tren regional hasta Varenna-Esino, por la orilla del lago. La estación queda a diez minutos a pie del puerto.',
@@ -225,8 +209,8 @@
      d:{es:'El <b>miércoles 14 a la noche en Milán</b>, en Via Vittor Pisani 19, nivel -2, que es el punto de entrega de la oficina de Via Galvani 12. Son seis días de alquiler, del viernes 9 al miércoles 14, con cargo por devolver en otra ciudad.',
         en:'<b>Wednesday the 14th in the evening, in Milan</b>, at Via Vittor Pisani 19, level -2, the drop off point for the Via Galvani 12 office. Six rental days, Friday the 9th to Wednesday the 14th, with a one way drop charge.'},
      t:'mover',
-     tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando del museo de Módena cerca de las 19:45 queda hora y cuarto de margen. El teléfono es +39 02 66987 826.',
-          en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from the Modena museum around 19:45 leaves an hour and a quarter of margin. The number is +39 02 66987 826.'}},
+     tip:{es:'La oficina abre de lunes a sábado de 7:30 a 21:00 y los domingos hasta las 20:00. Llegando de Verona cerca de las 20:15 quedan tres cuartos de hora de margen. El teléfono es +39 02 66987 826.',
+          en:'The office opens Monday to Saturday from 7:30 to 21:00 and Sundays until 20:00. Arriving from Verona around 20:15 leaves three quarters of an hour of margin. The number is +39 02 66987 826.'}},
     {nota:1,
      n:{es:'La devolución, paso a paso',en:'The handback, step by step'},
      d:{es:'Entrar por Via Vittor Pisani 19 y bajar al nivel -2. Devolver con el tanque como lo entregaron, cargando nafta antes y no en la última estación de la autopista, que es la más cara.',
@@ -257,24 +241,24 @@
           en:'Check that both suitcases fit in the boot, because in the smallest models they do not; if the category says "two large bags", that is enough. And on collection, confirm whether it takes petrol or diesel: getting it wrong wrecks the engine and no insurance covers it.'}},
     {nota:1,
      n:{es:'Los tramos que manejamos',en:'The stretches we drive'},
-     d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el tramo largo, La Spezia a Persiceto y de ahí a Milán pasando por Módena, casi cinco horas de manejo repartidas en el día.',
-        en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the long one, La Spezia to Persiceto and on to Milan by way of Modena, nearly five hours of driving spread across the day.'},
+     d:{es:'Cuatro: Florencia a San Gimignano el viernes 9, poco más de una hora; los paseos de la Toscana del sábado al lunes, de media hora a dos horas cada uno; San Gimignano a La Spezia el martes 13 por Pisa y Forte dei Marmi, unas cuatro horas con las dos paradas; y el miércoles 14 el más largo, La Spezia a Módena, Persiceto, Verona y Milán, unos quinientos kilómetros y casi seis horas de manejo repartidas en el día.',
+        en:'Four: Florence to San Gimignano on Friday the 9th, a little over an hour; the Tuscan outings from Saturday to Monday, half an hour to two hours each; San Gimignano to La Spezia on Tuesday the 13th by way of Pisa and Forte dei Marmi, about four hours with the two stops; and on Wednesday the 14th the longest, La Spezia to Modena, Persiceto, Verona and Milan, about five hundred kilometres and nearly six hours of driving spread across the day.'},
      t:'mover',
-     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera. El miércoles se maneja el tramo largo del viaje, La Spezia a Persiceto y de ahí a Milán.',
-          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead. Wednesday is the long driving day, La Spezia to Persiceto and on to Milan.'}}
+     tip:{es:'No son muchos kilómetros, así que el kilometraje ilimitado no es imprescindible, aunque casi siempre viene incluido. Lo que importa es salir temprano el martes, 7:30, para que entren Pisa y Forte dei Marmi de paso y llegar a La Spezia con la tarde entera. El miércoles se maneja el día largo del viaje, con Verona en el medio y 18:30 como lo último para salir de ahí.',
+          en:'It is not many kilometres, so unlimited mileage is not essential, though it almost always comes included. What matters is leaving early on Tuesday, at 7:30, so that Pisa and Forte dei Marmi fit on the way and we reach La Spezia with the whole afternoon ahead. Wednesday is the long driving day, with Verona in the middle and 18:30 as the latest we can leave it.'}}
   ]},
 
   {s:{es:'El auto, de Florencia a Milán',en:'The car, Florence to Milan'}, k:'mover', html:{es:`
-      <p>El auto nos acompaña hasta <b>Milán el miércoles 14 a la noche</b>, y ahí termina. La razón es el día de Módena, que es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa y seguir a Milán no se hace en tren sin perder medio día en combinaciones.</p>
+      <p>El auto nos acompaña hasta <b>Milán el miércoles 14 a la noche</b>, y ahí termina. La razón es el día de Módena, que es el único del viaje donde el auto gana de verdad: el museo, el almuerzo en un pueblo de la llanura boloñesa, la tarde en Verona y seguir a Milán no se hacen en tren sin perder medio día en combinaciones.</p>
       <p>De Milán en adelante vamos en tren, y es lo que corresponde: el lago de Como se hace en tren el viernes, y los días de la ciudad no necesitan auto. Así no pagamos garage de hotel ni el estacionamiento de Varenna, que es escaso y caro.</p>
       <h3>Lo que hay que tener presente</h3>
       <ul>
         <li><b>Una noche de garage, no dos.</b> Solo en La Spezia: el Park Centro Stazione enfrente de la estación, 1,50 euros la hora de día y 1 de noche, cubierto y con cámaras, y la ventaja de que el miércoles bajamos del tren y subimos al auto. En Milán no hace falta, porque el auto se entrega la misma noche que llegamos. Antes de pagar el de La Spezia, preguntar en el alojamiento si tiene acuerdo con algún garage.</li>
-        <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles 19:45, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
+        <li><b>El Área C de Milán</b>, 7,50 euros por entrar al centro un día hábil, rige de 7:30 a 19:30. Llegamos el miércoles cerca de las 20:15, con el Área C ya apagada, y Vittor Pisani queda <b>afuera</b> igual. El auto nunca necesita entrar al centro: al hotel vamos en metro.</li>
         <li><b>El Área B</b> cubre casi toda la ciudad y rige de lunes a viernes. Un auto de alquiler nuevo cumple la norma y pasa, pero conviene confirmarlo al retirarlo.</li>
         <li><b>El cargo por devolver en otra ciudad</b> crece con la distancia y Milán no es Florencia. Ya está en el contrato, pero vale mirar el detalle para no sorprenderse.</li>
-        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Llegando el miércoles 19:45 se entrega esa noche con hora y cuarto de margen.</li>
-        <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna en Módena. Sí hace falta la regla de siempre: todo al baúl y nada a la vista.</li>
+        <li><b>El horario de la oficina.</b> La de Via Galvani 12, que es la que recibe en Vittor Pisani 19, abre de <b>lunes a sábado de 7:30 a 21:00</b> y los domingos hasta las 20:00. Llegando el miércoles cerca de las 20:15 se entrega esa noche con tres cuartos de hora de margen.</li>
+        <li><b>Las valijas viajan en el auto todo el miércoles</b>, así que no hace falta consigna ni en Módena ni en Verona. Sí hace falta la regla de siempre, todo al baúl y nada a la vista, y en Verona el parking cubierto y con personal.</li>
       </ul>
       <h3>Qué pasa si no llegamos a horario</h3>
       <p>Conviene saberlo aunque no haga falta, porque la respuesta no es obvia: <b>no se puede dejar el auto y listo</b>. La entrega existe cuando alguien lo recibe.</p>
@@ -287,16 +271,16 @@
       <h3>Al entregarlo</h3>
       <p>Fotos del auto por los cuatro lados, del tablero con el kilometraje y el nivel de nafta, y del interior. Y el bloqueo de la tarjeta se libera varios días después, no al momento.</p>
     `, en:`
-      <p>The car comes with us as far as <b>Milan on Wednesday the 14th in the evening</b>, and that is where it ends. The reason is the Modena day, the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain and then on to Milan cannot be done by train without losing half a day to connections.</p>
+      <p>The car comes with us as far as <b>Milan on Wednesday the 14th in the evening</b>, and that is where it ends. The reason is the Modena day, the only one on the trip where the car genuinely earns its keep: the museum, lunch in a town on the Bolognese plain, the afternoon in Verona and then on to Milan cannot be done by train without losing half a day to connections.</p>
       <p>From Milan onwards we go by train, which is as it should be: Lake Como is done by train on Friday, and the city days need no car. That way we pay no hotel garage and no Varenna parking, which is scarce and expensive.</p>
       <h3>What to keep in mind</h3>
       <ul>
         <li><b>One night of garage, not two.</b> Only in La Spezia: the Park Centro Stazione across from the station, 1.50 euros an hour by day and 1 by night, covered and with cameras, and the advantage that on Wednesday we step off the train and into the car. In Milan it is not needed, because the car goes back the same evening we arrive. Before paying for the La Spezia one, ask the apartment whether they have an arrangement with a garage.</li>
-        <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday at 19:45, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
+        <li><b>Milan’s Area C</b>, 7.50 euros to enter the centre on a working day, runs 7:30 to 19:30. We arrive on Wednesday around 20:15, with it already off, and Vittor Pisani is <b>outside</b> it anyway. The car never needs to enter the centre: we go to the hotel by metro.</li>
         <li><b>Area B</b> covers almost the whole city and runs Monday to Friday. A new hire car meets the standard and passes, but it is worth confirming at pick up.</li>
         <li><b>The one way drop charge</b> grows with distance and Milan is not Florence. It is already in the contract, but worth reading the line so it is not a surprise.</li>
-        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Arriving at 19:45 on Wednesday it goes back that evening with an hour and a quarter to spare.</li>
-        <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena. The usual rule does apply: everything in the boot and nothing in sight.</li>
+        <li><b>The office hours.</b> The Via Galvani 12 one, which takes returns at Vittor Pisani 19, opens <b>Monday to Saturday from 7:30 to 21:00</b> and Sundays until 20:00. Arriving around 20:15 on Wednesday it goes back that evening with three quarters of an hour to spare.</li>
+        <li><b>The bags travel in the car all Wednesday</b>, so no left luggage is needed in Modena or in Verona. The usual rule does apply, everything in the boot and nothing in sight, and in Verona the covered, staffed car park.</li>
       </ul>
       <h3>What happens if we do not make it in time</h3>
       <p>Worth knowing even if it never comes up, because the answer is not obvious: <b>you cannot just leave the car and walk away</b>. The return happens when somebody receives it.</p>
@@ -341,8 +325,8 @@
           en:'With three weeks of luggage and an apartment to reach, the taxi is the sensible call. Confirm the fixed fare on getting in, since it changes by day and hour. For the Sunday night return on the 25th, book it ahead or use Cabify.'}},
     {nota:1,
      n:{es:'Florencia y La Spezia',en:'Florence and La Spezia'},
-     d:{es:'A Florencia llegamos en tren y salimos en auto; a La Spezia llegamos en auto y salimos en tren. En ninguna hace falta un traslado de aeropuerto.',
-        en:'We arrive in Florence by train and leave by car; we arrive in La Spezia by car and leave by train. Neither needs an airport transfer.'},
+     d:{es:'A Florencia llegamos en tren y salimos en auto; a La Spezia llegamos y salimos en auto. En ninguna hace falta un traslado de aeropuerto.',
+        en:'We arrive in Florence by train and leave by car; we arrive in La Spezia by car and leave by car. Neither needs an airport transfer.'},
      t:'mover',
      tip:{es:'En las dos, del alojamiento a la estación se va caminando o con un taxi corto. En Florencia son diez minutos a pie hasta Santa Maria Novella.',
           en:'In both, it is a walk or a short taxi from where we are staying to the station. In Florence it is ten minutes on foot to Santa Maria Novella.'}}
@@ -354,15 +338,15 @@
      d:{es:'Los <em>scioperi</em> de trenes, buses o aviones son habituales y no son sorpresa: se anuncian con al menos diez días de anticipación, tienen día y horario definidos, y hay franjas con servicio garantizado.',
         en:'Train, bus and air <em>scioperi</em> are routine and never a surprise: they are announced at least ten days ahead, have a set day and set hours, and there are windows with guaranteed service.'},
      t:'mover',
-     tip:{es:'Mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del miércoles 14. Si cae huelga ese día, se mueve el horario dentro de la franja garantizada. En España pasa lo mismo y también se anuncian con servicios mínimos.',
-          en:'Check the Italian transport ministry’s official strike calendar a week before each important leg, above all before Thursday the 8th and Wednesday the 14th. If a strike falls on the day, shift the time into the guaranteed window. The same happens in Spain, also announced with minimum service levels.'}},
+     tip:{es:'Mirar el calendario oficial de huelgas del ministerio de transporte italiano una semana antes de cada tramo importante, sobre todo antes del jueves 8 y del viernes 16, que son los dos días que dependen de un tren. Si cae huelga ese día, se mueve el horario dentro de la franja garantizada. En España pasa lo mismo y también se anuncian con servicios mínimos.',
+          en:'Check the Italian transport ministry’s official strike calendar a week before each important leg, above all before Thursday the 8th and Friday the 16th, the two days that depend on a train. If a strike falls on the day, shift the time into the guaranteed window. The same happens in Spain, also announced with minimum service levels.'}},
     {nota:1,
-     n:{es:'Si se cae el tren del miércoles 14',en:'If the Wednesday train falls over'},
-     d:{es:'Es el día sin colchón: si el primer tramo llega tarde y perdemos la combinación de Parma, se atrasa todo y el museo puede quedar afuera.',
-        en:'It is the day with no cushion: if the first leg runs late and we miss the Parma connection, everything slides and the museum may drop off.'},
+     n:{es:'Si el miércoles 14 se atrasa',en:'If Wednesday the 14th runs late'},
+     d:{es:'Es el día con dos horas que no esperan: la mesa de las 12:30 en Persiceto, que se cae a los veinte minutos sin aviso, y la oficina de Milán, que cierra a las 21:00. Lo que hay entre las dos se puede achicar; esas dos no.',
+        en:'It is the day with two times that will not wait: the 12:30 table in Persiceto, which goes after twenty minutes with no word, and the Milan office, which closes at 21:00. Everything between them can shrink; those two cannot.'},
      t:'mover',
-     tip:{es:'El plan B es simple y hay que tenerlo pensado: si llegamos a Módena pasado el mediodía, se saltea el almuerzo tranquilo y se va directo al museo, que es lo único que no se puede hacer otro día. Y si se complica de verdad, Módena se saltea entero y seguimos a Milán, que es donde dormimos.',
-          en:'Plan B is simple and worth deciding in advance: if we reach Modena after midday, skip the leisurely lunch and go straight to the museum, which is the one thing that cannot be done another day. And if it really unravels, skip Modena entirely and carry on to Milan, which is where we sleep.'}},
+     tip:{es:'Si el atraso es a la mañana, el aviso a la osteria va por WhatsApp al +39 051 821273 y el museo se acorta. Si es a la tarde, Verona se corta en el orden que dice su capítulo, y a las 18:30 se sale igual. Y si en la autopista se ve que no llegamos a las 21:00, se llama a la oficina, +39 02 66987 826, antes de que cierre: después de esa hora no atiende nadie.',
+          en:'If the delay is in the morning, the warning to the osteria goes by WhatsApp to +39 051 821273 and the museum gets shorter. If it is in the afternoon, Verona is cut in the order its chapter gives, and at 18:30 we leave regardless. And if on the motorway it becomes clear we will not make 21:00, phone the office, +39 02 66987 826, before it closes: after that nobody answers.'}},
     {nota:1,
      n:{es:'Los márgenes que conviene dejar',en:'The margins worth leaving'},
      d:{es:'Vuelos internacionales, tres horas antes en el mostrador. Vuelos internos de Iberia, dos. Trenes de alta velocidad, media hora en la estación. Regionales, quince minutos.',

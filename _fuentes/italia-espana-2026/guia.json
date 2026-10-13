@@ -16,7 +16,7 @@
   "estilo": "relajada.css",
   "icono_fuente": "fraunces.ttf",
   "clave": "italia-espana-2026",
-  "cache": "italia-espana-2026-10-10j",
+  "cache": "italia-espana-2026-10-13a",
   "paleta": {
     "claro": {
       "--bg": "#F7E9D7",
@@ -58,6 +58,7 @@
     "3-toscana.js",
     "4-cinque-terre.js",
     "5-modena.js",
+    "5b-verona.js",
     "6-milan.js",
     "7-barcelona.js",
     "8-sevilla.js"
