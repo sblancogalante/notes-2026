@@ -11,6 +11,11 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 Dia de Cinque Terre, con la guia en uso.
 
+**`dc885ee` fix: el turno de Julieta a las 16:00 ya esta sacado**
+
+Sacado la noche del 13. Salio la alternativa para un turno de las 16:30, y
+en Traslados lo mas urgente paso a ser el dato de Linate o Malpensa.
+
 **`8a4f8cb` feat: Verona se camina por fuera, con Julieta y el Ponte Pietra como fijos**
 
 Salio la Arena por dentro, y con ella la entrada de 12 euros: se ve desde
