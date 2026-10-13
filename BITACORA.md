@@ -11,6 +11,36 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 Dia de Cinque Terre, con la guia en uso.
 
+**`a131a0e` feat: los consejos generales viven una sola vez, y la guia tiene boton para volver**
+
+Cambio de estructura. Lo que sirve para cualquier viaje dejo de escribirse en
+cada guia y paso a `_fuentes/consejos/`: `general.js`, `uruguay.js` y una
+pestana por pais, `italia.js` y `espana.js`. Se tomo lo que ya estaba escrito
+en las dos guias y se paso a voz impersonal.
+
+En la guia de Italia y Espana:
+- Antes de salir se quedo con las entradas, los vuelos, la semana de Vale y el
+  clima de octubre.
+- La pestana Italiano se convirtio en Italia, con las frases al final.
+- Traslados perdio "Cuando sacar cada cosa", la ficha de como se viaja en tren
+  en Italia, las cuatro fichas generales del auto, la de huelgas, la de
+  margenes y la de tener todo sin conexion.
+- Toscana perdio las fichas de nafta y peajes.
+- Tres trampas del idioma (la cuenta, la barra, el coperto) se juntaron con
+  "Como se paga y las propinas" de Italia.
+
+La guia de Serri y Cami no se migro, por decision de quien la usa. Toma la
+barra flotante nueva y nada mas.
+
+Una correccion: la ficha de peajes de la Toscana decia que las cabinas
+blancas eran de tarjeta y las azules de billetes. Es al reves: azules de
+tarjeta, blancas de efectivo, amarillas de Telepass.
+
+Lo nuevo que salio del viaje: el ticket del peaje que se volvio ilegible dos
+veces, probablemente por ir pegado al celular; las dos formas de pagar la
+nafta, prepago en La Spezia y bloqueo con devolucion en la Toscana; y que en
+lugares chicos el ingles anduvo mejor que el castellano.
+
 **`734c5f1` fix: la cache del service worker cambia para que los telefonos bajen la guia nueva**
 
 Los telefonos seguian mostrando la version de `f8885dd`. La clave de cache
