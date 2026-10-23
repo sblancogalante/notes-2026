@@ -9,6 +9,12 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 ### 2026-10-23
 
+**`56fe181` feat: Sevilla suma el tablao Pura Esencia, probado**
+
+Pedido de Santi, que fue y le gusto. Va primero en Flamenco, con "Probado:".
+Se confirmo en su web: calle Betis 56, show todos los dias a las 20:00, con o
+sin cena. El precio no figura en la web y no se puso.
+
 **`7c9f266` feat: guia nueva de Madrid, Sevilla y Granada para noviembre**
 
 Guia para una companera de trabajo, su novio, sus padres, su hermana y el
