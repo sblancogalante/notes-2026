@@ -28,7 +28,7 @@
       <h3>Lo demás, mejor con entrada sacada</h3>
       <ul>
         <li>El <b>Real Alcázar de Sevilla</b> cuesta 15,50 euros, y 8 la reducida para mayores de 65 (2026), en alcazarsevilla.org. De octubre a marzo abre de 9:30 a 17:00. En la taquilla solo se paga con tarjeta y la cola es larga, así que conviene llegar con la entrada en el celular.</li>
-        <li>La <b>Catedral de Sevilla</b>, con la subida a la Giralda, sale 13 euros online y 14 en taquilla (2026). Los domingos de 16:30 a 18:00 hay visita gratis, con reserva previa en la web de la catedral y pocos lugares.</li>
+        <li>La <b>Catedral de Sevilla</b> sale 13 euros online y 14 en taquilla (2026). Los domingos de 16:30 a 18:00 hay visita gratis, con reserva previa en la web de la catedral y pocos lugares. Vale por lo de adentro: la subida a la Giralda va incluida, pero la vista desde arriba decepciona (el detalle está en la pestaña de Sevilla).</li>
         <li>Si va Córdoba, la <b>Mezquita</b> cuesta 15 euros (2026), y de lunes a sábado se entra gratis de 8:30 a 9:30, sin reserva. El acceso de esa hora cierra a las 9:20.</li>
         <li>Para el <b>flamenco en Sevilla</b>, la Casa de la Memoria tiene poquitas sillas y se agota. Se reserva online con algunos días.</li>
         <li>En el <b>Palacio Real</b> y el <b>Prado</b> no hace falta sacar nada antes si se va en la franja gratis, que está en la pestaña de Madrid. La del Palacio Real es para ciudadanos de Latinoamérica, con pasaporte uruguayo.</li>
