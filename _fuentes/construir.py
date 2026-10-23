@@ -96,11 +96,32 @@ def consejos_js(cfg):
     return "const CONSEJOS = {};\n" + "".join(bloques)
 
 
-def parte_js(src, parte):
-    """Un capitulo propio de la guia, o uno compartido si empieza con @."""
-    if parte.startswith("@"):
-        return f"CONSEJOS[{json.dumps(parte[1:])}],\n"
-    return (src / parte).read_text(encoding="utf-8")
+def parte_js(src, parte, cfg):
+    """Un capitulo propio de la guia, o uno compartido si empieza con @.
+
+    Un capitulo compartido se puede recortar para una guia sola con `ajustes`
+    en su guia.json: `sin` lista los `k` de las secciones que no van, y `lede`
+    reemplaza la introduccion, que suele nombrar lo que se saco. Sin `ajustes`
+    el capitulo sale entero y la guia queda igual que antes.
+    """
+    if not parte.startswith("@"):
+        return (src / parte).read_text(encoding="utf-8")
+    nombre = parte[1:]
+    cap = f"CONSEJOS[{json.dumps(nombre)}]"
+    ajuste = cfg.get("ajustes", {}).get(nombre)
+    if not ajuste:
+        return cap + ",\n"
+    texto = (CONSEJOS / (nombre + ".js")).read_text(encoding="utf-8")
+    for k in ajuste.get("sin", []):
+        assert f"k:'{k}'" in texto, f"ajustes de {nombre}: no hay ninguna seccion con k:'{k}'"
+    cambios = {}
+    if "sin" in ajuste:
+        cambios["sections"] = (f"{cap}.sections.filter(s => !{json.dumps(ajuste['sin'])}"
+                               ".includes(s.k))")
+    if "lede" in ajuste:
+        cambios["lede"] = json.dumps(ajuste["lede"], ensure_ascii=False)
+    campos = ", ".join(f"{c}:{v}" for c, v in cambios.items())
+    return f"Object.assign({{}}, {cap}, {{{campos}}}),\n"
 
 
 # ------------------------------------------------------------------ las guias
@@ -134,7 +155,7 @@ for ruta in SITIO["guias"]:
                   "__QR__", "__URL__", "__PALETA__", "__EXTRA__"):
         assert marca not in shell, f"quedo sin reemplazar el marcador {marca}"
 
-    ciudades = "".join(parte_js(src, parte) for parte in cfg["partes"])
+    ciudades = "".join(parte_js(src, parte, cfg) for parte in cfg["partes"])
     consejos = consejos_js(cfg)
     app = (COMUN / "app.js").read_text(encoding="utf-8").replace("__CLAVE__", cfg["clave"])
     # que idiomas trae la guia. El primero es el que se lee al abrirla por

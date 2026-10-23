@@ -61,6 +61,17 @@ en `_fuentes/consejos/` y cada guia elige que usa. Hay dos formas:
   se ponen en `partes` con una arroba: `"@italia"`. Lo que es de una ciudad
   sigue en el capitulo de la ciudad.
 
+  Si a una guia le sobra una seccion de la pestana, se recorta solo para ella
+  con `ajustes` en su `guia.json`, sin tocar el archivo compartido. `sin` lista
+  el `k` de las secciones que no van y `lede` reemplaza la introduccion, que
+  suele nombrar lo que se saco:
+
+  ```json
+  "ajustes": {
+    "espana": { "sin": ["idioma"], "lede": "Lo que sirve en cualquier parte..." }
+  }
+  ```
+
 Los consejos se escriben impersonales ("conviene", "se paga", "hay que") porque
 cada guia le habla a gente distinta, y siempre en los dos idiomas: el build
 corta si un archivo de `consejos/` tiene distinta cantidad de `es:` que de

@@ -4,7 +4,7 @@
   name:'Antes de salir',
   plate:'Preparativos',
   accent:'#57534E', lt:'#D6D3D1', maps:'',
-  lede:'Lo propio de este viaje: qué entradas conviene sacar desde casa, cómo repartir las dos semanas entre las tres ciudades, cómo viene noviembre y qué cambia cuando se viaja de a seis. Cómo funciona España en general, de las propinas a los horarios, está en la pestaña siguiente.',
+  lede:'Lo propio de este viaje: qué entradas conviene sacar desde casa, cómo viene noviembre y qué cambia cuando se viaja de a seis. Cómo funciona España en general, de las propinas a los horarios, está en la pestaña siguiente.',
   quick:[
     ['Cuándo','Primera quincena de noviembre de 2026'],
     ['Ruta','Madrid, Sevilla, Granada y vuelta a Madrid'],
@@ -17,7 +17,7 @@
       <p>Casi todo en este viaje se resuelve en el momento. Esto no: son las entradas que se agotan o que salen más baratas compradas antes. Nada de la lista es obligatorio salvo la Alhambra, que sin entrada sacada no se ve por dentro.</p>
       <h3>La Alhambra, lo primero de todo</h3>
       <ul>
-        <li>Es lo único del viaje que se agota de verdad. Noviembre es temporada tranquila, pero los fines de semana se van con semanas de anticipación. Apenas estén las fechas de Granada, se compra.</li>
+        <li>Es lo único del viaje que se agota de verdad. Noviembre es temporada tranquila, pero los fines de semana se van con semanas de anticipación, así que conviene sacar las entradas cuanto antes.</li>
         <li>Se compra en la web oficial del Patronato, <b>tickets.alhambra-patronato.es</b>. Hay muchas páginas que se parecen a la oficial y revenden más caro: si la dirección no es esa, no es la oficial.</li>
         <li>La <b>Alhambra General</b> incluye los Palacios Nazaríes, la Alcazaba, el Generalife y el Partal. Cuesta 21 euros en taquilla y unos 22 comprada en la web, con el cargo de gestión (2026).</li>
         <li>Es <b>nominativa</b>: cada entrada lleva el nombre y el número de pasaporte de quien entra, y en la puerta lo piden. Hay que tener a mano los seis pasaportes al comprar.</li>
@@ -33,17 +33,6 @@
         <li>Para el <b>flamenco en Sevilla</b>, la Casa de la Memoria tiene poquitas sillas y se agota. Se reserva online con algunos días.</li>
         <li>En el <b>Palacio Real</b> y el <b>Prado</b> no hace falta sacar nada antes si se va en la franja gratis, que está en la pestaña de Madrid. La del Palacio Real es para ciudadanos de Latinoamérica, con pasaporte uruguayo.</li>
       </ul>
-    `},
-
-  {s:'Cómo repartir las dos semanas', k:'prep', html:`
-      <p>Es una propuesta para arrancar a pensar, no un plan. Lo que sí conviene decidir pronto es el orden de las noches, por las entradas de la Alhambra y por los trenes, que salen más baratos comprados antes.</p>
-      <ul>
-        <li>Madrid pide <b>4 o 5 noches</b>: es la ciudad con más para hacer y la de las compras. Si va Segovia, es un día entero desde ahí y conviene sumar una noche.</li>
-        <li>Sevilla, <b>4 noches</b>. Se camina entera y pide ir sin apuro, con tardes largas. Córdoba encaja de dos formas: parada a mitad de camino entre Madrid y Sevilla, con las valijas guardadas unas horas, o ida y vuelta en el día desde Sevilla, que es más cómodo.</li>
-        <li>Con <b>3 noches</b> en Granada, un día entero es para la Alhambra y los otros dos alcanzan para el Albaicín, el centro y una noche de flamenco en el Sacromonte.</li>
-        <li>Si el vuelo sale temprano, la <b>última noche va otra vez en Madrid</b>. De Granada a Madrid son más de tres horas de tren, y no conviene jugarse el vuelo de vuelta a un retraso.</li>
-      </ul>
-      <p>Las cuentas dan trece o catorce noches. Si sobra una, Sevilla es la que mejor la aprovecha.</p>
     `},
 
   {s:'Noviembre: clima, luz y feriados', k:'prep', html:`
@@ -75,8 +64,6 @@
       <ul>
         <li>Una <b>mesa de seis se reserva</b>, siempre, sobre todo de noche y en fin de semana. En los bares de tapas no se reserva, y seis personas en una barra llena no entran: ahí funciona partirse en dos grupos o buscar una mesa alta o un barril. Lo de cada ciudad está en su pestaña, en "Sentarse a comer".</li>
         <li>Un taxi lleva cuatro personas, y una valija grande por persona no entra en un Uber de seis plazas. Con valijas, lo realista son <b>dos taxis</b>. Sin valijas, un Uber XL o un Cabify XL lleva a los seis juntos.</li>
-        <li>No hace falta que los seis hagan todo juntos. Cada ciudad tiene <b>planes que se parten bien</b>, por ejemplo unos al Prado y otros a Serrano, y el reencuentro es a la hora del vermut.</li>
-        <li>Para la plata, <b>Tricount o Splitwise</b> son aplicaciones para anotar quién pagó qué y hacer las cuentas al final, sin andar dividiendo en cada mesa. Es más fácil que pague una sola tarjeta por comida y se anote.</li>
         <li>Una <b>lista compartida de Google Maps</b> con lo que interesa de cada ciudad sirve para que cualquiera llegue al punto de encuentro. Esta guía marca los visitados en cada teléfono por separado.</li>
       </ul>
     `}

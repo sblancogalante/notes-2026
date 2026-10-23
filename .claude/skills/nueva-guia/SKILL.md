@@ -123,7 +123,10 @@ y lo de cada pais (`italia.js`, `espana.js`) ya esta escrito y se reutiliza:
   preparativos `...CONSEJOS.general, ...CONSEJOS.uruguay` despues de las
   secciones propias del viaje (entradas, vuelos, clima de esas fechas).
 - Cada pais del viaje que ya tenga archivo va como pestana en `partes`, con
-  arroba: `"@italia"`.
+  arroba: `"@italia"`. Si a esta guia le sobra una seccion de esa pestana
+  (el idioma, cuando la gente habla castellano y no pasa por Cataluna), se
+  saca con `ajustes` en `guia.json`, sin tocar el archivo compartido: ver el
+  README.
 - Si el viaje pasa por un pais que todavia no tiene archivo, se crea
   `consejos/<pais>.js` con la misma forma que `italia.js` (como se paga y
   propinas, horarios, transporte, manejar si corresponde, idioma), en los dos

@@ -11,7 +11,13 @@
   "estilo": "relajada.css",
   "icono_fuente": "fraunces.ttf",
   "clave": "madrid-sevilla-granada-2026",
-  "cache": "madrid-sevilla-granada-2026-10-23b",
+  "cache": "madrid-sevilla-granada-2026-10-23c",
+  "ajustes": {
+    "espana": {
+      "sin": ["idioma"],
+      "lede": "Lo que sirve en cualquier parte de España: cómo se paga, los horarios, que son los más tarde de Europa, y los trenes. Lo propio de cada ciudad está en su pestaña."
+    }
+  },
   "paleta": {
     "claro": {
       "--bg": "#F3EBDD",
