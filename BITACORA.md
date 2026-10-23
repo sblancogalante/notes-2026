@@ -9,6 +9,17 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 ### 2026-10-23
 
+**`b6bfa73` fix: la Giralda no vale por la vista, la Catedral si por lo de adentro**
+
+Lo que conto Santi, que subio a la Giralda. Esta en obras y cercada, las
+ventanas son chicas y la ciudad se ve de a pedazos, nada que ver con lo
+abierto de las Setas. Y desde arriba, claro, no se ve la Giralda.
+
+La ficha de la Catedral cambio de eje: se recomienda por lo de adentro (la
+tumba de Colon, las capillas, el Patio de los Naranjos). La vista queda como
+aviso en el truco, con "Probado:". Salio el dato de las rampas para subir,
+que empujaba a hacerlo. Antes de salir lo anticipa en la lista de entradas.
+
 **`74e561a` fix: sin el reparto de dias ni los consejos de grupo, y Espana sin el idioma**
 
 Pedido de Santi:
