@@ -5,6 +5,42 @@ vigente: lo que se saco, lo que se corrigio y por que queda anotado aca.
 
 El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
+## madrid-sevilla-granada-2026
+
+### 2026-10-23
+
+**`7c9f266` feat: guia nueva de Madrid, Sevilla y Granada para noviembre**
+
+Guia para una companera de trabajo, su novio, sus padres, su hermana y el
+novio de la hermana: seis uruguayos, primera quincena de noviembre de 2026.
+Hacen Madrid, Sevilla y Granada en ese orden y vuelven a Madrid para el vuelo.
+Como no saben cuantos dias pasan en cada ciudad, la guia no lleva plan por
+dia. En su lugar trae una propuesta de reparto en Antes de salir.
+
+Lo que salio de la entrevista y cambio la escritura:
+- Va en impersonal y sin nombres.
+- Las rutas a pie van todas, sin decir en ningun lado que alguien camina
+  menos: cada una trae donde parar y como seguir en minibus o en taxi.
+- Llevan una valija grande por persona, asi que los traslados se pensaron
+  de a dos taxis y con lugar para las valijas en el tren.
+- Comen mayormente en restaurantes con carta, sin dejar afuera las tapas y
+  los mercados.
+- Lo que Santi conoce de primera mano lleva "Probado:" en el truco: Ginkgo
+  Sky Bar, Storyland (la ficha nombra a los otros dos de Lola), la
+  Cerveceria Giralda y Amorino.
+
+Lo verificado y lo que quedo marcado:
+- El Palacio de Cristal del Retiro esta cerrado por obras hasta 2027, y la
+  ficha del Retiro lo avisa.
+- El Rey Leon salio de los musicales porque las fuentes no coinciden en
+  cuando termina. La cartelera va como prevista.
+- El Atletico contra el Barcelona del 7 y 8 de noviembre va como previsto.
+- Casa Dani, del Mercado de la Paz, quedo afuera porque las fuentes daban dos
+  direcciones distintas.
+- En las cartas de Amorino, el macaron de helado y las salsas figuran como
+  extras que se cobran aparte. Ponerlo arriba de la flor es el truco que
+  paso Santi.
+
 ## italia-espana-2026
 
 ### 2026-10-13
