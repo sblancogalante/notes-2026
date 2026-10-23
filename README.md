@@ -111,6 +111,7 @@ de su `_fuentes/<guia>/guia.json`. Hoy son estas:
 ```
 eurotrip-serri-cami/     Eurotrip Serri y Cami
 italia-espana-2026/      Santi y Vale en Italia y España
+madrid-sevilla-granada-2026/   Madrid, Sevilla y Granada
 ```
 
 **El enlace que se comparte** es la `base` de `_fuentes/sitio.json` seguida del

@@ -1,0 +1,57 @@
+{
+  "ruta": "madrid-sevilla-granada-2026",
+  "titulo": "Madrid, Sevilla y Granada",
+  "subtitulo": "Primera quincena de noviembre de 2026",
+  "descripcion": "Guia de viaje para Madrid, Sevilla y Granada en noviembre de 2026.",
+  "nombre_corto": "Madrid y Andalucía",
+  "color": "#1D4ED8",
+  "fondo": "#FFFCF6",
+  "letra": "M",
+  "fuentes": "fuentes-relajada.css",
+  "estilo": "relajada.css",
+  "icono_fuente": "fraunces.ttf",
+  "clave": "madrid-sevilla-granada-2026",
+  "cache": "madrid-sevilla-granada-2026-10-23a",
+  "paleta": {
+    "claro": {
+      "--bg": "#F3EBDD",
+      "--surface": "#FFFCF6",
+      "--surface-2": "#EDE3D1",
+      "--surface-3": "#FAF5EC",
+      "--note-bg": "#F5EDDF",
+      "--ink": "#1C2333",
+      "--ink-2": "#3D4659",
+      "--muted": "#5E6270",
+      "--line": "#E6DCC9",
+      "--line-2": "#D2C3A8",
+      "--accent": "#1D4ED8",
+      "--accent-lt": "#93C5FD",
+      "--shadow": "0 1px 2px rgba(28,35,51,.06), 0 8px 24px -12px rgba(28,35,51,.18)"
+    },
+    "oscuro": {
+      "--bg": "#0B1020",
+      "--surface": "#121A2E",
+      "--surface-2": "#1E2942",
+      "--surface-3": "#18213A",
+      "--note-bg": "#1B2540",
+      "--ink": "#EEF2FA",
+      "--ink-2": "#C9D2E4",
+      "--muted": "#95A1BA",
+      "--line": "#26314C",
+      "--line-2": "#3A4766",
+      "--accent": "#93C5FD",
+      "--accent-lt": "#93C5FD",
+      "--shadow": "0 1px 2px rgba(0,0,0,.34), 0 10px 28px -14px rgba(0,0,0,.62)"
+    }
+  },
+  "partes": [
+    "0-antes.js",
+    "@espana",
+    "0c-traslados.js",
+    "1-madrid.js",
+    "1b-segovia.js",
+    "2-sevilla.js",
+    "2b-cordoba.js",
+    "3-granada.js"
+  ]
+}
