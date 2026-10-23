@@ -9,6 +9,18 @@ El formato es una entrada por commit, de la mas nueva a la mas vieja.
 
 ### 2026-10-23
 
+**`74e561a` fix: sin el reparto de dias ni los consejos de grupo, y Espana sin el idioma**
+
+Pedido de Santi:
+- Antes de salir pierde "Como repartir las dos semanas", porque los dias ya
+  los tienen decididos.
+- Viajar de a seis pierde la ficha de Tricount y Splitwise y la de que no
+  hace falta hacer todo juntos.
+- La pestana de Espana se queda sin la seccion del idioma: no pasan por
+  Barcelona, y una sola seccion no justificaba la pestana entera. Se recorta
+  con `ajustes` en guia.json, una opcion nueva del build. `consejos/espana.js`
+  no se toco, y la guia de Italia, que la usa, sale identica byte por byte.
+
 **`56fe181` feat: Sevilla suma el tablao Pura Esencia, probado**
 
 Pedido de Santi, que fue y le gusto. Va primero en Flamenco, con "Probado:".
