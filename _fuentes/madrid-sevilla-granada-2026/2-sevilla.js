@@ -78,6 +78,7 @@
   ]},
 
   {s:'Flamenco', k:'evento', items:[
+    {n:'Pura Esencia', d:'Tablao chico en Triana, sobre la calle Betis, con espectáculo de flamenco todos los días a las 20:00. Cante, guitarra y baile de cerca, en una sala íntima.', serv:'mesa', res:'si', t:'evento', p:'€€', a:'Calle Betis 56', w:'https://puraesenciaflamenco.com/', tip:'Probado: estuvo muy bueno. Se reserva en su web o por teléfono, con o sin cena. A las 20:00 cae justo después del paseo por el río hasta Triana, y la cena queda para después en la misma calle Betis.'},
     {n:'Casa de la Memoria', d:'Un patio con pocas sillas, sin cena y sin micrófono: cante, guitarra y baile a un metro de distancia. Es el que recomiendan los sevillanos.', serv:'mesa', res:'si', t:'evento', p:'€€', a:'Calle Cuna 6', tip:'Entra poca gente y se agota: reservar online con días. Hay varios pases por noche y dura una hora, así que deja tiempo para cenar después.'},
     {n:'La Casa del Flamenco', d:'En un patio de Santa Cruz, con la misma idea: espectáculo corto, íntimo y sin cena.', serv:'mesa', res:'si', t:'evento', p:'€€', a:'Calle Ximénez de Enciso 28', tip:'Es la alternativa si la Casa de la Memoria está llena. El patio de piedra suena solo.'},
     {n:'La Carbonería', d:'Un bar enorme y desordenado en Santa Cruz, en un antiguo depósito de carbón, con flamenco casi todas las noches. Se paga lo que se toma.', serv:'barra', res:'no', t:'evento', p:'€', a:'Calle Levíes 18', tip:'No es un espectáculo armado: es flamenco de bar, con gente de la ciudad. Llegar antes de que empiece para conseguir lugar cerca.'},

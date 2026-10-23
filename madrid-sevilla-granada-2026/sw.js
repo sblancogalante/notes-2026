@@ -1,6 +1,6 @@
 /* Guarda la guia entera en el telefono para que funcione sin senal.
    Al cambiar CACHE se descarta la copia vieja y se baja la nueva. */
-const CACHE = 'madrid-sevilla-granada-2026-10-23a';
+const CACHE = 'madrid-sevilla-granada-2026-10-23b';
 const ASSETS = [
   './',
   './index.html',
